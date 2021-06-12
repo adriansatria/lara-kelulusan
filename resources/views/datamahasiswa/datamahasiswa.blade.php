@@ -39,7 +39,10 @@
 						@if(session('level') == 'Admin')
 						<div class="float-right">
 							<!-- <a href="{{ route('users.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Data</a> -->
-							<a href="" class="btn btn-success"><i class="fas fa-file-upload"></i> Import Excel</a>
+							<form action="{{ route('import') }}" method="post" enctype="multipart/form-data">
+								{{ csrf_field() }}
+								<input type="file" name="import_file"> <button class="btn btn-success"><i class="fas fa-file-upload"></i>Import Excel</button> 
+							</form>
 						</div>
 						@endif
 					</div>

@@ -24,6 +24,7 @@ Route::get('/logout', [App\Http\Controllers\Auth::class,'logout']);
 Route::get('/', [App\Http\Controllers\Dashboard::class,'index'])->name('dashboard')->middleware('login');
 
 Route::get('/mahasiswa', [App\Http\Controllers\Datamahasiswa::class,'index'])->name('mahasiswa')->middleware('login');
+Route::post('import', [App\Http\Controllers\Datamahasiswa::class,'import'])->name('import')->middleware('login');
 
 Route::get('/f2s_lulus', [App\Http\Controllers\F2s_lulus::class,'index'])->name('f2s_lulus')->middleware('login');
 Route::post('/f2s_lulus/year', [App\Http\Controllers\F2s_lulus::class,'year'])->name('f2s_lulus.year')->middleware('login');
