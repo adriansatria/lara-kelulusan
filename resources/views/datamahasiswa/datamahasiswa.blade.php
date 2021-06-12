@@ -25,68 +25,41 @@
 			<div class="card-header">
 				<div class="row">
 					<div class="col-12">
-						<div class="float-left">
-							<form class="form-inline" action="{{ route('f1s.year') }}" method="POST">
-								@csrf
-								<div class="form-group">
-									<label for="year">Year</label>
-									<input type="text" name="year" class="form-control mx-sm-3">
-								</div>
-								<button class="btn btn-info" type="submit"><i class="fas fa-search"></i> Search</button>
-							</form>
-						</div>
 						@if(session('level') == 'Admin')
 						<div class="float-right">
-							<a href="{{ route('f1s.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Data</a>
-							{{-- <a href="" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
+							<a href="{{ route('users.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Data</a>
+							<a href="" class="btn btn-success"><i class="fas fa-file-upload"></i> Import Excel</a>
 						</div>
 						@endif
 					</div>
 				</div>
 			</div>
 			<div class="card-body">
-				<table id="example1" class="table table-bordered table-striped display nowrap">
+				<table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
 					<thead>
 						<tr>
-							<th>NO</th>
+							<th width="20px">NO</th>
+							<th>NIM</th>
+							<th>Pas Foto</th>
 							<th>Nama</th>
-							<th>NIP</th>
-							<th>Mata Kuliah</th>
-							<th>Kelas</th>
-							<th>JPM</th>
-							<th>% Kehadiran per KLS</th>
-							<th>Rata-rata % Kehadiran per SMT</th>
-							<th>Tahun</th>
+							<th>TTL</th>
+							<th>Agama</th>
+							<th>Asal Sekolah</th>
+							<th>Jenkel</th>
+							<th>Gol. darah</th>
+							<th>Alamat</th>
+							<th>Nama Ortu/wali</th>
+							<th>Pendidikan terakhir</th>
+							<th>Pekerjaan/jabatan</th>
+							<th>Ket.</th>
 							@if(session('level') == 'Admin')
 							<td width="55px">Aksi</td>
 							@endif
 						</tr>
 					</thead>
-					<!-- <tbody>
-						@foreach($f1s as $f1)
-						<tr>
-							<td>{{$loop->iteration}}</td>
-							<td>{{ $f1->nama_dosen }}</td>
-							<td>{{ $f1->nip }}</td>
-							<td>{{ $f1->mata_kuliah }}</td>
-							<td>{{ $f1->kelas }}</td>
-							<td>{{ $f1->jpm }}</td>
-							<td>{{ $f1->kpk }} %</td>
-							<td>{{ $f1->rata_kehadiran }} %</td>
-							<td>{{ $f1->tahun }}</td>
-							@if(session('level') == 'Admin')
-							<td>
-								<a href="{{ route('f1s.edit', $f1->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-								<form action="{{ route('f1s.destroy', $f1->id) }}" method="POST" class="d-inline">
-									@method('DELETE')
-									@csrf
-									<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this?')"><i class="fas fa-trash"></i></button>
-								</form>
-							</td>
-							@endif
-						</tr>
-						@endforeach
-					</tbody> -->
+					<tbody>
+					
+					</tbody>
 				</table>
 			</div>
 			<!-- /.card-body -->
