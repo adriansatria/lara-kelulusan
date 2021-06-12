@@ -25,9 +25,20 @@
 			<div class="card-header">
 				<div class="row">
 					<div class="col-12">
+						<div class="float-left">
+						<div class="input-group mb-3">
+							<label class="input-group-text" for="inputGroupSelect01">Filter</label>
+							<select class="form-select form-control" id="inputGroupSelect01">
+								<option selected>Choose...</option>
+								<option value="1">One</option>
+								<option value="2">Two</option>
+								<option value="3">Three</option>
+							</select>
+							</div>
+						</div>
 						@if(session('level') == 'Admin')
 						<div class="float-right">
-							<a href="{{ route('users.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Data</a>
+							<!-- <a href="{{ route('users.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Data</a> -->
 							<a href="" class="btn btn-success"><i class="fas fa-file-upload"></i> Import Excel</a>
 						</div>
 						@endif
