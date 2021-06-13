@@ -38,11 +38,16 @@
 						</div>
 						@if(session('level') == 'Admin')
 						<div class="float-right">
+<<<<<<< HEAD
+							<a href="{{ route('f1s.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Import Data</a>
+							{{-- <a href="" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
+=======
 							<!-- <a href="{{ route('users.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Data</a> -->
 							<form action="{{ route('import') }}" method="post" enctype="multipart/form-data">
 								{{ csrf_field() }}
 								<input type="file" name="import_file"> <button class="btn btn-success"><i class="fas fa-file-upload"></i>Import Excel</button> 
 							</form>
+>>>>>>> dba15e22f3e56f210553fb464c3f3b2255bda1ba
 						</div>
 						@endif
 					</div>

@@ -115,33 +115,64 @@
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="{{ route('f1s') }}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Report F1</p>
-                  </a>
+
+                <ul class="nested nav-treeview nav-item mx-2">
+                    <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-file"></i>
+                      <p>
+                        Master Data
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+
+                      <ul class="nav nav-treeview mx-3">
+
+                        <li class="nav-item">
+                          <a href="{{ route('f1s') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Report F1</p>
+                          </a>
+                        </li>
+
+                        <li class="nav-item">
+                          <a href="{{ route('f2s') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Report F2</p>
+                          </a>
+                        </li>
+
+                        <li class="nav-item">
+                          <a href="{{ route('f3s') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Report F3</p>
+                          </a>
+                        </li>
+
+                      </ul>
+                      </li>
+
+                      <ul class="nav nav-item">
+                        <a href="#" class="nav-link">
+                          <i class="nav-icon fas fa-file"></i>
+                          <p>
+                            Rekapitulasi Data
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+
+                      <ul class="nav nav-treeview mx-3">
+
+                        <li class="nav-item">
+                          <a href="{{ route('f4s') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Report F4</p>
+                          </a>
+                        </li>
+                      </ul>
+                      
+                    </ul>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                  <a href="{{ route('f2s') }}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Report F2</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{ route('f3s') }}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Report F3</p>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="{{ route('f4s') }}" class="nav-link">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>Report F4</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
 
             @if(session('level') == 'Admin')
             <li class="nav-item">

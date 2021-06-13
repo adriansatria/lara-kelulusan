@@ -27,7 +27,7 @@
 					<div class="col-12">
 						@if(session('level') == 'Admin')
 						<div class="float-right">
-							<a href="{{ route('users.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Data</a>
+							<a href="" class="btn btn-primary"><i class="fas fa-file-excel"></i> Import Data</a>
 							{{-- <a href="" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
 						</div>
 						@endif
