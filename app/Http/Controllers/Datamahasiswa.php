@@ -27,7 +27,10 @@ class Datamahasiswa extends Controller
         
     }
 
-    public function destroy($id) {
+    public function destroy(Request $request, $id) {
+        $mahasiswa = Mahasiswa_Model::find($id);
+        $status = $mahasiswa->delete();
 
+        return back();
     }
 }
