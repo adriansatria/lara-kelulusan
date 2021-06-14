@@ -37,7 +37,11 @@
 						</div>
 						@if(session('level') == 'Admin' || session('level') == 'Petugas')
 						<div class="float-right">
-							<a href="" class="btn btn-primary"><i class="fas fa-file-excel"></i> Import Data</a>
+							{{-- <a href="" class="btn btn-primary"><i class="fas fa-file-excel"></i> Import Data</a> --}}
+							<form action="{{ route('import') }}" method="post" enctype="multipart/form-data">
+								{{ csrf_field() }}
+								<input type="file" name="import_file"> <button class="btn btn-success"><i class="fas fa-file-upload"></i>Import Excel</button> 
+							</form>
 							{{-- <a href="" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
 						</div>
 						@endif
