@@ -120,7 +120,7 @@
                     <a href="#" class="nav-link">
                       <i class="nav-icon fas fa-file"></i>
                       <p>
-                        Master Data
+                        Report F1
                         <i class="right fas fa-angle-left"></i>
                       </p>
                     </a>
@@ -130,32 +130,83 @@
                         <li class="nav-item">
                           <a href="{{ route('f1s') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Report F1</p>
+                            <p>Master Data</p>
+                          </a>
+                        </li>
+
+                        <li class="nav-item">
+                          <a href="{{ route('f1s') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Rekapitulasi Kehadiran Dosen</p>
+                          </a>
+                        </li>
+
+                      </ul>
+
+                      <ul class="nav nav-item">
+                        <a href="#" class="nav-link">
+                          <i class="nav-icon fas fa-file"></i>
+                          <p>
+                            Report F2
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+
+                        <ul class="nav nav-treeview mx-3">
+
+                        <li class="nav-item">
+                          <a href="{{ route('f2s') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Master Data</p>
                           </a>
                         </li>
 
                         <li class="nav-item">
                           <a href="{{ route('f2s') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Report F2</p>
+                            <p>Rekapitulasi IP Mahasiswa</p>
+                          </a>
+                        </li>
+
+                        </ul>
+                      </ul>
+
+                      <ul class="nav nav-item">
+                        <a href="#" class="nav-link">
+                          <i class="nav-icon fas fa-file"></i>
+                          <p>
+                            Report F3
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                        </a>
+
+                        <ul class="nav nav-treeview mx-3">
+
+                        <li class="nav-item">
+                          <a href="{{ route('f3s') }}" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>Master Data</p>
                           </a>
                         </li>
 
                         <li class="nav-item">
                           <a href="{{ route('f3s') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Report F3</p>
+                            <p>Rekapitulasi Status Kelulusan</p>
                           </a>
                         </li>
 
+                        </ul>
                       </ul>
+
+                      
                       </li>
 
                       <ul class="nav nav-item">
                         <a href="#" class="nav-link">
                           <i class="nav-icon fas fa-file"></i>
                           <p>
-                            Rekapitulasi Data
+                            Report F4
                             <i class="right fas fa-angle-left"></i>
                           </p>
                         </a>
@@ -165,7 +216,7 @@
                         <li class="nav-item">
                           <a href="{{ route('f4s') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
-                            <p>Report F4</p>
+                            <p>Rekapitulasi Surat Peringatan</p>
                           </a>
                         </li>
                       </ul>
