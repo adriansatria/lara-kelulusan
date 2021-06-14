@@ -84,6 +84,16 @@
 							<td>{{ $i->homebase_prodi }}</td>
 							<td>{{ $i->serdos }}</td>
 							<td>{{ $i->keterangan }}</td>
+							@if(session('level') == 'Admin')
+							<td>
+								<a href="{{ route('dosen.edit', $i->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+								<form action="{{ route('dosen.destroy', $i->id) }}" method="POST" class="d-inline">
+									@method('DELETE')
+									@csrf
+									<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this?')"><i class="fas fa-trash"></i></button>
+								</form>
+							</td>
+							@endif
 						</tr>
 						@endforeach
 					</tbody>

@@ -37,37 +37,20 @@ class DosenController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\dosen_model  $dosen_model
-     * @return \Illuminate\Http\Response
-     */
-    public function show(dosen_model $dosen_model)
-    {
-        //
+    public function update(Request $request, $id) {
+        dd($id);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\dosen_model  $dosen_model
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, dosen_model $dosen_model)
-    {
-        //
+    public function edit($id) {
+        dd($id);
+        // $result = Mahasiswa_Model::find($id);
+        // return view('datamahasiswa.form', ['title' => 'Edit Data Mahasiswa', 'detail' => '', 'mahasiswa' => $result]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\dosen_model  $dosen_model
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(dosen_model $dosen_model)
-    {
-        //
+    public function destroy(Request $request, $id) {
+        $dosen = dosen_model::find($id);
+        $status = $dosen->delete();
+
+        return redirect()->route('dosen')->with('delete','Data deleted successfully');
     }
 }
