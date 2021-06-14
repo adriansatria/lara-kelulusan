@@ -7,6 +7,7 @@ use App\Models\Evaluations_model;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use App\imports\MahasiswaImport;
+use App\Exports\MahasiswaExport;
 use App\Models\Mahasiswa_Model;
 
 class Datamahasiswa extends Controller
@@ -21,6 +22,10 @@ class Datamahasiswa extends Controller
         \Session::put('Berhasil', 'Data berhasil di masukan');
 
         return back();
+    }
+
+    public function export() {
+        return \Excel::download(new MahasiswaExport, 'Menu Data Mahasiswa.xlsx');
     }
 
     public function edit($id) {

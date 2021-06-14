@@ -43,8 +43,8 @@
 							<form action="{{ route('mahasiswa/import') }}" method="post" enctype="multipart/form-data">
 								{{ csrf_field() }}
 								<input type="file" name="import_file"> <button class="btn btn-success"><i class="fas fa-file-upload"></i>Import Excel</button> 
+								<a href="{{ route('mahasiswa/export') }}" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a>
 							</form>
-							{{-- <a href="" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
 						</div>
 						@endif
 					</div>
@@ -58,7 +58,8 @@
 							<th>NIM</th>
 							<th>Pas Foto</th>
 							<th>Nama</th>
-							<th>TTL</th>
+							<th>Tempat lahir</th>
+							<th>Tangal lahir</th>
 							<th>Agama</th>
 							<th>Asal Sekolah</th>
 							<th>Jenkel</th>
@@ -80,7 +81,8 @@
 							<td>{{ $i->nim }}</td>
 							<td>{{ $i->pas_foto }}</td>
 							<td>{{ $i->nama }}</td>
-							<td>{{ $i->tempat_lahir }}, {{ $i->tanggal_lahir }}</td>
+							<td>{{ $i->tempat_lahir }}</td>
+							<td>{{ $i->tanggal_lahir }}</td>
 							<td>{{ $i->agama }}</td>
 							<td>{{ $i->asal_sekolah }}</td>
 							<td>{{ $i->jenis_kelamin }}</td>
