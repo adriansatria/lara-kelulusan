@@ -25,6 +25,7 @@ Route::get('/', [App\Http\Controllers\Dashboard::class,'index'])->name('dashboar
 
 Route::get('/mahasiswa', [App\Http\Controllers\Datamahasiswa::class,'index'])->name('mahasiswa')->middleware('login');
 Route::post('/mahasiswa/import', [App\Http\Controllers\Datamahasiswa::class,'import'])->name('mahasiswa/import')->middleware('login');
+Route::get('/mahasiswa/export', [App\Http\Controllers\Datamahasiswa::class,'export'])->name('mahasiswa/export')->middleware('login');
 // Route::get('/mahasiswa/{mahasiswa}/edit', [App\Http\Controllers\Datamahasiswa::class,'edit'])->name('mahasiswa.edit')->middleware('login');
 // Route::delete('/mahasiswa/{mahasiswa}', [App\Http\Controllers\Datamahasiswa::class,'destroy'])->name('mahasiswa.destroy')->middleware('login');
 
