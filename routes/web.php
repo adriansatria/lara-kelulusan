@@ -27,6 +27,7 @@ Route::get('/mahasiswa', [App\Http\Controllers\Datamahasiswa::class,'index'])->n
 Route::post('/mahasiswa/import', [App\Http\Controllers\Datamahasiswa::class,'import'])->name('mahasiswa/import')->middleware('login');
 Route::get('/mahasiswa/export', [App\Http\Controllers\Datamahasiswa::class,'export'])->name('mahasiswa/export')->middleware('login');
 Route::get('/mahasiswa/{id}/edit', [App\Http\Controllers\Datamahasiswa::class,'edit'])->name('mahasiswa.edit')->middleware('login');
+Route::patch('/mahasiswa/{id}', [App\Http\Controllers\Datamahasiswa::class,'update'])->name('mahasiswa.update')->middleware('login');
 Route::delete('/mahasiswa/{id}', [App\Http\Controllers\Datamahasiswa::class,'destroy'])->name('mahasiswa.destroy')->middleware('login');
 
 Route::get('/dosen', [App\Http\Controllers\DosenController::class,'index'])->name('dosen')->middleware('login');
