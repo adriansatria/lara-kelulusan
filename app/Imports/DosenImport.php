@@ -5,6 +5,7 @@ namespace App\Imports;
 use App\Models\dosen_model;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Imports\HeadingRowFormatter;
 
 class DosenImport implements ToModel, WithHeadingRow 
 {
@@ -16,17 +17,17 @@ class DosenImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new dosen_model([
-            'nama_dosen' => $row['nama'],
-            'nip' => $row['nip'],
-            'jabatan_struktural' => $row['jabatan_struktural'],
-            'pangkat_golongan' => $row['pangkat_golongan'],
-            'jabatan_fungsional' => $row['jabatan_fungsional'],
+            'nama_dosen' => $row['Nama'],
+            'nip' => $row['NIP'],
+            'jabatan_struktural' => $row['Jabatan struktural'],
+            'pangkat_golongan' => $row['Pangkat/Golongan'],
+            'jabatan_fungsional' => $row['Jabatan Fungsional'],
             'tmt' => $row['tmt'],
-            'notelp' => $row['notelp'],
-            'nidn_nidk' => $row['nidn_nidk'],
-            'homebase_prodi' => $row['homebase_prodi'],
-            'serdos' => $row['serdos'],
-            'keterangan' => $row['keterangan'],
+            'notelp' => $row['No. telp'],
+            'nidn_nidk' => $row['NIDN/NIDK'],
+            'homebase_prodi' => $row['Homebase Prodi'],
+            'serdos' => $row['Serdos'],
+            'keterangan' => $row['Keterangan'],
         ]);
     }
 }

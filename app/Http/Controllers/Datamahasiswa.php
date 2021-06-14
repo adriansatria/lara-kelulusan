@@ -20,6 +20,14 @@ class Datamahasiswa extends Controller
         \Excel::import(new MahasiswaImport, $request->import_file);
         \Session::put('Berhasil', 'Data berhasil di masukan');
 
-        return view('datamahasiswa.datamahasiswa', ['title' => 'Data Mahasiswa', 'detail' => 'Rekapitulasi data mahasiswa']);
+        return back();
+    }
+
+    public function edit($id) {
+        
+    }
+
+    public function destroy($id) {
+
     }
 }

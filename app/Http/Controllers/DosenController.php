@@ -15,7 +15,8 @@ class DosenController extends Controller
      */
     public function index()
     {
-        return view('menudosen.menudosen', ['title' => 'Data Dosen', 'detail' => 'Rekapitulasi data dosen']);
+        $dosen = dosen_model::all();
+        return view('menudosen.menudosen', ['title' => 'Data Dosen', 'detail' => 'Rekapitulasi data dosen', 'dosen' => $dosen]);
     }
 
     public function importdosen(Request $request) {

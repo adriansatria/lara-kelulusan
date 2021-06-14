@@ -39,9 +39,9 @@
 						@if(session('level') == 'Admin')
 						<div class="float-right">
 							<!-- <a href="{{ route('users.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Data</a> -->
-							<form action="{{ route('import') }}" method="post" enctype="multipart/form-data">
+							<form action="{{ route('dosen/import') }}" method="post" enctype="multipart/form-data">
 								{{ csrf_field() }}
-								<input type="file" name="import_file"> <button class="btn btn-success"><i class="fas fa-file-upload"></i>Import Excel</button> 
+								<input type="file" name="import_file"> <button class="btn btn-success"><i class="fas fa-file-upload"></i>  Import Excel</button> 
 							</form>
 						</div>
 						@endif
@@ -57,6 +57,7 @@
 							<th>NIP</th>
 							<th>Jabatan Struktural</th>
 							<th>Pangkat/Golongan</th>
+							<th>Jabatan Fungsional</th>
 							<th>tmt.</th>
 							<th>No. telp</th>
 							<th>NIDN/NIDK</th>
@@ -69,7 +70,22 @@
 						</tr>
 					</thead>
 					<tbody>
-					
+					@foreach($dosen as $i)
+						<tr>
+							<td>{{$loop->iteration}}</td>
+							<td>{{ $i->nama_dosen }}</td>
+							<td>{{ $i->nip }}</td>
+							<td>{{ $i->jabatan_struktural }}</td>
+							<td>{{ $i->pangkat_golongan }}</td>
+							<td>{{ $i->jabatan_fungsional }}</td>
+							<td>{{ $i->tmt }}</td>
+							<td>{{ $i->notelp }}</td>
+							<td>{{ $i->nidn_nidk }}</td>
+							<td>{{ $i->homebase_prodi }}</td>
+							<td>{{ $i->serdos }}</td>
+							<td>{{ $i->keterangan }}</td>
+						</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>

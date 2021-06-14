@@ -16,20 +16,20 @@ class MahasiswaImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new Mahasiswa_Model([
-            'nim' => $row['nim'],
-            'foto' => $row['foto'],
-            'nama' => $row['nama'],
-            'tempat_lahir' => $row['tempat_lahir'],
-            'tanggal_lahir' => $row['tanggal_lahir'],
-            'agama' => $row['agama'],
-            'asal_sekolah' => $row['asal_sekolah'],
-            'jenis_kelamin' => $row['jenis_kelamin'],
-            'golongan_darah' => $row['golongan_darah'],
-            'alamat' => $row['alamat'],
-            'nama_ortu' => $row['nama_ortu'],
-            'pendidikan_terakhir' => $row['pendidikan_terakhir'],
-            'pekerjaan' => $row['pekerjaan'],
-            'keterangan' => $row['keterangan'],
+            'nim' => $row['NIM'],
+            'foto' => $row['Pas foto'],
+            'nama' => $row['Nama'],
+            'tempat_lahir' => $row['Tempat lahir'],
+            'tanggal_lahir' => $row['Tanggal lahir'],
+            'agama' => $row['Agama'],
+            'asal_sekolah' => $row['Asal sekolah'],
+            'jenis_kelamin' => $row['Jenis kelamin'],
+            'golongan_darah' => $row['Gol. darah'],
+            'alamat' => $row['Alamat'],
+            'nama_ortu' => $row['Nama orangtua/wali'],
+            'pendidikan_terakhir' => $row['Pendidikan terakhir'],
+            'pekerjaan' => $row['Pekerjaan'],
+            'keterangan' => $row['Keterangan'],
         ]);
     }
 }

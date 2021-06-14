@@ -38,22 +38,18 @@
 						</div>
 						@if(session('level') == 'Admin')
 						<div class="float-right">
-<<<<<<< HEAD
-							<a href="{{ route('f1s.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Import Data</a>
-							{{-- <a href="" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
-=======
 							<!-- <a href="{{ route('users.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Data</a> -->
-							<form action="{{ route('import') }}" method="post" enctype="multipart/form-data">
+							<form action="{{ route('mahasiswa/import') }}" method="post" enctype="multipart/form-data">
 								{{ csrf_field() }}
 								<input type="file" name="import_file"> <button class="btn btn-success"><i class="fas fa-file-upload"></i>Import Excel</button> 
 							</form>
->>>>>>> dba15e22f3e56f210553fb464c3f3b2255bda1ba
+							{{-- <a href="" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
 						</div>
 						@endif
 					</div>
 				</div>
 			</div>
-			<div class="card-body">
+			<div class="card-body table-responsive">
 				<table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
 					<thead>
 						<tr>
@@ -77,7 +73,34 @@
 						</tr>
 					</thead>
 					<tbody>
-					
+					@foreach($mahasiswa as $i)
+						<tr>
+							<td>{{$loop->iteration}}</td>
+							<td>{{ $i->nim }}</td>
+							<td>{{ $i->pas_foto }}</td>
+							<td>{{ $i->nama }}</td>
+							<td>{{ $i->tempat_lahir }}, {{ $i->tanggal_lahir }}</td>
+							<td>{{ $i->agama }}</td>
+							<td>{{ $i->asal_sekolah }}</td>
+							<td>{{ $i->jenis_kelamin }}</td>
+							<td>{{ $i->golongan_darah }}</td>
+							<td>{{ $i->alamat }}</td>
+							<td>{{ $i->nama_ortu }}</td>
+							<td>{{ $i->pendidikan_terakhir }}</td>
+							<td>{{ $i->pekerjaan }}</td>
+							<td>{{ $i->keterangan }}</td>
+							@if(session('level') == 'Admin')
+							<td>
+								<a href="" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+								<form action="" method="POST" class="d-inline">
+									@method('DELETE')
+									@csrf
+									<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this?')"><i class="fas fa-trash"></i></button>
+								</form>
+							</td>
+							@endif
+						</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>
