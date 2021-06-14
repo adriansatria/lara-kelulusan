@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\dosen_model;
 use Illuminate\Http\Request;
 use App\imports\DosenImport;
+use Illuminate\Support\Facades\DB;
 
 class DosenController extends Controller
 {
@@ -38,13 +39,54 @@ class DosenController extends Controller
     }
 
     public function update(Request $request, $id) {
-        dd($id);
+        $validateData = $request->validate([
+            'nip' => 'required',
+            'nama_dosen' => 'required',
+            'jabatan_struktural' => 'required',
+            'pangkat_golongan' => 'required',
+            'jabatan_fungsional' => 'required',
+            'tmt' => 'required',
+            'notelp' => 'required',
+            'nidn_nidk' => 'required',
+            'homebase_prodi' => 'required',
+            'serdos' => 'required',
+            'keterangan' => 'required'
+        ],
+        [
+            'nip.required' => 'Data must not be empty!',
+            'nama_dosen.required' => 'Data must not be empty!',
+            'jabatan_struktural.required' => 'Data must not be empty!',
+            'pangkat_golongan.required' => 'Data must not be empty!',
+            'jabatan_fungsional.required' => 'Data must not be empty!',
+            'tmt.required' => 'Data must not be empty!',
+            'notelp.required' => 'Data must not be empty!',
+            'nidn_nidk.required' => 'Data must not be empty!',
+            'homebase_prodi.required' => 'Data must not be empty!',
+            'serdos.required' => 'Data must not be empty!',
+            'keterangan.required' => 'Data must not be empty!'
+
+        ]);
+
+        DB::table('dosen')->where('id', $id)
+            ->update([
+                'nama_dosen' => $request->nama_dosen,
+                'jabatan_struktural' => $request->jabatan_struktural,
+                'pangkat_golongan' => $request->pangkat_golongan,
+                'jabatan_fungsional' => $request->jabatan_fungsional,
+                'tmt' => $request->tmt,
+                'notelp' => $request->notelp,
+                'nidn_nidk' => $request->nidn_nidk,
+                'homebase_prodi' => $request->homebase_prodi,
+                'serdos' => $request->serdos,
+                'keterangan' => $request->keterangan
+            ]);
+
+        return redirect()->route('dosen')->with('update', 'Data updated successfully');
     }
 
     public function edit($id) {
-        dd($id);
-        // $result = Mahasiswa_Model::find($id);
-        // return view('datamahasiswa.form', ['title' => 'Edit Data Mahasiswa', 'detail' => '', 'mahasiswa' => $result]);
+        $result = dosen_model::find($id);
+        return view('menudosen.form', ['title' => 'Edit Data Dosen', 'detail' => '', 'dosen' => $result]);
     }
 
     public function destroy(Request $request, $id) {
