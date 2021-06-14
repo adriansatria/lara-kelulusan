@@ -23,7 +23,7 @@ class DosenController extends Controller
         \Excel::import(new DosenImport, $request->import_file);
         \Session::put('Berhasil', 'Data berhasil di masukan');
 
-        return view('menudosen.menudosen', ['title' => 'Data Dosen', 'detail' => 'Rekapitulasi data dosen']);
+        return back();
     }
 
     /**
