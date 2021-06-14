@@ -31,8 +31,8 @@ class MahasiswaImport implements ToModel, WithHeadingRow
             'jenis_kelamin' => $row['Jenis kelamin'],
             'golongan_darah' => $row['Gol. darah'],
             'alamat' => $row['Alamat'],
-            'nama_ortu' => $row['Nama orangtua/wali'],
-            'pendidikan_terakhir' => $row['Pendidikan terakhir'],
+            'nama_ortu' => $row['Nama Orangtua/Wali'],
+            'pendidikan_terakhir' => $row['Pendidikan Terakhir'],
             'pekerjaan' => $row['Pekerjaan'],
             'keterangan' => $row['Keterangan'],
         ]);
