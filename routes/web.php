@@ -33,7 +33,9 @@ Route::delete('/mahasiswa/{id}', [App\Http\Controllers\Datamahasiswa::class,'des
 Route::get('/dosen', [App\Http\Controllers\DosenController::class,'index'])->name('dosen')->middleware('login');
 Route::post('/dosen/import', [App\Http\Controllers\DosenController::class,'importdosen'])->name('dosen/import')->middleware('login');
 Route::get('/dosen/export', [App\Http\Controllers\DosenController::class,'export'])->name('dosen/export')->middleware('login');
-
+Route::get('/dosen/{id}/edit', [App\Http\Controllers\DosenController::class,'edit'])->name('dosen.edit')->middleware('login');
+Route::patch('/dosen/{id}', [App\Http\Controllers\DosenController::class,'update'])->name('dosen.update')->middleware('login');
+Route::delete('/dosen/{id}', [App\Http\Controllers\DosenController::class,'destroy'])->name('dosen.destroy')->middleware('login');
 
 Route::get('/f2s_lulus', [App\Http\Controllers\F2s_lulus::class,'index'])->name('f2s_lulus')->middleware('login');
 Route::post('/f2s_lulus/year', [App\Http\Controllers\F2s_lulus::class,'year'])->name('f2s_lulus.year')->middleware('login');
