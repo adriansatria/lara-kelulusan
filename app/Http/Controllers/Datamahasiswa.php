@@ -29,7 +29,8 @@ class Datamahasiswa extends Controller
     }
 
     public function edit($id) {
-        
+        $result = Mahasiswa_Model::find($id);
+        return view('datamahasiswa.form', ['title' => 'Edit Data Mahasiswa', 'detail' => '', 'mahasiswa' => $result]);
     }
 
     public function destroy(Request $request, $id) {

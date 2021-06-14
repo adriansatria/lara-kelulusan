@@ -94,7 +94,7 @@
 							<td>{{ $i->keterangan }}</td>
 							@if(session('level') == 'Admin')
 							<td>
-								<a href="" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+								<a href="{{ route('mahasiswa.edit', $i->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
 								<form action="{{ route('mahasiswa.destroy', $i->id) }}" method="POST" class="d-inline">
 									@method('DELETE')
 									@csrf
