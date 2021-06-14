@@ -33,6 +33,7 @@
 								<option value="1">One</option>
 								<option value="2">Two</option>
 								<option value="3">Three</option>
+								<option value="4">Empat</option>
 							</select>
 							</div>
 						</div>
@@ -93,8 +94,8 @@
 							<td>{{ $i->keterangan }}</td>
 							@if(session('level') == 'Admin')
 							<td>
-								<a href="" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-								<form action="" method="POST" class="d-inline">
+								<a href="{{ route('mahasiswa.edit', $i->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+								<form action="{{ route('mahasiswa.destroy', $i->id) }}" method="POST" class="d-inline">
 									@method('DELETE')
 									@csrf
 									<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this?')"><i class="fas fa-trash"></i></button>
