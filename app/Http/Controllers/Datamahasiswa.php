@@ -93,6 +93,6 @@ class Datamahasiswa extends Controller
         $mahasiswa = Mahasiswa_Model::find($id);
         $status = $mahasiswa->delete();
 
-        return back();
+        return redirect()->route('mahasiswa')->with('delete','Data deleted successfully');
     }
 }
