@@ -13,6 +13,11 @@ class MahasiswaImport implements ToModel, WithHeadingRow
     *
     * @return \Illuminate\Database\Eloquent\Model|null
     */
+    public function headingRow(): int
+    {
+        return 4;
+    }
+
     public function model(array $row)
     {
         return new Mahasiswa_Model([

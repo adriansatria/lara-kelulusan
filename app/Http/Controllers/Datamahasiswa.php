@@ -31,9 +31,9 @@ class Datamahasiswa extends Controller
         // $spreadsheet = new Spreadsheet();
 		// $sheet = $spreadsheet->getActiveSheet();
 		// $sheet->setTitle('Laporan Data Mahasiswa');
-		// $sheet->mergeCells('A1:D1');
+		// $sheet->mergeCells('A1:O1');
 		// $sheet->setCellValue('A1', 'Laporan Data Mahasiswa');
-		// $sheet->getStyle('A1:D1')->getAlignment()->setHorizontal('center');
+		// $sheet->getStyle('A1:O1')->getAlignment()->setHorizontal('center');
 
 		// $sheet->setCellValue('A3', 'NO.');
 		// $sheet->setCellValue('B3', 'NIM');

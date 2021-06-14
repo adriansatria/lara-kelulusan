@@ -42,6 +42,7 @@
 							<form action="{{ route('dosen/import') }}" method="post" enctype="multipart/form-data">
 								{{ csrf_field() }}
 								<input type="file" name="import_file"> <button class="btn btn-success"><i class="fas fa-file-upload"></i>  Import Excel</button> 
+								<a href="{{ route('dosen/export') }}" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a>
 							</form>
 						</div>
 						@endif
