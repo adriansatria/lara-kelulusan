@@ -162,7 +162,7 @@
                         </li>
 
                         <li class="nav-item">
-                          {{-- <a href="{{ route('rekapipmahasiswa') }}" class="nav-link"> --}}
+                          <a href="{{ route('rekapipmahasiswa') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Rekapitulasi IP Mahasiswa</p>
                           </a>
@@ -190,7 +190,7 @@
                         </li>
 
                         <li class="nav-item">
-                          <a href="{{ route('f3s') }}" class="nav-link">
+                          <a href="{{ route('rekapstatuskelulusan') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Rekapitulasi Status Kelulusan</p>
                           </a>
@@ -214,7 +214,7 @@
                       <ul class="nav nav-treeview mx-3">
 
                         <li class="nav-item">
-                          <a href="{{ route('f4s') }}" class="nav-link">
+                          <a href="{{ route('rekapsuratperingatan') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Rekapitulasi Surat Peringatan</p>
                           </a>
