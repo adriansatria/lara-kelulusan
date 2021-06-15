@@ -41,18 +41,19 @@ Route::get('/f2s_lulus', [App\Http\Controllers\F2s_lulus::class,'index'])->name(
 Route::post('/f2s_lulus/year', [App\Http\Controllers\F2s_lulus::class,'year'])->name('f2s_lulus.year')->middleware('login');
 Route::post('/f2s_lulus/export', [App\Http\Controllers\F2s_lulus::class,'export'])->name('f2s_lulus.export')->middleware('login');
 Route::get('/f2s_tidaklulus', [App\Http\Controllers\F2s_tidaklulus::class,'index'])->name('f2s_tidaklulus')->middleware('login');
+Route::get('/f2s_tidaklulus2', [App\Http\Controllers\F2s_tidaklulus::class,'index2'])->name('f2s_tidaklulus.index2')->middleware('login');
 Route::post('/f2s_tidaklulus/year', [App\Http\Controllers\F2s_tidaklulus::class,'year'])->name('f2s_tidaklulus.year')->middleware('login');
-Route::post('/f2s_tidaklulus/export', [App\Http\Controllers\F2s_tidaklulus::class,'export'])->name('f2s_tidaklulus.export')->middleware('login');
+Route::get('/f2s_tidaklulus/export/{year}', [App\Http\Controllers\F2s_tidaklulus::class,'export'])->name('f2s_tidaklulus.export')->middleware('login');
 
 Route::get('/f1s', [App\Http\Controllers\F1s::class,'index'])->name('f1s')->middleware('login');
 Route::post('/f1s/year', [App\Http\Controllers\F1s::class,'year'])->name('f1s.year')->middleware('login');
 Route::get('/f1s/create', [App\Http\Controllers\F1s::class,'create'])->name('f1s.create')->middleware('login');
 Route::post('/f1s/store', [App\Http\Controllers\F1s::class,'store'])->name('f1s.store')->middleware('login');
-Route::get('/f1s/{f1}/edit', [App\Http\Controllers\F1s::class,'edit'])
+Route::get('/f1s/{id}/edit', [App\Http\Controllers\F1s::class,'edit'])
 ->name('f1s.edit')->middleware('login');
-Route::patch('/f1s/{f1}', [App\Http\Controllers\F1s::class,'update'])
+Route::patch('/f1s/{id}', [App\Http\Controllers\F1s::class,'update'])
 ->name('f1s.update')->middleware('login');
-Route::delete('/f1s/{f1}', [App\Http\Controllers\F1s::class,'destroy'])
+Route::delete('/f1s/{id}', [App\Http\Controllers\F1s::class,'destroy'])
 ->name('f1s.destroy')->middleware('login');
 Route::post('/f1s/export', [App\Http\Controllers\F1s::class,'export'])->name('f1s.export')->middleware('login');
 

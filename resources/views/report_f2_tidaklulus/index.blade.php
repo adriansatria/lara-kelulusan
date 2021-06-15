@@ -35,6 +35,12 @@
 								<button class="btn btn-info" type="submit"><i class="fas fa-search"></i> Search</button>
 							</form>
 						</div>
+						<div class="float-right">	
+							@if($year != '')
+								<a href="{{ route('f2s_tidaklulus') }}" class="btn btn-success"> Refresh</a>
+								<a href="{{ route('f2s_tidaklulus.export', $year) }}" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a>
+							@endif
+						</div>
 					</div>
 				</div>
 			</div>

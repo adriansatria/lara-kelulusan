@@ -19,10 +19,10 @@ class DosenImport implements ToModel, WithHeadingRow
         return new dosen_model([
             'nama_dosen' => $row['Nama'],
             'nip' => $row['NIP'],
-            'jabatan_struktural' => $row['Jabatan struktural'],
+            'jabatan_struktural' => $row['Jabatan Struktural'],
             'pangkat_golongan' => $row['Pangkat/Golongan'],
             'jabatan_fungsional' => $row['Jabatan Fungsional'],
-            'tmt' => $row['tmt'],
+            'tmt' => $row['tmt.'],
             'notelp' => $row['No. telp'],
             'nidn_nidk' => $row['NIDN/NIDK'],
             'homebase_prodi' => $row['Homebase Prodi'],

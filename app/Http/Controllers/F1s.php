@@ -10,7 +10,9 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class F1s extends Controller
 {
 	public function index(){
-		$f1s = F1s_model::all();
+		$f1s = F1s_model::join('dosen', 'dosen.nip', '=' ,'report_f1s.nip')
+		->select('report_f1s.*', 'dosen.nip', 'dosen.nama_dosen')
+		->get();
 		return view('report_f1.index', ['title' => 'Report F1', 'detail' => 'Rekapitulasi Kehadiran Dosen', 'f1s' => $f1s]);
 	}
 
@@ -65,6 +67,7 @@ class F1s extends Controller
 	{
 		$result = F1s_model::find($id);
 		return view('report_f1.edit', ['title' => 'Edit Data Report F1', 'detail' => '', 'report_f1' => $result]);
+		// dd($id);
 	}
 
 	public function update(Request $request, $id)

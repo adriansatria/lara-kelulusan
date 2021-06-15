@@ -6,6 +6,8 @@ use App\Models\dosen_model;
 use Illuminate\Http\Request;
 use App\imports\DosenImport;
 use Illuminate\Support\Facades\DB;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class DosenController extends Controller
 {
@@ -27,6 +29,53 @@ class DosenController extends Controller
         return back();
     }
 
+    public function export() {
+        $result = dosen_model::all();
+        // return \Excel::download(new MahasiswaExport, 'Menu Data Mahasiswa.xlsx');
+        $spreadsheet = new Spreadsheet();
+		$sheet = $spreadsheet->getActiveSheet();
+		$sheet->setTitle('Laporan Data Dosen');
+		$sheet->mergeCells('A2:L2');
+		$sheet->setCellValue('A2', 'Laporan Data Dosen');
+		$sheet->getStyle('A2:L2')->getAlignment()->setHorizontal('center');
+        $sheet->getStyle('A2:L2')->getFont()->setBold(true);
+
+		$sheet->setCellValue('A4', 'NO.');
+        $sheet->getStyle('A4')->getAlignment()->setHorizontal('center');
+		$sheet->setCellValue('B4', 'Nama');
+        $sheet->setCellValue('C4', 'NIP');
+		$sheet->setCellValue('D4', 'Jabatan Struktural');
+		$sheet->setCellValue('E4', 'Pangkat/Golongan');
+        $sheet->setCellValue('F4', 'Jabatan Fungsional');
+        $sheet->setCellValue('G4', 'tmt.');
+        $sheet->setCellValue('H4', 'No. telp');
+        $sheet->setCellValue('I4', 'NIDN/NIDK');
+        $sheet->setCellValue('J4', 'Homebase Prodi');
+        $sheet->setCellValue('K4', 'Serdos');
+        $sheet->setCellValue('L4', 'Ket.');
+		$no=1;
+		$cell = 5;
+		foreach($result as $row){
+			$sheet->setCellValue('A'.$cell, $no++);
+            $sheet->getStyle('A'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('B'.$cell, $row->nama_dosen);
+			$sheet->setCellValue('C'.$cell, $row->nip);
+			$sheet->setCellValue('D'.$cell, $row->jabatan_struktural);
+            $sheet->setCellValue('E'.$cell, $row->pangkat_golongan);
+            $sheet->setCellValue('F'.$cell, $row->jabatan_fungsional);
+            $sheet->setCellValue('G'.$cell, $row->tmt);
+            $sheet->setCellValue('H'.$cell, $row->notelp);
+            $sheet->setCellValue('I'.$cell, $row->nidn_nidk);
+            $sheet->setCellValue('J'.$cell, $row->homebase_prodi);
+            $sheet->setCellValue('K'.$cell, $row->serdos);
+            $sheet->setCellValue('L'.$cell, $row->keterangan);
+			$cell++;
+		}
+		$writer = new Xlsx($spreadsheet);        
+		header('Content-Type: application/vnd.ms-excel');
+		header('Content-Disposition: attachment;filename="Menu Data Dosen.xlsx"');
+		$writer->save('php://output');
+    }
     /**
      * Store a newly created resource in storage.
      *

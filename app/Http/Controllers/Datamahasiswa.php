@@ -30,6 +30,7 @@ class Datamahasiswa extends Controller
         // return \Excel::download(new MahasiswaExport, 'Menu Data Mahasiswa.xlsx');
         $spreadsheet = new Spreadsheet();
 		$sheet = $spreadsheet->getActiveSheet();
+        // $sheet->setAutoSize(true);
 		$sheet->setTitle('Laporan Data Mahasiswa');
 		$sheet->mergeCells('A2:O2');
 		$sheet->setCellValue('A2', 'Laporan Data Mahasiswa');
@@ -65,7 +66,7 @@ class Datamahasiswa extends Controller
         $sheet->mergeCells('L4:N4');
         $sheet->setCellValue('L4', 'Detail Wali');
 		$sheet->getStyle('L4:N4')->getAlignment()->setHorizontal('center');
-        $sheet->setCellValue('L5', 'Nama Ortu/Wali');
+        $sheet->setCellValue('L5', 'Nama Orangtua/Wali');
         $sheet->setCellValue('M5', 'Pendidikan Terakhir');
         $sheet->setCellValue('N5', 'Pekerjaan');
         $sheet->mergeCells('O4:O5');
@@ -76,25 +77,31 @@ class Datamahasiswa extends Controller
 		$cell = 6;
 		foreach($result as $row){
 			$sheet->setCellValue('A'.$cell, $no++);
+            $sheet->getStyle('A'. $cell)->getAlignment()->setHorizontal('center');
 			$sheet->setCellValue('B'.$cell, $row->nim);
 			$sheet->setCellValue('C'.$cell, $row->foto);
 			$sheet->setCellValue('D'.$cell, $row->nama);
             $sheet->setCellValue('E'.$cell, $row->tempat_lahir);
             $sheet->setCellValue('F'.$cell, $row->tanggal_lahir);
             $sheet->setCellValue('G'.$cell, $row->agama);
+            $sheet->getStyle('G'. $cell)->getAlignment()->setHorizontal('center');
             $sheet->setCellValue('H'.$cell, $row->asal_sekolah);
             $sheet->setCellValue('I'.$cell, $row->jenis_kelamin);
+            $sheet->getStyle('I'. $cell)->getAlignment()->setHorizontal('center');
             $sheet->setCellValue('J'.$cell, $row->golongan_darah);
+            $sheet->getStyle('J'. $cell)->getAlignment()->setHorizontal('center');
             $sheet->setCellValue('K'.$cell, $row->alamat);
             $sheet->setCellValue('L'.$cell, $row->nama_ortu);
             $sheet->setCellValue('M'.$cell, $row->pendidikan_terakhir);
             $sheet->setCellValue('N'.$cell, $row->pekerjaan);
             $sheet->setCellValue('O'.$cell, $row->keterangan);
+
+            // $sheet->setBorder('A4:O'.$cell, 'thin');
 			$cell++;
 		}
 		$writer = new Xlsx($spreadsheet);        
 		header('Content-Type: application/vnd.ms-excel');
-		header('Content-Disposition: attachment;filename="Laporan Data Mahasiswa.xlsx"');
+		header('Content-Disposition: attachment;filename="Menu Data Mahasiswa.xlsx"');
 		$writer->save('php://output');
     }
 
