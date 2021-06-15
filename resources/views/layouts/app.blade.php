@@ -135,7 +135,7 @@
                         </li>
 
                         <li class="nav-item">
-                          <a href="{{ route('f1s') }}" class="nav-link">
+                          <a href="{{ route('rekapkehadirandosen') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Rekapitulasi Kehadiran Dosen</p>
                           </a>
@@ -162,7 +162,7 @@
                         </li>
 
                         <li class="nav-item">
-                          <a href="{{ route('rekapipmahasiswa') }}" class="nav-link">
+                          {{-- <a href="{{ route('rekapipmahasiswa') }}" class="nav-link"> --}}
                             <i class="far fa-circle nav-icon"></i>
                             <p>Rekapitulasi IP Mahasiswa</p>
                           </a>
