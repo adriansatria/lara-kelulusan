@@ -113,3 +113,5 @@ Route::patch('evaluations/{user}', [App\Http\Controllers\Evaluations::class,'upd
 ->name('evaluations.update')->middleware('login');
 Route::delete('evaluations/{user}', [App\Http\Controllers\Evaluations::class,'destroy'])
 ->name('evaluations.destroy')->middleware('login');
+
+Route::get('/rekapipmahasiswa', [App\Http\Controllers\rekapipmahasiswa::class,'rekapipmahasiswa'])->name('rekapipmahasiswa')->middleware('login');

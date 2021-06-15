@@ -116,7 +116,7 @@
                 </p>
               </a>
 
-                <ul class="nested nav-treeview nav-item mx-2">
+                <ul class="nav-treeview nav-item mx-2">
                     <a href="#" class="nav-link">
                       <i class="nav-icon fas fa-file"></i>
                       <p>
@@ -162,7 +162,7 @@
                         </li>
 
                         <li class="nav-item">
-                          <a href="{{ route('f2s') }}" class="nav-link">
+                          <a href="{{ route('rekapipmahasiswa') }}" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Rekapitulasi IP Mahasiswa</p>
                           </a>
