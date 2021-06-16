@@ -37,225 +37,134 @@
 
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-      <!-- Left navbar links -->
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-        </li>
-      </ul>
-
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('/logout') }}" onclick="return confirm ('Logout?')">
-            <i class="fas fa-sign-out-alt"></i>
+      <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin
+    <img src="http://localhost:8080/lara-kelulusan/public/assets/logo.png" class="rounded">
+    </a>
+    <div class="dropdown-menu">
+      <a class="nav-link" href="{{ url('/logout') }}" onclick="return confirm ('Logout?')">
+            <i class="fas fa-sign-out-alt"></i> Keluar
           </a>
-        </li>
+    </div>
+  </li>
       </ul>
     </nav>
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-      <!-- Brand Logo -->
-      <a href="url('')" class="brand-link">
-        <img src="{{ url('') }}/assets/dist/img/logo.png" class="brand-image img-circle elevation-3">
-        <span class="brand-text font-weight-light">Pelaporan Kelulusan</span>
-      </a>
-
-      <!-- Sidebar -->
-      <div class="sidebar">
-
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-
-
-            <li class="nav-item">
-              <a href="{{ url('/') }}" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
-                <p>
-                  Dashboard
-                </p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="{{ url('mahasiswa') }}" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>
-                  Data Mahasiswa
-                </p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="{{ url('dosen') }}" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>
-                  Data Dosen
-                </p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="{{ url('evaluations') }}" class="nav-link">
-                <i class="nav-icon fas fa-check"></i>
-                <p>
-                  Evaluasi
-                </p>
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-file"></i>
-                <p>
-                  Report
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-
-                <ul class="nav-treeview nav-item mx-2">
-                    <a href="#" class="nav-link">
-                      <i class="nav-icon fas fa-file"></i>
-                      <p>
-                        Report F1
-                        <i class="right fas fa-angle-left"></i>
-                      </p>
-                    </a>
-
-                      <ul class="nav nav-treeview mx-3">
-
-                        <li class="nav-item">
-                          <a href="{{ route('f1s') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Master Data</p>
-                          </a>
-                        </li>
-
-                        <li class="nav-item">
-                          <a href="{{ route('rekapkehadirandosen') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Rekapitulasi Kehadiran Dosen</p>
-                          </a>
-                        </li>
-
-                      </ul>
-
-                      <ul class="nav nav-item">
-                        <a href="#" class="nav-link">
-                          <i class="nav-icon fas fa-file"></i>
-                          <p>
-                            Report F2
-                            <i class="right fas fa-angle-left"></i>
-                          </p>
-                        </a>
-
-                        <ul class="nav nav-treeview mx-3">
-
-                        <li class="nav-item">
-                          <a href="{{ route('f2s') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Master Data</p>
-                          </a>
-                        </li>
-
-                        <li class="nav-item">
-                          <a href="{{ route('rekapipmahasiswa') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Rekapitulasi IP Mahasiswa</p>
-                          </a>
-                        </li>
-
-                        </ul>
-                      </ul>
-
-                      <ul class="nav nav-item">
-                        <a href="#" class="nav-link">
-                          <i class="nav-icon fas fa-file"></i>
-                          <p>
-                            Report F3
-                            <i class="right fas fa-angle-left"></i>
-                          </p>
-                        </a>
-
-                        <ul class="nav nav-treeview mx-3">
-
-                        <li class="nav-item">
-                          <a href="{{ route('f3s') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Master Data</p>
-                          </a>
-                        </li>
-
-                        <li class="nav-item">
-                          <a href="{{ route('rekapstatuskelulusan') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Rekapitulasi Status Kelulusan</p>
-                          </a>
-                        </li>
-
-                        </ul>
-                      </ul>
-
-                      
-                      </li>
-
-                      <ul class="nav nav-item">
-                        <a href="#" class="nav-link">
-                          <i class="nav-icon fas fa-file"></i>
-                          <p>
-                            Report F4
-                            <i class="right fas fa-angle-left"></i>
-                          </p>
-                        </a>
-
-                      <ul class="nav nav-treeview mx-3">
-
-                        <li class="nav-item">
-                          <a href="{{ route('rekapsuratperingatan') }}" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>Rekapitulasi Surat Peringatan</p>
-                          </a>
-                        </li>
-                      </ul>
-                      
-                    </ul>
-                    </ul>
-                </li>
-
-            @if(session('level') == 'Admin')
-            <li class="nav-item">
-              <a href="{{ url('users') }}" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>
-                  User
-                </p>
-              </a>
-            </li>
-            @endif
-
-          </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background: rgb(160, 160, 160)">
+ 
+      <div class="">
+      <img src="{{ url('') }}/assets/dist/img/logo.png" class="brand-image img-circle p-2" style="max-height: 160px !important">
       </div>
-      <!-- /.sidebar -->
-    </aside>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+ 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+ 
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('/') }}">Dashboard <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('dosen') }}">Dosen <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('mahasiswa') }}">Mahasiswa<span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('f1s') }}">Report F1 <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('f2s') }}">Report F2 <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('f3s') }}">Report F3 <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('f4s') }}">Report F4 <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('evaluations') }}">Evaluasi<span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('users') }}">User <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item"> 
+    </nav>
+
+        </li>
+      </ul>
+   </div>
+</nav>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+ 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+ <table style="width:800px;">
+ <tr>
+ <td>Prodi &nbsp &nbsp &nbsp &nbsp &nbsp
+ <div class="btn-group elevation-1 m-1" style="width: 153px; border-radius: 4px">
+    <button type="button" class="btn" style="background: white!important;">Pilih Prodi</button>
+    <button type="button" class="btn btn dropdown-toggle dropdown-toggle-split" style="background: white!important"  id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+  </div></td>
+ <td>Tahun Akademik &nbsp
+ <div class="btn-group elevation-1" style="width: 153px; border-radius: 4px">
+    <button type="button" class="btn" style="background: white!important">Pilih Tahun</button>
+    <button type="button" class="btn btn dropdown-toggle dropdown-toggle-split"  style="background: white!important" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+  </div></td>
+ <td><button type="button" class="btn-secondary btn" style="width: 120px">Browse</button></td>
+ </tr>
+ <tr>
+ <td>Semester  &nbsp
+ <div class="btn-group elevation-1 m-1" style="border-radius: 4px">
+    <button type="button" class="btn btn" style="background: white!important">Pilih Semester</button>
+    <button type="button" class="btn btn dropdown-toggle dropdown-toggle-split" style="background: white!important" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+  </div></td>
+ <td></td>
+ <td><button type="button" class="btn btn-secondary" style="width: 120px">Cancel</button></td>
+ </tr>
+ </table>
+ 
+</nav>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <div class="content-header">
-        <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-              <h4 class="m-0 font-weight-bold">{{ $title }}</h4>
-              <h6 class="m-0">{{ $detail }}</h6>
-            </div><!-- /.col -->
-          </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-      </div>
+  
       <!-- /.content-header -->
 
       <!-- Main content -->
@@ -278,9 +187,7 @@
     </footer>
 
     <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-      <!-- Control sidebar content goes here -->
-    </aside>
+   
     <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->
