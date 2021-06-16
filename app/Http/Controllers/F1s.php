@@ -13,20 +13,14 @@ class F1s extends Controller
 {
 	public function index(){
 		$f1s = F1s_model::all();
-		return view('report_f1.index', ['title' => 'Report F1', 'detail' => 'Rekapitulasi Kehadiran Dosen', 'f1s' => $f1s]);
+		return view('report_f1.index', ['title' => 'Report F1', 'detail' => 'Rekapitulasi Kehadiran Dosen', 'f1s' => $f1s, 'year' => '']);
 	}
 
 	public function year(Request $request)
 	{
-		if($request->input('year') == ''){
-			$f1s = F1s_model::all();
-			return view('report_f1.index', ['title' => 'Report F1', 'detail' => 'Rekapitulasi Kehadiran Dosen', 'f1s' => $f1s]);
-
-		} else{
-			$year = $request->input('year');
-			$result = F1s_model::where('tahun', $year)->get();
-			return view('report_f1.year', ['title' => 'Report F1 ' . $year, 'detail' => 'Rekapitulasi Kehadiran Dosen','report_f1' => $result]);
-		}
+		$year = $request->input('year');
+		$f1s = F1s_model::where('tahun', $year)->get();
+		return view('report_f1.index', ['title' => 'Report F1 ' . $year, 'detail' => 'Rekapitulasi Kehadiran Dosen','f1s' => $f1s, 'year' => $year]);
 	}
 
 	public function import(Request $request) {
@@ -118,9 +112,8 @@ class F1s extends Controller
 
 	}
 
-	public function export(Request $request)
+	public function export($year)
 	{
-		$year = $request->input('year');
 		$result = F1s_model::where('tahun', $year)->get();
 
 		$spreadsheet = new Spreadsheet();
@@ -142,27 +135,40 @@ class F1s extends Controller
 		$sheet->setCellValue('A4', 'JURUSAN TEKNIK INFORMATIKA DAN KOMPUTER');
 		$sheet->getStyle('A4:H4')->getAlignment()->setHorizontal('center');
 		$sheet->getStyle('A4:H4')->getFont()->setBold(true);
+		$sheet->getColumnDimension('A')->setAutoSize(true);
+        $sheet->getColumnDimension('B')->setAutoSize(true);
+        $sheet->getColumnDimension('C')->setAutoSize(true);
+        $sheet->getColumnDimension('D')->setAutoSize(true);
+        $sheet->getColumnDimension('E')->setAutoSize(true);
+        $sheet->getColumnDimension('F')->setAutoSize(true);
+        $sheet->getColumnDimension('G')->setAutoSize(true);
+        $sheet->getColumnDimension('H')->setAutoSize(true);
 
 
 		$sheet->setCellValue('A6', 'NO.');
-		$sheet->setCellValue('B6', 'NAMA DOSEN');
+		$sheet->setCellValue('B6', 'Nama Dosen');
 		$sheet->setCellValue('C6', 'NIP');
-		$sheet->setCellValue('D6', 'MATA KULIAH');
-		$sheet->setCellValue('E6', 'KELAS');
+		$sheet->setCellValue('D6', 'Mata Kuliah');
+		$sheet->setCellValue('E6', 'Kelas');
 		$sheet->setCellValue('F6', 'JPM');
-		$sheet->setCellValue('G6', '% Kehadiran per KLS.');
-		$sheet->setCellValue('H6', 'Rata-rata Kehadiran per SMT.');
+		$sheet->setCellValue('G6', 'Rata-rata % Kehadiran per KLS');
+		$sheet->setCellValue('H6', 'Rata-rata % Kehadiran per SMT');
+		$sheet->getStyle('A6:H6')->getFont()->setBold(true);
 		$no=1;
 		$cell = 7;
 		foreach($result as $row){
 			$sheet->setCellValue('A'.$cell, $no++);
+			$sheet->getStyle('A'. $cell)->getAlignment()->setHorizontal('center');
 			$sheet->setCellValue('B'.$cell, $row->nama_dosen);
 			$sheet->setCellValue('C'.$cell, $row->nip);
 			$sheet->setCellValue('D'.$cell, $row->mata_kuliah);
 			$sheet->setCellValue('E'.$cell, $row->kelas);
 			$sheet->setCellValue('F'.$cell, $row->jpm);
+			$sheet->getStyle('F'. $cell)->getAlignment()->setHorizontal('center');
 			$sheet->setCellValue('G'.$cell, $row->kpk);
+			$sheet->getStyle('G'. $cell)->getAlignment()->setHorizontal('center');
 			$sheet->setCellValue('H'.$cell, $row->rata_kehadiran);
+			$sheet->getStyle('H'. $cell)->getAlignment()->setHorizontal('center');
 			$cell++;
 		}
 		$writer = new Xlsx($spreadsheet);        

@@ -15,11 +15,11 @@ class F2s_tidaklulus extends Controller
 		return view('report_f2_tidaklulus.index', ['title' => 'Data Mahasiswa Tidak/Belum Lulus','detail' => 'Rekapitulasi Mahasiswa Tidak/Belum Lulus', 'f2s_tidaklulus' => $f2s_tidaklulus, 'year' => '']);
 	}
 
-	public function index2(){
-    	$f2s_tidaklulus = F2s_model::where('status', '!=', 'L')->get();
+	// public function index2(){
+    // 	$f2s_tidaklulus = F2s_model::where('status', '!=', 'L')->get();
 
-		return view('report_f2_tidaklulus.index', ['title' => 'Data Mahasiswa Tidak/Belum Lulus','detail' => 'Rekapitulasi Mahasiswa Tidak/Belum Lulus', 'f2s_tidaklulus' => $f2s_tidaklulus, 'year' => $year]);
-	}
+	// 	return view('report_f2_tidaklulus.index', ['title' => 'Data Mahasiswa Tidak/Belum Lulus','detail' => 'Rekapitulasi Mahasiswa Tidak/Belum Lulus', 'f2s_tidaklulus' => $f2s_tidaklulus, 'year' => $year]);
+	// }
 
 	public function year(Request $request)
 	{

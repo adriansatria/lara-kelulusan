@@ -47,7 +47,7 @@
 									<label for="year">Year</label>
 									<input type="text" name="year" class="form-control mx-sm-3">
 								</div>
-								<button class="btn btn-info" type="submit"><i class="fas fa-search"></i> Search</button>
+								<button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> Search</button>
 							</form>
 						</div>
 						<div class="float-right">	
