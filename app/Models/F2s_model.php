@@ -12,4 +12,20 @@ class F2s_model extends Model
 	protected $primaryKey = 'id';
 	protected $guarded = [];
 	public $timestamps = false;
+	protected $fillable = [
+		'nama_mahasiswa',
+		'kelas',
+		'nim',
+		'ip_s1',
+		'ip_s2',
+		'ip_s3',
+		'ip_s4',
+		'ip_s5',
+		'ip_s6',
+		'ip_s7',
+		'ip_s8',
+		'ipk',
+		'status',
+		'tahun',
+	];
 }

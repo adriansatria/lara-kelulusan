@@ -21,6 +21,21 @@
 		</div>
 		@endif
 
+		{{-- notifikasi form validasi --}}
+		@if ($errors->has('file'))
+		<span class="invalid-feedback" role="alert">
+			<strong>{{ $errors->first('file') }}</strong>
+		</span>
+		@endif
+ 
+		{{-- notifikasi sukses --}}
+		@if ($sukses = Session::get('sukses'))
+		<div class="alert alert-success alert-block">
+			<button type="button" class="close" data-dismiss="alert">×</button> 
+			<span>{{ $sukses }}</span>
+		</div>
+		@endif
+
 		<div class="card">
 			<div class="card-header">
 				<div class="row">
@@ -51,6 +66,7 @@
 							<th>NO</th>
 							<th>Nama Mahasiswa</th>
 							<th>NIM</th>
+							<th>Prodi</th>
 							<th>Status</th>
 							<th>Tahun</th>
 						</tr>
@@ -61,6 +77,7 @@
 							<td>{{$loop->iteration}}</td>
 							<td>{{ $f2_tidaklulus->nama_mahasiswa }}</td>
 							<td>{{ $f2_tidaklulus->nim }}</td>
+							<td>{{ $f2_tidaklulus->prodi }}</td>
 							<td>{{ $f2_tidaklulus->status }}</td>
 							<td>{{ $f2_tidaklulus->tahun }}</td>
 						</tr>

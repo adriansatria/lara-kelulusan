@@ -4,14 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\F2s_model;
+use App\imports\ImportReportF2S;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
+use Session;
 
 class F2s extends Controller
 {
     public function index(){
 		$f2s = F2s_model::all();
 		return view('report_f2.index', ['title' => 'Report F2','detail' => 'Rekapitulasi IP Mahasiswa', 'f2s' => $f2s]);
+	}
+
+	public function import(Request $request) {
+		\Excel::import(new ImportReportF2S, $request->import_file);
+		Session::flash('sukses','Data Siswa Berhasil Diimport!');
+
+		return Back();
 	}
 
 	public function year(Request $request)

@@ -12,4 +12,20 @@ class F3s_model extends Model
 	protected $primaryKey = 'id';
 	protected $guarded = [];
 	public $timestamps = false;
+	protected $fillable = [
+		'prodi',
+		'jenjang',
+		'semester',
+		'kelas',
+		'jumlah_mahasiswa',
+		'status_l',
+		'status_lp',
+		'status_ct',
+		'status_ml',
+		'status_md',
+		'status_do',
+		'nama_mahasiswa',
+		'nim',
+		'tahun'
+	];
 }

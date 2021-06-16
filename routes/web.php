@@ -49,6 +49,7 @@ Route::get('/f1s', [App\Http\Controllers\F1s::class,'index'])->name('f1s')->midd
 Route::post('/f1s/year', [App\Http\Controllers\F1s::class,'year'])->name('f1s.year')->middleware('login');
 Route::get('/f1s/create', [App\Http\Controllers\F1s::class,'create'])->name('f1s.create')->middleware('login');
 Route::post('/f1s/store', [App\Http\Controllers\F1s::class,'store'])->name('f1s.store')->middleware('login');
+Route::post('/f1s/import', [App\Http\Controllers\F1s::class,'import'])->name('f1s.import')->middleware('login');
 Route::get('/f1s/{id}/edit', [App\Http\Controllers\F1s::class,'edit'])
 ->name('f1s.edit')->middleware('login');
 Route::patch('/f1s/{id}', [App\Http\Controllers\F1s::class,'update'])
@@ -60,6 +61,7 @@ Route::post('/f1s/export', [App\Http\Controllers\F1s::class,'export'])->name('f1
 Route::get('/f2s', [App\Http\Controllers\F2s::class,'index'])->name('f2s')->middleware('login');
 Route::post('/f2s/year', [App\Http\Controllers\F2s::class,'year'])->name('f2s.year')->middleware('login');
 Route::get('/f2s/create', [App\Http\Controllers\F2s::class,'create'])->name('f2s.create')->middleware('login');
+Route::post('/f2s/import', [App\Http\Controllers\F2s::class,'import'])->name('f2s.import')->middleware('login');
 Route::post('/f2s/store', [App\Http\Controllers\F2s::class,'store'])->name('f2s.store')->middleware('login');
 Route::get('/f2s/{f2}/edit', [App\Http\Controllers\F2s::class,'edit'])
 ->name('f2s.edit')->middleware('login');
@@ -72,6 +74,7 @@ Route::post('/f2s/export', [App\Http\Controllers\F2s::class,'export'])->name('f2
 Route::get('/f3s', [App\Http\Controllers\F3s::class,'index'])->name('f3s')->middleware('login');
 Route::post('/f3s/year', [App\Http\Controllers\F3s::class,'year'])->name('f3s.year')->middleware('login');
 Route::get('/f3s/create', [App\Http\Controllers\F3s::class,'create'])->name('f3s.create')->middleware('login');
+Route::post('/f3s/import', [App\Http\Controllers\F3s::class,'import'])->name('f3s.import')->middleware('login');
 Route::post('/f3s/store', [App\Http\Controllers\F3s::class,'store'])->name('f3s.store')->middleware('login');
 Route::get('/f3s/{f3}/edit', [App\Http\Controllers\F3s::class,'edit'])
 ->name('f3s.edit')->middleware('login');

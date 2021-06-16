@@ -7,7 +7,7 @@ use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithMappedCells;
 
-class MahasiswaImport implements ToModel, WithHeadingRow, WithMappedCells
+class MahasiswaImport implements ToModel, WithHeadingRow
 {
     /**
     * @param array $row
@@ -19,29 +19,15 @@ class MahasiswaImport implements ToModel, WithHeadingRow, WithMappedCells
     //     return 4;
     // }
     
-    public function mapping(): array
+    public function headingRow(): int
     {
-        return [
-            'NIM' => 'B6',
-            'Pas foto' => 'C6',
-            'Nama' => 'D6',
-            'Tempat lahir' => 'E6',
-            'Tanggal lahir' => 'F6',
-            'Agama' => 'G6',
-            'Asal sekolah' => 'H6',
-            'Jenis kelamin' => 'I6',
-            'Gol. darah' => 'J6',
-            'Alamat' => 'K6',
-            'Nama Orangtua/Wali' => 'L6',
-            'Pendidikan Terakhir' => 'M6',
-            'Pekerjaan' => 'N6',
-            'Keterangan' => 'O6'
-        ];
+        return 5;
     }
 
     public function model(array $row)
     {
         return new Mahasiswa_Model([
+            '' => $row['NO.'],
             'nim' => $row['NIM'],
             'foto' => $row['Pas foto'],
             'nama' => $row['Nama'],
@@ -56,6 +42,7 @@ class MahasiswaImport implements ToModel, WithHeadingRow, WithMappedCells
             'pendidikan_terakhir' => $row['Pendidikan Terakhir'],
             'pekerjaan' => $row['Pekerjaan'],
             'keterangan' => $row['Keterangan'],
+            'tahun_akademik' => $row['Tahun Akademik']
         ]);
     }
 }

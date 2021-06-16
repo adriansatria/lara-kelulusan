@@ -29,6 +29,7 @@ class CreateMahasiswaTable extends Migration
             $table->string('pendidikan_terakhir', 50);
             $table->string('pekerjaan', 50);
             $table->string('keterangan', 255);
+            $table->string('tahun_akademik', 4);
         });
     }
 

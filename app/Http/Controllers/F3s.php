@@ -4,14 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\F3s_model;
+use App\imports\ImportReportF3S;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
+use Session;
 
 class F3s extends Controller
 {
     public function index(){
 		$f3s = F3s_model::all();
 		return view('report_f3.index', ['title' => 'Report F3','detail' => 'Rekapitulasi Status Kelulusan', 'f3s' => $f3s]);
+	}
+
+	public function import(Request $request) {
+		\Excel::import(new ImportReportF3S, $request->import_file);
+		Session::flash('sukses','Data Siswa Berhasil Diimport!');
+
+		return Back();
 	}
 
 	public function year(Request $request)
@@ -90,7 +100,7 @@ class F3s extends Controller
 			'tahun' => 'required'
 		],
 		[
-			'prodi.Dequired' => 'Data must not be empty!',
+			'prodi.required' => 'Data must not be empty!',
 			'jenjang.required' => 'Data must not be empty!',
 			'semester.required' => 'Data must not be empty!',
 			'kelas.required' => 'Data must not be empty!',

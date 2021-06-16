@@ -12,4 +12,14 @@ class F1s_model extends Model
 	protected $primaryKey = 'id';
 	protected $guarded = [];
 	public $timestamps = false;
+	protected $fillable = [
+		'nama_dosen',
+		'nip',
+		'mata_kuliah',
+		'kelas',
+		'jpm',
+		'kpk',
+		'rata_kehadiran',
+		'tahun'
+	];
 }

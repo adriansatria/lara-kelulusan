@@ -20,6 +20,22 @@
 			{{ session()->get('delete')}}
 		</div>
 		@endif
+
+		{{-- notifikasi form validasi --}}
+		@if ($errors->has('file'))
+		<span class="invalid-feedback" role="alert">
+			<strong>{{ $errors->first('file') }}</strong>
+		</span>
+		@endif
+ 
+		{{-- notifikasi sukses --}}
+		@if ($sukses = Session::get('sukses'))
+		<div class="alert alert-success alert-block">
+			<button type="button" class="close" data-dismiss="alert">×</button> 
+			<span>{{ $sukses }}</span>
+		</div>
+		@endif
+
 		<div class="card">
 			<div class="card-header">
 				<div class="row">
@@ -50,6 +66,7 @@
 							<th rowspan="2" class="align-middle">Alamat</th>
 							<th colspan="3" class=" text-center align-middle">Detail Wali</th>
 							<th rowspan="2" class="align-middle">Keterangan</th>
+							<th rowspan="2" class="align-middle">Tahun Akademik</th>
 							@if(session('level') == 'Admin')
 							<td width="55px" rowspan="2" class="text-center align-middle">Aksi</td>
 							@endif
@@ -83,6 +100,7 @@
 							<td>{{ $i->pendidikan_terakhir }}</td>
 							<td>{{ $i->pekerjaan }}</td>
 							<td>{{ $i->keterangan }}</td>
+							<td>{{ $i->tahun_akademik }}</td>
 							@if(session('level') == 'Admin')
 							<td>
 								<a href="{{ route('mahasiswa.edit', $i->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>

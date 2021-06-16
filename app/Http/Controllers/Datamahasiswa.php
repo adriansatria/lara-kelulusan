@@ -11,6 +11,8 @@ use App\Exports\MahasiswaExport;
 use App\Models\Mahasiswa_Model;
 use Illuminate\Support\Facades\DB;
 
+use Session;
+
 class Datamahasiswa extends Controller
 {
     public function index() {
@@ -20,7 +22,7 @@ class Datamahasiswa extends Controller
 
     public function import(Request $request) {
         \Excel::import(new MahasiswaImport, $request->import_file);
-        \Session::put('Berhasil', 'Data berhasil di masukan');
+        Session::flash('sukses','Data Siswa Berhasil Diimport!');
 
         return back();
     }
@@ -35,17 +37,35 @@ class Datamahasiswa extends Controller
 		$sheet->mergeCells('A2:O2');
 		$sheet->setCellValue('A2', 'Laporan Data Mahasiswa');
 		$sheet->getStyle('A2:O2')->getAlignment()->setHorizontal('center');
-        $sheet->getStyle('A2:O2')->getFont()->setBold(true);
+        $sheet->getStyle('A2:O2')->getFont()->setBold(true)->setSize(18);
+        $sheet->getStyle('A4:O4')->getFont()->setBold(true);
+        $sheet->getStyle('A5:O5')->getFont()->setBold(true);
+        $sheet->getColumnDimension('A')->setAutoSize(true);
+        $sheet->getColumnDimension('B')->setAutoSize(true);
+        $sheet->getColumnDimension('C')->setAutoSize(true);
+        $sheet->getColumnDimension('D')->setAutoSize(true);
+        $sheet->getColumnDimension('E')->setAutoSize(true);
+        $sheet->getColumnDimension('F')->setAutoSize(true);
+        $sheet->getColumnDimension('G')->setAutoSize(true);
+        $sheet->getColumnDimension('H')->setAutoSize(true);
+        $sheet->getColumnDimension('I')->setAutoSize(true);
+        $sheet->getColumnDimension('J')->setAutoSize(true);
+        $sheet->getColumnDimension('K')->setAutoSize(true);
+        $sheet->getColumnDimension('L')->setAutoSize(true);
+        $sheet->getColumnDimension('M')->setAutoSize(true);
+        $sheet->getColumnDimension('N')->setAutoSize(true);
+        $sheet->getColumnDimension('O')->setAutoSize(true);
+        $sheet->getColumnDimension('P')->setAutoSize(true);
 
-		$sheet->mergeCells('A4:A5');
-		$sheet->setCellValue('A4', 'NO.');
-		$sheet->getStyle('A4:A5')->getAlignment()->setHorizontal('center')->setVertical('center');
-		$sheet->mergeCells('B4:B5');
-		$sheet->setCellValue('B4', 'NIM');
-		$sheet->getStyle('B4:B5')->getAlignment()->setHorizontal('center')->setVertical('center');
-		$sheet->mergeCells('C4:C5');
-		$sheet->setCellValue('C4', 'Pas foto');
-		$sheet->getStyle('C4:C5')->getAlignment()->setHorizontal('center')->setVertical('center');
+		// $sheet->mergeCells('A4:A5');
+		$sheet->setCellValue('A5', 'NO.');
+		$sheet->getStyle('A5')->getAlignment()->setHorizontal('center')->setVertical('center');
+		// $sheet->mergeCells('B4:B5');
+		$sheet->setCellValue('B5', 'NIM');
+		$sheet->getStyle('B5')->getAlignment()->setHorizontal('center')->setVertical('center');
+		// $sheet->mergeCells('C4:C5');
+		$sheet->setCellValue('C5', 'Pas foto');
+		$sheet->getStyle('C5')->getAlignment()->setHorizontal('center')->setVertical('center');
 		$sheet->mergeCells('D4:H4');
         $sheet->setCellValue('D4', 'Detail');
 		$sheet->getStyle('D4:H4')->getAlignment()->setHorizontal('center');
@@ -54,24 +74,26 @@ class Datamahasiswa extends Controller
         $sheet->setCellValue('F5', 'Tanggal lahir');
         $sheet->setCellValue('G5', 'Agama');
         $sheet->setCellValue('H5', 'Asal sekolah');
-        $sheet->mergeCells('I4:I5');
-		$sheet->setCellValue('I4', 'Jenis kelamin');
-		$sheet->getStyle('I4:I5')->getAlignment()->setHorizontal('center')->setVertical('center');
-        $sheet->mergeCells('J4:J5');
-		$sheet->setCellValue('J4', 'Gol. darah');
-		$sheet->getStyle('J4:J5')->getAlignment()->setHorizontal('center')->setVertical('center');
-        $sheet->mergeCells('K4:K5');
-		$sheet->setCellValue('K4', 'Alamat');
-		$sheet->getStyle('K4:K5')->getAlignment()->setHorizontal('center')->setVertical('center');
+        // $sheet->mergeCells('I4:I5');
+		$sheet->setCellValue('I5', 'Jenis kelamin');
+		$sheet->getStyle('I5')->getAlignment()->setHorizontal('center')->setVertical('center');
+        // $sheet->mergeCells('J4:J5');
+		$sheet->setCellValue('J5', 'Gol. darah');
+		$sheet->getStyle('J5')->getAlignment()->setHorizontal('center')->setVertical('center');
+        // $sheet->mergeCells('K4:K5');
+		$sheet->setCellValue('K5', 'Alamat');
+		$sheet->getStyle('K5')->getAlignment()->setHorizontal('center')->setVertical('center');
         $sheet->mergeCells('L4:N4');
         $sheet->setCellValue('L4', 'Detail Wali');
 		$sheet->getStyle('L4:N4')->getAlignment()->setHorizontal('center');
         $sheet->setCellValue('L5', 'Nama Orangtua/Wali');
         $sheet->setCellValue('M5', 'Pendidikan Terakhir');
         $sheet->setCellValue('N5', 'Pekerjaan');
-        $sheet->mergeCells('O4:O5');
-		$sheet->setCellValue('O4', 'Keterangan');
-		$sheet->getStyle('O4:O5')->getAlignment()->setHorizontal('center')->setVertical('center');
+        // $sheet->mergeCells('O4:O5');
+		$sheet->setCellValue('O5', 'Keterangan');
+		$sheet->getStyle('O5')->getAlignment()->setHorizontal('center')->setVertical('center');
+        $sheet->setCellValue('P5', 'Tahun Akademik');
+		$sheet->getStyle('P5')->getAlignment()->setHorizontal('center')->setVertical('center');
 
 		$no=1;
 		$cell = 6;
@@ -95,6 +117,8 @@ class Datamahasiswa extends Controller
             $sheet->setCellValue('M'.$cell, $row->pendidikan_terakhir);
             $sheet->setCellValue('N'.$cell, $row->pekerjaan);
             $sheet->setCellValue('O'.$cell, $row->keterangan);
+            $sheet->setCellValue('P'.$cell, $row->tahun_akademik);
+            $sheet->getStyle('P'. $cell)->getAlignment()->setHorizontal('center');
 
             // $sheet->setBorder('A4:O'.$cell, 'thin');
 			$cell++;

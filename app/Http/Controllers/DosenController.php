@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
+use Session;
+
 class DosenController extends Controller
 {
     /**
@@ -24,7 +26,7 @@ class DosenController extends Controller
 
     public function importdosen(Request $request) {
         \Excel::import(new DosenImport, $request->import_file);
-        \Session::put('Berhasil', 'Data berhasil di masukan');
+        Session::flash('sukses','Data Siswa Berhasil Diimport!');
 
         return back();
     }
@@ -38,7 +40,20 @@ class DosenController extends Controller
 		$sheet->mergeCells('A2:L2');
 		$sheet->setCellValue('A2', 'Laporan Data Dosen');
 		$sheet->getStyle('A2:L2')->getAlignment()->setHorizontal('center');
-        $sheet->getStyle('A2:L2')->getFont()->setBold(true);
+        $sheet->getStyle('A2:L2')->getFont()->setBold(true)->setSize(16);
+        $sheet->getStyle('A4:L4')->getFont()->setBold(true);
+        $sheet->getColumnDimension('A')->setAutoSize(true);
+        $sheet->getColumnDimension('B')->setAutoSize(true);
+        $sheet->getColumnDimension('C')->setAutoSize(true);
+        $sheet->getColumnDimension('D')->setAutoSize(true);
+        $sheet->getColumnDimension('E')->setAutoSize(true);
+        $sheet->getColumnDimension('F')->setAutoSize(true);
+        $sheet->getColumnDimension('G')->setAutoSize(true);
+        $sheet->getColumnDimension('H')->setAutoSize(true);
+        $sheet->getColumnDimension('I')->setAutoSize(true);
+        $sheet->getColumnDimension('J')->setAutoSize(true);
+        $sheet->getColumnDimension('K')->setAutoSize(true);
+        $sheet->getColumnDimension('L')->setAutoSize(true);
 
 		$sheet->setCellValue('A4', 'NO.');
         $sheet->getStyle('A4')->getAlignment()->setHorizontal('center');

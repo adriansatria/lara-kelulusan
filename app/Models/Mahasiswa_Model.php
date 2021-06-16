@@ -26,5 +26,6 @@ class Mahasiswa_Model extends Model
         'pendidikan_terakhir',
         'pekerjaan',
         'keterangan',
+        'tahun_akademik'
     ];
 }

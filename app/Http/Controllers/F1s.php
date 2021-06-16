@@ -4,15 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\F1s_model;
+use App\imports\ImportReportF1S;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use Session;
 
 class F1s extends Controller
 {
 	public function index(){
-		$f1s = F1s_model::join('dosen', 'dosen.nip', '=' ,'report_f1s.nip')
-		->select('report_f1s.*', 'dosen.nip', 'dosen.nama_dosen')
-		->get();
+		$f1s = F1s_model::all();
 		return view('report_f1.index', ['title' => 'Report F1', 'detail' => 'Rekapitulasi Kehadiran Dosen', 'f1s' => $f1s]);
 	}
 
@@ -27,6 +27,13 @@ class F1s extends Controller
 			$result = F1s_model::where('tahun', $year)->get();
 			return view('report_f1.year', ['title' => 'Report F1 ' . $year, 'detail' => 'Rekapitulasi Kehadiran Dosen','report_f1' => $result]);
 		}
+	}
+
+	public function import(Request $request) {
+		\Excel::import(new ImportReportF1S, $request->import_file);
+		Session::flash('sukses','Data Siswa Berhasil Diimport!');
+
+		return Back();
 	}
 
 	public function create(){

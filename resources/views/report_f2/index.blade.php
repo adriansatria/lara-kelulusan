@@ -21,6 +21,21 @@
 		</div>
 		@endif
 
+		{{-- notifikasi form validasi --}}
+		@if ($errors->has('file'))
+		<span class="invalid-feedback" role="alert">
+			<strong>{{ $errors->first('file') }}</strong>
+		</span>
+		@endif
+ 
+		{{-- notifikasi sukses --}}
+		@if ($sukses = Session::get('sukses'))
+		<div class="alert alert-success alert-block">
+			<button type="button" class="close" data-dismiss="alert">×</button> 
+			<span>{{ $sukses }}</span>
+		</div>
+		@endif
+
 		<div class="card">
 			<div class="card-header">
 				<div class="row">
@@ -38,7 +53,7 @@
 						@if(session('level') == 'Admin' || session('level') == 'Petugas')
 						<div class="float-right">
 							{{-- <a href="" class="btn btn-primary"><i class="fas fa-file-excel"></i> Import Data</a> --}}
-							<form action="" method="post" enctype="multipart/form-data">
+							<form action="{{ route('f2s.import') }}" method="post" enctype="multipart/form-data">
 								{{ csrf_field() }}
 								<input type="file" name="import_file"> <button class="btn btn-success"><i class="fas fa-file-upload"></i>Import Excel</button> 
 							</form>
