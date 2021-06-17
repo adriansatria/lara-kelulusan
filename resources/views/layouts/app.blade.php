@@ -47,6 +47,10 @@
     .dropdown:hover .dropdown-content {display: block;}
     
     .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+    .hide-navigation-item {
+      display: none !important;
+    }
     </style>
     
     <meta charset="utf-8">
@@ -139,33 +143,33 @@
 
                           <li class="dropdown-submenu">
                             <a class="dropdown-item" href="#">Report F1</a>
-                            <ul class="dropdown-submenu" style="overflow: hidden">
+                            {{-- <ul class="dropdown-submenu" style="overflow: hidden">
                               <li><a class="dropdown-item" href="{{ url('f1s') }}">Master Data</a></li>
                               <li><a class="dropdown-item" href="{{ url('rekapkehadirandosen') }}">Rekapitulasi Kehadiran Dosen</a></li>
-                            </ul>
+                            </ul> --}}
                           </li>
 
                           <li class="dropdown-submenu">
                             <a class="dropdown-item" href="#">Report F2</a>
-                            <ul class="dropdown-submenu">
+                            {{-- <ul class="dropdown-submenu">
                               <li><a class="dropdown-item" href="{{ url('f2s') }}">Master Data</a></li>
                               <li><a class="dropdown-item" href="{{ url('rekapipmahasiswa') }}">Rekapitulasi IP Mahasiswa</a></li>
-                            </ul>
+                            </ul> --}}
                           </li>
 
                           <li class="dropdown-submenu">
                             <a class="dropdown-item" href="#">Report F3</a>
-                              <ul class="dropdown-submenu">
+                              {{-- <ul class="dropdown-submenu">
                                 <li><a class="dropdown-item" href="{{ url('f3s') }}">Master Data</a></li>
                                 <li><a class="dropdown-item" href="{{ url('rekapstatuskelulusan') }}">Rekapitulasi Status Kelulusan</a></li>
-                              </ul>
+                              </ul> --}}
                           </li>
 
                           <li class="dropdown-submenu">
                             <a class="dropdown-item" href="#">Report F4</a>
-                            <ul class="dropdown-submenu">
+                            {{-- <ul class="dropdown-submenu">
                               <li><a class="dropdown-item" href="{{ url('rekapsuratperingatan') }}">Rekapitulasi Surat Peringatan</a></li>
-                            </ul>
+                            </ul> --}}
                           </li>
 
                       </div>
@@ -203,7 +207,7 @@
                   <span class="navbar-toggler-icon"></span>
               </button>
       
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div class="collapse navbar-collapse hide-navit" style="overflow: hidden" id="navbarSupportedContent">
                   <table style="width:800px;">
                       <tr>
                           <td>Prodi &nbsp &nbsp &nbsp &nbsp &nbsp
