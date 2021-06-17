@@ -105,8 +105,8 @@
           <nav class="navbar navbar-expand-lg navbar-light">
 
             <div class="">
-                <img src="{{ url('') }}/assets/dist/img/logo.png" class="brand-image img-circle p-2"
-                    style="max-height: 160px !important">
+                <img src="{{ url('') }}/assets/dist/img/logo-pelaporan-kelulusan.png" class="brand-image p-2"
+                    style="max-height: 100px !important">
             </div>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -139,7 +139,7 @@
 
                           <li class="dropdown-submenu">
                             <a class="dropdown-item" href="#">Report F1</a>
-                            <ul class="dropdown-submenu" style="overflow: hidden">
+                            <ul class="dropdown-submenu" data-toggle="collapse" data-target="#navbarSupportedContent" style="overflow: hidden">
                               <li><a class="dropdown-item" href="{{ url('f1s') }}">Master Data</a></li>
                               <li><a class="dropdown-item" href="{{ url('rekapkehadirandosen') }}">Rekapitulasi Kehadiran Dosen</a></li>
                             </ul>
@@ -183,13 +183,13 @@
               </div>
             </nav>
             <!-- Right navbar links -->
-            <ul class="navbar">
+            <ul class="navbar" style="margin-left:570px;">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle btn btn-black" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false" >Admin
                         <img src="{{ url('') }}/assets/dist/img/logo.png" style="max-height: 20px" class="rounded">
                     </a>
-                    <div class="dropdown-menu" >
+                    <div class="dropdown-menu p-1 m-1" >
                         <a class="dropdown-item " href="{{ url('/logout') }}" onclick="return confirm ('Logout?')">
                             <i class="fas fa-sign-out-alt"></i> Keluar
                         </a>
@@ -203,7 +203,7 @@
                   <span class="navbar-toggler-icon"></span>
               </button>
       
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div class="collapse navbar-collapse-hide" id="navbarSupportedContent">
                   <table style="width:800px;">
                       <tr>
                           <td>Prodi &nbsp &nbsp &nbsp &nbsp &nbsp
@@ -302,7 +302,7 @@
     <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
+    <footer class="main">
         <div class="text-center">
             <strong>Copyright &copy; {{ date('Y') }} <a href="">AdminLTE3</a>.</strong>
             All rights reserved.
