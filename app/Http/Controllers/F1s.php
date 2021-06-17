@@ -119,22 +119,23 @@ class F1s extends Controller
 		$spreadsheet = new Spreadsheet();
 		$sheet = $spreadsheet->getActiveSheet();
 		$sheet->setTitle('Rekapitulasi Kehadiran Dosen');
-		$sheet->mergeCells('A1:H1');
+		$sheet->mergeCells('A1:AD1');
 		$sheet->setCellValue('A1', 'REKAPITULASI PROSENTASE KEHADIRAN DOSEN');
-		$sheet->getStyle('A1:H1')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A1:H1')->getFont()->setBold(true);
-		$sheet->mergeCells('A2:H2');
+		$sheet->getStyle('A1:AD1')->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('A1:AD1')->getFont()->setBold(true);
+		$sheet->mergeCells('A2:AD2');
 		$sheet->setCellValue('A2', 'PROGRAM REGULER');
-		$sheet->getStyle('A2:H2')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A2:H2')->getFont()->setBold(true);
-		$sheet->mergeCells('A3:H3');
+		$sheet->getStyle('A2:AD2')->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('A2:AD2')->getFont()->setBold(true);
+		$sheet->mergeCells('A3:AD3');
 		$sheet->setCellValue('A3', 'SEMESTER GANJIL TAHUN AKADEMIK ' . $year . '/' . ($year+1));
-		$sheet->getStyle('A3:H3')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A3:H3')->getFont()->setBold(true);
-		$sheet->mergeCells('A4:H4');
+		$sheet->getStyle('A3:AD3')->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('A3:AD3')->getFont()->setBold(true);
+		$sheet->mergeCells('A4:AD4');
 		$sheet->setCellValue('A4', 'JURUSAN TEKNIK INFORMATIKA DAN KOMPUTER');
-		$sheet->getStyle('A4:H4')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A4:H4')->getFont()->setBold(true);
+		$sheet->getStyle('A4:AD4')->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('A4:AD4')->getFont()->setBold(true);
+
 		$sheet->getColumnDimension('A')->setAutoSize(true);
         $sheet->getColumnDimension('B')->setAutoSize(true);
         $sheet->getColumnDimension('C')->setAutoSize(true);
@@ -143,32 +144,160 @@ class F1s extends Controller
         $sheet->getColumnDimension('F')->setAutoSize(true);
         $sheet->getColumnDimension('G')->setAutoSize(true);
         $sheet->getColumnDimension('H')->setAutoSize(true);
+		$sheet->getColumnDimension('I')->setAutoSize(true);
+        $sheet->getColumnDimension('J')->setAutoSize(true);
+        $sheet->getColumnDimension('K')->setAutoSize(true);
+        $sheet->getColumnDimension('L')->setAutoSize(true);
+        $sheet->getColumnDimension('M')->setAutoSize(true);
+        $sheet->getColumnDimension('N')->setAutoSize(true);
+        $sheet->getColumnDimension('O')->setAutoSize(true);
+        $sheet->getColumnDimension('P')->setAutoSize(true);
+		$sheet->getColumnDimension('Q')->setAutoSize(true);
+        $sheet->getColumnDimension('R')->setAutoSize(true);
+        $sheet->getColumnDimension('S')->setAutoSize(true);
+        $sheet->getColumnDimension('T')->setAutoSize(true);
+        $sheet->getColumnDimension('U')->setAutoSize(true);
+        $sheet->getColumnDimension('V')->setAutoSize(true);
+        $sheet->getColumnDimension('W')->setAutoSize(true);
+        $sheet->getColumnDimension('X')->setAutoSize(true);
+		$sheet->getColumnDimension('Y')->setAutoSize(true);
+        $sheet->getColumnDimension('Z')->setAutoSize(true);
+        $sheet->getColumnDimension('AA')->setAutoSize(true);
+        $sheet->getColumnDimension('AB')->setAutoSize(true);
+        $sheet->getColumnDimension('AC')->setAutoSize(true);
+        $sheet->getColumnDimension('AD')->setAutoSize(true);
 
+		$sheet->getStyle('A6:AD6')->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('A6:AD6')->getFont()->setBold(true);
 
 		$sheet->setCellValue('A6', 'NO.');
 		$sheet->setCellValue('B6', 'Nama Dosen');
 		$sheet->setCellValue('C6', 'NIP');
 		$sheet->setCellValue('D6', 'Mata Kuliah');
-		$sheet->setCellValue('E6', 'Kelas');
-		$sheet->setCellValue('F6', 'JPM');
-		$sheet->setCellValue('G6', 'Rata-rata % Kehadiran per KLS');
-		$sheet->setCellValue('H6', 'Rata-rata % Kehadiran per SMT');
-		$sheet->getStyle('A6:H6')->getFont()->setBold(true);
+		$sheet->mergeCells('E5:W5');
+		$sheet->setCellValue('E5', 'PERTEMUAN');
+		$sheet->getStyle('E5:W5')->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('E5:W5')->getFont()->setBold(true);
+		$sheet->getStyle('E6:W6')->getFont()->setBold(true);
+		$sheet->setCellValue('E6', 'P1');
+		$sheet->setCellValue('F6', 'P2');
+		$sheet->setCellValue('G6', 'P3');
+		$sheet->setCellValue('H6', 'P4');
+		$sheet->setCellValue('I6', 'P5');
+		$sheet->setCellValue('J6', 'P6');
+		$sheet->setCellValue('K6', 'P7');
+		$sheet->setCellValue('L6', 'P8');
+		$sheet->setCellValue('M6', 'P9');
+		$sheet->setCellValue('N6', 'P10');
+		$sheet->setCellValue('O6', 'P11');
+		$sheet->setCellValue('P6', 'P12');
+		$sheet->setCellValue('Q6', 'P13');
+		$sheet->setCellValue('R6', 'P14');
+		$sheet->setCellValue('S6', 'P15');
+		$sheet->setCellValue('T6', 'P16');
+		$sheet->setCellValue('U6', 'P17');
+		$sheet->setCellValue('V6', 'P18');
+		$sheet->setCellValue('W6', 'P19');
+		$sheet->mergeCells('X5:Y5');
+		$sheet->setCellValue('X5', 'Prosentase');
+		$sheet->getStyle('X5:Y5')->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('X5:Y5')->getFont()->setBold(true);
+		$sheet->setCellValue('X6', 'Hadir');
+		$sheet->setCellValue('Y6', 'Tidak Hadir');
+		$sheet->mergeCells('Z5:AD5');
+		$sheet->setCellValue('Z5', 'Total Jam');
+		$sheet->getStyle('Z5:AD5')->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('Z5:AD5')->getFont()->setBold(true);
+		$sheet->setCellValue('Z6', 'H');
+		$sheet->setCellValue('AA6', 'I');
+		$sheet->setCellValue('AB6', 'K');
+		$sheet->setCellValue('AC6', 'M');
+		$sheet->setCellValue('AD6', 'S');
+		$styleArray = array(
+			'borders' => array(
+				'allBorders' => array(
+					'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+					'color' => array('argb' => '000'),
+				),
+			),
+		);
+	
+		$sheet ->getStyle('A5:AD5')->applyFromArray($styleArray);
+		$sheet ->getStyle('A6:AD6')->applyFromArray($styleArray);
+
 		$no=1;
 		$cell = 7;
 		foreach($result as $row){
+			$styleArray = array(
+				'borders' => array(
+					'allBorders' => array(
+						'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+						'color' => array('argb' => '000'),
+					),
+				),
+			);
+		
+			$sheet ->getStyle('A'.$cell. ':AD'.$cell)->applyFromArray($styleArray);
+
 			$sheet->setCellValue('A'.$cell, $no++);
 			$sheet->getStyle('A'. $cell)->getAlignment()->setHorizontal('center');
 			$sheet->setCellValue('B'.$cell, $row->nama_dosen);
 			$sheet->setCellValue('C'.$cell, $row->nip);
 			$sheet->setCellValue('D'.$cell, $row->mata_kuliah);
-			$sheet->setCellValue('E'.$cell, $row->kelas);
-			$sheet->setCellValue('F'.$cell, $row->jpm);
+			$sheet->setCellValue('E'.$cell, $row->p1);
+			$sheet->getStyle('E'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('F'.$cell, $row->p2);
 			$sheet->getStyle('F'. $cell)->getAlignment()->setHorizontal('center');
-			$sheet->setCellValue('G'.$cell, $row->kpk);
+			$sheet->setCellValue('G'.$cell, $row->p3);
 			$sheet->getStyle('G'. $cell)->getAlignment()->setHorizontal('center');
-			$sheet->setCellValue('H'.$cell, $row->rata_kehadiran);
+			$sheet->setCellValue('H'.$cell, $row->p4);
 			$sheet->getStyle('H'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('I'.$cell, $row->p5);
+			$sheet->getStyle('I'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('J'.$cell, $row->p6);
+			$sheet->getStyle('J'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('K'.$cell, $row->p7);
+			$sheet->getStyle('K'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('L'.$cell, $row->p8);
+			$sheet->getStyle('L'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('M'.$cell, $row->p9);
+			$sheet->getStyle('M'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('N'.$cell, $row->p10);
+			$sheet->getStyle('N'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('O'.$cell, $row->p11);
+			$sheet->getStyle('O'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('P'.$cell, $row->p12);
+			$sheet->getStyle('P'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('Q'.$cell, $row->p13);
+			$sheet->getStyle('Q'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('R'.$cell, $row->p14);
+			$sheet->getStyle('R'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('S'.$cell, $row->p15);
+			$sheet->getStyle('S'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('T'.$cell, $row->p16);
+			$sheet->getStyle('T'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('U'.$cell, $row->p17);
+			$sheet->getStyle('U'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('V'.$cell, $row->p18);
+			$sheet->getStyle('V'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('W'.$cell, $row->p19);
+			$sheet->getStyle('W'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('X'.$cell, $row->prosentase_hadir);
+			$sheet->getStyle('X'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('Y'.$cell, $row->prosentase_tidakhadir);
+			$sheet->getStyle('Y'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('Z'.$cell, $row->hadir);
+			$sheet->getStyle('Z'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('AA'.$cell, $row->izin);
+			$sheet->getStyle('AA'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('AB'.$cell, $row->keluar_dinas);
+			$sheet->getStyle('AB'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('AC'.$cell, $row->mangkir);
+			$sheet->getStyle('AC'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('AD'.$cell, $row->sakit);
+			$sheet->getStyle('AD'. $cell)->getAlignment()->setHorizontal('center');
+			
+
 			$cell++;
 		}
 		$writer = new Xlsx($spreadsheet);        
