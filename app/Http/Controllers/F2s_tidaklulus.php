@@ -10,7 +10,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class F2s_tidaklulus extends Controller
 {
     public function index(){
-    	$f2s_tidaklulus = F2s_model::where('status', '=', 'kosong')->get();
+    	$f2s_tidaklulus = F2s_model::where('status', '!=', 'L')->get();
 
 		return view('report_f2_tidaklulus.index', ['title' => 'Data Mahasiswa Tidak/Belum Lulus','detail' => 'Rekapitulasi Mahasiswa Tidak/Belum Lulus', 'f2s_tidaklulus' => $f2s_tidaklulus, 'year' => '']);
 	}

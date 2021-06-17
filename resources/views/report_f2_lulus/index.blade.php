@@ -25,7 +25,7 @@
 			<div class="card-header">
 				<div class="row">
 					<div class="col-12">
-						<div class="float-left">
+						<!-- <div class="float-left">
 							<form class="form-inline" action="{{ route('f2s_lulus.year') }}" method="POST">
 								@csrf
 								<div class="form-group">
@@ -34,17 +34,18 @@
 								</div>
 								<button class="btn btn-info" type="submit"><i class="fas fa-search"></i> Search</button>
 							</form>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
-			<div class="card-body">
+			<div class="card-body table-responsive">
 				<table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
 					<thead>
 						<tr>
 							<th>NO</th>
 							<th>Nama Mahasiswa</th>
 							<th>NIM</th>
+							<th>Prodi</th>
 							<th>Status</th>
 							<th>Tahun</th>
 						</tr>
@@ -55,6 +56,7 @@
 							<td>{{$loop->iteration}}</td>
 							<td>{{ $f2_lulus->nama_mahasiswa }}</td>
 							<td>{{ $f2_lulus->nim }}</td>
+							<td>{{ $f2_lulus->prodi }}</td>
 							<td>{{ $f2_lulus->status }}</td>
 							<td>{{ $f2_lulus->tahun }}</td>
 						</tr>

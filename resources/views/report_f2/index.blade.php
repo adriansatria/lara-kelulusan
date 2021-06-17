@@ -40,7 +40,7 @@
 			<div class="card-header">
 				<div class="row">
 					<div class="col-12">
-						<div class="float-left">
+						<!-- <div class="float-left">
 							<form class="form-inline" action="{{ route('f2s.year') }}" method="POST">
 								@csrf
 								<div class="form-group">
@@ -49,7 +49,7 @@
 								</div>
 								<button class="btn btn-info" type="submit"><i class="fas fa-search"></i> Search</button>
 							</form>
-						</div>
+						</div> -->
 						@if(session('level') == 'Admin' || session('level') == 'Petugas')
 						<div class="float-right">
 							{{-- <a href="" class="btn btn-primary"><i class="fas fa-file-excel"></i> Import Data</a> --}}

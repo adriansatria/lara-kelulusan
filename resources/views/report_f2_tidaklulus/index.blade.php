@@ -40,7 +40,7 @@
 			<div class="card-header">
 				<div class="row">
 					<div class="col-12">
-						<div class="float-left">
+						<!-- <div class="float-left">
 							<form class="form-inline" action="{{ route('f2s_tidaklulus.year') }}" method="POST">
 								@csrf
 								<div class="form-group">
@@ -49,7 +49,7 @@
 								</div>
 								<button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> Search</button>
 							</form>
-						</div>
+						</div> -->
 						<div class="float-right">	
 							@if($year != '')
 								<a href="{{ route('f2s_tidaklulus') }}" class="btn btn-success"> Refresh</a>
@@ -59,7 +59,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="card-body">
+			<div class="card-body table-reponsive">
 				<table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
 					<thead>
 						<tr>

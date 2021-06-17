@@ -40,7 +40,7 @@
 			<div class="card-header">
 				<div class="row">
 					<div class="col-12">
-						<div class="float-left">
+						<!-- <div class="float-left">
 							<form class="form-inline" action="{{ route('f1s.year') }}" method="POST">
 								@csrf
 								<div class="form-group">
@@ -49,7 +49,7 @@
 								</div>
 								<button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> Search</button>
 							</form>
-						</div>
+						</div> -->
 						@if(session('level') == 'Admin')
 						<div class="float-right">
 							{{-- <a href="" class="btn btn-primary"><i class="fas fa-file-excel"></i> Import Data</a> --}}
@@ -68,8 +68,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="card-body">
-				<table id="example1" class="table table-bordered table-striped display nowrap">
+			<div class="card-body table-responsive">
+				<table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
 					<thead>
 						<tr>
 							<th>NO</th>

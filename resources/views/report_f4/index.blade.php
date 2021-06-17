@@ -25,7 +25,7 @@
 			<div class="card-header">
 				<div class="row">
 					<div class="col-12">
-						<div class="float-left">
+						<!-- <div class="float-left">
 							<form class="form-inline" action="{{ route('f4s.year') }}" method="POST">
 								@csrf
 								<div class="form-group">
@@ -34,7 +34,7 @@
 								</div>
 								<button class="btn btn-info" type="submit"><i class="fas fa-search"></i> Search</button>
 							</form>
-						</div>
+						</div> -->
 						@if(session('level') == 'Admin')
 						<div class="float-right">
 							<a href="{{ route('f4s.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Data</a>
@@ -44,8 +44,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="card-body">
-				<table id="example1" class="table table-bordered table-striped display nowrap">
+			<div class="card-body table-responsive">
+				<table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
 					<thead>
 						<tr>
 							<th rowspan="2" class="align-middle">NO</th>
