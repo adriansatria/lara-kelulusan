@@ -55,16 +55,16 @@
 							{{-- <a href="" class="btn btn-primary"><i class="fas fa-file-excel"></i> Import Data</a> --}}
 							<form action="{{ route('f1s.import') }}" method="post" enctype="multipart/form-data">
 								{{ csrf_field() }}
-								@if($year == '')
+								{{-- @if($year == '') --}}
 								<input type="file" name="import_file"> <button class="btn btn-success"><i class="fas fa-file-upload"></i> Import Excel</button> 
-								@elseif($year != '')
+								{{-- @elseif($year != '') --}}
 									<a href="{{ route('f1s') }}" class="btn btn-warning"><i class="fas fa-redo-alt"></i></a>
-									<a href="{{ route('f1s.export', $year) }}" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a>
+									{{-- <a href="{{ route('f1s.export', $year) }}" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
 								@endif
 							</form>
 							{{-- <a href="" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
 						</div>
-						@endif
+						{{-- @endif --}}
 					</div>
 				</div>
 			</div>
