@@ -109,8 +109,8 @@
           <nav class="navbar navbar-expand-lg navbar-light">
 
             <div class="">
-                <img src="{{ url('') }}/assets/dist/img/logo.png" class="brand-image img-circle p-2"
-                    style="max-height: 160px !important">
+                <img src="{{ url('') }}/assets/dist/img/logo-pelaporan-kelulusan.png" class="brand-image p-2"
+                    style="max-height: 100px !important">
             </div>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -143,7 +143,11 @@
 
                           <li class="dropdown-submenu">
                             <a class="dropdown-item" href="#">Report F1</a>
+<<<<<<< HEAD
                             {{-- <ul class="dropdown-submenu" style="overflow: hidden">
+=======
+                            <ul class="dropdown-submenu" data-toggle="collapse" data-target="#navbarSupportedContent" style="overflow: hidden">
+>>>>>>> 6768c6ac906c4cb5db1974bd5685933f278e7537
                               <li><a class="dropdown-item" href="{{ url('f1s') }}">Master Data</a></li>
                               <li><a class="dropdown-item" href="{{ url('rekapkehadirandosen') }}">Rekapitulasi Kehadiran Dosen</a></li>
                             </ul> --}}
@@ -187,13 +191,13 @@
               </div>
             </nav>
             <!-- Right navbar links -->
-            <ul class="navbar">
+            <ul class="navbar" style="margin-left:570px;">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle btn btn-black" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="false" >Admin
                         <img src="{{ url('') }}/assets/dist/img/logo.png" style="max-height: 20px" class="rounded">
                     </a>
-                    <div class="dropdown-menu" >
+                    <div class="dropdown-menu p-1 m-1" >
                         <a class="dropdown-item " href="{{ url('/logout') }}" onclick="return confirm ('Logout?')">
                             <i class="fas fa-sign-out-alt"></i> Keluar
                         </a>
@@ -207,12 +211,16 @@
                   <span class="navbar-toggler-icon"></span>
               </button>
       
+<<<<<<< HEAD
               <div class="collapse navbar-collapse hide-navit" style="overflow: hidden" id="navbarSupportedContent">
+=======
+              <div class="collapse navbar-collapse pt-5" id="navbarSupportedContent">
+>>>>>>> 6768c6ac906c4cb5db1974bd5685933f278e7537
                   <table style="width:800px;">
                       <tr>
-                          <td>Prodi &nbsp &nbsp &nbsp &nbsp &nbsp
-                              <div class="btn-group elevation-1" style="width: 153px; ">
-                                  <button type="button" class="btn" style="background: white!important;">Pilih Prodi</button>
+                          <td>
+                              <div class="btn-group elevation-1 m-1 " style="width: 160px; ">
+                                  <button type="button" class="btn " style="background: white!important;">Pilih Prodi</button>
                                   <button type="button" class="btn btn dropdown-toggle dropdown-toggle-split"
                                       style="background: white!important" id="dropdownMenuReference" data-toggle="dropdown"
                                       aria-haspopup="true" aria-expanded="false" data-reference="parent">
@@ -229,8 +237,8 @@
                               <div class="col-sm">
                                   <span>Tahun Akademik</span>
                               </div>
-                              <div class="col-md">
-                              <select class="form-select form-control" name="year" aria-label="Default select example">
+                              <div class="col-md ">
+                              <select class="form-select form-control " name="year" aria-label="Default select example">
                                   <option selected>Pilih</option>
                                   <option value="2010">2010</option>
                                   <option value="2011">2011</option>
@@ -260,8 +268,8 @@
                           <td><button type="button" class="btn-secondary btn" style="width: 120px">Browse</button></td>
                       </tr>
                       <tr>
-                          <td>Semester &nbsp
-                              <div class="btn-group elevation-1 m-1" style="border-radius: 4px">
+                          <td>
+                              <div class="btn-group elevation-1 m-1" style="width:160px;">
                                   <button type="button" class="btn btn" style="background: white!important">Pilih
                                       Semester</button>
                                   <button type="button" class="btn btn dropdown-toggle dropdown-toggle-split"
@@ -306,7 +314,7 @@
     <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-    <footer class="main-footer">
+    <footer class="main">
         <div class="text-center">
             <strong>Copyright &copy; {{ date('Y') }} <a href="">AdminLTE3</a>.</strong>
             All rights reserved.
