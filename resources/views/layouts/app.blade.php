@@ -203,12 +203,12 @@
                   <span class="navbar-toggler-icon"></span>
               </button>
       
-              <div class="collapse navbar-collapse-hide" id="navbarSupportedContent">
+              <div class="collapse navbar-collapse pt-5" id="navbarSupportedContent">
                   <table style="width:800px;">
                       <tr>
-                          <td>Prodi &nbsp &nbsp &nbsp &nbsp &nbsp
-                              <div class="btn-group elevation-1" style="width: 153px; ">
-                                  <button type="button" class="btn" style="background: white!important;">Pilih Prodi</button>
+                          <td>
+                              <div class="btn-group elevation-1 m-1 " style="width: 160px; ">
+                                  <button type="button" class="btn " style="background: white!important;">Pilih Prodi</button>
                                   <button type="button" class="btn btn dropdown-toggle dropdown-toggle-split"
                                       style="background: white!important" id="dropdownMenuReference" data-toggle="dropdown"
                                       aria-haspopup="true" aria-expanded="false" data-reference="parent">
@@ -225,8 +225,8 @@
                               <div class="col-sm">
                                   <span>Tahun Akademik</span>
                               </div>
-                              <div class="col-md">
-                              <select class="form-select form-control" name="year" aria-label="Default select example">
+                              <div class="col-md ">
+                              <select class="form-select form-control " name="year" aria-label="Default select example">
                                   <option selected>Pilih</option>
                                   <option value="2010">2010</option>
                                   <option value="2011">2011</option>
@@ -256,8 +256,8 @@
                           <td><button type="button" class="btn-secondary btn" style="width: 120px">Browse</button></td>
                       </tr>
                       <tr>
-                          <td>Semester &nbsp
-                              <div class="btn-group elevation-1 m-1" style="border-radius: 4px">
+                          <td>
+                              <div class="btn-group elevation-1 m-1" style="width:160px;">
                                   <button type="button" class="btn btn" style="background: white!important">Pilih
                                       Semester</button>
                                   <button type="button" class="btn btn dropdown-toggle dropdown-toggle-split"
