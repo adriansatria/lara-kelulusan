@@ -77,26 +77,46 @@ class F1s extends Controller
 			'nama_dosen' => 'required',
 			'nip' => 'required',
 			'mata_kuliah' => 'required',
-			'kelas' => 'required',
-			'jpm' => 'required',
-			'kpk' => 'required',
-			'rata_kehadiran' => 'required',
+			'p1' => '',
+			'p2' => '',
+			'p3' => '',
+			'p4' => '',
+			'p5' => '',
+			'p6' => '',
+			'p7' => '',
+			'p8' => '',
+			'p9' => '',
+			'p10' => '',
+			'p11' => '',
+			'p12' => '',
+			'p13' => '',
+			'p14' => '',
+			'p15' => '',
+			'p16' => '',
+			'p17' => '',
+			'p18' => '',
+			'p19' => '',
+			'prosentase_hadir' => 'required',
+			'prosentase_tidakhadir' => 'required',
+			'hadir' => '',
+			'izin' => '',
+			'keluar_dinas' => '',
+			'mangkir' => '',
+			'sakit' => '',
 			'tahun' => 'required'
+			
 		],
 		[
 			'nama_dosen.required' => 'Data must not be empty!',
 			'nip.required' => 'Data must not be empty!',
 			'mata_kuliah.required' => 'Data must not be empty!',
-			'kelas.required' => 'Data must not be empty!',
-			'jpm.required' => 'Data must not be empty!',
-			'kpk.required' => 'Data must not be empty!',
-			'rata_kehadiran.required' => 'Data must not be empty!',
+			'prosentase_hadir.required' => 'Data must not be empty!',
+			'prosentase_tidakhadir.required' => 'Data must not be empty!',
 			'tahun.required' => 'Data must not be empty!'
 
 		]);
 
 		F1s_model::where('id',$id)->update($validateData);
-
 		return redirect()->route('f1s')
 		->with('update', 'Data updated successfully');
 	}
@@ -119,22 +139,22 @@ class F1s extends Controller
 		$spreadsheet = new Spreadsheet();
 		$sheet = $spreadsheet->getActiveSheet();
 		$sheet->setTitle('Rekapitulasi Kehadiran Dosen');
-		$sheet->mergeCells('A1:AD1');
+		$sheet->mergeCells('A1:AE1');
 		$sheet->setCellValue('A1', 'REKAPITULASI PROSENTASE KEHADIRAN DOSEN');
-		$sheet->getStyle('A1:AD1')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A1:AD1')->getFont()->setBold(true);
-		$sheet->mergeCells('A2:AD2');
+		$sheet->getStyle('A1:AE1')->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('A1:AE1')->getFont()->setBold(true);
+		$sheet->mergeCells('A2:AE2');
 		$sheet->setCellValue('A2', 'PROGRAM REGULER');
-		$sheet->getStyle('A2:AD2')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A2:AD2')->getFont()->setBold(true);
-		$sheet->mergeCells('A3:AD3');
+		$sheet->getStyle('A2:AE2')->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('A2:AE2')->getFont()->setBold(true);
+		$sheet->mergeCells('A3:AE3');
 		$sheet->setCellValue('A3', 'SEMESTER GANJIL TAHUN AKADEMIK ' . $year . '/' . ($year+1));
-		$sheet->getStyle('A3:AD3')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A3:AD3')->getFont()->setBold(true);
-		$sheet->mergeCells('A4:AD4');
+		$sheet->getStyle('A3:AE3')->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('A3:AE3')->getFont()->setBold(true);
+		$sheet->mergeCells('A4:AE4');
 		$sheet->setCellValue('A4', 'JURUSAN TEKNIK INFORMATIKA DAN KOMPUTER');
-		$sheet->getStyle('A4:AD4')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A4:AD4')->getFont()->setBold(true);
+		$sheet->getStyle('A4:AE4')->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('A4:AE4')->getFont()->setBold(true);
 
 		$sheet->getColumnDimension('A')->setAutoSize(true);
         $sheet->getColumnDimension('B')->setAutoSize(true);
@@ -166,9 +186,10 @@ class F1s extends Controller
         $sheet->getColumnDimension('AB')->setAutoSize(true);
         $sheet->getColumnDimension('AC')->setAutoSize(true);
         $sheet->getColumnDimension('AD')->setAutoSize(true);
+		$sheet->getColumnDimension('AE')->setAutoSize(true);
 
-		$sheet->getStyle('A6:AD6')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A6:AD6')->getFont()->setBold(true);
+		$sheet->getStyle('A6:AE6')->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('A6:AE6')->getFont()->setBold(true);
 
 		$sheet->setCellValue('A6', 'NO.');
 		$sheet->setCellValue('B6', 'Nama Dosen');
@@ -213,6 +234,7 @@ class F1s extends Controller
 		$sheet->setCellValue('AB6', 'K');
 		$sheet->setCellValue('AC6', 'M');
 		$sheet->setCellValue('AD6', 'S');
+		$sheet->setCellValue('AE6', 'Tahun');
 		$styleArray = array(
 			'borders' => array(
 				'allBorders' => array(
@@ -222,8 +244,8 @@ class F1s extends Controller
 			),
 		);
 	
-		$sheet ->getStyle('A5:AD5')->applyFromArray($styleArray);
-		$sheet ->getStyle('A6:AD6')->applyFromArray($styleArray);
+		$sheet ->getStyle('A5:AE5')->applyFromArray($styleArray);
+		$sheet ->getStyle('A6:AE6')->applyFromArray($styleArray);
 
 		$no=1;
 		$cell = 7;
@@ -237,7 +259,7 @@ class F1s extends Controller
 				),
 			);
 		
-			$sheet ->getStyle('A'.$cell. ':AD'.$cell)->applyFromArray($styleArray);
+			$sheet ->getStyle('A'.$cell. ':AE'.$cell)->applyFromArray($styleArray);
 
 			$sheet->setCellValue('A'.$cell, $no++);
 			$sheet->getStyle('A'. $cell)->getAlignment()->setHorizontal('center');
@@ -296,6 +318,8 @@ class F1s extends Controller
 			$sheet->getStyle('AC'. $cell)->getAlignment()->setHorizontal('center');
 			$sheet->setCellValue('AD'.$cell, $row->sakit);
 			$sheet->getStyle('AD'. $cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('AE'.$cell, $row->tahun);
+			$sheet->getStyle('AE'. $cell)->getAlignment()->setHorizontal('center');
 			
 
 			$cell++;

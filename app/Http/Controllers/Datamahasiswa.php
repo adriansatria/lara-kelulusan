@@ -57,6 +57,18 @@ class Datamahasiswa extends Controller
         $sheet->getColumnDimension('O')->setAutoSize(true);
         $sheet->getColumnDimension('P')->setAutoSize(true);
 
+        $styleArray = array(
+			'borders' => array(
+				'allBorders' => array(
+					'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+					'color' => array('argb' => '000'),
+				),
+			),
+		);
+        
+        $sheet ->getStyle('A4:P4')->applyFromArray($styleArray);
+		$sheet ->getStyle('A5:P5')->applyFromArray($styleArray);
+
 		// $sheet->mergeCells('A4:A5');
 		$sheet->setCellValue('A5', 'NO.');
 		$sheet->getStyle('A5')->getAlignment()->setHorizontal('center')->setVertical('center');
@@ -119,6 +131,17 @@ class Datamahasiswa extends Controller
             $sheet->setCellValue('O'.$cell, $row->keterangan);
             $sheet->setCellValue('P'.$cell, $row->tahun_akademik);
             $sheet->getStyle('P'. $cell)->getAlignment()->setHorizontal('center');
+
+            $styleArray = array(
+                'borders' => array(
+                    'allBorders' => array(
+                        'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        'color' => array('argb' => '000'),
+                    ),
+                ),
+            );
+        
+            $sheet ->getStyle('A'.$cell.':P'.$cell)->applyFromArray($styleArray);
 
             // $sheet->setBorder('A4:O'.$cell, 'thin');
 			$cell++;

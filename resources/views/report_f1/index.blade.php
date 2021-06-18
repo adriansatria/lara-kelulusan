@@ -28,7 +28,6 @@
         </span>
         @endif
 
-<<<<<<< HEAD
         {{-- notifikasi sukses --}}
         @if ($sukses = Session::get('sukses'))
         <div class="alert alert-success alert-block">
