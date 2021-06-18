@@ -21,10 +21,17 @@
 		</div>
 		@endif
 
-		<div class="card border border-secondary m-2 p-1">
+		<div class="m-4">
+			<h2 style="font-weight:bold">Dashboard</h2>
+			<h6 >Jumlah Mahasiswa Lulus</h6>
+		</div>
+		
+
+		<div class="card border border-secondary m-4">
 			<div class="card-header">
 				<div class="row">
 					<div class="col-12">
+						<h5 style="text-align: center; font-weight:bold">Details</h5>
 						<!-- <div class="float-left">
 							<form class="form-inline" action="{{ route('f2s_lulus.year') }}" method="POST">
 								@csrf
@@ -39,10 +46,10 @@
 				</div>
 			</div>
 			<div class="card-body table-responsive">
-				<table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
+				<table id="example1" class="table table-bordered  display nowrap" width="100%">
 					<thead>
-						<tr>
-							<th>NO</th>
+						<tr style="background: rgb(235, 235, 235); text-align: center">
+							<th style="width: 20px">NO</th>
 							<th>Nama Mahasiswa</th>
 							<th>NIM</th>
 							<th>Prodi</th>
@@ -53,11 +60,11 @@
 					<tbody>
 						@foreach($f2s_lulus as $f2_lulus)
 						<tr>
-							<td>{{$loop->iteration}}</td>
+							<td style="text-align: center">{{$loop->iteration}}</td>
 							<td>{{ $f2_lulus->nama_mahasiswa }}</td>
 							<td>{{ $f2_lulus->nim }}</td>
 							<td>{{ $f2_lulus->prodi }}</td>
-							<td>{{ $f2_lulus->status }}</td>
+							<td style="text-align: center">{{ $f2_lulus->status }}</td>
 							<td>{{ $f2_lulus->tahun }}</td>
 						</tr>
 						@endforeach

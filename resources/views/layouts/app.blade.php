@@ -48,8 +48,17 @@
     
     .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
-    .hide-navigation-item {
-      display: none !important;
+    .img-ins{
+      position: relative;
+      inset-block: -30px;
+      background-color: transparent;
+    }
+
+    .db-ins{
+      position: relative;
+      inset-block: 10px;
+      background-color: transparent;
+      margin-left: 30px;
     }
     </style>
     
@@ -102,15 +111,240 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
+    <div class="wrapper" >
+
+      <div class="container-fluit" style="background: rgb(226, 226, 226);">
+
+        <div class="row" >
+
+          {{-- User --}}
+          <div class=" col-sm-12">
+            
+            <div class="d-flex flex-row-reverse mt-1" style="position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content space-between">
+
+              <li class="nav-item dropdown">
+
+                  <a class="nav-link dropdown-toggle btn btn-black" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >Admin
+                      <img src="{{ url('') }}/assets/dist/img/logo.png" style="max-height: 20px" class="rounded">
+                  </a>
+
+                  <div class="dropdown-menu p-1 m-1" >
+                      <a class="dropdown-item " href="{{ url('/logout') }}" onclick="return confirm ('Logout?')">
+                          <i class="fas fa-sign-out-alt"></i> Keluar
+                      </a>
+                  </div>
+
+              </li>
+
+            </div>
+
+            {{-- Image --}}
+            <div class="row" style="height: 120px">
+              
+              <div class="col-1 mr-4 ml-3">
+
+                <img src="{{ url('') }}/assets/dist/img/logo-pelaporan-kelulusan.png" class="brand-image p-2 img-ins" style="max-height: 150px !important">
+
+              </div>
+
+              {{-- Navbar --}}
+              <div class="col-4 col-lg-10 db-ins page-break-inside mx-auto">
+
+                <nav class="navbar navbar-expand-lg rounded" style="background: rgb(239, 239, 239); display: block">
+
+                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
+
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link btn btn-black" href="{{ url('/') }}">Dashboard 
+                              <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+      
+                        <li class="nav-item active">
+                            <a class="nav-link btn btn-black" href="{{ url('dosen') }}">Dosen 
+                              <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+      
+                        <li class="nav-item active">
+                            <a class="nav-link btn btn-black" href="{{ url('mahasiswa') }}">Mahasiswa
+                              <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+      
+      
+                        <div class="btn-group dropdown">
+
+                          <button type="button" class="btn dropbtn"
+                              style="background: transparent!important">Report </button>
+                          </button>
+
+                          <div class="dropdown-content"  aria-labelledby="dropdownMenuReference">
+      
+                              <li class="dropdown-submenu">
+                                <a class="dropdown-item" href="{{ url('f1s') }}">Report F1
+                                </a>
+                                {{-- <ul class="dropdown-submenu" style="overflow: hidden">
+      
+                                <ul class="dropdown-submenu" data-toggle="collapse" data-target="#navbarSupportedContent" style="overflow: hidden">
+      
+                                  <li><a class="dropdown-item" href="{{ url('f1s') }}">Master Data</a></li>
+                                  <li><a class="dropdown-item" href="{{ url('rekapkehadirandosen') }}">Rekapitulasi Kehadiran Dosen</a></li>
+                                </ul> --}}
+                              </li>
+      
+                              <li class="dropdown-submenu">
+                                <a class="dropdown-item" href="{{ url('f2s') }}">Report F2
+                                </a>
+                                {{-- <ul class="dropdown-submenu">
+                                  <li><a class="dropdown-item" href="{{ url('f2s') }}">Master Data</a></li>
+                                  <li><a class="dropdown-item" href="{{ url('rekapipmahasiswa') }}">Rekapitulasi IP Mahasiswa</a></li>
+                                </ul> --}}
+                              </li>
+      
+                              <li class="dropdown-submenu">
+                                <a class="dropdown-item" href="{{ url('f3s') }}">Report F3
+                                </a>
+                                  {{-- <ul class="dropdown-submenu">
+                                    <li><a class="dropdown-item" href="{{ url('f3s') }}">Master Data</a></li>
+                                    <li><a class="dropdown-item" href="{{ url('rekapstatuskelulusan') }}">Rekapitulasi Status Kelulusan</a></li>
+                                  </ul> --}}
+                              </li>
+      
+                              <li class="dropdown-submenu">
+                                <a class="dropdown-item" href="{{ url('f4s') }}">Report F4
+                                </a>
+                                {{-- <ul class="dropdown-submenu">
+                                  <li><a class="dropdown-item" href="{{ url('rekapsuratperingatan') }}">Rekapitulasi Surat Peringatan</a></li>
+                                </ul> --}}
+                              </li>
+      
+                          </div>
+                        </div>
+      
+                        <li class="nav-item active">
+                            <a class="nav-link btn btn-black" href="{{ url('evaluations') }}">Evaluasi
+                              <span class="sr-only">(current)
+
+                              </span>
+                            </a>
+                        </li>
+      
+                        <li class="nav-item active">
+                            <a class="nav-link btn btn-black" href="{{ url('users') }}">User 
+                              <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                  </div>
+
+                </nav>
+
+              </div>
+
+                  
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="navbar justify-content-center mx-auto col-lg-12" style="background:rgb(226, 226, 226);">
+
+        <nav class="navbar navbar-expand-lg mx-auto" style="">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse " id="navbarSupportedContent">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <table style="table-layout:auto">
+                  <tr>
+                      <td>
+                          <div class="btn-group elevation-1 m-1 " style="max-width: 160px; width:155px">
+                              <button type="button" class="btn " style="background: white!important;">Pilih Prodi</button>
+                              <button type="button" class="btn btn dropdown-toggle dropdown-toggle-split"
+                                  style="background: white!important" id="dropdownMenuReference" data-toggle="dropdown"
+                                  aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                                  <span class="sr-only">Toggle Dropdown</span>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+                                  <a class="dropdown-item" href="#">Action</a>
+                                  <a class="dropdown-item" href="#">Another action</a>
+                                  <a class="dropdown-item" href="#">Something else here</a>
+                              </div>
+                      </td>
+                      <td>
+                        <div class="row">
+                          <div class="col">
+                          <select class="form-select form-control " name="year" aria-label="Default select example">
+                              <option selected>Tahun Akademik</option>
+                              <option value="2010">2010</option>
+                              <option value="2011">2011</option>
+                              <option value="2012">2012</option>
+                              <option value="2013">2013</option>
+                              <option value="2014">2014</option>
+                              <option value="2015">2015</option>
+                              <option value="2016">2016</option>
+                              <option value="2017">2017</option>
+                              <option value="2018">2018</option>
+                              <option value="2019">2019</option>
+                              <option value="2020">2020</option>
+                              <option value="2021">2021</option>
+                              <option value="2022">2022</option>
+                              <option value="2023">2023</option>
+                              <option value="2024">2024</option>
+                              <option value="2025">2025</option>
+                              <option value="2026">2026</option>
+                              <option value="2027">2027</option>
+                              <option value="2028">2028</option>
+                              <option value="2029">2029</option>
+                              <option value="2030">2030</option>
+                          </select>
+                          </div>
+                        </div>
+                      </td>
+                      <td><button type="button" class="btn-secondary btn" style="max-width: 100px; width: 90px">Browse</button></td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <div class="btn-group elevation-1 m-1" style="max-width:160px; width: 155px">
+                              <button type="button" class="btn btn" style="background: white!important">Pilih
+                                  Semester</button>
+                              <button type="button" class="btn btn dropdown-toggle dropdown-toggle-split"
+                                  style="background: white!important" id="dropdownMenuReference" data-toggle="dropdown"
+                                  aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                                  <span class="sr-only">Toggle Dropdown</span>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+                                  <a class="dropdown-item" href="#">Action</a>
+                                  <a class="dropdown-item" href="#">Another action</a>
+                                  <a class="dropdown-item" href="#">Something else here</a>
+                              </div>
+                      </td>
+                      <td></td>
+                      <td><button type="button" class="btn btn-secondary" style="max-width: 100px; width: 90px">Cancel</button></td>
+                  </tr>
+              </table>
+  
+        </nav>
+
+      </div>
+  
 
         <!-- Navbar -->
         <nav class="navbar navbar-light">
+          
           <nav class="navbar navbar-expand-lg navbar-light">
 
             <div class="">
-                <img src="{{ url('') }}/assets/dist/img/logo-pelaporan-kelulusan.png" class="brand-image p-2"
-                    style="max-height: 100px !important">
+                
             </div>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -118,186 +352,18 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link btn btn-black" href="{{ url('/') }}">Dashboard <span class="sr-only">(current)</span></a>
-                    </li>
-
-                    <li class="nav-item active">
-                        <a class="nav-link btn btn-black" href="{{ url('dosen') }}">Dosen <span class="sr-only">(current)</span></a>
-                    </li>
-
-                    <li class="nav-item active">
-                        <a class="nav-link btn btn-black" href="{{ url('mahasiswa') }}">Mahasiswa<span
-                                class="sr-only">(current)</span></a>
-                    </li>
-
-
-                    <div class="btn-group dropdown">
-                      <button type="button" class="btn dropbtn"
-                          style="background: transparent!important">Report </button>
-                      </button>
-                      <div class="dropdown-content"  aria-labelledby="dropdownMenuReference">
-
-                          <li class="dropdown-submenu">
-                            <a class="dropdown-item" href="#">Report F1</a>
-<<<<<<< HEAD
-                            {{-- <ul class="dropdown-submenu" style="overflow: hidden">
-=======
-                            <ul class="dropdown-submenu" data-toggle="collapse" data-target="#navbarSupportedContent" style="overflow: hidden">
->>>>>>> 6768c6ac906c4cb5db1974bd5685933f278e7537
-                              <li><a class="dropdown-item" href="{{ url('f1s') }}">Master Data</a></li>
-                              <li><a class="dropdown-item" href="{{ url('rekapkehadirandosen') }}">Rekapitulasi Kehadiran Dosen</a></li>
-                            </ul> --}}
-                          </li>
-
-                          <li class="dropdown-submenu">
-                            <a class="dropdown-item" href="#">Report F2</a>
-                            {{-- <ul class="dropdown-submenu">
-                              <li><a class="dropdown-item" href="{{ url('f2s') }}">Master Data</a></li>
-                              <li><a class="dropdown-item" href="{{ url('rekapipmahasiswa') }}">Rekapitulasi IP Mahasiswa</a></li>
-                            </ul> --}}
-                          </li>
-
-                          <li class="dropdown-submenu">
-                            <a class="dropdown-item" href="#">Report F3</a>
-                              {{-- <ul class="dropdown-submenu">
-                                <li><a class="dropdown-item" href="{{ url('f3s') }}">Master Data</a></li>
-                                <li><a class="dropdown-item" href="{{ url('rekapstatuskelulusan') }}">Rekapitulasi Status Kelulusan</a></li>
-                              </ul> --}}
-                          </li>
-
-                          <li class="dropdown-submenu">
-                            <a class="dropdown-item" href="#">Report F4</a>
-                            {{-- <ul class="dropdown-submenu">
-                              <li><a class="dropdown-item" href="{{ url('rekapsuratperingatan') }}">Rekapitulasi Surat Peringatan</a></li>
-                            </ul> --}}
-                          </li>
-
-                      </div>
-                    </div>
-
-                    <li class="nav-item active">
-                        <a class="nav-link btn btn-black" href="{{ url('evaluations') }}">Evaluasi<span
-                                class="sr-only">(current)</span></a>
-                    </li>
-
-                    <li class="nav-item active">
-                        <a class="nav-link btn btn-black" href="{{ url('users') }}">User <span class="sr-only">(current)</span></a>
-                    </li>
-                </ul>
-              </div>
-            </nav>
-            <!-- Right navbar links -->
-            <ul class="navbar" style="margin-left:570px;">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle btn btn-black" data-toggle="dropdown" href="#" role="button"
-                        aria-haspopup="true" aria-expanded="false" >Admin
-                        <img src="{{ url('') }}/assets/dist/img/logo.png" style="max-height: 20px" class="rounded">
-                    </a>
-                    <div class="dropdown-menu p-1 m-1" >
-                        <a class="dropdown-item " href="{{ url('/logout') }}" onclick="return confirm ('Logout?')">
-                            <i class="fas fa-sign-out-alt"></i> Keluar
-                        </a>
-                    </div>
-                </li>
-            </ul>
-
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-      
-<<<<<<< HEAD
-              <div class="collapse navbar-collapse hide-navit" style="overflow: hidden" id="navbarSupportedContent">
-=======
-              <div class="collapse navbar-collapse pt-5" id="navbarSupportedContent">
->>>>>>> 6768c6ac906c4cb5db1974bd5685933f278e7537
-                  <table style="width:800px;">
-                      <tr>
-                          <td>
-                              <div class="btn-group elevation-1 m-1 " style="width: 160px; ">
-                                  <button type="button" class="btn " style="background: white!important;">Pilih Prodi</button>
-                                  <button type="button" class="btn btn dropdown-toggle dropdown-toggle-split"
-                                      style="background: white!important" id="dropdownMenuReference" data-toggle="dropdown"
-                                      aria-haspopup="true" aria-expanded="false" data-reference="parent">
-                                      <span class="sr-only">Toggle Dropdown</span>
-                                  </button>
-                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                                      <a class="dropdown-item" href="#">Action</a>
-                                      <a class="dropdown-item" href="#">Another action</a>
-                                      <a class="dropdown-item" href="#">Something else here</a>
-                                  </div>
-                          </td>
-                          <td>
-                            <div class="row">
-                              <div class="col-sm">
-                                  <span>Tahun Akademik</span>
-                              </div>
-                              <div class="col-md ">
-                              <select class="form-select form-control " name="year" aria-label="Default select example">
-                                  <option selected>Pilih</option>
-                                  <option value="2010">2010</option>
-                                  <option value="2011">2011</option>
-                                  <option value="2012">2012</option>
-                                  <option value="2013">2013</option>
-                                  <option value="2014">2014</option>
-                                  <option value="2015">2015</option>
-                                  <option value="2016">2016</option>
-                                  <option value="2017">2017</option>
-                                  <option value="2018">2018</option>
-                                  <option value="2019">2019</option>
-                                  <option value="2020">2020</option>
-                                  <option value="2021">2021</option>
-                                  <option value="2022">2022</option>
-                                  <option value="2023">2023</option>
-                                  <option value="2024">2024</option>
-                                  <option value="2025">2025</option>
-                                  <option value="2026">2026</option>
-                                  <option value="2027">2027</option>
-                                  <option value="2028">2028</option>
-                                  <option value="2029">2029</option>
-                                  <option value="2030">2030</option>
-                              </select>
-                              </div>
-                            </div>
-                          </td>
-                          <td><button type="button" class="btn-secondary btn" style="width: 120px">Browse</button></td>
-                      </tr>
-                      <tr>
-                          <td>
-                              <div class="btn-group elevation-1 m-1" style="width:160px;">
-                                  <button type="button" class="btn btn" style="background: white!important">Pilih
-                                      Semester</button>
-                                  <button type="button" class="btn btn dropdown-toggle dropdown-toggle-split"
-                                      style="background: white!important" id="dropdownMenuReference" data-toggle="dropdown"
-                                      aria-haspopup="true" aria-expanded="false" data-reference="parent">
-                                      <span class="sr-only">Toggle Dropdown</span>
-                                  </button>
-                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-                                      <a class="dropdown-item" href="#">Action</a>
-                                      <a class="dropdown-item" href="#">Another action</a>
-                                      <a class="dropdown-item" href="#">Something else here</a>
-                                  </div>
-                          </td>
-                          <td></td>
-                          <td><button type="button" class="btn btn-secondary" style="width: 120px">Cancel</button></td>
-                      </tr>
-                  </table>
-      
           </nav>
+
+          
+            <!-- Right navbar links -->
+            
+
+            
         </nav>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
         
-
-
-    
-
     <!-- Content Wrapper. Contains page content -->
 
     <!-- /.content-header -->

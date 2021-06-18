@@ -36,7 +36,11 @@
         </div>
         @endif
 
-        <div class="card">
+        <div class="m-4">
+			<h2 style="font-weight:bold">Mahasiswa</h2>
+		</div>
+
+        <div class="card border border-secondary m-4">
             <div class="card-header">
                 <div class="row">
                     <div class="col-12">
@@ -46,7 +50,7 @@
                             <form action="{{ route('mahasiswa/import') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <input type="file" name="import_file" required> <button class="btn btn-success"><i
-                                        class="fas fa-file-upload"></i>Import Excel</button>
+                                        class="fas fa-file-upload"></i> Import Excel</button>
                                 <a href="{{ route('mahasiswa/export') }}" class="btn btn-success"><i
                                         class="fas fa-file-excel"></i> Export to Excel</a>
                             </form>
@@ -56,9 +60,9 @@
                 </div>
             </div>
             <div class="card-body table-responsive">
-                <table id="example1" class="table table-bordered table-striped display nowrap">
+                <table id="example1" class="table table-bordered display nowrap">
                     <thead>
-                        <tr>
+                        <tr style="background: rgb(235, 235, 235)!important; text-align:center">
                             <th rowspan="2" class="align-middle">NO</th>
                             <th rowspan="2" class="align-middle">NIM</th>
                             <th rowspan="2" class="align-middle">Foto</th>
@@ -70,10 +74,10 @@
                             <th rowspan="2" class="align-middle">Keterangan</th>
                             <th rowspan="2" class="align-middle">Tahun Akademik</th>
                             @if(session('level') == 'Admin')
-                            <td width="55px" rowspan="2" class="text-center align-middle">Aksi</td>
+                            <th width="55px" rowspan="2" class="text-center align-middle">Actions</th>
                             @endif
                         </tr>
-                        <tr>
+                        <tr style="background: rgb(235, 235, 235)!important; text-align:center">
                             <th>Nama</th>
                             <th>Tempat lahir</th>
                             <th>Tanggal lahir</th>
