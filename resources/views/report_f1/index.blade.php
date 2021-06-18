@@ -71,6 +71,7 @@
                     </div>
                 </div>
             </div>
+            @if($year != '')
             <div class="card-body table-responsive">
                 <table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
                     <thead>
@@ -79,11 +80,6 @@
                             <th rowspan="2" class="align-middle">Nama</th>
                             <th rowspan="2" class="align-middle">NIP</th>
                             <th rowspan="2" class="align-middle">Mata Kuliah</th>
-                            <!-- <th rowspan="2" class="align-middle">Kelas</th>
-							<th rowspan="2" class="align-middle">JPM</th>
-							<th rowspan="2" class="align-middle">% Kehadiran per KLS</th>
-							<th rowspan="2" class="align-middle">Rata-rata % Kehadiran per SMT</th> -->
-                            <!-- <th rowspan="2" class="align-middle">Tahun</th> -->
                             <th colspan="19" class="align-middle text-center">Pertemuan</th>
                             <th colspan="2" class="align-middle text-center">Prosentase</th>
                             <th colspan="5" class="align-middle text-center">Total Jam</th>
@@ -127,11 +123,6 @@
                             <td>{{ $f1->nama_dosen }}</td>
                             <td>{{ $f1->nip }}</td>
                             <td>{{ $f1->mata_kuliah }}</td>
-                            <!-- <td>{{ $f1->kelas }}</td>
-							<td>{{ $f1->jpm }}</td>
-							<td>{{ $f1->kpk }} %</td>
-							<td>{{ $f1->rata_kehadiran }} %</td> -->
-                            <!-- <td>{{ $f1->tahun }}</td> -->
                             <td>{{ $f1->p1 }}</td>
                             <td>{{ $f1->p2 }}</td>
                             <td>{{ $f1->p3 }}</td>
@@ -176,6 +167,7 @@
                     </tbody>
                 </table>
             </div>
+            @endif
             <!-- /.card-body -->
         </div>
     </div>

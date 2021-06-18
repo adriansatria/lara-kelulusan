@@ -326,7 +326,7 @@ class F1s extends Controller
 		}
 		$writer = new Xlsx($spreadsheet);        
 		header('Content-Type: application/vnd.ms-excel');
-		header('Content-Disposition: attachment;filename="Rekapitulasi Kehadiran Dosen.xlsx"');
+		header('Content-Disposition: attachment;filename="Master Data F1.xlsx"');
 		$writer->save('php://output');
 	}
 }
