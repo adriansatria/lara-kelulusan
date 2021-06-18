@@ -54,6 +54,16 @@ class DosenController extends Controller
         $sheet->getColumnDimension('J')->setAutoSize(true);
         $sheet->getColumnDimension('K')->setAutoSize(true);
         $sheet->getColumnDimension('L')->setAutoSize(true);
+        $styleArray = array(
+			'borders' => array(
+				'allBorders' => array(
+					'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+					'color' => array('argb' => '000'),
+				),
+			),
+		);
+        
+        $sheet ->getStyle('A4:L4')->applyFromArray($styleArray);
 
 		$sheet->setCellValue('A4', 'NO.');
         $sheet->getStyle('A4')->getAlignment()->setHorizontal('center');
@@ -84,6 +94,18 @@ class DosenController extends Controller
             $sheet->setCellValue('J'.$cell, $row->homebase_prodi);
             $sheet->setCellValue('K'.$cell, $row->serdos);
             $sheet->setCellValue('L'.$cell, $row->keterangan);
+
+            $styleArray = array(
+                'borders' => array(
+                    'allBorders' => array(
+                        'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        'color' => array('argb' => '000'),
+                    ),
+                ),
+            );
+            
+            $sheet ->getStyle('A'.$cell. ':L'.$cell)->applyFromArray($styleArray);
+
 			$cell++;
 		}
 		$writer = new Xlsx($spreadsheet);        

@@ -60,8 +60,9 @@
       background-color: transparent;
       margin-left: 30px;
     }
+
     </style>
-    
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title }}</title>
@@ -89,19 +90,19 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ url('') }}/assets/plugins/summernote/summernote-bs4.min.css">
     <!-- Vendor CSS -->
-		{{-- <link rel="stylesheet" href="{{ url('') }}/assets/plugins/vendor/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="{{ url('') }}/assets/plugins/vendor/fontawesome-free/css/all.min.css">
-		<link rel="stylesheet" href="{{ url('') }}/assets/plugins/vendor/animate/animate.min.css">
-		<link rel="stylesheet" href="{{ url('') }}/assets/plugins/vendor/simple-line-icons/css/simple-line-icons.min.css">
-		<link rel="stylesheet" href="{{ url('') }}/assets/plugins/vendor/owl.carousel/assets/owl.carousel.min.css">
-		<link rel="stylesheet" href="{{ url('') }}/assets/plugins/vendor/owl.carousel/assets/owl.theme.default.min.css">
-		<link rel="stylesheet" href="{{ url('') }}/assets/plugins/vendor/magnific-popup/magnific-popup.min.css"> --}}
+    {{-- <link rel="stylesheet" href="{{ url('') }}/assets/plugins/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url('') }}/assets/plugins/vendor/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{ url('') }}/assets/plugins/vendor/animate/animate.min.css">
+    <link rel="stylesheet" href="{{ url('') }}/assets/plugins/vendor/simple-line-icons/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="{{ url('') }}/assets/plugins/vendor/owl.carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{ url('') }}/assets/plugins/vendor/owl.carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{{ url('') }}/assets/plugins/vendor/magnific-popup/magnific-popup.min.css"> --}}
 
-		<!-- Theme CSS -->
-		{{-- <link rel="stylesheet" href="{{ url('') }}/assets/plugins/css/theme.css">
-		<link rel="stylesheet" href="{{ url('') }}/assets/plugins/css/theme-elements.css">
-		<link rel="stylesheet" href="{{ url('') }}/assets/plugins/css/theme-blog.css">
-		<link rel="stylesheet" href="{{ url('') }}/assets/plugins/css/theme-shop.css"> --}}
+    <!-- Theme CSS -->
+    {{-- <link rel="stylesheet" href="{{ url('') }}/assets/plugins/css/theme.css">
+    <link rel="stylesheet" href="{{ url('') }}/assets/plugins/css/theme-elements.css">
+    <link rel="stylesheet" href="{{ url('') }}/assets/plugins/css/theme-blog.css">
+    <link rel="stylesheet" href="{{ url('') }}/assets/plugins/css/theme-shop.css"> --}}
 
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ url('') }}/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -340,6 +341,7 @@
 
         <!-- Navbar -->
         <nav class="navbar navbar-light">
+<<<<<<< HEAD
           
           <nav class="navbar navbar-expand-lg navbar-light">
 
@@ -359,25 +361,29 @@
             
 
             
+
         </nav>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        
-    <!-- Content Wrapper. Contains page content -->
 
-    <!-- /.content-header -->
 
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-            <!-- Small boxes (Stat box) -->
-            @yield('content')
-            <!-- /.row -->
-            <!-- /.row (main row) -->
-        </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+
+        <!-- Content Wrapper. Contains page content -->
+
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <!-- Small boxes (Stat box) -->
+                @yield('content')
+                @yield('title')
+                <!-- /.row -->
+                <!-- /.row (main row) -->
+            </div><!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
     <footer class="main">

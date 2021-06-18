@@ -13,7 +13,7 @@ class Rekapkehadirandosen extends Controller
 		$Rekapkehadirandosen = Rekapkehadirandosen_model::join('dosen', 'dosen.nip', '=' ,'report_f1s.nip')
 		->select('report_f1s.*', 'dosen.nip', 'dosen.nama_dosen')
 		->get();
-		return view('report_f1.index', ['title' => 'Report F1', 'detail' => 'Rekapitulasi Kehadiran Dosen', 'f1s' => $Rekapkehadirandosen]);
+		return view('report_f1.index', ['title' => 'Report F1', 'detail' => 'Rekapitulasi Kehadiran Dosen', 'f1s' => $Rekapkehadirandosen, 'year' => '']);
 	}
 
 	public function year(Request $request)

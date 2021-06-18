@@ -52,8 +52,7 @@ Route::post('/f1s/store', [App\Http\Controllers\F1s::class,'store'])->name('f1s.
 Route::post('/f1s/import', [App\Http\Controllers\F1s::class,'import'])->name('f1s.import')->middleware('login');
 Route::get('/f1s/{id}/edit', [App\Http\Controllers\F1s::class,'edit'])
 ->name('f1s.edit')->middleware('login');
-Route::patch('/f1s/{id}', [App\Http\Controllers\F1s::class,'update'])
-->name('f1s.update')->middleware('login');
+Route::patch('/f1s/{id}', [App\Http\Controllers\F1s::class,'update'])->name('f1s.update')->middleware('login');
 Route::delete('/f1s/{id}', [App\Http\Controllers\F1s::class,'destroy'])
 ->name('f1s.destroy')->middleware('login');
 Route::get('/f1s/export/{year}', [App\Http\Controllers\F1s::class,'export'])->name('f1s.export')->middleware('login');
