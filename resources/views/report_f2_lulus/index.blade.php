@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="row">
-	<div class="col-12">
+	<div class="col-12 ">
 		@if(session()->has('add'))
 		<div class="alert alert-success alert-dismissible">
 			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -21,7 +21,7 @@
 		</div>
 		@endif
 
-		<div class="card">
+		<div class="card border border-secondary m-2 p-1">
 			<div class="card-header">
 				<div class="row">
 					<div class="col-12">

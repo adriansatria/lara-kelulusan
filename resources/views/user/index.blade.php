@@ -21,21 +21,24 @@
 		</div>
 		@endif
 
-		<div class="card">
+		<div class="card border border-secondary p-2">
 			<div class="card-header">
 				<div class="row">
-					<div class="col-12">
-						@if(session('level') == 'Admin')
-						<div class="float-right">
-							<a href="{{ route('users.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Data</a>
-							{{-- <a href="" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
-						</div>
-						@endif
-					</div>
+                <head>
+<h1>Dashboard</h1>
+</head>
 				</div>
 			</div>
 			<div class="card-body">
 				<table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
+                <div class="col-12">
+						@if(session('level') == 'Admin')
+						<div class="float-right ml-2">
+							<a href="{{ route('users.create') }}" class="btn btn-secondary"><i class="fas fa-plus"></i> Add Data</a>
+							{{-- <a href="" class="btn btn-secondary"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
+						</div>
+						@endif
+					</div>
 					<thead>
 						<tr>
 							<th width="20px">NO</th>
