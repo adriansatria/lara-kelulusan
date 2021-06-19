@@ -12,4 +12,9 @@ class Users_model extends Model
 	protected $primaryKey = 'id';
 	protected $guarded = [];
 	public $timestamps = false;
+	protected $fillable = [
+    'name',
+    'username',
+    'email',
+	];
 }
