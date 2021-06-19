@@ -28,7 +28,7 @@ class rekapstatuskelulusan extends Controller
 	}
 
 	public function create(){
-		return view('report_f3.create', ['title' => 'Form Add Data Report F3', 'detail' => '']);
+		return view('report_f3.createrekap', ['title' => 'Form Add Data Report F3', 'detail' => '']);
 	}
 
 	public function store(Request $request){

@@ -68,7 +68,7 @@ class Rekapipmahasiswa extends Controller
 	}
 
 	public function create(){
-		return view('report_f2.create', ['title' => 'Form Add Data Report F2', 'detail' => '']);
+		return view('report_f2.createrekap', ['title' => 'Form Add Data Report F2', 'detail' => '']);
 	}
 
 	public function store(Request $request){

@@ -3,14 +3,14 @@
 @section('content')
 
 
-<div>
-    <h4>{{ $title }}</h4>
+<div class="m-4">
+    <h4 style="font-weight: bold">{{ $title }}</h4>
     <p>{{ $detail }}</p>
 </div>
 
 <form action="{{ route('mahasiswa.year') }}" method="post">
     @csrf
-    <div class="row mt-2">
+    <div class="row mt-2 m-4">
         <div class="col-md-2">
             <span>Prodi</span>
             <select class="form-select form-control" name="prodi" aria-label="Default select example" disabled>
@@ -84,7 +84,7 @@
         </div>
         @endif
 
-        <div class="card">
+        <div class="card border-secondary border m-4">
             <div class="card-header">
                 <div class="row">
                     <div class="col-12">
