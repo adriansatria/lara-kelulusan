@@ -39,7 +39,6 @@
 	</div>
 	<div class="col-sm mt-4">
 		<button type="submit" class="btn btn-outline-primary">Browse</button>
-		<a class="btn btn-outline-danger">Cancel</a>
 	</div>
 </div>
 </form>
@@ -69,9 +68,13 @@
 					<div class="col-12">
 						@if(session('level') == 'Admin')
 						<div class="float-right">
-							{{-- <a href="" class="btn btn-primary"><i class="fas fa-file-excel"></i> Import Data</a> --}}
-							<a href="{{ route('rekapkehadirandosen.create') }}" class="btn btn-secondary"><i class="fas fa-plus"></i> Add Data</a>
-							{{-- <a href="" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
+							@if($year == '')
+							<a href="{{ route('rekapstatuskelulusan.create') }}" class="btn btn-secondary"><i class="fas fa-plus"></i> Add Data</a>
+							@else
+							<a href="{{ route('rekapstatuskelulusan') }}" class="btn btn-warning"><i class="fas fa-redo-alt"></i></a>
+                            <a href="{{ route('rekapstatuskelulusan.export', $year) }}" class="btn btn-success">
+							<i class="fas fa-file-excel"></i> Export to Excel</a>
+							@endif
 						</div>
 						@endif
 					</div>

@@ -42,7 +42,6 @@ Route::get('/f2s_lulus', [App\Http\Controllers\F2s_lulus::class,'index'])->name(
 Route::post('/f2s_lulus/year', [App\Http\Controllers\F2s_lulus::class,'year'])->name('f2s_lulus.year')->middleware('login');
 Route::post('/f2s_lulus/export', [App\Http\Controllers\F2s_lulus::class,'export'])->name('f2s_lulus.export')->middleware('login');
 Route::get('/f2s_tidaklulus', [App\Http\Controllers\F2s_tidaklulus::class,'index'])->name('f2s_tidaklulus')->middleware('login');
-// Route::get('/f2s_tidaklulus2', [App\Http\Controllers\F2s_tidaklulus::class,'index2'])->name('f2s_tidaklulus.index2')->middleware('login');
 Route::post('/f2s_tidaklulus/year', [App\Http\Controllers\F2s_tidaklulus::class,'year'])->name('f2s_tidaklulus.year')->middleware('login');
 Route::get('/f2s_tidaklulus/export/{year}', [App\Http\Controllers\F2s_tidaklulus::class,'export'])->name('f2s_tidaklulus.export')->middleware('login');
 
@@ -82,7 +81,7 @@ Route::patch('/f3s/{f3}', [App\Http\Controllers\F3s::class,'update'])
 ->name('f3s.update')->middleware('login');
 Route::delete('/f3s/{f3}', [App\Http\Controllers\F3s::class,'destroy'])
 ->name('f3s.destroy')->middleware('login');
-Route::get('/f3s/export/{year}/{prodi}/{semester}', [App\Http\Controllers\F3s::class,'export'])->name('f3s.export')->middleware('login');
+Route::get('/f3s/export', [App\Http\Controllers\F3s::class,'export'])->name('f3s.export')->middleware('login');
 
 Route::get('/f4s', [App\Http\Controllers\F4s::class,'index'])->name('f4s')->middleware('login');
 Route::post('/f4s/year', [App\Http\Controllers\F4s::class,'year'])->name('f4s.year')->middleware('login');
@@ -130,7 +129,7 @@ Route::patch('/rekapkehadirandosen/{f1}', [App\Http\Controllers\Rekapkehadirando
 ->name('rekapkehadirandosen.update')->middleware('login');
 Route::delete('/rekapkehadirandosen/{f1}', [App\Http\Controllers\Rekapkehadirandosen::class,'destroy'])
 ->name('rekapkehadirandosen.destroy')->middleware('login');
-Route::post('/rekapkehadirandosen/export', [App\Http\Controllers\Rekapkehadirandosen::class,'export'])->name('rekapkehadirandosen.export')->middleware('login');
+Route::get('rekapkehadirandosen/export/{year}', [App\Http\Controllers\Rekapkehadirandosen::class,'export'])->name('rekapkehadirandosen.export')->middleware('login');
 
 
 Route::get('/rekapipmahasiswa', [App\Http\Controllers\Rekapipmahasiswa::class,'index'])->name('rekapipmahasiswa')->middleware('login');
@@ -148,15 +147,15 @@ Route::post('/rekapipmahasiswa/export', [App\Http\Controllers\Rekapipmahasiswa::
 
 Route::get('/rekapstatuskelulusan', [App\Http\Controllers\Rekapstatuskelulusan::class,'index'])->name('rekapstatuskelulusan')->middleware('login');
 Route::post('/rekapstatuskelulusan/year', [App\Http\Controllers\Rekapstatuskelulusan::class,'year'])->name('rekapstatuskelulusan.year')->middleware('login');
-Route::get('/rekapstatuskelulusan/create', [App\Http\Controllers\Rekapstatuskelulusan::class,'create'])->name('f3s.create')->middleware('login');
-Route::post('/rekapstatuskelulusan/store', [App\Http\Controllers\Rekapstatuskelulusan::class,'store'])->name('f3s.store')->middleware('login');
+Route::get('/rekapstatuskelulusan/create', [App\Http\Controllers\Rekapstatuskelulusan::class,'create'])->name('rekapstatuskelulusan.create')->middleware('login');
+Route::post('/rekapstatuskelulusan/store', [App\Http\Controllers\Rekapstatuskelulusan::class,'store'])->name('rekapstatuskelulusan.store')->middleware('login');
 Route::get('/rekapstatuskelulusan/{f3}/edit', [App\Http\Controllers\Rekapstatuskelulusan::class,'edit'])
 ->name('rekapstatuskelulusan.edit')->middleware('login');
 Route::patch('/rekapstatuskelulusan/{f3}', [App\Http\Controllers\Rekapstatuskelulusan::class,'update'])
 ->name('rekapstatuskelulusan.update')->middleware('login');
 Route::delete('/rekapstatuskelulusan/{f3}', [App\Http\Controllers\Rekapstatuskelulusan::class,'destroy'])
 ->name('rekapstatuskelulusan.destroy')->middleware('login');
-Route::post('/rekapstatuskelulusan/export', [App\Http\Controllers\Rekapstatuskelulusan::class,'export'])->name('rekapstatuskelulusan.export')->middleware('login');
+Route::get('/rekapstatuskelulusan/export/{year}/{prodi}/{semester}', [App\Http\Controllers\Rekapstatuskelulusan::class,'export'])->name('rekapstatuskelulusan.export')->middleware('login');
 
 
 Route::get('/rekapsuratperingatan', [App\Http\Controllers\Rekapsuratperingatan::class,'index'])->name('rekapsuratperingatan')->middleware('login');

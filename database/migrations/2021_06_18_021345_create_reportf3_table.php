@@ -26,13 +26,13 @@ class CreateReportf3Table extends Migration
             $table->integer('amxsks');
             $table->float('ip', 8, 2);
             $table->string('kapita_selekta2', 5);
-            $table->string('3', 5);
+            $table->string('k3', 5);
             $table->string('metodologi_penelitian2', 5);
-            $table->string('2', 5);
+            $table->string('k2', 5);
             $table->string('bahasa_inggris_komunikasi2', 5);
-            $table->string('2_2', 5);
+            $table->string('k2_2', 5);
             $table->string('tugas_akhir', 5);
-            $table->string('6', 5);
+            $table->string('k6', 5);
 
         });
     }

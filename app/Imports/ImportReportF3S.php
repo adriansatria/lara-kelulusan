@@ -16,27 +16,31 @@ class ImportReportF3S implements ToModel, WithHeadingRow
 
     public function headingRow(): int
     {
-        return 7;
+        return 6;
     }
 
     public function model(array $row)
     {
         return new F3s_model([
             '' => $row['NO.'],
-            'prodi' => $row['PRODI'],
-            'jenjang' => $row['JENJANG'],
-            'semester' => $row['SEMESTER'],
-            'kelas' => $row['KELAS'],
-            'jumlah_mahasiswa' => $row['JML. MAHASISWA'],
-            'status_l' => $row['L'],
-            'status_lp' => $row['LP'],
-            'status_ct' => $row['CT'],
-            'status_ml' => $row['ML'],
-            'status_md' => $row['MD'],
-            'status_do' => $row['DO'],
-            'nama_mahasiswa' => $row['NAMA MAHASISWA'],
             'nim' => $row['NIM'],
-            'tahun' => $row['TAHUN']
+            'nama_mahasiswa' => $row['NAMA MAHASISWA'],
+            'izin' => $row['IZIN'],
+            'tidak_izin' => $row['TIDAK IZIN'],
+            'jumlah' => $row['JUMLAH'],
+            'kelakuan' => $row['KELAKUAN'],
+            'status_lulus_lalu' => $row['STATUS LULUS SMT SEBELUMNYA'],
+            'status_lulus_baru' => $row['STATUS LULUS SMT SEKARANG'],
+            'amxsks' => $row['AM X SKS'],
+            'ip' => $row['IP'],
+            'kapita_selekta2' => $row['KAPITA SELEKTA 2'],
+            'k3' => $row['3'],
+            'metodologi_penelitian2' => $row['METODOLOGI PENELITIAN 2'],
+            'k2' => $row['2'],
+            'bahasa_inggris_komunikasi2' => $row['BAHASA INGGRIS KOMUNIKASI 2'],
+            'k2_2' => $row['2'],
+            'tugas_akhir' => $row['TUGAS AKHIR'],
+            'k6' => $row['6'],
         ]);
     }
 }
