@@ -2,6 +2,12 @@
 
 @section('content')
 
+
+<div>
+    <h4>{{ $title }}</h4>
+    <p>{{ $detail }}</p>
+</div>
+
 <form action="{{ route('mahasiswa.year') }}" method="post">
     @csrf
     <div class="row mt-2">
@@ -102,9 +108,9 @@
                 </div>
             </div>
             <div class="card-body table-responsive">
-                <table id="example1" class="table table-bordered table-striped display nowrap">
+                <table id="example1" class="table table-bordered display nowrap">
                     <thead>
-                        <tr>
+                        <tr style="background: rgb(235, 235, 235)!important; text-align:center">
                             <th rowspan="2" class="align-middle">NO</th>
                             <th rowspan="2" class="align-middle">NIM</th>
                             <th rowspan="2" class="align-middle">Foto</th>
@@ -116,10 +122,10 @@
                             <th rowspan="2" class="align-middle">Keterangan</th>
                             <th rowspan="2" class="align-middle">Tahun Akademik</th>
                             @if(session('level') == 'Admin')
-                            <td width="55px" rowspan="2" class="text-center align-middle">Aksi</td>
+                            <th width="55px" rowspan="2" class="text-center align-middle">Actions</th>
                             @endif
                         </tr>
-                        <tr>
+                        <tr style="background: rgb(235, 235, 235)!important; text-align:center">
                             <th>Nama</th>
                             <th>Tempat lahir</th>
                             <th>Tanggal lahir</th>

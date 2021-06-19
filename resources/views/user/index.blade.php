@@ -21,32 +21,27 @@
 		</div>
 		@endif
 
-		<div class="card border border-secondary p-2">
-			<div class="card-header">
-				<div class="row">
-                <head>
-<h1>Dashboard</h1>
-</head>
-				</div>
-			</div>
+		<h2 class="m-4" style="font-weight: bold">User</h2>
+
+		<div class="card border border-secondary m-4">
 			<div class="card-body">
-				<table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
+				<table id="example1" class="table table-bordered display nowrap" width="100%">
                 <div class="col-12">
 						@if(session('level') == 'Admin')
 						<div class="float-right ml-2">
-							<a href="{{ route('users.create') }}" class="btn btn-secondary"><i class="fas fa-plus"></i> Add Data</a>
+							<a href="{{ route('users.create') }}" class="btn btn border border-secondary" style="background: rgb(235, 235, 235)"><i class="fas fa-plus"></i> Add User</a>
 							{{-- <a href="" class="btn btn-secondary"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
 						</div>
 						@endif
 					</div>
 					<thead>
-						<tr>
-							<th width="20px">NO</th>
+						<tr style="background: rgb(235, 235, 235); text-align: center">
+							<th style="width: 20px">NO</th>
 							<th>Nama</th>
 							<th>Username</th>
 							<th>Level</th>
 							@if(session('level') == 'Admin')
-							<td width="55px">Aksi</td>
+							<th width="55px">Actions</th>
 							@endif
 						</tr>
 					</thead>

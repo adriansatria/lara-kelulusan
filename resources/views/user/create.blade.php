@@ -2,46 +2,49 @@
 
 @section('content')
 
+<div class="m-4">
+	<h2 style="font-weight:bold">User</h2>
+</div>
 
 <div class="row">
-	<div class="col-12">
+	<div class="col-12" >
 		<div class="card">
-			<div class="card-body">
+			<div class="card-body border-secondary border m-4">
 				<form action="{{ route('users.store') }}" method="POST">
 					@csrf
 					<div class="row">
 						<div class="col-md-12">
-							<div class="form-group">
+							<div class="form-group ">
 								<label for="name">Nama User</label>
-								<input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}">
+								<input type="text" class="form-control  @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}">
 								@error('name')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
 							<div class="form-group">
 								<label for="username">Username</label>
-								<input type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}">
+								<input type="text" class="form-control  @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}">
 								@error('username')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
 							<div class="form-group">
 								<label for="email">Email</label>
-								<input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+								<input type="email" class="form-control  @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
 								@error('email')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
 							<div class="form-group">
 								<label for="password">Password</label>
-								<input type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}">
+								<input type="password" class="form-control  @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}">
 								@error('password')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
 							<div class="form-group">
 								<label for="level">Level</label>
-								<select name="level" class="form-control @error('level') is-invalid @enderror">
+								<select name="level" class="form-control  @error('level') is-invalid @enderror">
 									<option value="">Pilih Level</option>
 									<option value="Admin">Admin</option>
 									<option value="Petugas">Petugas Evaluasi</option>
@@ -55,7 +58,7 @@
 							</div>
 						</div>
 					</div>
-					<button type="submit" class="btn btn-primary">Save</button>
+					<button type="submit" class="btn btn border-secondary" style="background: rgb(235, 235, 235);">Save</button>
 				</form>
 			</div>
 		</div>	

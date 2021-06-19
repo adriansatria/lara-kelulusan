@@ -2,10 +2,13 @@
 
 @section('content')
 
+<div class="m-4">
+	<h2 style="font-weight:bold">Evaluasi</h2>
+</div>
 
 <div class="row">
 	<div class="col-12">
-		<div class="card">
+		<div class="card border border-secondary m-4">
 			<div class="card-body">
 				<form action="{{ route('evaluations.store') }}" method="POST">
 					@csrf
@@ -86,7 +89,7 @@
 							</div>
 						</div>
 					</div>
-					<button type="submit" class="btn btn-primary">Save</button>
+					<button type="submit" class="btn btn border border-secondary" style="background: rgb(235, 235, 235);">Save</button>
 				</form>
 			</div>
 		</div>	

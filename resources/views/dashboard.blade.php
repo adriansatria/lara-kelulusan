@@ -2,7 +2,7 @@
 
 @section('content')
 <head>
-<h1>Dashboard</h1>
+<h2 class=" m-4" style="font-weight: bold">Dashboard</h2>
 </head>
 <div class="row p-2 justify-content-center ">
 	<div class="col-lg-6 col-12	">

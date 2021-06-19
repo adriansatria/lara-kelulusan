@@ -2,6 +2,10 @@
 
 @section('content')
 
+<div>
+    <h4>{{ $title }}</h4>
+    <p>{{ $detail }}</p>
+</div>
 <div class="row">
     <div class="col-12">
         @if(session()->has('add'))
@@ -36,7 +40,7 @@
         </div>
         @endif
 
-        <div class="card">
+        <div class="card mt-4">
             <div class="card-header">
                 <div class="row">
                     <div class="col-12">
@@ -56,9 +60,9 @@
                 </div>
             </div>
             <div class="card-body table-responsive">
-                <table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
+                <table id="example1" class="table table-bordered display nowrap" width="100%" >
                     <thead>
-                        <tr>
+                        <tr style="background: rgb(235, 235, 235)!important; text-align:center">
                             <th width="20px">NO</th>
                             <th>Nama</th>
                             <th>NIP</th>
@@ -72,7 +76,7 @@
                             <th>Serdos</th>
                             <th>Ket.</th>
                             @if(session('level') == 'Admin')
-                            <td width="55px">Aksi</td>
+                            <th width="55px">Actions</th>
                             @endif
                         </tr>
                     </thead>

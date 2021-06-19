@@ -219,17 +219,6 @@
                 </div>
             </nav>
             <!-- Right navbar links -->
-        <!-- /.navbar -->
-
-        <!-- Main Sidebar Container -->
-
-
-
-
-
-        <!-- Content Wrapper. Contains page content -->
-
-        <!-- /.content-header -->
 
         <!-- Main content -->
         <section class="content">

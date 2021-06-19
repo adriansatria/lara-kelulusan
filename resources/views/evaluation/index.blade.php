@@ -21,7 +21,11 @@
 		</div>
 		@endif
 
-		<div class="card">
+		<div class="m-4">
+			<h2 style="font-weight:bold">Evaluasi</h2>
+		</div>
+
+		<div class="card border border-secondary m-4">
 			<div class="card-header">
 				<div class="row">
 					<div class="col-12">
@@ -37,7 +41,7 @@
 						</div>
 						@if(session('level') == 'Admin' || session('level') == 'Petugas' || session('level') == 'Dosen')
 						<div class="float-right">
-							<a href="{{ route('evaluations.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Data </a>
+							<a href="{{ route('evaluations.create') }}" class="btn btn border border-secondary" style="background: rgb(235, 235, 235); "><i class="fas fa-plus"></i> Add Evaluations </a>
 							{{-- <a href="" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
 						</div>
 						@endif
@@ -45,9 +49,9 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<table id="example1" class="table table-bordered table-striped display nowrap">
+				<table id="example1" class="table table-bordered display nowrap">
 					<thead>
-						<tr>
+						<tr style="background: rgb(235, 235, 235); text-align: center">
 							<th>NO</th>
 							<th>Nama Dosen</th>
 							<th>Mata Kuliah</th>
@@ -59,14 +63,14 @@
 							<th>Keterangan</th>
 							<th>Tahun</th>
 							@if(session('level') != 'Kajur' || session('level') != 'Kaprodi')
-							<td width="55px">Aksi</td>
+							<th width="55px">Actions</th>
 							@endif
 						</tr>
 					</thead>
 					<tbody>
 						@foreach($evaluations as $evaluation)
 						<tr>
-							<td>{{$loop->iteration}}</td>
+							<td style="text-align: center">{{$loop->iteration}}</td>
 							<td>{{ $evaluation->nama_dosen }}</td>
 							<td>{{ $evaluation->mata_kuliah }}</td>
 							<td>{{ $evaluation->kelas }}</td>
