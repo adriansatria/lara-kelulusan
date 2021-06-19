@@ -148,7 +148,7 @@
 							<td>{{ $f3->k3 }}</td>
 							<td>{{ $f3->metodologi_penelitian2 }}</td>
 							<td>{{ $f3->k2 }}</td>
-							<td>{{ $f3->bahasa_inggris_komunikasi2 }}</td>
+							<td>{{ $f3->bahasa_inggris_komunikasi3 }}</td>
 							<td>{{ $f3->k2_2 }}</td>
 							<td>{{ $f3->tugas_akhir }}</td>
 							<td>{{ $f3->k6 }}</td>

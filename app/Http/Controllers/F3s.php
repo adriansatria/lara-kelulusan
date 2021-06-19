@@ -95,7 +95,7 @@ class F3s extends Controller
 			'k3' => 'required',
 			'metodologi_penelitian2' => 'required',
 			'k2' => 'required',
-			'bahasa_inggris_komunikasi2' => 'required',
+			'bahasa_inggris_komunikasi3' => 'required',
 			'k2_2' => 'required',
 			'tugas_akhir' => 'required',
 			'k6' => 'required',
@@ -115,7 +115,7 @@ class F3s extends Controller
 			'k3.required' => 'Data must not be empty!',
 			'metodologi_penelitian2.required' => 'Data must not be empty!',
 			'k2.required' => 'Data must not be empty!',
-			'bahasa_inggris_komunikasi2.required' => 'Data must not be empty!',
+			'bahasa_inggris_komunikasi3.required' => 'Data must not be empty!',
 			'k2_2.required' => 'Data must not be empty!',
 			'tugas_akhir.required' => 'Data must not be empty!',
 			'k6.required' => 'Data must not be empty!'
@@ -168,7 +168,11 @@ class F3s extends Controller
         $sheet->getColumnDimension('L')->setAutoSize(true);
         $sheet->getColumnDimension('M')->setAutoSize(true);
         $sheet->getColumnDimension('N')->setAutoSize(true);
-
+		$sheet->getColumnDimension('O')->setAutoSize(true);
+		$sheet->getColumnDimension('P')->setAutoSize(true);
+		$sheet->getColumnDimension('Q')->setAutoSize(true);
+		$sheet->getColumnDimension('R')->setAutoSize(true);
+		$sheet->getColumnDimension('S')->setAutoSize(true);
 
 		$sheet->setCellValue('A6', 'NO.');
 		$sheet->setCellValue('B6', 'NIM');
@@ -185,7 +189,7 @@ class F3s extends Controller
 		$sheet->setCellValue('M6', '3');
 		$sheet->setCellValue('N6', 'METODOLOGI PENELITIAN 2');
 		$sheet->setCellValue('O6', '2');
-		$sheet->setCellValue('P6', 'BAHASA INGGRIS KOMUNIKASI 2');
+		$sheet->setCellValue('P6', 'BAHASA INGGRIS KOMUNIKASI 3');
 		$sheet->setCellValue('Q6', '2');
 		$sheet->setCellValue('R6', 'TUGAS AKHIR');
 		$sheet->setCellValue('S6', '6');
@@ -223,7 +227,7 @@ class F3s extends Controller
 			$sheet->setCellValue('M'.$cell, $row->k3);
 			$sheet->setCellValue('N'.$cell, $row->metodologi_penelitian2);
 			$sheet->setCellValue('O'.$cell, $row->k2);
-			$sheet->setCellValue('P'.$cell, $row->bahasa_inggris_komunikasi2);
+			$sheet->setCellValue('P'.$cell, $row->bahasa_inggris_komunikasi3);
 			$sheet->setCellValue('Q'.$cell, $row->k2_2);
 			$sheet->setCellValue('R'.$cell, $row->tugas_akhir);
 			$sheet->setCellValue('S'.$cell, $row->k6);

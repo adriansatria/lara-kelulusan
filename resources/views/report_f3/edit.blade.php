@@ -143,9 +143,9 @@
 					<div class="row">
 						<div class="col-md-2">
 							<div class="form-group">
-								<label for="bahasa_inggris_komunikasi2">Bahasa Inggris Komunikasi 2</label>
-								<input type="text" class="form-control @error('bahasa_inggris_komunikasi2') is-invalid @enderror" name="bahasa_inggris_komunikasi2" value="{{ old('bahasa_inggris_komunikasi2') ?? $report_f3->bahasa_inggris_komunikasi2  }}">
-								@error('bahasa_inggris_komunikasi2')
+								<label for="bahasa_inggris_komunikasi3">Bahasa Inggris Komunikasi 3</label>
+								<input type="text" class="form-control @error('bahasa_inggris_komunikasi3') is-invalid @enderror" name="bahasa_inggris_komunikasi3" value="{{ old('bahasa_inggris_komunikasi3') ?? $report_f3->bahasa_inggris_komunikasi3  }}">
+								@error('bahasa_inggris_komunikasi3')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
