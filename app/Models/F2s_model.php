@@ -8,24 +8,28 @@ use Illuminate\Database\Eloquent\Model;
 class F2s_model extends Model
 {
     use HasFactory;
-    protected $table = 'report_f2s';
+    protected $table = 'reportf2s';
 	protected $primaryKey = 'id';
 	protected $guarded = [];
 	public $timestamps = false;
 	protected $fillable = [
-		'nama_mahasiswa',
-		'kelas',
 		'nim',
-		'ip_s1',
-		'ip_s2',
-		'ip_s3',
-		'ip_s4',
-		'ip_s5',
-		'ip_s6',
-		'ip_s7',
-		'ip_s8',
-		'ipk',
-		'status',
-		'tahun',
+		'nama_mahasiswa',
+		'izin',
+		'tidak_izin',
+		'jumlah',
+		'kelakuan',
+		'status_lulus_lalu',
+		'status_lulus_baru',
+		'amxsks',
+		'ip',
+		'kapita_selekta2',
+		'k3',
+		'metodologi_penelitian2',
+		'k2',
+		'bahasa_inggris_komunikasi3',
+		'k2_2',
+		'tugas_akhir',
+		'k6',
 	];
 }

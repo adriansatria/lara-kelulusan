@@ -11,7 +11,7 @@ class Rekapipmahasiswa extends Controller
 {
     public function index(){
 		$Rekapipmahasiswa = Rekapipmahasiswa_model::all();
-		return view('report_f2.index', ['title' => 'Report F2','detail' => 'Rekapitulasi IP Mahasiswa', 'f2s' => $Rekapipmahasiswa]);
+		return view('report_f2.rekapipmahasiswa', ['title' => 'Report F2','detail' => 'Rekapitulasi IP Mahasiswa', 'f2s' => $Rekapipmahasiswa]);
 	}
 
 	public function year(Request $request)
