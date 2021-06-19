@@ -48,8 +48,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="card-body">
-				<table id="example1" class="table table-bordered display nowrap">
+			<div class="card-body table-responsive">
+				<table id="example1" class="table table-bordered display nowrap" width="100%">
 					<thead>
 						<tr style="background: rgb(235, 235, 235); text-align: center">
 							<th>NO</th>
@@ -69,6 +69,7 @@
 					</thead>
 					<tbody>
 						@foreach($evaluations as $evaluation)
+						@if(session('username') == $evaluation->nama_dosen)
 						<tr>
 							<td style="text-align: center">{{$loop->iteration}}</td>
 							<td>{{ $evaluation->nama_dosen }}</td>
@@ -91,6 +92,7 @@
 							</td>
 							@endif
 						</tr>
+						@endif
 						@endforeach
 					</tbody>
 				</table>

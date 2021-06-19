@@ -206,7 +206,7 @@
                     <ul class="navbar ml-auto float-right">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle btn btn-black" data-toggle="dropdown" href="#" role="button"
-                                aria-haspopup="true" aria-expanded="false">Admin
+                                aria-haspopup="true" aria-expanded="false">{{ session('username') }}
                                 <img src="{{ url('') }}/assets/dist/img/logo.png" style="max-height: 20px" class="rounded">
                             </a>
                             <div class="dropdown-menu p-1 m-1">

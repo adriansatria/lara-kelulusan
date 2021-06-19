@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div>
-    <h4>{{ $title }}</h4>
+<div class="m-4">
+    <h4 style="font-weight: bold">{{ $title }}</h4>
     <p>{{ $detail }}</p>
 </div>
 <div class="row">
@@ -40,7 +40,7 @@
         </div>
         @endif
 
-        <div class="card mt-4">
+        <div class="card mt-4 m-4 border border-secondary">
             <div class="card-header">
                 <div class="row">
                     <div class="col-12">
