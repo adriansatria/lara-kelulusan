@@ -48,8 +48,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="card-body">
-				<table id="example1" class="table table-bordered table-striped display nowrap">
+			<div class="card-body table-responsive">
+				<table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
 					<thead>
 						<tr>
 							<th rowspan="2" class="align-middle">NO</th>

@@ -39,12 +39,11 @@
 	</div>
 	<div class="col-sm mt-4">
 		<button type="submit" class="btn btn-outline-primary">Browse</button>
-		<a class="btn btn-outline-danger">Cancel</a>
 	</div>
 </div>
 </form>
 
-<div class="row">
+<div class="row mt-3">
 	<div class="col-12">
 		@if(session()->has('add'))
 		<div class="alert alert-success alert-dismissible">

@@ -87,7 +87,7 @@ class Rekapkehadirandosen extends Controller
 
 		Rekapkehadirandosen_model::where('id',$id)->update($validateData);
 
-		return redirect()->route('Rekapkehadirandosen')
+		return redirect()->route('rekapkehadirandosen')
 		->with('update', 'Data updated successfully');
 	}
 
@@ -97,7 +97,7 @@ class Rekapkehadirandosen extends Controller
 
 		$delete->delete();
 
-		return redirect()->route('Rekapkehadirandosen')
+		return redirect()->route('rekapkehadirandosen')
 		->with('delete','Data deleted successfully');
 
 	}
