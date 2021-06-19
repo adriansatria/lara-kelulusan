@@ -88,6 +88,13 @@
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
+							<div class="form-group">
+								<label for="keterangan">Keterangan</label>
+								<input class="form-control @error('keterangan') is-invalid @enderror" name="keterangan" value="{{ old('keterangan') ?? $report_f3->keterangan  }}">
+								@error('keterangan')
+								<div class="text-danger">{{ $message }}</div>
+								@enderror
+							</div>
 						</div>
 					</div>
 					<div class="float-right">

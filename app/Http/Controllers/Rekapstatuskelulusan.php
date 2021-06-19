@@ -25,7 +25,7 @@ class rekapstatuskelulusan extends Controller
 	}
 
 	public function create(){
-		return view('report_f3.createrekap', ['title' => 'Form Add Data Report F3', 'detail' => '']);
+		return view('report_f3.create', ['title' => 'Form Add Data Report F3', 'detail' => '']);
 	}
 
 	public function store(Request $request){
@@ -44,7 +44,8 @@ class rekapstatuskelulusan extends Controller
 			'status_ml' => '',
 			'status_md' => '',
 			'status_do' => '',
-			'tahun' => 'required'
+			'tahun' => 'required',
+			'keterangan' => 'required'
 		],
 		[
 			'prodi.required' => 'Data must not be empty!',
@@ -52,7 +53,8 @@ class rekapstatuskelulusan extends Controller
 			'semester.required' => 'Data must not be empty!',
 			'kelas.required' => 'Data must not be empty!',
 			'jumlah_mahasiswa.required' => 'Data must not be empty!',
-			'tahun.required' => 'Data must not be empty!'
+			'tahun.required' => 'Data must not be empty!',
+			'keterangan.required' => 'Data must not be empty!'
 
 		]);
 
@@ -84,7 +86,8 @@ class rekapstatuskelulusan extends Controller
 			'status_ml' => '',
 			'status_md' => '',
 			'status_do' => '',
-			'tahun' => 'required'
+			'tahun' => 'required',
+			'keterangan' => 'required'
 		],
 		[
 			'prodi.Dequired' => 'Data must not be empty!',
@@ -93,7 +96,8 @@ class rekapstatuskelulusan extends Controller
 			'kelas.required' => 'Data must not be empty!',
 			'jumlah_mahasiswa.required' => 'Data must not be empty!',
 			'status.required' => 'Data must not be empty!',
-			'tahun.required' => 'Data must not be empty!'
+			'tahun.required' => 'Data must not be empty!',
+			'keterangan.required' => 'Data must not be empty!'
 
 		]);
 
@@ -121,22 +125,22 @@ class rekapstatuskelulusan extends Controller
 		$spreadsheet = new Spreadsheet();
 		$sheet = $spreadsheet->getActiveSheet();
 		$sheet->setTitle('Laporan Kelulusan');
-		$sheet->mergeCells('A1:O1');
+		$sheet->mergeCells('A1:P1');
 		$sheet->setCellValue('A1', 'JUMLAH MAHASISWA LULUS, LULUS PERCOBAAN, CUTI');
-		$sheet->getStyle('A1:O1')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A1:O1')->getFont()->setBold(true);
-		$sheet->mergeCells('A2:O2');
+		$sheet->getStyle('A1:P1')->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('A1:P1')->getFont()->setBold(true);
+		$sheet->mergeCells('A2:P2');
 		$sheet->setCellValue('A2', 'MENGULANG, MENGUNDURKAN DIRI & DROP OUT');
-		$sheet->getStyle('A2:O2')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A2:O2')->getFont()->setBold(true);
-		$sheet->mergeCells('A3:O3');
+		$sheet->getStyle('A2:P2')->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('A2:P2')->getFont()->setBold(true);
+		$sheet->mergeCells('A3:P3');
 		$sheet->setCellValue('A3', 'JURUSAN TEKNIK INFORMATIKA DAN KUMPUTER POLITEKNIK NEGERI JAKARTA');
-		$sheet->getStyle('A3:O3')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A3:O3')->getFont()->setBold(true);
-		$sheet->mergeCells('A4:O4');
+		$sheet->getStyle('A3:P3')->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('A3:P3')->getFont()->setBold(true);
+		$sheet->mergeCells('A4:P4');
 		$sheet->setCellValue('A4', 'SEMESTER GANJIL TAHUN AKADEMIK ' . $year . '/' . ($year+1));
-		$sheet->getStyle('A4:O4')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A4:O4')->getFont()->setBold(true);
+		$sheet->getStyle('A4:P4')->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('A4:P4')->getFont()->setBold(true);
 
 		$sheet->getColumnDimension('A')->setAutoSize(true);
         $sheet->getColumnDimension('B')->setAutoSize(true);
@@ -152,6 +156,8 @@ class rekapstatuskelulusan extends Controller
         $sheet->getColumnDimension('L')->setAutoSize(true);
         $sheet->getColumnDimension('M')->setAutoSize(true);
         $sheet->getColumnDimension('N')->setAutoSize(true);
+		$sheet->getColumnDimension('O')->setAutoSize(true);
+		$sheet->getColumnDimension('P')->setAutoSize(true);
 
 		$sheet->mergeCells('I6:N6');
 		$sheet->setCellValue('I6', 'STATUS');
@@ -173,6 +179,7 @@ class rekapstatuskelulusan extends Controller
 		$sheet->setCellValue('N7', 'NIM');
 		$sheet->setCellValue('O7', 'TAHUN');
 		$sheet->getStyle('N7:O7')->getAlignment()->setHorizontal('center');
+		$sheet->setCellValue('P7', 'KET.');
 
 		$styleArray = array(
 			'borders' => array(
@@ -183,8 +190,8 @@ class rekapstatuskelulusan extends Controller
 			),
 		);
 	
-		$sheet ->getStyle('A6:O6')->applyFromArray($styleArray);
-		$sheet ->getStyle('A7:O7')->applyFromArray($styleArray);
+		$sheet ->getStyle('A6:P6')->applyFromArray($styleArray);
+		$sheet ->getStyle('A7:P7')->applyFromArray($styleArray);
 
 		$no=1;
 		$cell = 8;
@@ -220,7 +227,7 @@ class rekapstatuskelulusan extends Controller
 				),
 			);
 		
-			$sheet ->getStyle('A'.$cell.':O'.$cell)->applyFromArray($styleArray);
+			$sheet ->getStyle('A'.$cell.':P'.$cell)->applyFromArray($styleArray);
 
 			$cell++;
 		}

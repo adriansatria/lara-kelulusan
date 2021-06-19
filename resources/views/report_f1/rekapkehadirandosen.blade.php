@@ -69,10 +69,10 @@
 						@if(session('level') == 'Admin')
 						<div class="float-right">
 							@if($year == '')
-							<a href="{{ route('rekapstatuskelulusan.create') }}" class="btn btn-secondary"><i class="fas fa-plus"></i> Add Data</a>
+							<a href="{{ route('rekapkehadirandosen.create') }}" class="btn btn-secondary"><i class="fas fa-plus"></i> Add Data</a>
 							@else
-							<a href="{{ route('rekapstatuskelulusan') }}" class="btn btn-warning"><i class="fas fa-redo-alt"></i></a>
-                            <a href="{{ route('rekapstatuskelulusan.export', $year) }}" class="btn btn-success">
+							<a href="{{ route('rekapkehadirandosen') }}" class="btn btn-warning"><i class="fas fa-redo-alt"></i></a>
+                            <a href="{{ route('rekapkehadirandosen.export', $year) }}" class="btn btn-success">
 							<i class="fas fa-file-excel"></i> Export to Excel</a>
 							@endif
 						</div>

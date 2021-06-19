@@ -7,7 +7,7 @@
 	<div class="col-12">
 		<div class="card">
 			<div class="card-body">
-				<form action="{{ route('f3s.store') }}" method="POST">
+				<form action="{{ route('rekapstatuskelulusan.store') }}" method="POST">
 					@csrf
 					<div class="row">
 						<div class="col-md-6">
@@ -84,6 +84,13 @@
 								<label for="tahun">Tahun</label>
 								<input type="number" class="form-control @error('tahun') is-invalid @enderror" name="tahun" value="{{ old('tahun') }}">
 								@error('tahun')
+								<div class="text-danger">{{ $message }}</div>
+								@enderror
+							</div>
+							<div class="form-group">
+								<label for="keterangan">Keterangan</label>
+								<textarea class="form-control @error('keterangan') is-invalid @enderror" name="keterangan" value="{{ old('keterangan')  }}"></textarea>
+								@error('keterangan')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>

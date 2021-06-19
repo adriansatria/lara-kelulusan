@@ -132,7 +132,7 @@
 							<td>{{ $f3->nama_mahasiswa }}</td>
 							<td>{{ $f3->nim }}</td>
 							<td>{{ $f3->tahun }}</td>
-							<td></td>
+							<td>{{ $f3->keterangan }}</td>
 							@if(session('level') == 'Admin')
 							<td>
 								<a href="{{ route('rekapstatuskelulusan.edit', $f3->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
