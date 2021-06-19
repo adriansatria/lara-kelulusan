@@ -33,7 +33,7 @@
             background-color: #f1f1f1;
             min-width: 160px;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
+            z-index: 99;
         }
 
         .dropdown-content a {
@@ -113,7 +113,6 @@
     <div class="wrapper">
 
         <!-- Navbar -->
-        <nav class="navbar navbar-light">
             <nav class="navbar navbar-expand-lg navbar-light">
 
                 <div class="">
@@ -204,23 +203,22 @@
                                     class="sr-only">(current)</span></a>
                         </li>
                     </ul>
+                    <ul class="navbar ml-auto float-right">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle btn btn-black" data-toggle="dropdown" href="#" role="button"
+                                aria-haspopup="true" aria-expanded="false">Admin
+                                <img src="{{ url('') }}/assets/dist/img/logo.png" style="max-height: 20px" class="rounded">
+                            </a>
+                            <div class="dropdown-menu p-1 m-1">
+                                <a class="dropdown-item " href="{{ url('/logout') }}" onclick="return confirm ('Logout?')">
+                                    <i class="fas fa-sign-out-alt"></i> Keluar
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </nav>
             <!-- Right navbar links -->
-            <ul class="navbar" style="margin-left:570px;">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle btn btn-black" data-toggle="dropdown" href="#" role="button"
-                        aria-haspopup="true" aria-expanded="false">Admin
-                        <img src="{{ url('') }}/assets/dist/img/logo.png" style="max-height: 20px" class="rounded">
-                    </a>
-                    <div class="dropdown-menu p-1 m-1">
-                        <a class="dropdown-item " href="{{ url('/logout') }}" onclick="return confirm ('Logout?')">
-                            <i class="fas fa-sign-out-alt"></i> Keluar
-                        </a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
@@ -238,7 +236,6 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 @yield('content')
-                @yield('title')
                 <!-- /.row -->
                 <!-- /.row (main row) -->
             </div><!-- /.container-fluid -->

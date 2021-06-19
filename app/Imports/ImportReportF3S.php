@@ -16,27 +16,27 @@ class ImportReportF3S implements ToModel, WithHeadingRow
 
     public function headingRow(): int
     {
-        return 5;
+        return 7;
     }
 
     public function model(array $row)
     {
         return new F3s_model([
             '' => $row['NO.'],
-            'prodi' => $row['Prodi'],
-            'jenjang' => $row['Jenjang'],
-            'semester' => $row['Semester'],
-            'kelas' => $row['Kelas'],
-            'jumlah_mahasiswa' => $row['Jumlah Mahasiswa'],
+            'prodi' => $row['PRODI'],
+            'jenjang' => $row['JENJANG'],
+            'semester' => $row['SEMESTER'],
+            'kelas' => $row['KELAS'],
+            'jumlah_mahasiswa' => $row['JML. MAHASISWA'],
             'status_l' => $row['L'],
             'status_lp' => $row['LP'],
             'status_ct' => $row['CT'],
             'status_ml' => $row['ML'],
             'status_md' => $row['MD'],
             'status_do' => $row['DO'],
-            'nama_mahasiswa' => $row['Nama Mahasiswa'],
+            'nama_mahasiswa' => $row['NAMA MAHASISWA'],
             'nim' => $row['NIM'],
-            'tahun' => $row['Tahun']
+            'tahun' => $row['TAHUN']
         ]);
     }
 }

@@ -17,7 +17,14 @@ class Datamahasiswa extends Controller
 {
     public function index() {
         $mahasiswa = Mahasiswa_Model::all();
-        return view('datamahasiswa.datamahasiswa', ['title' => 'Data Mahasiswa', 'detail' => 'Rekapitulasi data mahasiswa', 'mahasiswa' => $mahasiswa]);
+        return view('datamahasiswa.datamahasiswa', ['title' => 'Data Mahasiswa', 'detail' => 'Rekapitulasi data mahasiswa', 'mahasiswa' => $mahasiswa, 'year' => '']);
+    }
+
+    public function year(Request $request) {
+        $year = $request->input('year');
+		$mahasiswa = Mahasiswa_Model::where('tahun_akademik', $year)->get();
+		return view('datamahasiswa.datamahasiswa', ['title' => 'Data mahasiswa ' . $year, 'detail' => 'Rekapitulasi data mahasiswa', 'mahasiswa' => $mahasiswa, 'year' => $year]);
+
     }
 
     public function import(Request $request) {

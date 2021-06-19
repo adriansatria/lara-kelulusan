@@ -2,7 +2,49 @@
 
 @section('content')
 
-<div class="row">
+<form action="{{ route('f1s.year') }}" method="post">
+@csrf
+<div class="row mt-2">
+	<div class="col-md-2">
+	<span>Prodi</span>
+		<select class="form-select form-control" name="prodi" aria-label="Default select example" disabled>
+			<option selected>PILIH</option>
+			<option value="Teknik Informasi">Teknik Informasi</option>
+			<option value="Teknik Informatika">Teknik Informatika</option>
+		</select>
+	</div>
+	<div class="col-md-2">
+	<span>Semester</span>
+		<select class="form-select form-control" name="semester" aria-label="Default select example" disabled>
+			<option selected>PILIH</option>
+			<option value="Ganjil">Ganjil</option>
+			<option value="Genap">Genap</option>
+		</select>
+	</div>
+	<div class="col-md-2">
+	<span>Tahun</span>
+		<select class="form-select form-control" name="year" aria-label="Default select example">
+			<option selected>PILIH</option>
+			<option value="2012">2012</option>
+			<option value="2013">2013</option>
+			<option value="2014">2014</option>
+			<option value="2015">2015</option>
+			<option value="2016">2016</option>
+			<option value="2017">2017</option>
+			<option value="2018">2018</option>
+			<option value="2019">2019</option>
+			<option value="2020">2020</option>
+			<option value="2021">2021</option>
+		</select>
+	</div>
+	<div class="col-sm mt-4">
+		<button type="submit" class="btn btn-outline-primary">Browse</button>
+		<a class="btn btn-outline-danger">Cancel</a>
+	</div>
+</div>
+</form>
+
+<div class="row mt-4">
     <div class="col-12">
         @if(session()->has('add'))
         <div class="alert alert-success alert-dismissible">
@@ -40,17 +82,6 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-12">
-                        <div class="float-left">
-                            <form class="form-inline" action="{{ route('f1s.year') }}" method="POST">
-                                @csrf
-                                <div class="form-group">
-                                    <label for="year">Year</label>
-                                    <input type="text" name="year" class="form-control mx-sm-3">
-                                </div>
-                                <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i>
-                                    Search</button>
-                            </form>
-                        </div>
                         @if(session('level') == 'Admin')
                         <div class="float-right">
                             {{-- <a href="" class="btn btn-primary"><i class="fas fa-file-excel"></i> Import Data</a> --}}

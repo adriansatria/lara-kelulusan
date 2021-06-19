@@ -11,7 +11,7 @@ class rekapstatuskelulusan extends Controller
 {
     public function index(){
 		$rekapstatuskelulusan = Rekapstatuskelulusan_model::all();
-		return view('report_f3.index', ['title' => 'Report F3','detail' => 'Rekapitulasi Status Kelulusan', 'f3s' => $rekapstatuskelulusan]);
+		return view('report_f3.rekapstatuskelulusan', ['title' => 'Report F3','detail' => 'Rekapitulasi Status Kelulusan', 'f3s' => $rekapstatuskelulusan, 'year' => '']);
 	}
 
 	public function year(Request $request)

@@ -7,14 +7,15 @@
 	<div class="col-12">
 		<div class="card">
 			<div class="card-body">
-				<form action="{{ route('f1s.store') }}" method="POST">
+				<form action="{{ route('rekapkehadirandosen.update', $report_f1->id) }}" method="POST">
+                    @method('PATCH')
 					@csrf
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="nama_dosen">Nama Dosen</label>
 								<!-- <input type="text" class="form-control @error('nama_dosen') is-invalid @enderror" name="nama_dosen" value="{{ old('nama_dosen') }}"> -->
-								<select class="form-select form-control @error('nama_dosen') is-invalid @enderror" name="nama_dosen" value="{{ old('nama_dosen') }}" aria-label="Default select example">
+								<select class="form-select form-control @error('nama_dosen') is-invalid @enderror" name="nama_dosen" value="{{ old('nama_dosen') ?? $report_f1->nama_dosen }}" aria-label="Default select example">
 									<option selected>PILIH</option>
 									<option value="2012">2012</option>
 									<option value="2013">2013</option>

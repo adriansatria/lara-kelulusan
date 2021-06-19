@@ -10,23 +10,15 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 class Rekapkehadirandosen extends Controller
 {
 	public function index(){
-		$Rekapkehadirandosen = Rekapkehadirandosen_model::join('dosen', 'dosen.nip', '=' ,'report_f1s.nip')
-		->select('report_f1s.*', 'dosen.nip', 'dosen.nama_dosen')
-		->get();
-		return view('report_f1.index', ['title' => 'Report F1', 'detail' => 'Rekapitulasi Kehadiran Dosen', 'f1s' => $Rekapkehadirandosen, 'year' => '']);
+		$Rekapkehadirandosen = Rekapkehadirandosen_model::all();
+		return view('report_f1.rekapkehadirandosen', ['title' => 'Rekapitulasi F1', 'detail' => 'Rekapitulasi Kehadiran Dosen', 'f1s' => $Rekapkehadirandosen, 'year' => '']);
 	}
 
 	public function year(Request $request)
 	{
-		if($request->input('year') == ''){
-			$Rekapkehadirandosen = Rekapkehadirandosen_model::all();
-			return view('report_f1.index', ['title' => 'Report F1', 'detail' => 'Rekapitulasi Kehadiran Dosen', 'f1s' => $fRekapkehadirandosen1s]);
-
-		} else{
 			$year = $request->input('year');
 			$result = Rekapkehadirandosen_model::where('tahun', $year)->get();
-			return view('report_f1.year', ['title' => 'Report F1 ' . $year, 'detail' => 'Rekapitulasi Kehadiran Dosen','report_f1' => $result]);
-		}
+			return view('report_f1.rekapkehadirandosen', ['title' => 'Rekapitulasi F1 ' . $year, 'detail' => 'Rekapitulasi Kehadiran Dosen', 'f1s' => $result, 'year' => $year]);
 	}
 
 	public function create(){
@@ -66,7 +58,7 @@ class Rekapkehadirandosen extends Controller
 	public function edit($id)
 	{
 		$result = Rekapkehadirandosen_model::find($id);
-		return view('report_f1.edit', ['title' => 'Edit Data Report F1', 'detail' => '', 'report_f1' => $result]);
+		return view('report_f1.editrekap', ['title' => 'Edit Data Rekap F1', 'detail' => '', 'report_f1' => $result]);
 	}
 
 	public function update(Request $request, $id)
