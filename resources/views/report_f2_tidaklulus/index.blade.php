@@ -2,9 +2,14 @@
 
 @section('content')
 
+<div class="m-4">
+    <h4 style="font-weight: bold">{{ $title }}</h4>
+    <p>{{ $detail }}</p>
+</div>
+
 <form action="{{ route('f2s_tidaklulus.year') }}" method="post">
 @csrf
-<div class="row mt-2">
+<div class="row mt-2 ml-3">
 	<div class="col-md-2">
 	<span>Prodi</span>
 		<select class="form-select form-control" name="prodi" aria-label="Default select example" disabled>
@@ -81,11 +86,6 @@
 			<span>{{ $sukses }}</span>
 		</div>
 		@endif
-
-		<div class="m-4">
-			<h2 style="font-weight:bold">Dashboard</h2>
-			<h6 >Jumlah Mahasiswa Tidak Lulus</h6>
-		</div>
 
 		<div class="card border-secondary m-4 border">
 			<div class="card-header">

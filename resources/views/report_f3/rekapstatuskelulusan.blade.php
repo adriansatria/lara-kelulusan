@@ -2,6 +2,11 @@
 
 @section('content')
 
+<div class="m-4">
+    <h4 style="font-weight: bold">{{ $title }}</h4>
+    <p>{{ $detail }}</p>
+</div>
+
 <form action="{{ route('rekapstatuskelulusan.year') }}" method="post">
 @csrf
 <div class="row mt-2">

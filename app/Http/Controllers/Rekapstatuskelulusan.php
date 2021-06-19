@@ -87,10 +87,11 @@ class rekapstatuskelulusan extends Controller
 			'status_md' => '',
 			'status_do' => '',
 			'tahun' => 'required',
+			'prodi' => 'required',
 			'keterangan' => 'required'
 		],
 		[
-			'prodi.Dequired' => 'Data must not be empty!',
+			'prodi.required' => 'Data must not be empty!',
 			'jenjang.required' => 'Data must not be empty!',
 			'semester.required' => 'Data must not be empty!',
 			'kelas.required' => 'Data must not be empty!',

@@ -113,6 +113,13 @@
 								@enderror
 							</div>
 							<div class="form-group">
+								<label for="prodi">Prodi</label>
+								<input type="text" class="form-control @error('prodi') is-invalid @enderror" name="prodi" value="{{ old('prodi') }}">
+								@error('prodi')
+								<div class="text-danger">{{ $message }}</div>
+								@enderror
+							</div>
+							<div class="form-group">
 								<label for="tahun">Tahun</label>
 								<input type="text" class="form-control @error('tahun') is-invalid @enderror" name="tahun" value="{{ old('tahun') }}">
 								@error('tahun')
@@ -121,7 +128,10 @@
 							</div>
 						</div>
 					</div>
-					<button type="submit" class="btn btn-primary">Save</button>
+					<div class="float-right">
+                        <a href="{{ route('rekapipmahasiswa') }}" class="btn btn-warning">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
 				</form>
 			</div>
 		</div>	

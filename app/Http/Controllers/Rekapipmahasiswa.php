@@ -63,7 +63,7 @@ class Rekapipmahasiswa extends Controller
 	}
 
 	public function create(){
-		return view('report_f2.createrekap', ['title' => 'Form Add Data Report F2', 'detail' => '']);
+		return view('report_f2.create', ['title' => 'Form Add Data Report F2', 'detail' => '']);
 	}
 
 	public function store(Request $request){
@@ -130,7 +130,8 @@ class Rekapipmahasiswa extends Controller
 			'ip_s8' => 'required|numeric|between:0,99.99',
 			'ipk' => 'required|numeric|between:0,99.99',
 			'status' => 'required',
-			'tahun' => 'required'
+			'tahun' => 'required',
+			'prodi' => 'required'
 		],
 		[
 			'kelas.required' => 'Data must not be empty!',
@@ -146,6 +147,7 @@ class Rekapipmahasiswa extends Controller
 			'ip_s8.required' => 'Data must not be empty!',
 			'ipk.required' => 'Data must not be empty!',
 			'status.required' => 'Data must not be empty!',
+			'prodi.required' => 'Data must not be empty!',
 			'tahun.required' => 'Data must not be empty!'
 
 		]);

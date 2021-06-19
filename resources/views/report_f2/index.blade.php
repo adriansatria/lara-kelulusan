@@ -2,6 +2,11 @@
 
 @section('content')
 
+<div class="m-4">
+    <h4 style="font-weight: bold">{{ $title }}</h4>
+    <p>{{ $detail }}</p>
+</div>
+
 <form action="{{ route('f1s.year') }}" method="post">
 @csrf
 <div class="row mt-2">
@@ -87,6 +92,8 @@
 							<form action="{{ route('f2s.import') }}" method="post" enctype="multipart/form-data">
 								{{ csrf_field() }}
 								<input type="file" name="import_file" required=""> <button class="btn btn-success"><i class="fas fa-file-upload"></i>Import Excel</button> 
+								<a href="{{ route('f2s.export') }}" class="btn btn-success"><i
+                                        class="fas fa-file-excel"></i> Export to Excel</a>
 							</form>
 							{{-- <a href="" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
 						</div>

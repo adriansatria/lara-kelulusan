@@ -37,7 +37,7 @@ class ImportReportF3S implements ToModel, WithHeadingRow
             'k3' => $row['3'],
             'metodologi_penelitian2' => $row['METODOLOGI PENELITIAN 2'],
             'k2' => $row['2'],
-            'bahasa_inggris_komunikasi2' => $row['BAHASA INGGRIS KOMUNIKASI 2'],
+            'bahasa_inggris_komunikasi2' => $row['BAHASA INGGRIS KOMUNIKASI 3'],
             'k2_2' => $row['2'],
             'tugas_akhir' => $row['TUGAS AKHIR'],
             'k6' => $row['6'],

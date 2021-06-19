@@ -2,6 +2,11 @@
 
 @section('content')
 
+<div class="m-4">
+    <h4 style="font-weight: bold">{{ $title }}</h4>
+    <p>{{ $detail }}</p>
+</div>
+
 <form action="{{ route('rekapkehadirandosen.year') }}" method="post">
 @csrf
 <div class="row mt-2">
@@ -80,6 +85,7 @@
 					</div>
 				</div>
 			</div>
+			@if($year != '')
 			<div class="card-body table-responsive">
 				<table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
 					<thead>
@@ -125,6 +131,7 @@
 					</tbody>
 				</table>
 			</div>
+			@endif
 			<!-- /.card-body -->
 		</div>
 	</div>

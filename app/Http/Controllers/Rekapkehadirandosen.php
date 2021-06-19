@@ -22,7 +22,7 @@ class Rekapkehadirandosen extends Controller
 	}
 
 	public function create(){
-		return view('report_f1.createrekap', ['title' => 'Form Add Data Report F1', 'detail' => '']);
+		return view('report_f1.create', ['title' => 'Form Add Data Report F1', 'detail' => '']);
 	}
 
 	public function store(Request $request){

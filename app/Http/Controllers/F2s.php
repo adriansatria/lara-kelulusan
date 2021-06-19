@@ -189,95 +189,116 @@ class F2s extends Controller
 
 	}
 
-	public function export(Request $request)
+	public function export()
 	{
-		$year = $request->input('year');
-		$result = F2s_model::where('tahun', $year)->get();
+		$result = F2s_model::all();
 
 		$spreadsheet = new Spreadsheet();
 		$sheet = $spreadsheet->getActiveSheet();
-		$sheet->setTitle('Daftar Laporan Akhir Semester');
+		$sheet->setTitle('Laporan Kelulusan');
 		$sheet->mergeCells('A1:O1');
-		$sheet->setCellValue('A1', 'DAFTAR LAPORAN AKHIR SEMESTER GANJIL');
+		$sheet->setCellValue('A1', 'DATA MAHASISWA KELULUSAN MAHASISWA');
 		$sheet->getStyle('A1:O1')->getAlignment()->setHorizontal('center');
 		$sheet->getStyle('A1:O1')->getFont()->setBold(true);
 		$sheet->mergeCells('A2:O2');
-		$sheet->setCellValue('A2', 'PROGRAM KERJASAMA DENGAN STJJ');
+		$sheet->setCellValue('A2', 'IZIN, TIDAK HADIR, JUMLAH DAN KELAKUAN');
 		$sheet->getStyle('A2:O2')->getAlignment()->setHorizontal('center');
 		$sheet->getStyle('A2:O2')->getFont()->setBold(true);
-		$sheet->mergeCells('A3:O3');
-		$sheet->setCellValue('A3', 'JURUSAN TEKNIK INFORMATIKA DAN KOMPUTER');
-		$sheet->getStyle('A3:O3')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A3:O3')->getFont()->setBold(true);
-		$sheet->mergeCells('A4:O4');
-		$sheet->setCellValue('A4', 'PROGRAM STUDI TEKNIK INFORMATIKA');
-		$sheet->getStyle('A4:O4')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A4:O4')->getFont()->setBold(true);
-		$sheet->mergeCells('A5:O5');
-		$sheet->setCellValue('A5', 'SEMESTER 1 (SATU)');
-		$sheet->getStyle('A5:O5')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A5:O5')->getFont()->setBold(true);
-		$sheet->mergeCells('A6:O6');
-		$sheet->setCellValue('A6', 'TAHUN AKADEMIK ' . $year . '/' . ($year+1));
-		$sheet->getStyle('A6:O6')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A6:O6')->getFont()->setBold(true);
 
-		$sheet->mergeCells('F8:M8');
-		$sheet->setCellValue('F8', 'IP SMT');
-		$sheet->getStyle('F8:M8')->getAlignment()->setHorizontal('center');
+		$sheet->getColumnDimension('A')->setAutoSize(true);
+        $sheet->getColumnDimension('B')->setAutoSize(true);
+        $sheet->getColumnDimension('C')->setAutoSize(true);
+        $sheet->getColumnDimension('D')->setAutoSize(true);
+        $sheet->getColumnDimension('E')->setAutoSize(true);
+        $sheet->getColumnDimension('F')->setAutoSize(true);
+        $sheet->getColumnDimension('G')->setAutoSize(true);
+        $sheet->getColumnDimension('H')->setAutoSize(true);
+		$sheet->getColumnDimension('I')->setAutoSize(true);
+        $sheet->getColumnDimension('J')->setAutoSize(true);
+        $sheet->getColumnDimension('K')->setAutoSize(true);
+        $sheet->getColumnDimension('L')->setAutoSize(true);
+        $sheet->getColumnDimension('M')->setAutoSize(true);
+        $sheet->getColumnDimension('N')->setAutoSize(true);
+		$sheet->getColumnDimension('O')->setAutoSize(true);
+		$sheet->getColumnDimension('P')->setAutoSize(true);
+		$sheet->getColumnDimension('Q')->setAutoSize(true);
+		$sheet->getColumnDimension('R')->setAutoSize(true);
+		$sheet->getColumnDimension('S')->setAutoSize(true);
 
-		$sheet->mergeCells('A8:A9');
-		$sheet->setCellValue('A8', 'NO.');
-		$sheet->getStyle('A8:A9')->getAlignment()->setHorizontal('center')->setVertical('center');
-		$sheet->mergeCells('B8:B9');
-		$sheet->setCellValue('B8', 'KELAS');
-		$sheet->getStyle('B8:B9')->getAlignment()->setHorizontal('center')->setVertical('center');
-		$sheet->mergeCells('C8:C9');
-		$sheet->setCellValue('C8', 'NAMA MAHASISWA');
-		$sheet->getStyle('C8:C9')->getAlignment()->setHorizontal('center')->setVertical('center');
-		$sheet->mergeCells('D8:D9');
-		$sheet->setCellValue('D8', 'MATA KULIAH');
-		$sheet->getStyle('D8:D9')->getAlignment()->setHorizontal('center')->setVertical('center');
-		$sheet->mergeCells('E8:E9');
-		$sheet->setCellValue('E8', 'NIM');
-		$sheet->getStyle('E8:E9')->getAlignment()->setHorizontal('center')->setVertical('center');
-		$sheet->setCellValue('F9', 'IP SMT 1');
-		$sheet->setCellValue('G9', 'IP SMT 2');
-		$sheet->setCellValue('H9', 'IP SMT 3');
-		$sheet->setCellValue('I9', 'IP SMT 4');
-		$sheet->setCellValue('J9', 'IP SMT 5');
-		$sheet->setCellValue('K9', 'IP SMT 6');
-		$sheet->setCellValue('L9', 'IP SMT 7');
-		$sheet->setCellValue('M9', 'IP SMT 8');
-		$sheet->mergeCells('N8:N9');
-		$sheet->setCellValue('N8', 'IPK');
-		$sheet->getStyle('N8:N9')->getAlignment()->setHorizontal('center')->setVertical('center');
-		$sheet->mergeCells('O8:O9');
-		$sheet->setCellValue('O8', 'STATUS');
-		$sheet->getStyle('O8:O9')->getAlignment()->setHorizontal('center')->setVertical('center');
+		$sheet->setCellValue('A6', 'NO.');
+		$sheet->setCellValue('B6', 'NIM');
+		$sheet->setCellValue('C6', 'NAMA MAHASISWA');
+		$sheet->setCellValue('D6', 'IZIN');
+		$sheet->setCellValue('E6', 'TIDAK IZIN');
+		$sheet->setCellValue('F6', 'JUMLAH');
+		$sheet->setCellValue('G6', 'KELAKUAN');
+		$sheet->setCellValue('H6', 'STATUS LULUS SMT SEBELUMNYA');
+		$sheet->setCellValue('I6', 'STATUS LULUS SMT SEKARANG');
+		$sheet->setCellValue('J6', 'AM X SKS');
+		$sheet->setCellValue('K6', 'IP');
+		$sheet->setCellValue('L6', 'KAPITA SELEKTA 2');
+		$sheet->setCellValue('M6', '3');
+		$sheet->setCellValue('N6', 'METODOLOGI PENELITIAN 2');
+		$sheet->setCellValue('O6', '2');
+		$sheet->setCellValue('P6', 'BAHASA INGGRIS KOMUNIKASI 3');
+		$sheet->setCellValue('Q6', '2');
+		$sheet->setCellValue('R6', 'TUGAS AKHIR');
+		$sheet->setCellValue('S6', '6');
+
+		$styleArray = array(
+			'borders' => array(
+				'allBorders' => array(
+					'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+					'color' => array('argb' => '000'),
+				),
+			),
+		);
+	
+		$sheet ->getStyle('A6:S6')->applyFromArray($styleArray);
+		$sheet ->getStyle('A7:S7')->applyFromArray($styleArray);
+
 		$no=1;
-		$cell = 10;
+		$cell = 7;
 		foreach($result as $row){
 			$sheet->setCellValue('A'.$cell, $no++);
-			$sheet->setCellValue('B'.$cell, $row->kelas);
+			$sheet->getStyle('A'.$cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('B'.$cell, $row->nim);
 			$sheet->setCellValue('C'.$cell, $row->nama_mahasiswa);
-			$sheet->setCellValue('D'.$cell, $row->mata_kuliah);
-			$sheet->setCellValue('E'.$cell, $row->nim);
-			$sheet->setCellValue('F'.$cell, $row->ip_s1);
-			$sheet->setCellValue('G'.$cell, $row->ip_s2);
-			$sheet->setCellValue('H'.$cell, $row->ip_s3);
-			$sheet->setCellValue('I'.$cell, $row->ip_s4);
-			$sheet->setCellValue('J'.$cell, $row->ip_s5);
-			$sheet->setCellValue('K'.$cell, $row->ip_s6);
-			$sheet->setCellValue('L'.$cell, $row->ip_s7);
-			$sheet->setCellValue('M'.$cell, $row->ip_s8);
-			$sheet->setCellValue('N'.$cell, $row->ipk);
-			$sheet->setCellValue('O'.$cell, $row->status);
+			$sheet->setCellValue('D'.$cell, $row->izin);
+			$sheet->getStyle('D'.$cell. ':F'.$cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('E'.$cell, $row->tidak_izin);
+			$sheet->setCellValue('F'.$cell, $row->jumlah);
+			$sheet->setCellValue('G'.$cell, $row->kelakuan);
+			$sheet->setCellValue('H'.$cell, $row->status_lulus_lalu);
+			$sheet->setCellValue('I'.$cell, $row->status_lulus_baru);
+			$sheet->setCellValue('J'.$cell, $row->amxsks);
+			$sheet->getStyle('J'.$cell. ':S'.$cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('K'.$cell, $row->ip);
+			$sheet->setCellValue('L'.$cell, $row->kapita_selekta2);
+			$sheet->setCellValue('M'.$cell, $row->k3);
+			$sheet->setCellValue('N'.$cell, $row->metodologi_penelitian2);
+			$sheet->setCellValue('O'.$cell, $row->k2);
+			$sheet->setCellValue('P'.$cell, $row->bahasa_inggris_komunikasi3);
+			$sheet->setCellValue('Q'.$cell, $row->k2_2);
+			$sheet->setCellValue('R'.$cell, $row->tugas_akhir);
+			$sheet->setCellValue('S'.$cell, $row->k6);
+
+			$styleArray = array(
+				'borders' => array(
+					'allBorders' => array(
+						'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+						'color' => array('argb' => '000'),
+					),
+				),
+			);
+		
+			$sheet ->getStyle('A'.$cell.':S'.$cell)->applyFromArray($styleArray);
+
 			$cell++;
 		}
 		$writer = new Xlsx($spreadsheet);        
 		header('Content-Type: application/vnd.ms-excel');
-		header('Content-Disposition: attachment;filename="Daftar Laporan Akhir Semester.xlsx"');
+		header('Content-Disposition: attachment;filename="Master Data F2.xlsx"');
 		$writer->save('php://output');
 	}
 }

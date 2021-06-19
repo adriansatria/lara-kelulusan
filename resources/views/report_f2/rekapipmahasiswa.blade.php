@@ -2,6 +2,11 @@
 
 @section('content')
 
+<div class="m-4">
+    <h4 style="font-weight: bold">{{ $title }}</h4>
+    <p>{{ $detail }}</p>
+</div>
+
 <form action="{{ route('rekapipmahasiswa.year') }}" method="post">
 @csrf
 <div class="row mt-2">
@@ -71,7 +76,7 @@
 							<form action="" method="post" enctype="multipart/form-data">
 								{{ csrf_field() }}
 								@if($year == '')
-								<input type="file" name="import_file"> <button class="btn btn-success"><i class="fas fa-file-upload"></i>Import Excel</button> 
+								<a href="{{ route('rekapipmahasiswa.create') }}" class="btn btn-secondary"><i class="fas fa-plus"></i> Add Data</a>
 								@else
 								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailModal">Detail</button>
 								<a href="{{ route('rekapipmahasiswa') }}" class="btn btn-warning"><i class="fas fa-redo-alt"></i></a>
@@ -84,6 +89,7 @@
 					</div>
 				</div>
 			</div>
+			@if($year != '' && $prodi != '')
 			<div class="card-body table-responsive">
 				<table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
 					<thead>
@@ -146,6 +152,7 @@
 					</tbody>
 				</table>
 			</div>
+			@endif
 			<!-- /.card-body -->
 		</div>
 	</div>

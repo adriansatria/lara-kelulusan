@@ -69,7 +69,7 @@ Route::patch('/f2s/{f2}', [App\Http\Controllers\F2s::class,'update'])
 ->name('f2s.update')->middleware('login');
 Route::delete('/f2s/{f2}', [App\Http\Controllers\F2s::class,'destroy'])
 ->name('f2s.destroy')->middleware('login');
-Route::post('/f2s/export', [App\Http\Controllers\F2s::class,'export'])->name('f2s.export')->middleware('login');
+Route::get('/f2s/export', [App\Http\Controllers\F2s::class,'export'])->name('f2s.export')->middleware('login');
 
 Route::get('/f3s', [App\Http\Controllers\F3s::class,'index'])->name('f3s')->middleware('login');
 Route::post('/f3s/year', [App\Http\Controllers\F3s::class,'year'])->name('f3s.year')->middleware('login');

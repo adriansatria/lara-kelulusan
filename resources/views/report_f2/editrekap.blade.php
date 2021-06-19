@@ -139,6 +139,13 @@
 								@enderror
 							</div>
 							<div class="form-group">
+								<label for="prodi">Prodi</label>
+								<input type="text" class="form-control @error('prodi') is-invalid @enderror" name="prodi" value="{{ old('prodi') ?? $report_f2->prodi }}">
+								@error('prodi')
+								<div class="text-danger">{{ $message }}</div>
+								@enderror
+							</div>
+							<div class="form-group">
 								<label for="tahun">Tahun</label>
 								<input type="text" class="form-control @error('tahun') is-invalid @enderror" name="tahun" value="{{ old('tahun') ?? $report_f2->tahun }}">
 								@error('tahun')
