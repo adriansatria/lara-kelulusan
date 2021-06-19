@@ -7,7 +7,7 @@
 	<div class="col-12">
 		<div class="card">
 			<div class="card-body">
-				<form action="{{ route('f3s.update', $report_f3->id) }}" method="POST">
+				<form action="{{ route('rekapstatuskelulusan.update', $report_f3->id) }}" method="POST">
 					@method('PATCH')
 					@csrf
 					<div class="row">

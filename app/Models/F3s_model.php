@@ -27,7 +27,7 @@ class F3s_model extends Model
 		'k3',
 		'metodologi_penelitian2',
 		'k2',
-		'bahasa_inggris_komunikasi2',
+		'bahasa_inggris_komunikasi3',
 		'k2_2',
 		'tugas_akhir',
 		'k6'
