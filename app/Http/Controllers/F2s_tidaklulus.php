@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\F2s_model;
+use App\Models\Rekapipmahasiswa_model;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class F2s_tidaklulus extends Controller
 {
     public function index(){
-    	$f2s_tidaklulus = F2s_model::where('status', '!=', 'L')->get();
+    	$f2s_tidaklulus = Rekapipmahasiswa_model::where('status', '!=', 'L')->get();
 
 		return view('report_f2_tidaklulus.index', ['title' => 'Data Mahasiswa Tidak/Belum Lulus','detail' => 'Rekapitulasi Mahasiswa Tidak/Belum Lulus', 'f2s_tidaklulus' => $f2s_tidaklulus, 'year' => '']);
 	}
 
 	// public function index2(){
-    // 	$f2s_tidaklulus = F2s_model::where('status', '!=', 'L')->get();
+    // 	$f2s_tidaklulus = Rekapipmahasiswa_model::where('status', '!=', 'L')->get();
 
 	// 	return view('report_f2_tidaklulus.index', ['title' => 'Data Mahasiswa Tidak/Belum Lulus','detail' => 'Rekapitulasi Mahasiswa Tidak/Belum Lulus', 'f2s_tidaklulus' => $f2s_tidaklulus, 'year' => $year]);
 	// }
@@ -25,13 +25,13 @@ class F2s_tidaklulus extends Controller
 	{
 			$year = $request->input('year');
 
-			$f2s_tidaklulus = F2s_model::where('tahun', $year)->where('status', '!=', 'L')->get();
+			$f2s_tidaklulus = Rekapipmahasiswa_model::where('tahun', $year)->where('status', '!=', 'L')->get();
 			return view('report_f2_tidaklulus.index', ['title' => 'Data Mahasiswa Tidak/Belum Lulus ' . $year,'detail' => 'Rekapitulasi Mahasiswa Tidak/Belum Lulus','f2s_tidaklulus' => $f2s_tidaklulus, 'year' => $year]);
 	}
 
 	public function export($year)
 	{
-		$result = F2s_model::where('tahun', $year)->where('status', '!=', 'L')->get();
+		$result = Rekapipmahasiswa_model::where('tahun', $year)->where('status', '!=', 'L')->get();
 		// $result = DB::table('report_f2s')
   //               ->where('status', '=', 'L')
   //               ->where('tahun', '=', $year)
