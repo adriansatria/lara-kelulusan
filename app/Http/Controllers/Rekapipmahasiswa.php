@@ -72,8 +72,8 @@ class Rekapipmahasiswa extends Controller
 
 		$validateData = $request->validate([
 			'kelas' => 'required',
-			'nama_mahasiswa' => 'required',
 			'nim' => 'required',
+			'nama_mahasiswa' => 'required',
 			'ip_s1' => 'required|numeric|between:0,99.99',
 			'ip_s2' => 'required|numeric|between:0,99.99',
 			'ip_s3' => 'required|numeric|between:0,99.99',
@@ -89,8 +89,8 @@ class Rekapipmahasiswa extends Controller
 		],
 		[
 			'kelas.required' => 'Data must not be empty!',
+			'nim.required' => 'Data must not be empty!',
 			'nama_mahasiswa.required' => 'Data must not be empty!',
-			'nim.Dequired' => 'Data must not be empty!',
 			'ip_s1.required' => 'Data must not be empty!',
 			'ip_s2.required' => 'Data must not be empty!',
 			'ip_s3.required' => 'Data must not be empty!',
@@ -105,6 +105,14 @@ class Rekapipmahasiswa extends Controller
 			'tahun.required' => 'Data must not be empty!'
 
 		]);
+
+		$nama_mahasiswa = \DB::table('mahasiswa')
+							->select('mahasiswa.nama as nama_mahasiswa')
+							->limit(1)
+							->get()
+                        	->toArray();
+
+        $validateData["nama_mahasiswa"] = $nama_mahasiswa[0]->nama_mahasiswa;
 
 		Rekapipmahasiswa_model::create($validateData);
 
