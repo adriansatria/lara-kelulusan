@@ -50,7 +50,7 @@
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="nilai_akhir">nilai_akhir</label>
+								<label for="nilai_akhir">Nilai Akhir</label>
 								<select name="nilai_akhir" class="form-control @error('nilai_akhir') is-invalid @enderror">
 									@if($evaluation->nilai_akhir == 'D')
 									<option value="{{ $evaluation->nilai_akhir  }}">{{ $evaluation->nilai_akhir  }}</option>
@@ -97,7 +97,7 @@
 						</div>
 					</div>
 					<div class="float-right">
-                        <a href="{{ route('rekapipmahasiswa') }}" class="btn btn-warning">Cancel</a>
+                        <a href="{{ route('evaluations') }}" class="btn btn-warning">Cancel</a>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </div>
 				</form>

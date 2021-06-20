@@ -49,7 +49,7 @@
 									<option value="Admin">Admin</option>
 									<option value="Petugas">Petugas Evaluasi</option>
 									<option value="Kajur">Kajur</option>
-									<option value="kaprodi">Kaprodi</option>
+									<option value="Kaprodi">Kaprodi</option>
 									<option value="Dosen">Dosen</option>
 								</select>
 								@error('level')

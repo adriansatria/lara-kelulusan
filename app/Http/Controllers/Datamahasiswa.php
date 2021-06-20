@@ -34,15 +34,15 @@ class Datamahasiswa extends Controller
         return back();
     }
 
-    public function export() {
-        $result = Mahasiswa_Model::all();
+    public function export($year) {
+        $result = Mahasiswa_Model::where('tahun_akademik', $year)->get();
         // return \Excel::download(new MahasiswaExport, 'Menu Data Mahasiswa.xlsx');
         $spreadsheet = new Spreadsheet();
 		$sheet = $spreadsheet->getActiveSheet();
         // $sheet->setAutoSize(true);
 		$sheet->setTitle('Laporan Data Mahasiswa');
 		$sheet->mergeCells('A2:O2');
-		$sheet->setCellValue('A2', 'Laporan Data Mahasiswa');
+		$sheet->setCellValue('A2', 'Laporan Data Mahasiswa Tahun '.$year);
 		$sheet->getStyle('A2:O2')->getAlignment()->setHorizontal('center');
         $sheet->getStyle('A2:O2')->getFont()->setBold(true)->setSize(18);
         $sheet->getStyle('A4:O4')->getFont()->setBold(true);

@@ -25,7 +25,7 @@ Route::get('/', [App\Http\Controllers\Dashboard::class,'index'])->name('dashboar
 
 Route::get('/mahasiswa', [App\Http\Controllers\Datamahasiswa::class,'index'])->name('mahasiswa')->middleware('login');
 Route::post('/mahasiswa/import', [App\Http\Controllers\Datamahasiswa::class,'import'])->name('mahasiswa/import')->middleware('login');
-Route::get('/mahasiswa/export', [App\Http\Controllers\Datamahasiswa::class,'export'])->name('mahasiswa/export')->middleware('login');
+Route::get('/mahasiswa/export/{year}', [App\Http\Controllers\Datamahasiswa::class,'export'])->name('mahasiswa/export')->middleware('login');
 Route::get('/mahasiswa/{id}/edit', [App\Http\Controllers\Datamahasiswa::class,'edit'])->name('mahasiswa.edit')->middleware('login');
 Route::patch('/mahasiswa/{id}', [App\Http\Controllers\Datamahasiswa::class,'update'])->name('mahasiswa.update')->middleware('login');
 Route::delete('/mahasiswa/{id}', [App\Http\Controllers\Datamahasiswa::class,'destroy'])->name('mahasiswa.destroy')->middleware('login');
@@ -130,7 +130,7 @@ Route::patch('/rekapkehadirandosen/{f1}', [App\Http\Controllers\Rekapkehadirando
 ->name('rekapkehadirandosen.update')->middleware('login');
 Route::delete('/rekapkehadirandosen/{f1}', [App\Http\Controllers\Rekapkehadirandosen::class,'destroy'])
 ->name('rekapkehadirandosen.destroy')->middleware('login');
-Route::post('/rekapkehadirandosen/export', [App\Http\Controllers\Rekapkehadirandosen::class,'export'])->name('rekapkehadirandosen.export')->middleware('login');
+Route::get('/rekapkehadirandosen/export/{year}', [App\Http\Controllers\Rekapkehadirandosen::class,'export'])->name('rekapkehadirandosen.export')->middleware('login');
 
 
 Route::get('/rekapipmahasiswa', [App\Http\Controllers\Rekapipmahasiswa::class,'index'])->name('rekapipmahasiswa')->middleware('login');
