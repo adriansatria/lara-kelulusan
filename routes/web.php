@@ -105,8 +105,8 @@ Route::patch('/users/{user}', [App\Http\Controllers\Users::class,'update'])
 ->name('users.update')->middleware('login');
 Route::delete('/users/{user}', [App\Http\Controllers\Users::class,'destroy'])
 ->name('users.destroy')->middleware('login');
-Route::post('/evaluations/export', [App\Http\Controllers\Evaluations::class,'export'])->name('evaluations.export')->middleware('login');
 
+Route::get('/evaluations/export/{year}', [App\Http\Controllers\Evaluations::class,'export'])->name('evaluations.export')->middleware('login');
 Route::get('evaluations', [App\Http\Controllers\Evaluations::class,'index'])->name('evaluations')->middleware('login');
 Route::post('/evaluations/year', [App\Http\Controllers\Evaluations::class,'year'])->name('evaluations.year')->middleware('login');
 Route::get('evaluations/create', [App\Http\Controllers\Evaluations::class,'create'])->name('evaluations.create')->middleware('login');
