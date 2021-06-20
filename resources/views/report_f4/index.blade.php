@@ -91,6 +91,7 @@
 					</div>
 				</div>
 			</div>
+			@if($year != '' && $prodi != '' && $semester != '')
 			<div class="card-body table-responsive">
 				<table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
 					<thead>
@@ -143,6 +144,7 @@
 					</tbody>
 				</table>
 			</div>
+			@endif
 			<!-- /.card-body -->
 		</div>
 	</div>
