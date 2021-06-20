@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <div class="row">
 	<div class="col-12">
 		<div class="card">
@@ -12,23 +11,33 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="kelas">Kelas</label>
-								<input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{ old('kelas') }}">
-								@error('kelas')
+								<label for="nim">NIM</label>
+								<select name="nim" class="form-control @error('nim') is-invalid @enderror">
+									<option value="">Pilih NIM</option>
+									@foreach($mahasiswa as $i)
+										<option value="{{ $i->nim }}">{{ $i->nim }} - {{ $i->nama }}</option>
+                  @endforeach
+								</select>
+								@error('nim')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
 							<div class="form-group">
 								<label for="nama_mahasiswa">Nama Mahasiswa</label>
-								<input type="text" class="form-control @error('nama_mahasiswa') is-invalid @enderror" name="nama_mahasiswa" value="{{ old('nama_mahasiswa') }}">
+								<select name="nama_mahasiswa" class="form-control @error('nama_mahasiswa') is-invalid @enderror">
+									<option value="">Pilih Mahasiswa</option>
+									@foreach($mahasiswa as $i)
+										<option value="{{ $i->nama }}">{{ $i->nim }} - {{ $i->nama }}</option>
+                  @endforeach
+								</select>
 								@error('nama_mahasiswa')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
 							<div class="form-group">
-								<label for="nim">NIM</label>
-								<input type="text" class="form-control @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') }}">
-								@error('nim')
+								<label for="kelas">Kelas</label>
+								<input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{ old('kelas') }}">
+								@error('kelas')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>

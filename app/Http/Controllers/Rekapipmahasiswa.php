@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Rekapipmahasiswa_model;
+use App\Models\Mahasiswa_Model;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
@@ -63,7 +64,8 @@ class Rekapipmahasiswa extends Controller
 	}
 
 	public function create(){
-		return view('report_f2.create', ['title' => 'Form Add Data Report F2', 'detail' => '']);
+		$mahasiswa = Mahasiswa_Model::all();
+		return view('report_f2.create', ['title' => 'Form Add Data Report F2', 'detail' => '', 'mahasiswa' => $mahasiswa]);
 	}
 
 	public function store(Request $request){
