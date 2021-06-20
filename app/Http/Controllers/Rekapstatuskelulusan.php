@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Rekapstatuskelulusan_model;
+use App\Models\Mahasiswa_Model;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
@@ -25,7 +26,8 @@ class rekapstatuskelulusan extends Controller
 	}
 
 	public function create(){
-		return view('report_f3.create', ['title' => 'Form Add Data Report F3', 'detail' => '']);
+		$mahasiswa = Mahasiswa_Model::all();
+		return view('report_f3.create', ['title' => 'Form Add Data Report F3', 'detail' => '', 'mahasiswa' => $mahasiswa]);
 	}
 
 	public function store(Request $request){
@@ -58,6 +60,15 @@ class rekapstatuskelulusan extends Controller
 
 		]);
 
+		$nama_mahasiswa = \DB::table('mahasiswa')
+							->select('mahasiswa.nama as nama_mahasiswa')
+							->where('mahasiswa.nim', '=', $validateData["nim"])
+							->limit(1)
+							->get()
+                        	->toArray();
+
+        $validateData["nama_mahasiswa"] = $nama_mahasiswa[0]->nama_mahasiswa;
+
 		Rekapstatuskelulusan_model::create($validateData);
 
 		return redirect()->route('rekapstatuskelulusan')->with('add', 'Data added successfully');
@@ -67,7 +78,8 @@ class rekapstatuskelulusan extends Controller
 	public function edit($id)
 	{
 		$result = Rekapstatuskelulusan_model::find($id);
-		return view('report_f3.editrekap', ['title' => 'Edit Data Report F3', 'detail' => '', 'report_f3' => $result]);
+		$mahasiswa = Mahasiswa_Model::all();
+		return view('report_f3.editrekap', ['title' => 'Edit Data Report F3', 'detail' => '', 'report_f3' => $result, 'mahasiswa' => $mahasiswa]);
 	}
 
 	public function update(Request $request, $id)
@@ -101,6 +113,15 @@ class rekapstatuskelulusan extends Controller
 			'keterangan.required' => 'Data must not be empty!'
 
 		]);
+
+		$nama_mahasiswa = \DB::table('mahasiswa')
+							->select('mahasiswa.nama as nama_mahasiswa')
+							->where('mahasiswa.nim', '=', $validateData["nim"])
+							->limit(1)
+							->get()
+                        	->toArray();
+
+        $validateData["nama_mahasiswa"] = $nama_mahasiswa[0]->nama_mahasiswa;
 
 		Rekapstatuskelulusan_model::where('id',$id)->update($validateData);
 
@@ -160,9 +181,9 @@ class rekapstatuskelulusan extends Controller
 		$sheet->getColumnDimension('O')->setAutoSize(true);
 		$sheet->getColumnDimension('P')->setAutoSize(true);
 
-		$sheet->mergeCells('I6:N6');
-		$sheet->setCellValue('I6', 'STATUS');
-		$sheet->getStyle('I6:N6')->getAlignment()->setHorizontal('center');
+		$sheet->mergeCells('G6:L6');
+		$sheet->setCellValue('G6', 'STATUS');
+		$sheet->getStyle('G6:L6')->getAlignment()->setHorizontal('center');
 
 		$sheet->setCellValue('A7', 'NO.');
 		$sheet->setCellValue('B7', 'PRODI');

@@ -102,7 +102,9 @@
 							<th rowspan="2" class="align-middle">Semester</th>
 							<th rowspan="2" class="align-middle">Kelas</th>
 							<th rowspan="2" class="align-middle">Jumlah Mahasiswa</th>
-							<th colspan="8" class=" text-center align-middle">Status</th>
+							<th colspan="6" class=" text-center align-middle">Status</th>
+							<th rowspan="2" class="align-middle">Nama</th>
+							<th rowspan="2" class="align-middle">NIM</th>
 							<th rowspan="2" class="align-middle">Tahun</th>
 							<th rowspan="2" class="align-middle">Keterangan</th>
 							@if(session('level') == 'Admin')
@@ -116,8 +118,6 @@
 							<th>ML</th>
 							<th>MD</th>
 							<th>DO</th>
-							<th>Nama Mahasiswa</th>
-							<th>NIM</th>
 						</tr>
 					</thead>
 					<tbody>
