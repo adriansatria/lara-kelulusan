@@ -16,7 +16,12 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="nama_dosen">Nama Dosen</label>
-								<input type="text" class="form-control @error('nama_dosen') is-invalid @enderror" name="nama_dosen" value="{{ old('nama_dosen') }}">
+								<select type="text" class="form-control @error('nama_dosen') is-invalid @enderror" name="nama_dosen">
+									<option value="">PILIH</option>
+									@foreach($dosen as $i)
+									<option value="{{ $i->nama_dosen }}">{{ $i->nip }} - {{ $i->nama_dosen }}</option>
+									@endforeach
+								</select>
 								@error('nama_dosen')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
@@ -37,14 +42,24 @@
 							</div>
 							<div class="form-group">
 								<label for="nama_mahasiswa">Nama Mahasiswa</label>
-								<input type="text" class="form-control @error('nama_mahasiswa') is-invalid @enderror" name="nama_mahasiswa" value="{{ old('nama_mahasiswa') }}">
+								<select class="form-control @error('nama_mahasiswa') is-invalid @enderror" name="nama_mahasiswa" value="{{ old('nama_mahasiswa') }}">
+									<option value="">PILIH</option>
+									@foreach($mahasiswa as $i)
+									<option value="{{ $i->nama }}">{{ $i->nim }} - {{ $i->nama }}</option>
+									@endforeach
+								</select>
 								@error('nama_mahasiswa')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
 							<div class="form-group">
 								<label for="nim">NIM</label>
-								<input type="text" class="form-control @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') }}">
+								<select class="form-control @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') }}">
+									<option value="">PILIH</option>
+									@foreach($mahasiswa as $i)
+									<option value="{{ $i->nim }}">{{ $i->nim }} - {{ $i->nama }}</option>
+									@endforeach
+								</select>
 								@error('nim')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror

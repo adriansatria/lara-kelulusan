@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Evaluations_model;
+use App\Models\dosen_model;
+use App\Models\Mahasiswa_Model;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
@@ -22,7 +24,9 @@ class Evaluations extends Controller
 	}
 
 	public function create(){
-		return view('evaluation.create', ['title' => 'Form Add Data Evaluasi', 'detail' => '']);
+		$dosen = dosen_model::all();
+		$mahasiswa = Mahasiswa_Model::all();
+		return view('evaluation.create', ['title' => 'Form Add Data Evaluasi', 'detail' => '', 'dosen' => $dosen, 'mahasiswa' => $mahasiswa]);
 	}
 
 	public function store(Request $request){
@@ -60,7 +64,7 @@ class Evaluations extends Controller
 	public function edit($id)
 	{
 		$result = Evaluations_model::find($id);
-		return view('evaluation.edit', ['title' => 'Edit Data Evaluasi','detail' => '','evaluation' => $result]);
+		return view('evaluation.edit', ['title' => 'Edit Data Evaluasi','detail' => '','evaluation' => $result,  'dosen' => $dosen, 'mahasiswa' => $mahasiswa]);
 	}
 
 	public function update(Request $request, $id)

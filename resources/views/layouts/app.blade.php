@@ -152,7 +152,7 @@
                             <div class="dropdown-content" aria-labelledby="dropdownMenuReference">
 
                                 <li class="dropdown-submenu">
-                                    <a class="dropdown-item" href="">Report F1</a>
+                                    <a class="dropdown-item">Report F1</a>
                                     <ul class="dropdown-submenu" data-toggle="collapse"
                                         data-target="#navbarSupportedContent" style="overflow: hidden">
                                         <li><a class="dropdown-item" href="{{ url('f1s') }}">Master Data</a></li>
@@ -163,7 +163,7 @@
                                 </li>
 
                                 <li class="dropdown-submenu">
-                                    <a class="dropdown-item" href="">Report F2</a>
+                                    <a class="dropdown-item">Report F2</a>
                                     <ul class="dropdown-submenu">
                                         <li><a class="dropdown-item" href="{{ url('f2s') }}">Master Data</a></li>
                                         <li><a class="dropdown-item" href="{{ url('rekapipmahasiswa') }}">Rekapitulasi
@@ -172,7 +172,7 @@
                                 </li>
 
                                 <li class="dropdown-submenu">
-                                    <a class="dropdown-item" href="">Report F3</a>
+                                    <a class="dropdown-item">Report F3</a>
                                     <ul class="dropdown-submenu">
                                         <li><a class="dropdown-item" href="{{ url('f3s') }}">Master Data</a></li>
                                         <li><a class="dropdown-item"
@@ -182,7 +182,7 @@
                                 </li>
 
                                 <li class="dropdown-submenu">
-                                    <a class="dropdown-item" href="">Report F4</a>
+                                    <a class="dropdown-item">Report F4</a>
                                     <ul class="dropdown-submenu">
                                         <li><a class="dropdown-item"
                                                 href="{{ url('f4s') }}">Rekapitulasi Surat
@@ -197,11 +197,12 @@
                             <a class="nav-link btn btn-black" href="{{ url('evaluations') }}">Evaluasi<span
                                     class="sr-only">(current)</span></a>
                         </li>
-
+                        @if(session('level') == 'Admin')
                         <li class="nav-item active">
                             <a class="nav-link btn btn-black" href="{{ url('users') }}">User <span
                                     class="sr-only">(current)</span></a>
                         </li>
+                        @endif
                     </ul>
                     <ul class="navbar ml-auto float-right">
                         <li class="nav-item dropdown">
