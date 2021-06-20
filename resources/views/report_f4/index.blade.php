@@ -2,7 +2,59 @@
 
 @section('content')
 
-<div class="row">
+<div class="m-4">
+    <h4 style="font-weight: bold">{{ $title }}</h4>
+    <p>{{ $detail }}</p>
+</div>
+
+<form action="{{ route('f4s.year') }}" method="post">
+@csrf
+<div class="row mt-2">
+	<div class="col-md-2">
+	<span>Prodi</span>
+		<select class="form-select form-control" name="prodi" aria-label="Default select example">
+			<option selected>PILIH</option>
+			<option value="Sistem Informasi">Sistem Informasi</option>
+			<option value="Teknik Informatika">Teknik Informatika</option>
+		</select>
+	</div>
+	<div class="col-md-2">
+	<span>Semester</span>
+		<select class="form-select form-control" name="semester" aria-label="Default select example">
+			<option selected>PILIH</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+		</select>
+	</div>
+	<div class="col-md-2">
+	<span>Tahun</span>
+		<select class="form-select form-control" name="year" aria-label="Default select example">
+			<option selected>PILIH</option>
+			<option value="2012">2012</option>
+			<option value="2013">2013</option>
+			<option value="2014">2014</option>
+			<option value="2015">2015</option>
+			<option value="2016">2016</option>
+			<option value="2017">2017</option>
+			<option value="2018">2018</option>
+			<option value="2019">2019</option>
+			<option value="2020">2020</option>
+			<option value="2021">2021</option>
+		</select>
+	</div>
+	<div class="col-sm mt-4">
+		<button type="submit" class="btn btn-outline-primary">Browse</button>
+	</div>
+</div>
+</form>
+
+<div class="row mt-4">
 	<div class="col-12">
 		@if(session()->has('add'))
 		<div class="alert alert-success alert-dismissible">
@@ -25,25 +77,21 @@
 			<div class="card-header">
 				<div class="row">
 					<div class="col-12">
-						<!-- <div class="float-left">
-							<form class="form-inline" action="{{ route('f4s.year') }}" method="POST">
-								@csrf
-								<div class="form-group">
-									<label for="year">Year</label>
-									<input type="text" name="year" class="form-control mx-sm-3">
-								</div>
-								<button class="btn btn-info" type="submit"><i class="fas fa-search"></i> Search</button>
-							</form>
-						</div> -->
 						@if(session('level') == 'Admin')
 						<div class="float-right">
+							@if($year == '' && $prodi == '' && $semester == '')
 							<a href="{{ route('f4s.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Data</a>
-							{{-- <a href="" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
+							@else
+							<a href="{{ route('f4s') }}" class="btn btn-warning"><i class="fas fa-redo-alt"></i></a>
+                            <a href="{{ url('/f4s/export/'. $year. '/' .$prodi. '/' .$semester ) }}" class="btn btn-success"><i
+                                        class="fas fa-file-excel"></i> Export to Excel</a>
+							@endif
 						</div>
 						@endif
 					</div>
 				</div>
 			</div>
+			@if($year != '' && $prodi != '' && $semester != '')
 			<div class="card-body table-responsive">
 				<table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
 					<thead>
@@ -54,7 +102,7 @@
 							<th rowspan="2" class="align-middle">Semester</th>
 							<th rowspan="2" class="align-middle">Kelas</th>
 							<th rowspan="2" class="align-middle">Jumlah Mahasiswa</th>
-							<th width="320px" colspan="3" class=" text-center align-middle">Surat Peringatan</th>
+							<th colspan="3" class="text-center align-middle">Surat Peringatan</th>
 							<th rowspan="2" class="align-middle">Keterangan</th>
 							<th rowspan="2" class="align-middle">Tahun</th>
 							@if(session('level') == 'Admin')
@@ -96,6 +144,7 @@
 					</tbody>
 				</table>
 			</div>
+			@endif
 			<!-- /.card-body -->
 		</div>
 	</div>

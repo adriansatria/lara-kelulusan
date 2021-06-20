@@ -2,7 +2,53 @@
 
 @section('content')
 
-<div class="row">
+<div class="m-4">
+    <h4 style="font-weight: bold">{{ $title }}</h4>
+    <p>{{ $detail }}</p>
+</div>
+
+<form action="{{ route('rekapipmahasiswa.year') }}" method="post">
+@csrf
+<div class="row mt-2">
+	<div class="col-md-2">
+	<span>Prodi</span>
+		<select class="form-select form-control" name="prodi" aria-label="Default select example">
+			<option selected>PILIH</option>
+			<option value="Sistem Informasi">Sistem Informasi</option>
+			<option value="Teknik Informatika">Teknik Informatika</option>
+		</select>
+	</div>
+	<div class="col-md-2">
+	<span>Semester</span>
+		<select class="form-select form-control" name="semester" aria-label="Default select example" disabled>
+			<option selected>PILIH</option>
+			<option value="Ganjil">Ganjil</option>
+			<option value="Genap">Genap</option>
+		</select>
+	</div>
+	<div class="col-md-2">
+	<span>Tahun</span>
+		<select class="form-select form-control" name="year" aria-label="Default select example">
+			<option selected>PILIH</option>
+			<option value="2012">2012</option>
+			<option value="2013">2013</option>
+			<option value="2014">2014</option>
+			<option value="2015">2015</option>
+			<option value="2016">2016</option>
+			<option value="2017">2017</option>
+			<option value="2018">2018</option>
+			<option value="2019">2019</option>
+			<option value="2020">2020</option>
+			<option value="2021">2021</option>
+		</select>
+	</div>
+	<div class="col-sm mt-4">
+		<button type="submit" class="btn btn-outline-primary">Browse</button>
+	</div>
+</div>
+</form>
+
+<div class="row mt-4">
 	<div class="col-12">
 		@if(session()->has('add'))
 		<div class="alert alert-success alert-dismissible">
@@ -25,31 +71,27 @@
 			<div class="card-header">
 				<div class="row">
 					<div class="col-12">
-						<div class="float-left">
-							<form class="form-inline" action="{{ route('f2s.year') }}" method="POST">
-								@csrf
-								<div class="form-group">
-									<label for="year">Year</label>
-									<input type="text" name="year" class="form-control mx-sm-3">
-								</div>
-								<button class="btn btn-info" type="submit"><i class="fas fa-search"></i> Searc</button>
-							</form>
-						</div>
 						@if(session('level') == 'Admin' || session('level') == 'Petugas')
 						<div class="float-right">
-							{{-- <a href="" class="btn btn-primary"><i class="fas fa-file-excel"></i> Import Data</a> --}}
 							<form action="" method="post" enctype="multipart/form-data">
 								{{ csrf_field() }}
-								<input type="file" name="import_file"> <button class="btn btn-success"><i class="fas fa-file-upload"></i>Import Excel</button> 
+								@if($year == '')
+								<a href="{{ route('rekapipmahasiswa.create') }}" class="btn btn-secondary"><i class="fas fa-plus"></i> Add Data</a>
+								@else
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#detailModal">Detail</button>
+								<a href="{{ route('rekapipmahasiswa') }}" class="btn btn-warning"><i class="fas fa-redo-alt"></i></a>
+								<a href="{{ url('/rekapipmahasiswa/export/'.$year. '/'.$prodi) }}" class="btn btn-success"><i
+                                        class="fas fa-file-excel"></i> Export to Excel</a>
+								@endif
 							</form>
-							{{-- <a href="" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
 						</div>
 						@endif
 					</div>
 				</div>
 			</div>
-			<div class="card-body">
-				<table id="example1" class="table table-bordered table-striped display nowrap">
+			@if($year != '' && $prodi != '')
+			<div class="card-body table-responsive">
+				<table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
 					<thead>
 						<tr>
 							<th rowspan="2" class="align-middle">NO</th>
@@ -59,6 +101,7 @@
 							<th colspan="8" class="text-center">IP SMT</th>
 							<th rowspan="2" class="align-middle">IPK</th>
 							<th rowspan="2" class="align-middle">Status</th>
+							<th rowspan="2" class="align-middle">Prodi</th>
 							<th rowspan="2" class="align-middle">Tahun</th>
 							@if(session('level') == 'Admin' || session('level') == 'Petugas')
 							<td width="55px" rowspan="2" class="align-middle">Aksi</td>
@@ -92,11 +135,12 @@
 							<td>{{ $f2->ip_s8 }}</td>
 							<td>{{ $f2->ipk }}</td>
 							<td>{{ $f2->status }}</td>
+							<td>{{ $f2->prodi }}</td>
 							<td>{{ $f2->tahun }}</td>
 							@if(session('level') == 'Admin' || session('level') == 'Petugas')
 							<td>
-								<a href="{{ route('f2s.edit', $f2->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-								<form action="{{ route('f2s.destroy', $f2->id) }}" method="POST" class="d-inline">
+								<a href="{{ route('rekapipmahasiswa.edit', $f2->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
+								<form action="{{ route('rekapipmahasiswa.destroy', $f2->id) }}" method="POST" class="d-inline">
 									@method('DELETE')
 									@csrf
 									<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this?')"><i class="fas fa-trash"></i></button>
@@ -108,7 +152,95 @@
 					</tbody>
 				</table>
 			</div>
+			@endif
 			<!-- /.card-body -->
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="detailModalLabel">Details</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th colspan="4" class="text-center">IP & IPK</th>
+						</tr>
+						<tr>
+							<th class="text-center">Semester</th>
+							<th>TERTINGGI</th>
+							<th>TERENDAH</th>
+							<th>RATA-RATA</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>IP SMT 1</td>
+							<td class="text-center">{{ $ip1_max }}</td>
+							<td class="text-center">{{ $ip1_min }}</td>
+							<td class="text-center">{{ $ip1_avg }}</td>
+						</tr>
+						<tr>
+							<td>IP SMT 2</td>
+							<td class="text-center">{{ $ip2_max }}</td>
+							<td class="text-center">{{ $ip2_min }}</td>
+							<td class="text-center">{{ $ip2_avg }}</td>
+						</tr>
+						<tr>
+							<td>IP SMT 3</td>
+							<td class="text-center">{{ $ip3_max }}</td>
+							<td class="text-center">{{ $ip3_min }}</td>
+							<td class="text-center">{{ $ip3_avg }}</td>
+						</tr>
+						<tr>
+							<td>IP SMT 4</td>
+							<td class="text-center">{{ $ip4_max }}</td>
+							<td class="text-center">{{ $ip4_min }}</td>
+							<td class="text-center">{{ $ip4_avg }}</td>
+						</tr>
+						<tr>
+							<td>IP SMT 5</td>
+							<td class="text-center">{{ $ip5_max }}</td>
+							<td class="text-center">{{ $ip5_min }}</td>
+							<td class="text-center">{{ $ip5_avg }}</td>
+						</tr>
+						<tr>
+							<td>IP SMT 6</td>
+							<td class="text-center">{{ $ip6_max }}</td>
+							<td class="text-center">{{ $ip6_min }}</td>
+							<td class="text-center">{{ $ip6_avg }}</td>
+						</tr>
+						<tr>
+							<td>IP SMT 7</td>
+							<td class="text-center">{{ $ip7_max }}</td>
+							<td class="text-center">{{ $ip7_min }}</td>
+							<td class="text-center">{{ $ip7_avg }}</td>
+						</tr>
+						<tr>
+							<td>IP SMT 8</td>
+							<td class="text-center">{{ $ip8_max }}</td>
+							<td class="text-center">{{ $ip8_min }}</td>
+							<td class="text-center">{{ $ip8_avg }}</td>
+						</tr>
+						<tr>
+							<td>IPK</td>
+							<td class="text-center">{{ $ipk_max }}</td>
+							<td class="text-center">{{ $ipk_min }}</td>
+							<td class="text-center">{{ $ipk_avg }}</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
 		</div>
 	</div>
 </div>

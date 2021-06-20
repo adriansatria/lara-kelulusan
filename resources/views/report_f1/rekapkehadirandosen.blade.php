@@ -2,6 +2,11 @@
 
 @section('content')
 
+<div class="m-4">
+    <h4 style="font-weight: bold">{{ $title }}</h4>
+    <p>{{ $detail }}</p>
+</div>
+
 <form action="{{ route('rekapkehadirandosen.year') }}" method="post">
 @csrf
 <div class="row mt-2">
@@ -39,7 +44,6 @@
 	</div>
 	<div class="col-sm mt-4">
 		<button type="submit" class="btn btn-outline-primary">Browse</button>
-		<a class="btn btn-outline-danger">Cancel</a>
 	</div>
 </div>
 </form>
@@ -69,14 +73,19 @@
 					<div class="col-12">
 						@if(session('level') == 'Admin')
 						<div class="float-right">
-							{{-- <a href="" class="btn btn-primary"><i class="fas fa-file-excel"></i> Import Data</a> --}}
+							@if($year == '')
 							<a href="{{ route('rekapkehadirandosen.create') }}" class="btn btn-secondary"><i class="fas fa-plus"></i> Add Data</a>
-							{{-- <a href="" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
+							@else
+							<a href="{{ route('rekapkehadirandosen') }}" class="btn btn-warning"><i class="fas fa-redo-alt"></i></a>
+                            <a href="{{ route('rekapkehadirandosen.export', $year) }}" class="btn btn-success">
+							<i class="fas fa-file-excel"></i> Export to Excel</a>
+							@endif
 						</div>
 						@endif
 					</div>
 				</div>
 			</div>
+			@if($year != '')
 			<div class="card-body table-responsive">
 				<table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
 					<thead>
@@ -122,6 +131,7 @@
 					</tbody>
 				</table>
 			</div>
+			@endif
 			<!-- /.card-body -->
 		</div>
 	</div>

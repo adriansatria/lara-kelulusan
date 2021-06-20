@@ -2,6 +2,11 @@
 
 @section('content')
 
+<div class="m-4">
+    <h4 style="font-weight: bold">{{ $title }}</h4>
+    <p>{{ $detail }}</p>
+</div>
+
 <form action="{{ route('f1s.year') }}" method="post">
 @csrf
 <div class="row mt-2 m-4">
@@ -39,7 +44,6 @@
 	</div>
 	<div class="col-sm mt-4">
 		<button type="submit" class="btn btn-outline-primary">Browse</button>
-		<a class="btn btn-outline-danger">Cancel</a>
 	</div>
 </div>
 </form>

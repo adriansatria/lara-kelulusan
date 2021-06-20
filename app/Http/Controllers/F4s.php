@@ -11,20 +11,17 @@ class F4s extends Controller
 {
     public function index(){
 		$f4s = F4s_model::all();
-		return view('report_f4.index', ['title' => 'Report F4','detail' => 'Rekapitulasi Surat Peringatan', 'f4s' => $f4s]);
+		return view('report_f4.index', ['title' => 'Report F4','detail' => 'Rekapitulasi Surat Peringatan', 'f4s' => $f4s, 'year' => '', 'prodi' => '', 'semester' => '']);
 	}
 
 	public function year(Request $request)
 	{
-		if($request->input('year') == ''){
-			$f4s = F4s_model::all();
-			return view('report_f4.index', ['title' => 'Report F4','detail' => 'Rekapitulasi Surat Peringatan', 'f4s' => $f4s]);
-
-		} else{
 			$year = $request->input('year');
-			$result = F4s_model::where('tahun', $year)->get();
-			return view('report_f4.year', ['title' => 'Report F4 ' . $year,'detail' => 'Rekapitulasi Surat Peringatan','report_f4' => $result]);
-		}
+			$prodi = $request->input('prodi');
+			$semester = $request->input('semester');
+
+			$result = F4s_model::where('tahun', $year)->where('prodi', $prodi)->where('semester', $semester)->get();
+			return view('report_f4.index', ['title' => 'Report F4 ' . $year,'detail' => 'Rekapitulasi Surat Peringatan','f4s' => $result, 'year' => $year, 'prodi' => $prodi, 'semester' => $semester]);
 	}
 
 	public function create(){
@@ -108,10 +105,9 @@ class F4s extends Controller
 
 	}
 
-	public function export(Request $request)
+	public function export($year, $prodi, $semester)
 	{
-		$year = $request->input('year');
-		$result = F4s_model::where('tahun', $year)->get();
+		$result = F4s_model::where('tahun', $year)->where('prodi', $prodi)->where('semester', $semester)->get();
 
 		$spreadsheet = new Spreadsheet();
 		$sheet = $spreadsheet->getActiveSheet();
@@ -136,6 +132,17 @@ class F4s extends Controller
 		$sheet->mergeCells('G6:I6');
 		$sheet->setCellValue('G6', 'SURAT PERINGATAN');
 		$sheet->getStyle('G6:I6')->getAlignment()->setHorizontal('center');
+
+		$sheet->getColumnDimension('A')->setAutoSize(true);
+        $sheet->getColumnDimension('B')->setAutoSize(true);
+        $sheet->getColumnDimension('C')->setAutoSize(true);
+        $sheet->getColumnDimension('D')->setAutoSize(true);
+        $sheet->getColumnDimension('E')->setAutoSize(true);
+        $sheet->getColumnDimension('F')->setAutoSize(true);
+        $sheet->getColumnDimension('G')->setAutoSize(true);
+        $sheet->getColumnDimension('H')->setAutoSize(true);
+		$sheet->getColumnDimension('I')->setAutoSize(true);
+        $sheet->getColumnDimension('J')->setAutoSize(true);
 
  		$sheet->mergeCells('A6:A7');
 		$sheet->setCellValue('A6', 'NO.');
@@ -164,6 +171,19 @@ class F4s extends Controller
 		$sheet->mergeCells('J6:J7');
 		$sheet->setCellValue('J6', 'KETERANGAN');
 		$sheet->getStyle('J6:J7')->getAlignment()->setHorizontal('center')->setVertical('center');
+
+		$styleArray = array(
+			'borders' => array(
+				'allBorders' => array(
+					'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+					'color' => array('argb' => '000'),
+				),
+			),
+		);
+	
+		$sheet ->getStyle('A6:J6')->applyFromArray($styleArray);
+		$sheet ->getStyle('A7:J7')->applyFromArray($styleArray);
+
 		$no=1;
 		$cell = 8;
 		foreach($result as $row){
@@ -177,6 +197,18 @@ class F4s extends Controller
 			$sheet->setCellValue('H'.$cell, $row->sp2);
 			$sheet->setCellValue('I'.$cell, $row->sp3);
 			$sheet->setCellValue('J'.$cell, $row->keterangan);
+
+			$styleArray = array(
+				'borders' => array(
+					'allBorders' => array(
+						'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+						'color' => array('argb' => '000'),
+					),
+				),
+			);
+		
+			$sheet ->getStyle('A'.$cell.':J'.$cell)->applyFromArray($styleArray);
+
 			$cell++;
 		}
 		$writer = new Xlsx($spreadsheet);        

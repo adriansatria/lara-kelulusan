@@ -10,7 +10,7 @@
 
 <form action="{{ route('mahasiswa.year') }}" method="post">
     @csrf
-    <div class="row mt-2 m-4">
+    <div class="row mt-2">
         <div class="col-md-2">
             <span>Prodi</span>
             <select class="form-select form-control" name="prodi" aria-label="Default select example" >
@@ -45,7 +45,6 @@
         </div>
         <div class="col-sm mt-4">
             <button type="submit" class="btn btn-outline-primary">Browse</button>
-            <a class="btn btn-outline-danger">Cancel</a>
         </div>
     </div>
 </form>
@@ -107,6 +106,7 @@
                     </div>
                 </div>
             </div>
+            @if($year != '')
             <div class="card-body table-responsive">
                 <table id="example1" class="table table-bordered display nowrap">
                     <thead>
@@ -173,6 +173,7 @@
                     </tbody>
                 </table>
             </div>
+            @endif
             <!-- /.card-body -->
         </div>
     </div>

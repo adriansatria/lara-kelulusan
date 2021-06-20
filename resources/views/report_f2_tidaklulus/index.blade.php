@@ -2,12 +2,19 @@
 
 @section('content')
 
-<div class="row mt-2">
+<div class="m-4">
+    <h4 style="font-weight: bold">{{ $title }}</h4>
+    <p>{{ $detail }}</p>
+</div>
+
+<form action="{{ route('f2s_tidaklulus.year') }}" method="post">
+@csrf
+<div class="row mt-2 ml-3">
 	<div class="col-md-2">
 	<span>Prodi</span>
 		<select class="form-select form-control" name="prodi" aria-label="Default select example" disabled>
 			<option selected>PILIH</option>
-			<option value="Teknik Informasi">Teknik Informasi</option>
+			<option value="Sistem Informasi">Sistem Informasi</option>
 			<option value="Teknik Informatika">Teknik Informatika</option>
 		</select>
 	</div>
@@ -15,13 +22,19 @@
 	<span>Semester</span>
 		<select class="form-select form-control" name="semester" aria-label="Default select example" disabled>
 			<option selected>PILIH</option>
-			<option value="Ganjil">Ganjil</option>
-			<option value="Genap">Genap</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
 		</select>
 	</div>
 	<div class="col-md-2">
 	<span>Tahun</span>
-		<select class="form-select form-control" name="semester" aria-label="Default select example" disabled>
+		<select class="form-select form-control" name="year" aria-label="Default select example">
 			<option selected>PILIH</option>
 			<option value="2012">2012</option>
 			<option value="2013">2013</option>
@@ -36,10 +49,10 @@
 		</select>
 	</div>
 	<div class="col-sm mt-4">
-		<button class="btn btn-outline-primary">Browse</button>
-		<button class="btn btn-outline-danger">Cancel</button>
+		<button type="submit" class="btn btn-outline-primary">Browse</button>
 	</div>
 </div>
+</form>
 <div class="row mt-5">
 	<div class="col-12">
 		@if(session()->has('add'))
@@ -74,30 +87,14 @@
 		</div>
 		@endif
 
-		<div class="m-4">
-			<h2 style="font-weight:bold">Dashboard</h2>
-			<h6 >Jumlah Mahasiswa Tidak Lulus</h6>
-		</div>
-
 		<div class="card border-secondary m-4 border">
 			<div class="card-header">
 				<div class="row">
 					<div class="col-12">
 						<h5 style="text-align: center; font-weight:bold">Details</h5>
-						<!-- <div class="float-left">
-							<form class="form-inline" action="{{ route('f2s_tidaklulus.year') }}" method="POST">
-								@csrf
-								<div class="form-group">
-									<label for="year">Year</label>
-									<input type="text" name="year" class="form-control mx-sm-3">
-								</div>
-								<button class="btn btn-primary" type="submit"><i class="fas fa-search"></i> Search</button>
-							</form>
-						</div> -->
-						
 						<div class="float-right">	
 							@if($year != '')
-								<a href="{{ route('f2s_tidaklulus') }}" class="btn btn-success"> Refresh</a>
+								<a href="{{ route('f2s_tidaklulus') }}" class="btn btn-warning"><i class="fas fa-redo-alt"></i></a>
 								<a href="{{ route('f2s_tidaklulus.export', $year) }}" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a>
 							@endif
 						</div>

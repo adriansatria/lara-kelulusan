@@ -7,7 +7,7 @@
 	<div class="col-12">
 		<div class="card">
 			<div class="card-body">
-				<form action="{{ route('f1s.store') }}" method="POST">
+				<form action="{{ route('rekapkehadirandosen.store') }}" method="POST">
 					@csrf
 					<div class="row">
 						<div class="col-md-6">

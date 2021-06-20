@@ -2,6 +2,11 @@
 
 @section('content')
 
+<div class="m-4">
+    <h4 style="font-weight: bold">{{ $title }}</h4>
+    <p>{{ $detail }}</p>
+</div>
+
 <div class="row">
 	<div class="col-12">
 		@if(session()->has('add'))
@@ -20,8 +25,6 @@
 			{{ session()->get('delete')}}
 		</div>
 		@endif
-
-		<h2 class="m-4" style="font-weight: bold">User</h2>
 
 		<div class="card border border-secondary m-4">
 			<div class="card-body">

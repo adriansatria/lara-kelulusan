@@ -73,7 +73,10 @@
 							</div>
 						</div>
 					</div>
-					<button type="submit" class="btn btn-primary">Save</button>
+					<div class="float-right">
+                        <a href="{{ route('f4s') }}" class="btn btn-warning">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
 				</form>
 			</div>
 		</div>	

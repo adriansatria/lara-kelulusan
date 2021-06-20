@@ -22,7 +22,7 @@ class Rekapkehadirandosen extends Controller
 	}
 
 	public function create(){
-		return view('report_f1.createrekap', ['title' => 'Form Add Data Report F1', 'detail' => '']);
+		return view('report_f1.create', ['title' => 'Form Add Data Report F1', 'detail' => '']);
 	}
 
 	public function store(Request $request){
@@ -87,7 +87,7 @@ class Rekapkehadirandosen extends Controller
 
 		Rekapkehadirandosen_model::where('id',$id)->update($validateData);
 
-		return redirect()->route('Rekapkehadirandosen')
+		return redirect()->route('rekapkehadirandosen')
 		->with('update', 'Data updated successfully');
 	}
 
@@ -97,14 +97,13 @@ class Rekapkehadirandosen extends Controller
 
 		$delete->delete();
 
-		return redirect()->route('Rekapkehadirandosen')
+		return redirect()->route('rekapkehadirandosen')
 		->with('delete','Data deleted successfully');
 
 	}
 
-	public function export(Request $request)
+	public function export($year)
 	{
-		$year = $request->input('year');
 		$result = Rekapkehadirandosen_model::where('tahun', $year)->get();
 
 		$spreadsheet = new Spreadsheet();
@@ -126,6 +125,14 @@ class Rekapkehadirandosen extends Controller
 		$sheet->setCellValue('A4', 'JURUSAN TEKNIK INFORMATIKA DAN KOMPUTER');
 		$sheet->getStyle('A4:H4')->getAlignment()->setHorizontal('center');
 		$sheet->getStyle('A4:H4')->getFont()->setBold(true);
+		$sheet->getColumnDimension('A')->setAutoSize(true);
+        $sheet->getColumnDimension('B')->setAutoSize(true);
+        $sheet->getColumnDimension('C')->setAutoSize(true);
+        $sheet->getColumnDimension('D')->setAutoSize(true);
+        $sheet->getColumnDimension('E')->setAutoSize(true);
+        $sheet->getColumnDimension('F')->setAutoSize(true);
+        $sheet->getColumnDimension('G')->setAutoSize(true);
+        $sheet->getColumnDimension('H')->setAutoSize(true);
 
 
 		$sheet->setCellValue('A6', 'NO.');
@@ -136,6 +143,18 @@ class Rekapkehadirandosen extends Controller
 		$sheet->setCellValue('F6', 'JPM');
 		$sheet->setCellValue('G6', '% Kehadiran per KLS.');
 		$sheet->setCellValue('H6', 'Rata-rata Kehadiran per SMT.');
+		$sheet->getStyle('A6:H6')->getFont()->setBold(true);
+		$styleArray = array(
+			'borders' => array(
+				'allBorders' => array(
+					'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+					'color' => array('argb' => '000'),
+				),
+			),
+		);
+        
+        $sheet ->getStyle('A6:H6')->applyFromArray($styleArray);
+
 		$no=1;
 		$cell = 7;
 		foreach($result as $row){
@@ -147,6 +166,18 @@ class Rekapkehadirandosen extends Controller
 			$sheet->setCellValue('F'.$cell, $row->jpm);
 			$sheet->setCellValue('G'.$cell, $row->kpk);
 			$sheet->setCellValue('H'.$cell, $row->rata_kehadiran);
+
+			$styleArray = array(
+				'borders' => array(
+					'allBorders' => array(
+						'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+						'color' => array('argb' => '000'),
+					),
+				),
+			);
+			
+			$sheet ->getStyle('A'.$cell.':H'.$cell)->applyFromArray($styleArray);
+
 			$cell++;
 		}
 		$writer = new Xlsx($spreadsheet);        

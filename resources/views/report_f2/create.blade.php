@@ -2,33 +2,42 @@
 
 @section('content')
 
-
 <div class="row">
 	<div class="col-12">
 		<div class="card">
 			<div class="card-body">
-				<form action="{{ route('f2s.store') }}" method="POST">
+				<form action="{{ route('rekapipmahasiswa.store') }}" method="POST">
 					@csrf
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="kelas">Kelas</label>
-								<input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{ old('kelas') }}">
-								@error('kelas')
+								<label for="nim">NIM</label>
+								<select name="nim" class="form-control @error('nim') is-invalid @enderror">
+									<option value="">Pilih NIM</option>
+									@foreach($mahasiswa as $i)
+										<option value="{{ $i->nim }}">{{ $i->nim }} - {{ $i->nama }}</option>
+                  @endforeach
+								</select>
+								@error('nim')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
 							<div class="form-group">
 								<label for="nama_mahasiswa">Nama Mahasiswa</label>
-								<input type="text" class="form-control @error('nama_mahasiswa') is-invalid @enderror" name="nama_mahasiswa" value="{{ old('nama_mahasiswa') }}">
+								<select name="nama_mahasiswa" class="form-control @error('nama_mahasiswa') is-invalid @enderror">
+									<option value="">Pilih Mahasiswa</option>
+									@foreach($mahasiswa as $i)
+										<option value="{{ $i->nama }}">{{ $i->nim }} - {{ $i->nama }}</option>
+                  @endforeach
+								</select>
 								@error('nama_mahasiswa')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
 							<div class="form-group">
-								<label for="nim">NIM</label>
-								<input type="text" class="form-control @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') }}">
-								@error('nim')
+								<label for="kelas">Kelas</label>
+								<input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{ old('kelas') }}">
+								@error('kelas')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
@@ -113,6 +122,17 @@
 								@enderror
 							</div>
 							<div class="form-group">
+								<label for="prodi">Prodi</label>
+									<select name="prodi" class="form-control @error('prodi') is-invalid @enderror">
+										<option value="">PILIH</option>
+										<option value="Sistem Informasi">Sistem Informasi</option>
+										<option value="Teknik Informatika">Teknik Informatika</option>
+									</select>
+								@error('prodi')
+								<div class="text-danger">{{ $message }}</div>
+								@enderror
+							</div>
+							<div class="form-group">
 								<label for="tahun">Tahun</label>
 								<input type="text" class="form-control @error('tahun') is-invalid @enderror" name="tahun" value="{{ old('tahun') }}">
 								@error('tahun')
@@ -121,7 +141,10 @@
 							</div>
 						</div>
 					</div>
-					<button type="submit" class="btn btn-primary">Save</button>
+					<div class="float-right">
+                        <a href="{{ route('rekapipmahasiswa') }}" class="btn btn-warning">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
 				</form>
 			</div>
 		</div>	

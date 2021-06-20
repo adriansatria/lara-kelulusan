@@ -185,7 +185,7 @@
                                     <a class="dropdown-item" href="">Report F4</a>
                                     <ul class="dropdown-submenu">
                                         <li><a class="dropdown-item"
-                                                href="{{ url('rekapsuratperingatan') }}">Rekapitulasi Surat
+                                                href="{{ url('f4s') }}">Rekapitulasi Surat
                                                 Peringatan</a></li>
                                     </ul>
                                 </li>
@@ -206,7 +206,7 @@
                     <ul class="navbar ml-auto float-right">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle btn btn-black" data-toggle="dropdown" href="#" role="button"
-                                aria-haspopup="true" aria-expanded="false">Admin
+                                aria-haspopup="true" aria-expanded="false">{{ session('username') }}
                                 <img src="{{ url('') }}/assets/dist/img/logo.png" style="max-height: 20px" class="rounded">
                             </a>
                             <div class="dropdown-menu p-1 m-1">
@@ -219,17 +219,6 @@
                 </div>
             </nav>
             <!-- Right navbar links -->
-        <!-- /.navbar -->
-
-        <!-- Main Sidebar Container -->
-
-
-
-
-
-        <!-- Content Wrapper. Contains page content -->
-
-        <!-- /.content-header -->
 
         <!-- Main content -->
         <section class="content">

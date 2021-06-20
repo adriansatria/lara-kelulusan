@@ -8,24 +8,28 @@ use Illuminate\Database\Eloquent\Model;
 class F3s_model extends Model
 {
     use HasFactory;
-    protected $table = 'report_f3s';
+    protected $table = 'reportf3s';
 	protected $primaryKey = 'id';
 	protected $guarded = [];
 	public $timestamps = false;
 	protected $fillable = [
-		'prodi',
-		'jenjang',
-		'semester',
-		'kelas',
-		'jumlah_mahasiswa',
-		'status_l',
-		'status_lp',
-		'status_ct',
-		'status_ml',
-		'status_md',
-		'status_do',
-		'nama_mahasiswa',
 		'nim',
-		'tahun'
+		'nama_mahasiswa',
+		'izin',
+		'tidak_izin',
+		'jumlah',
+		'kelakuan',
+		'status_lulus_lalu',
+		'status_lulus_baru',
+		'amxsks',
+		'ip',
+		'kapita_selekta2',
+		'k3',
+		'metodologi_penelitian2',
+		'k2',
+		'bahasa_inggris_komunikasi3',
+		'k2_2',
+		'tugas_akhir',
+		'k6'
 	];
 }

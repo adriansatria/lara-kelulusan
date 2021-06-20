@@ -81,30 +81,44 @@ class F3s extends Controller
 	public function update(Request $request, $id)
 	{
 		$validateData = $request->validate([
-			'nama_mahasiswa' => '',
-			'nim' => '',
-			'prodi' => 'required',
-			'jenjang' => 'required',
-			'semester' => 'required',
-			'kelas' => 'required',
-			'jumlah_mahasiswa' => 'required',
-			'status_l' => '',
-			'status_lp' => '',
-			'status_ct' => '',
-			'status_ml' => '',
-			'status_md' => '',
-			'status_do' => '',
-			'tahun' => 'required'
+			'nim' => 'required',
+			'nama_mahasiswa' => 'required',
+			'izin' => 'required',
+			'tidak_izin' => 'required',
+			'jumlah' => 'required',
+			'kelakuan' => 'required',
+			'status_lulus_lalu' => 'required',
+			'status_lulus_baru' => 'required',
+			'amxsks' => 'required',
+			'ip' => 'required',
+			'kapita_selekta2' => 'required',
+			'k3' => 'required',
+			'metodologi_penelitian2' => 'required',
+			'k2' => 'required',
+			'bahasa_inggris_komunikasi3' => 'required',
+			'k2_2' => 'required',
+			'tugas_akhir' => 'required',
+			'k6' => 'required',
 		],
 		[
-			'prodi.required' => 'Data must not be empty!',
-			'jenjang.required' => 'Data must not be empty!',
-			'semester.required' => 'Data must not be empty!',
-			'kelas.required' => 'Data must not be empty!',
-			'jumlah_mahasiswa.required' => 'Data must not be empty!',
-			'status.required' => 'Data must not be empty!',
-			'tahun.required' => 'Data must not be empty!'
-
+			'nim.required' => 'Data must not be empty!',
+			'nama_mahasiswa.required' => 'Data must not be empty!',
+			'izin.required' => 'Data must not be empty!',
+			'tidak_izin.required' => 'Data must not be empty!',
+			'jumlah.required' => 'Data must not be empty!',
+			'kelakuan.required' => 'Data must not be empty!',
+			'status_lulus_lalu.required' => 'Data must not be empty!',
+			'status_lulus_baru.required' => 'Data must not be empty!',
+			'amxsks.required' => 'Data must not be empty!',
+			'ip.required' => 'Data must not be empty!',
+			'kapita_selekta2.required' => 'Data must not be empty!',
+			'k3.required' => 'Data must not be empty!',
+			'metodologi_penelitian2.required' => 'Data must not be empty!',
+			'k2.required' => 'Data must not be empty!',
+			'bahasa_inggris_komunikasi3.required' => 'Data must not be empty!',
+			'k2_2.required' => 'Data must not be empty!',
+			'tugas_akhir.required' => 'Data must not be empty!',
+			'k6.required' => 'Data must not be empty!'
 		]);
 
 		F3s_model::where('id',$id)->update($validateData);
@@ -124,29 +138,21 @@ class F3s extends Controller
 
 	}
 
-	public function export($year, $prodi, $semester)
+	public function export()
 	{
-		$result = F3s_model::where('tahun', $year)->where('prodi', $prodi)->where('semester', $semester)->get();
+		$result = F3s_model::all();
 
 		$spreadsheet = new Spreadsheet();
 		$sheet = $spreadsheet->getActiveSheet();
 		$sheet->setTitle('Laporan Kelulusan');
 		$sheet->mergeCells('A1:O1');
-		$sheet->setCellValue('A1', 'JUMLAH MAHASISWA LULUS, LULUS PERCOBAAN, CUTI');
+		$sheet->setCellValue('A1', 'DATA MAHASISWA KELULUSAN MAHASISWA');
 		$sheet->getStyle('A1:O1')->getAlignment()->setHorizontal('center');
 		$sheet->getStyle('A1:O1')->getFont()->setBold(true);
 		$sheet->mergeCells('A2:O2');
-		$sheet->setCellValue('A2', 'MENGULANG, MENGUNDURKAN DIRI & DROP OUT');
+		$sheet->setCellValue('A2', 'IZIN, TIDAK HADIR, JUMLAH DAN KELAKUAN');
 		$sheet->getStyle('A2:O2')->getAlignment()->setHorizontal('center');
 		$sheet->getStyle('A2:O2')->getFont()->setBold(true);
-		$sheet->mergeCells('A3:O3');
-		$sheet->setCellValue('A3', 'JURUSAN TEKNIK INFORMATIKA DAN KUMPUTER POLITEKNIK NEGERI JAKARTA');
-		$sheet->getStyle('A3:O3')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A3:O3')->getFont()->setBold(true);
-		$sheet->mergeCells('A4:O4');
-		$sheet->setCellValue('A4', 'SEMESTER GANJIL TAHUN AKADEMIK ' . $year . '/' . ($year+1));
-		$sheet->getStyle('A4:O4')->getAlignment()->setHorizontal('center');
-		$sheet->getStyle('A4:O4')->getFont()->setBold(true);
 
 		$sheet->getColumnDimension('A')->setAutoSize(true);
         $sheet->getColumnDimension('B')->setAutoSize(true);
@@ -162,27 +168,31 @@ class F3s extends Controller
         $sheet->getColumnDimension('L')->setAutoSize(true);
         $sheet->getColumnDimension('M')->setAutoSize(true);
         $sheet->getColumnDimension('N')->setAutoSize(true);
+		$sheet->getColumnDimension('O')->setAutoSize(true);
+		$sheet->getColumnDimension('P')->setAutoSize(true);
+		$sheet->getColumnDimension('Q')->setAutoSize(true);
+		$sheet->getColumnDimension('R')->setAutoSize(true);
+		$sheet->getColumnDimension('S')->setAutoSize(true);
 
-		$sheet->mergeCells('I6:N6');
-		$sheet->setCellValue('I6', 'STATUS');
-		$sheet->getStyle('I6:N6')->getAlignment()->setHorizontal('center');
-
-		$sheet->setCellValue('A7', 'NO.');
-		$sheet->setCellValue('B7', 'PRODI');
-		$sheet->setCellValue('C7', 'JENJANG');
-		$sheet->setCellValue('D7', 'SEMESTER');
-		$sheet->setCellValue('E7', 'KELAS');
-		$sheet->setCellValue('F7', 'JML. MAHASISWA');
-		$sheet->setCellValue('G7', 'L');
-		$sheet->setCellValue('H7', 'LP');
-		$sheet->setCellValue('I7', 'CT');
-		$sheet->setCellValue('J7', 'ML');
-		$sheet->setCellValue('K7', 'MD');
-		$sheet->setCellValue('L7', 'DO');
-		$sheet->setCellValue('M7', 'NAMA MAHASISWA');
-		$sheet->setCellValue('N7', 'NIM');
-		$sheet->setCellValue('O7', 'TAHUN');
-		$sheet->getStyle('N7:O7')->getAlignment()->setHorizontal('center');
+		$sheet->setCellValue('A6', 'NO.');
+		$sheet->setCellValue('B6', 'NIM');
+		$sheet->setCellValue('C6', 'NAMA MAHASISWA');
+		$sheet->setCellValue('D6', 'IZIN');
+		$sheet->setCellValue('E6', 'TIDAK IZIN');
+		$sheet->setCellValue('F6', 'JUMLAH');
+		$sheet->setCellValue('G6', 'KELAKUAN');
+		$sheet->setCellValue('H6', 'STATUS LULUS SMT SEBELUMNYA');
+		$sheet->setCellValue('I6', 'STATUS LULUS SMT SEKARANG');
+		$sheet->setCellValue('J6', 'AM X SKS');
+		$sheet->setCellValue('K6', 'IP');
+		$sheet->setCellValue('L6', 'KAPITA SELEKTA 2');
+		$sheet->setCellValue('M6', '3');
+		$sheet->setCellValue('N6', 'METODOLOGI PENELITIAN 2');
+		$sheet->setCellValue('O6', '2');
+		$sheet->setCellValue('P6', 'BAHASA INGGRIS KOMUNIKASI 3');
+		$sheet->setCellValue('Q6', '2');
+		$sheet->setCellValue('R6', 'TUGAS AKHIR');
+		$sheet->setCellValue('S6', '6');
 
 		$styleArray = array(
 			'borders' => array(
@@ -193,33 +203,34 @@ class F3s extends Controller
 			),
 		);
 	
-		$sheet ->getStyle('A6:O6')->applyFromArray($styleArray);
-		$sheet ->getStyle('A7:O7')->applyFromArray($styleArray);
+		$sheet ->getStyle('A6:S6')->applyFromArray($styleArray);
+		$sheet ->getStyle('A7:S7')->applyFromArray($styleArray);
 
 		$no=1;
-		$cell = 8;
+		$cell = 7;
 		foreach($result as $row){
 			$sheet->setCellValue('A'.$cell, $no++);
 			$sheet->getStyle('A'.$cell)->getAlignment()->setHorizontal('center');
-			$sheet->setCellValue('B'.$cell, $row->prodi);
-			$sheet->setCellValue('C'.$cell, $row->jenjang);
-			$sheet->getStyle('C'.$cell)->getAlignment()->setHorizontal('center');
-			$sheet->setCellValue('D'.$cell, $row->semester);
-			$sheet->getStyle('D'.$cell)->getAlignment()->setHorizontal('center');
-			$sheet->setCellValue('E'.$cell, $row->kelas);
-			$sheet->setCellValue('F'.$cell, $row->jumlah_mahasiswa);
-			$sheet->getStyle('F'.$cell)->getAlignment()->setHorizontal('center');
-			$sheet->setCellValue('G'.$cell, $row->status_l);
-			$sheet->setCellValue('H'.$cell, $row->status_lp);
-			$sheet->setCellValue('I'.$cell, $row->status_ct);
-			$sheet->setCellValue('J'.$cell, $row->status_ml);
-			$sheet->setCellValue('K'.$cell, $row->status_md);
-			$sheet->setCellValue('L'.$cell, $row->status_do);
-			$sheet->setCellValue('M'.$cell, $row->nama_mahasiswa);
-			$sheet->setCellValue('N'.$cell, $row->nim);
-			$sheet->getStyle('N'.$cell)->getAlignment()->setHorizontal('center');
-			$sheet->setCellValue('O'.$cell, $row->tahun);
-			$sheet->getStyle('O'.$cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('B'.$cell, $row->nim);
+			$sheet->setCellValue('C'.$cell, $row->nama_mahasiswa);
+			$sheet->setCellValue('D'.$cell, $row->izin);
+			$sheet->getStyle('D'.$cell. ':F'.$cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('E'.$cell, $row->tidak_izin);
+			$sheet->setCellValue('F'.$cell, $row->jumlah);
+			$sheet->setCellValue('G'.$cell, $row->kelakuan);
+			$sheet->setCellValue('H'.$cell, $row->status_lulus_lalu);
+			$sheet->setCellValue('I'.$cell, $row->status_lulus_baru);
+			$sheet->setCellValue('J'.$cell, $row->amxsks);
+			$sheet->getStyle('J'.$cell. ':S'.$cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('K'.$cell, $row->ip);
+			$sheet->setCellValue('L'.$cell, $row->kapita_selekta2);
+			$sheet->setCellValue('M'.$cell, $row->k3);
+			$sheet->setCellValue('N'.$cell, $row->metodologi_penelitian2);
+			$sheet->setCellValue('O'.$cell, $row->k2);
+			$sheet->setCellValue('P'.$cell, $row->bahasa_inggris_komunikasi3);
+			$sheet->setCellValue('Q'.$cell, $row->k2_2);
+			$sheet->setCellValue('R'.$cell, $row->tugas_akhir);
+			$sheet->setCellValue('S'.$cell, $row->k6);
 
 			$styleArray = array(
 				'borders' => array(
@@ -230,7 +241,7 @@ class F3s extends Controller
 				),
 			);
 		
-			$sheet ->getStyle('A'.$cell.':O'.$cell)->applyFromArray($styleArray);
+			$sheet ->getStyle('A'.$cell.':S'.$cell)->applyFromArray($styleArray);
 
 			$cell++;
 		}

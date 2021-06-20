@@ -89,7 +89,11 @@
 							</div>
 						</div>
 					</div>
-					<button type="submit" class="btn btn border border-secondary" style="background: rgb(235, 235, 235);">Save</button>
+					<div class="float-right">
+                        <a href="{{ route('rekapipmahasiswa') }}" class="btn btn-warning">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+					<!-- <button type="submit" class="btn btn border border-secondary" style="background: rgb(235, 235, 235);">Save</button> -->
 				</form>
 			</div>
 		</div>	

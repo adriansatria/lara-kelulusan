@@ -2,12 +2,17 @@
 
 @section('content')
 
+<div class="m-4">
+    <h4 style="font-weight: bold">{{ $title }}</h4>
+    <p>{{ $detail }}</p>
+</div>
+
 <form action="{{ route('f3s.year') }}" method="post">
 @csrf
 <div class="row mt-2">
 	<div class="col-md-2">
 	<span>Prodi</span>
-		<select class="form-select form-control" name="prodi" aria-label="Default select example">
+		<select class="form-select form-control" name="prodi" aria-label="Default select example" disabled>
 			<option selected>PILIH</option>
 			<option value="Sistem Informasi">Sistem Informasi</option>
 			<option value="Teknik Informatika">Teknik Informatika</option>
@@ -15,7 +20,7 @@
 	</div>
 	<div class="col-md-2">
 	<span>Semester</span>
-		<select class="form-select form-control" name="semester" aria-label="Default select example">
+		<select class="form-select form-control" name="semester" aria-label="Default select example" disabled>
 			<option selected>PILIH</option>
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -29,7 +34,7 @@
 	</div>
 	<div class="col-md-2">
 	<span>Tahun</span>
-		<select class="form-select form-control" name="year" aria-label="Default select example">
+		<select class="form-select form-control" name="year" aria-label="Default select example" disabled>
 			<option selected>PILIH</option>
 			<option value="2012">2012</option>
 			<option value="2013">2013</option>
@@ -44,8 +49,7 @@
 		</select>
 	</div>
 	<div class="col-sm mt-4">
-		<button type="submit" class="btn btn-outline-primary">Browse</button>
-		<a class="btn btn-outline-danger">Cancel</a>
+		<button type="submit" class="btn btn-outline-primary" disabled>Browse</button>
 	</div>
 </div>
 </form>
@@ -93,65 +97,66 @@
 							{{-- <a href="" class="btn btn-primary"><i class="fas fa-file-excel"></i> Import Data</a> --}}
 							<form action="{{ route('f3s.import') }}" method="post" enctype="multipart/form-data">
 								{{ csrf_field() }}
-								@if($year == '' && $prodi == '' && $semester == '')
-								<input type="file" name="import_file"> <button class="btn btn-success"><i class="fas fa-file-upload"></i>Import Excel</button> 
-								@else
-								<a href="{{ route('f3s') }}" class="btn btn-warning"><i class="fas fa-redo-alt"></i></a>
-                                <a href="{{ url('/f3s/export/'. $year. '/' .$prodi. '/' .$semester ) }}" class="btn btn-success"><i
+								<input type="file" name="import_file"> <button class="btn btn-success"><i class="fas fa-file-upload"></i> Import Excel</button> 
+								<!-- <a href="{{ route('f3s') }}" class="btn btn-warning"><i class="fas fa-redo-alt"></i></a> -->
+                                <a href="{{ route('f3s.export') }}" class="btn btn-success"><i
                                         class="fas fa-file-excel"></i> Export to Excel</a>
-								@endif
 							</form>
 						</div>
 						@endif
 					</div>
 				</div>
 			</div>
-			<!-- @if($year != '' && $prodi != '' && $semester != '') -->
 			<div class="card-body table-responsive">
-				<table id="example1" class="table table-bordered table-striped display nowrap">
+				<table id="example1" class="table table-bordered table-striped display nowrap" width="100%">
 					<thead>
 						<tr>
-							<th rowspan="2" class="align-middle">NO</th>
-							<th rowspan="2" class="align-middle">Prodi</th>
-							<th rowspan="2" class="align-middle">Jenjang</th>
-							<th rowspan="2" class="align-middle">Semester</th>
-							<th rowspan="2" class="align-middle">Kelas</th>
-							<th rowspan="2" class="align-middle">Jumlah Mahasiswa</th>
-							<th colspan="8" class=" text-center align-middle">Status</th>
-							<th rowspan="2" class="align-middle">Tahun</th>
+							<th>NO.</th>
+							<th>NIM</th>
+							<th>Nama Mahasiswa</th>
+							<th>Izin</th>
+							<th>Tidak Izin</th>
+							<th>Jumlah</th>
+							<th>Kelakuan</th>
+							<th>Status Lulus SMT Sebelumnya</th>
+							<th>Status Lulus SMT Sekarang</th>
+							<th>AM x SKS</th>
+							<th>IP</th>
+							<th>Kapita Selekta 2</th>
+							<th>3</th>
+							<th>Metodologi Penelitian 2</th>
+							<th>2</th>
+							<th>Bahasa Inggris Komunikasi 3</th>
+							<th>2</th>
+							<th>Tugas Akhir</th>
+							<th>6</th>
 							@if(session('level') == 'Admin')
 							<td width="55px" rowspan="2" class="text-center align-middle">Aksi</td>
 							@endif
-						</tr>
-						<tr>
-							<th>L</th>
-							<th>LP</th>
-							<th>CT</th>
-							<th>ML</th>
-							<th>MD</th>
-							<th>DO</th>
-							<th>Nama Mahasiswa</th>
-							<th>NIM</th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach($f3s as $f3)
 						<tr>
 							<td>{{$loop->iteration}}</td>
-							<td>{{ $f3->prodi }}</td>
-							<td class="text-center">{{ $f3->jenjang }}</td>
-							<td>{{ $f3->semester }}</td>
-							<td>{{ $f3->kelas }}</td>
-							<td>{{ $f3->jumlah_mahasiswa }}</td>
-							<td>{{ $f3->status_l }}</td>
-							<td>{{ $f3->status_lp }}</td>
-							<td>{{ $f3->status_ct }}</td>
-							<td>{{ $f3->status_ml }}</td>
-							<td>{{ $f3->status_md }}</td>
-							<td>{{ $f3->status_do }}</td>
-							<td>{{ $f3->nama_mahasiswa }}</td>
 							<td>{{ $f3->nim }}</td>
-							<td>{{ $f3->tahun }}</td>
+							<td>{{ $f3->nama_mahasiswa }}</td>
+							<td>{{ $f3->izin }}</td>
+							<td>{{ $f3->tidak_izin }}</td>
+							<td>{{ $f3->jumlah }}</td>
+							<td>{{ $f3->kelakuan }}</td>
+							<td>{{ $f3->status_lulus_lalu }}</td>
+							<td>{{ $f3->status_lulus_baru }}</td>
+							<td>{{ $f3->amxsks }}</td>
+							<td>{{ $f3->ip }}</td>
+							<td>{{ $f3->kapita_selekta2 }}</td>
+							<td>{{ $f3->k3 }}</td>
+							<td>{{ $f3->metodologi_penelitian2 }}</td>
+							<td>{{ $f3->k2 }}</td>
+							<td>{{ $f3->bahasa_inggris_komunikasi3 }}</td>
+							<td>{{ $f3->k2_2 }}</td>
+							<td>{{ $f3->tugas_akhir }}</td>
+							<td>{{ $f3->k6 }}</td>
 							@if(session('level') == 'Admin')
 							<td>
 								<a href="{{ route('f3s.edit', $f3->id) }}" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
@@ -167,7 +172,6 @@
 					</tbody>
 				</table>
 			</div>
-			<!-- @endif -->
 			<!-- /.card-body -->
 		</div>
 	</div>

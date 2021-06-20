@@ -11,20 +11,14 @@ class Evaluations extends Controller
 {
     public function index(){
 		$evaluations = Evaluations_model::all();
-		return view('evaluation.index', ['title' => 'Evaluasi', 'detail' => 'Rekapitulasi Mahasiswa Bermasalah', 'evaluations' => $evaluations]);
+		return view('evaluation.index', ['title' => 'Evaluasi', 'detail' => 'Rekapitulasi Mahasiswa Bermasalah', 'evaluations' => $evaluations, 'year' => '']);
 	}
 
 	public function year(Request $request)
 	{
-		if($request->input('year') == ''){
-			$evaluations = Evaluations_model::all();
-			return view('evaluation.index', ['title' => 'Evaluasi', 'detail' => 'Rekapitulasi Mahasiswa Bermasalah', 'evaluations' => $evaluations]);
-
-		} else{
-			$year = $request->input('year');
-			$evaluations = Evaluations_model::where('tahun', $year)->get();
-			return view('evaluation.year', ['title' => 'Evaluasi ' . $year, 'detail' => 'Rekapitulasi Mahasiswa Bermasalah','evaluations' => $evaluations]);
-		}
+		$year = $request->input('year');
+		$evaluations = Evaluations_model::where('tahun', $year)->get();
+		return view('evaluation.index', ['title' => 'Evaluasi ' . $year, 'detail' => 'Rekapitulasi Mahasiswa Bermasalah','evaluations' => $evaluations, 'year' => $year]);
 	}
 
 	public function create(){
@@ -112,9 +106,8 @@ class Evaluations extends Controller
 
 	}
 
-	public function export(Request $request)
+	public function export($year)
 	{
-		$year = $request->input('year');
 		$result = Evaluations_model::where('tahun', $year)->get();
 
 		$spreadsheet = new Spreadsheet();
@@ -134,6 +127,28 @@ class Evaluations extends Controller
 		$sheet->setCellValue('G3', 'NILAI AKHIR');
 		$sheet->setCellValue('H3', 'KEMUNGKINAN PERBAIKAN');
 		$sheet->setCellValue('I3', 'KETERANGAN');
+
+		$sheet->getColumnDimension('A')->setAutoSize(true);
+        $sheet->getColumnDimension('B')->setAutoSize(true);
+        $sheet->getColumnDimension('C')->setAutoSize(true);
+        $sheet->getColumnDimension('D')->setAutoSize(true);
+        $sheet->getColumnDimension('E')->setAutoSize(true);
+        $sheet->getColumnDimension('F')->setAutoSize(true);
+        $sheet->getColumnDimension('G')->setAutoSize(true);
+        $sheet->getColumnDimension('H')->setAutoSize(true);
+        $sheet->getColumnDimension('I')->setAutoSize(true);
+
+		$styleArray = array(
+			'borders' => array(
+				'allBorders' => array(
+					'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+					'color' => array('argb' => '000'),
+				),
+			),
+		);
+        
+        $sheet ->getStyle('A3:I3')->applyFromArray($styleArray);
+
 		$no=1;
 		$cell = 4;
 		foreach($result as $row){
@@ -146,6 +161,18 @@ class Evaluations extends Controller
 			$sheet->setCellValue('G'.$cell, $row->nilai_akhir);
 			$sheet->setCellValue('H'.$cell, $row->kemungkinan_perbaikan);
 			$sheet->setCellValue('I'.$cell, $row->keterangan);
+
+			$styleArray = array(
+				'borders' => array(
+					'allBorders' => array(
+						'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+						'color' => array('argb' => '000'),
+					),
+				),
+			);
+			
+			$sheet ->getStyle('A'.$cell.':I'.$cell)->applyFromArray($styleArray);
+
 			$cell++;
 		}
 		$writer = new Xlsx($spreadsheet);        

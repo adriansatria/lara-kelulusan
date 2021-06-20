@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReportf3Table extends Migration
+class CreateReportf2Table extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateReportf3Table extends Migration
      */
     public function up()
     {
-        Schema::create('reportf3s', function (Blueprint $table) {
+        Schema::create('reportf2s', function (Blueprint $table) {
             $table->id();
             $table->string('nim', 10);
             $table->string('nama_mahasiswa', 50);
@@ -29,11 +29,11 @@ class CreateReportf3Table extends Migration
             $table->string('k3', 5);
             $table->string('metodologi_penelitian2', 5);
             $table->string('k2', 5);
-            $table->string('bahasa_inggris_komunikasi2', 5);
+            $table->string('bahasa_inggris_komunikasi3', 5);
             $table->string('k2_2', 5);
             $table->string('tugas_akhir', 5);
             $table->string('k6', 5);
-
+            $table->timestamps();
         });
     }
 
@@ -44,6 +44,6 @@ class CreateReportf3Table extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reportf3');
+        Schema::dropIfExists('reportf2s');
     }
 }
