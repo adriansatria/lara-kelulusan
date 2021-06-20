@@ -64,6 +64,8 @@ class Evaluations extends Controller
 	public function edit($id)
 	{
 		$result = Evaluations_model::find($id);
+		$dosen = dosen_model::all();
+		$mahasiswa = Mahasiswa_Model::all();
 		return view('evaluation.edit', ['title' => 'Edit Data Evaluasi','detail' => '','evaluation' => $result,  'dosen' => $dosen, 'mahasiswa' => $mahasiswa]);
 	}
 

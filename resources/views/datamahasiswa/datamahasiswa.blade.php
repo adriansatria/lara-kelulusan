@@ -13,7 +13,7 @@
     <div class="row mt-2 m-3">
         <div class="col-md-2">
             <span>Prodi</span>
-            <select class="form-select form-control" name="prodi" aria-label="Default select example" >
+            <select class="form-select form-control" name="prodi" aria-label="Default select example" disabled>
                 <option selected>PILIH</option>
                 <option value="Teknik Informasi">Teknik Informasi</option>
                 <option value="Teknik Informatika">Teknik Informatika</option>
@@ -21,7 +21,7 @@
         </div>
         <div class="col-md-2">
             <span>Semester</span>
-            <select class="form-select form-control" name="semester" aria-label="Default select example" >
+            <select class="form-select form-control" name="semester" aria-label="Default select example" disabled>
                 <option selected>PILIH</option>
                 <option value="Ganjil">Ganjil</option>
                 <option value="Genap">Genap</option>

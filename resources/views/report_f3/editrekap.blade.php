@@ -12,14 +12,19 @@
 					@csrf
 					<div class="row">
 						<div class="col-md-6">
-							<div class="form-group">
-								<label for="nama_mahasiswa">Nama Mahasiswa</label>
-								<input type="text" class="form-control" name="nama_mahasiswa" value="{{ old('nama_mahasiswa') ?? $report_f3->nama_mahasiswa }}">
+						<div class="form-group">
+								<label for="nim">Mahasiswa</label>
+								<select name="nim" class="form-control @error('nim') is-invalid @enderror">
+									<option value="">Pilih Mahasiswa</option>
+									@foreach($mahasiswa as $i)
+										<option value="{{ $i->nim }}" {{ old('nim', @$report_f3->nim)==$i->nim ? 'selected' : '' }}>{{ $i->nim }} - {{ $i->nama }}</option>
+                 					 @endforeach
+								</select>
+								@error('nim')
+								<div class="text-danger">{{ $message }}</div>
+								@enderror
 							</div>
-							<div class="form-group">
-								<label for="nim">NIM</label>
-								<input type="text" class="form-control" name="nim" value="{{ old('nim') ?? $report_f3->nim  }}">
-							</div>
+							<input type="hidden" name="nama_mahasiswa" value="-">
 							<div class="form-group">
 								<label for="prodi">Prodi</label>
 								<input type="text" class="form-control @error('prodi') is-invalid @enderror" name="prodi" value="{{ old('prodi') ?? $report_f3->prodi  }}">
