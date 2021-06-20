@@ -10,7 +10,7 @@
 
 <form action="{{ route('mahasiswa.year') }}" method="post">
     @csrf
-    <div class="row mt-2">
+    <div class="row mt-2 m-3">
         <div class="col-md-2">
             <span>Prodi</span>
             <select class="form-select form-control" name="prodi" aria-label="Default select example" >
