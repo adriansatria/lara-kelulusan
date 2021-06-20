@@ -108,6 +108,7 @@ class Rekapipmahasiswa extends Controller
 
 		$nama_mahasiswa = \DB::table('mahasiswa')
 							->select('mahasiswa.nama as nama_mahasiswa')
+							->where('mahasiswa.nim', '=', $validateData["nim"])
 							->limit(1)
 							->get()
                         	->toArray();
@@ -123,7 +124,8 @@ class Rekapipmahasiswa extends Controller
 	public function edit($id)
 	{
 		$result = Rekapipmahasiswa_model::find($id);
-		return view('report_f2.editrekap', ['title' => 'Edit Data Report F2', 'detail' => '', 'report_f2' => $result]);
+		$mahasiswa = Mahasiswa_Model::all();
+		return view('report_f2.editrekap', ['title' => 'Edit Data Report F2', 'detail' => '', 'report_f2' => $result, 'mahasiswa' => $mahasiswa]);
 	}
 
 	public function update(Request $request, $id)
@@ -163,6 +165,15 @@ class Rekapipmahasiswa extends Controller
 			'tahun.required' => 'Data must not be empty!'
 
 		]);
+
+		$nama_mahasiswa = \DB::table('mahasiswa')
+							->select('mahasiswa.nama as nama_mahasiswa')
+							->where('mahasiswa.nim', '=', $validateData["nim"])
+							->limit(1)
+							->get()
+                        	->toArray();
+
+        $validateData["nama_mahasiswa"] = $nama_mahasiswa[0]->nama_mahasiswa;
 
 		Rekapipmahasiswa_model::where('id',$id)->update($validateData);
 
