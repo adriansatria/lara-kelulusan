@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\dosen_model;
 use App\Models\Rekapkehadirandosen_model;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -22,7 +23,8 @@ class Rekapkehadirandosen extends Controller
 	}
 
 	public function create(){
-		return view('report_f1.create', ['title' => 'Form Add Data Report F1', 'detail' => '']);
+    $dosen = dosen_model::all();
+		return view('report_f1.create', ['title' => 'Form Add Data Report F1', 'detail' => '', 'dosen' => $dosen]);
 	}
 
 	public function store(Request $request){
@@ -49,16 +51,26 @@ class Rekapkehadirandosen extends Controller
 
 		]);
 
+		$nama_dosen = \DB::table('dosen')
+							->select('dosen.nama_dosen')
+							->where('dosen.nip', '=', $validateData["nip"])
+							->limit(1)
+							->get()
+            	->toArray();
+
+    $validateData["nama_dosen"] = $nama_dosen[0]->nama_dosen;
+
 		Rekapkehadirandosen_model::create($validateData);
 
-		return redirect()->route('Rekapkehadirandosen')->with('add', 'Data added successfully');
+		return redirect()->route('rekapkehadirandosen')->with('add', 'Data added successfully');
 
 	}
 
 	public function edit($id)
 	{
+    $dosen = dosen_model::all();
 		$result = Rekapkehadirandosen_model::find($id);
-		return view('report_f1.editrekap', ['title' => 'Edit Data Rekap F1', 'detail' => '', 'report_f1' => $result]);
+		return view('report_f1.editrekap', ['title' => 'Edit Data Rekap F1', 'detail' => '', 'report_f1' => $result, 'dosen' => $dosen]);
 	}
 
 	public function update(Request $request, $id)
@@ -84,6 +96,15 @@ class Rekapkehadirandosen extends Controller
 			'tahun.required' => 'Data must not be empty!'
 
 		]);
+
+		$nama_dosen = \DB::table('dosen')
+							->select('dosen.nama_dosen')
+							->where('dosen.nip', '=', $validateData["nip"])
+							->limit(1)
+							->get()
+            	->toArray();
+
+    $validateData["nama_dosen"] = $nama_dosen[0]->nama_dosen;
 
 		Rekapkehadirandosen_model::where('id',$id)->update($validateData);
 
