@@ -185,7 +185,7 @@
                                     <a class="dropdown-item" href="">Report F4</a>
                                     <ul class="dropdown-submenu">
                                         <li><a class="dropdown-item"
-                                                href="{{ url('rekapsuratperingatan') }}">Rekapitulasi Surat
+                                                href="{{ url('f4s') }}">Rekapitulasi Surat
                                                 Peringatan</a></li>
                                     </ul>
                                 </li>

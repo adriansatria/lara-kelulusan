@@ -94,7 +94,7 @@ Route::patch('/f4s/{f4}', [App\Http\Controllers\F4s::class,'update'])
 ->name('f4s.update')->middleware('login');
 Route::delete('/f4s/{f4}', [App\Http\Controllers\F4s::class,'destroy'])
 ->name('f4s.destroy')->middleware('login');
-Route::post('/f4s/export', [App\Http\Controllers\F4s::class,'export'])->name('f4s.export')->middleware('login');
+Route::get('/f4s/export/{year}/{prodi}/{semester}', [App\Http\Controllers\F4s::class,'export'])->name('f4s.export')->middleware('login');
 
 Route::get('/users', [App\Http\Controllers\Users::class,'index'])->name('users')->middleware('login');
 Route::get('/users/create', [App\Http\Controllers\Users::class,'create'])->name('users.create')->middleware('login');
@@ -157,16 +157,3 @@ Route::patch('/rekapstatuskelulusan/{f3}', [App\Http\Controllers\Rekapstatuskelu
 Route::delete('/rekapstatuskelulusan/{f3}', [App\Http\Controllers\Rekapstatuskelulusan::class,'destroy'])
 ->name('rekapstatuskelulusan.destroy')->middleware('login');
 Route::get('/rekapstatuskelulusan/export/{year}/{prodi}/{semester}', [App\Http\Controllers\Rekapstatuskelulusan::class,'export'])->name('rekapstatuskelulusan.export')->middleware('login');
-
-
-Route::get('/rekapsuratperingatan', [App\Http\Controllers\Rekapsuratperingatan::class,'index'])->name('rekapsuratperingatan')->middleware('login');
-Route::post('/rekapsuratperingatan/year', [App\Http\Controllers\Rekapsuratperingatan::class,'year'])->name('f4s.year')->middleware('login');
-Route::get('/rekapsuratperingatan/create', [App\Http\Controllers\Rekapsuratperingatan::class,'create'])->name('f4s.create')->middleware('login');
-Route::post('/rekapsuratperingatan/store', [App\Http\Controllers\Rekapsuratperingatan::class,'store'])->name('f4s.store')->middleware('login');
-Route::get('/rekapsuratperingatan/{f4}/edit', [App\Http\Controllers\Rekapsuratperingatan::class,'edit'])
-->name('rekapsuratperingatan.edit')->middleware('login');
-Route::patch('/rekapsuratperingatan/{f4}', [App\Http\Controllers\Rekapsuratperingatan::class,'update'])
-->name('rekapsuratperingatan.update')->middleware('login');
-Route::delete('/rekapsuratperingatan/{f4}', [App\Http\Controllers\Rekapsuratperingatan::class,'destroy'])
-->name('rekapsuratperingatan.destroy')->middleware('login');
-Route::post('/rekapsuratperingatan/export', [App\Http\Controllers\Rekapsuratperingatan::class,'export'])->name('f4s.export')->middleware('login');

@@ -77,20 +77,15 @@
 			<div class="card-header">
 				<div class="row">
 					<div class="col-12">
-						<!-- <div class="float-left">
-							<form class="form-inline" action="{{ route('f4s.year') }}" method="POST">
-								@csrf
-								<div class="form-group">
-									<label for="year">Year</label>
-									<input type="text" name="year" class="form-control mx-sm-3">
-								</div>
-								<button class="btn btn-info" type="submit"><i class="fas fa-search"></i> Search</button>
-							</form>
-						</div> -->
 						@if(session('level') == 'Admin')
 						<div class="float-right">
+							@if($year == '' && $prodi == '' && $semester == '')
 							<a href="{{ route('f4s.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add Data</a>
-							{{-- <a href="" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a> --}}
+							@else
+							<a href="{{ route('f4s') }}" class="btn btn-warning"><i class="fas fa-redo-alt"></i></a>
+                            <a href="{{ url('/f4s/export/'. $year. '/' .$prodi. '/' .$semester ) }}" class="btn btn-success"><i
+                                        class="fas fa-file-excel"></i> Export to Excel</a>
+							@endif
 						</div>
 						@endif
 					</div>
@@ -106,7 +101,7 @@
 							<th rowspan="2" class="align-middle">Semester</th>
 							<th rowspan="2" class="align-middle">Kelas</th>
 							<th rowspan="2" class="align-middle">Jumlah Mahasiswa</th>
-							<th width="320px" colspan="3" class=" text-center align-middle">Surat Peringatan</th>
+							<th colspan="3" class="text-center align-middle">Surat Peringatan</th>
 							<th rowspan="2" class="align-middle">Keterangan</th>
 							<th rowspan="2" class="align-middle">Tahun</th>
 							@if(session('level') == 'Admin')

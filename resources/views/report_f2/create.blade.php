@@ -7,7 +7,7 @@
 	<div class="col-12">
 		<div class="card">
 			<div class="card-body">
-				<form action="{{ route('f2s.store') }}" method="POST">
+				<form action="{{ route('rekapipmahasiswa.store') }}" method="POST">
 					@csrf
 					<div class="row">
 						<div class="col-md-6">
@@ -114,7 +114,11 @@
 							</div>
 							<div class="form-group">
 								<label for="prodi">Prodi</label>
-								<input type="text" class="form-control @error('prodi') is-invalid @enderror" name="prodi" value="{{ old('prodi') }}">
+									<select name="prodi" class="form-control @error('prodi') is-invalid @enderror">
+										<option value="">PILIH</option>
+										<option value="Sistem Informasi">Sistem Informasi</option>
+										<option value="Teknik Informatika">Teknik Informatika</option>
+									</select>
 								@error('prodi')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror

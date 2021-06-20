@@ -82,6 +82,7 @@ class Rekapipmahasiswa extends Controller
 			'ip_s8' => 'required|numeric|between:0,99.99',
 			'ipk' => 'required|numeric|between:0,99.99',
 			'status' => 'required',
+			'prodi' => 'required',
 			'tahun' => 'required'
 		],
 		[
@@ -98,6 +99,7 @@ class Rekapipmahasiswa extends Controller
 			'ip_s8.required' => 'Data must not be empty!',
 			'ipk.required' => 'Data must not be empty!',
 			'status.required' => 'Data must not be empty!',
+			'prodi.required' => 'Data must not be empty!',
 			'tahun.required' => 'Data must not be empty!'
 
 		]);
