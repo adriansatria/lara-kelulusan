@@ -13,23 +13,22 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
+								<label for="nim">Mahasiswa</label>
+								<select name="nim" class="form-control @error('nim') is-invalid @enderror">
+									<option value="">Pilih Mahasiswa</option>
+									@foreach($mahasiswa as $i)
+										<option value="{{ $i->nim }}" {{ old('nim', @$report_f2->nim)==$i->nim ? 'selected' : '' }}>{{ $i->nim }} - {{ $i->nama }}</option>
+                  @endforeach
+								</select>
+								@error('nim')
+								<div class="text-danger">{{ $message }}</div>
+								@enderror
+							</div>
+							<input type="hidden" name="nama_mahasiswa" value="-">
+							<div class="form-group">
 								<label for="kelas">Kelas</label>
 								<input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{ old('kelas') ?? $report_f2->kelas }}">
 								@error('kelas')
-								<div class="text-danger">{{ $message }}</div>
-								@enderror
-							</div>
-							<div class="form-group">
-								<label for="nama_mahasiswa">Nama Mahasiswa</label>
-								<input type="text" class="form-control @error('nama_mahasiswa') is-invalid @enderror" name="nama_mahasiswa" value="{{ old('nama_mahasiswa') ?? $report_f2->nama_mahasiswa }}">
-								@error('nama_mahasiswa')
-								<div class="text-danger">{{ $message }}</div>
-								@enderror
-							</div>
-							<div class="form-group">
-								<label for="nim">NIM</label>
-								<input type="text" class="form-control @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') ?? $report_f2->nim }}">
-								@error('nim')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
@@ -61,9 +60,6 @@
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
-						</div>
-						<div class="col-md-6">
-							
 							<div class="form-group">
 								<label for="ip_s5">IP Semester 5</label>
 								<input type="text" class="form-control @error('ip_s5') is-invalid @enderror" name="ip_s5" value="{{ old('ip_s5') ?? $report_f2->ip_s5 }}">
@@ -71,6 +67,9 @@
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
+						</div>
+						<div class="col-md-6">
+							
 							<div class="form-group">
 								<label for="ip_s6">IP Semester 6</label>
 								<input type="text" class="form-control @error('ip_s6') is-invalid @enderror" name="ip_s6" value="{{ old('ip_s6') ?? $report_f2->ip_s6 }}">
