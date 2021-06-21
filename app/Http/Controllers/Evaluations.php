@@ -13,14 +13,27 @@ class Evaluations extends Controller
 {
     public function index(){
 		$evaluations = Evaluations_model::all();
-		return view('evaluation.index', ['title' => 'Evaluasi', 'detail' => 'Rekapitulasi Mahasiswa Bermasalah', 'evaluations' => $evaluations, 'year' => '']);
+		$nama_dosen_login = \DB::table('users')
+							->select('users.name as nama_lengkap')
+							->where('users.username', '=', session('username'))
+							->limit(1)
+							->get()
+                        	->toArray();
+
+		return view('evaluation.index', ['title' => 'Evaluasi', 'detail' => 'Rekapitulasi Mahasiswa Bermasalah', 'evaluations' => $evaluations, 'year' => '', 'nama_dosen_login' => $nama_dosen_login[0]->nama_lengkap]);
 	}
 
 	public function year(Request $request)
 	{
 		$year = $request->input('year');
+		$nama_dosen_login = \DB::table('users')
+							->select('users.name as nama_lengkap')
+							->where('users.username', '=', session('username'))
+							->limit(1)
+							->get()
+                        	->toArray();
 		$evaluations = Evaluations_model::where('tahun', $year)->get();
-		return view('evaluation.index', ['title' => 'Evaluasi ' . $year, 'detail' => 'Rekapitulasi Mahasiswa Bermasalah','evaluations' => $evaluations, 'year' => $year]);
+		return view('evaluation.index', ['title' => 'Evaluasi ' . $year, 'detail' => 'Rekapitulasi Mahasiswa Bermasalah','evaluations' => $evaluations, 'year' => $year, 'nama_dosen_login' => $nama_dosen_login[0]->nama_lengkap]);
 	}
 
 	public function create(){
