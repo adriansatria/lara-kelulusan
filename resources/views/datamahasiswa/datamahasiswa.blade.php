@@ -153,7 +153,7 @@
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{ $i->nim }}</td>
-                            <td height="50px" width="50px"><img src="/assets/images/{{ $i->foto }}">{{ $i->foto }}</td>
+                            <td height="50px" width="50px"><img src="{{ url('') }}/assets/images/{{ $i->foto }}" width="100" alt="Foto"></td>
                             <td>{{ $i->nama }}</td>
                             <td>{{ $i->tempat_lahir }}</td>
                             <td>{{ $i->tanggal_lahir }}</td>
