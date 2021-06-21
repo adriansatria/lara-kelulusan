@@ -79,6 +79,15 @@
 			<strong>{{ $errors->first('file') }}</strong>
 		</span>
 		@endif
+        
+        {{-- notifikasi validasi Import --}}
+        @if ($error = Session::get('error'))
+        <div class="alert alert-danger alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <h5>Title Format Not Supported.</h5>
+            <span>{{ $error }}</span>
+        </div>
+        @endif
  
 		{{-- notifikasi sukses --}}
 		@if ($sukses = Session::get('sukses'))
@@ -97,7 +106,7 @@
 							{{-- <a href="" class="btn btn-primary"><i class="fas fa-file-excel"></i> Import Data</a> --}}
 							<form action="{{ route('f3s.import') }}" method="post" enctype="multipart/form-data">
 								{{ csrf_field() }}
-								<input type="file" name="import_file"> <button class="btn btn-success"><i class="fas fa-file-upload"></i> Import Excel</button> 
+								<input type="file" name="import_file" required> <button class="btn btn-success"><i class="fas fa-file-upload"></i> Import Excel</button> 
 								<!-- <a href="{{ route('f3s') }}" class="btn btn-warning"><i class="fas fa-redo-alt"></i></a> -->
                                 <a href="{{ route('f3s.export') }}" class="btn btn-success"><i
                                         class="fas fa-file-excel"></i> Export to Excel</a>

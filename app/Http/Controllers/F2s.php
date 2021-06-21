@@ -18,8 +18,12 @@ class F2s extends Controller
 	}
 
 	public function import(Request $request) {
-		\Excel::import(new ImportReportF2S, $request->import_file);
-		Session::flash('sukses','Data Imported Successfully');
+        try {
+			\Excel::import(new ImportReportF2S, $request->import_file);
+			Session::flash('sukses','Data Imported Successfully');
+        } catch (\Exception $e) {
+            Session::flash('error', $e->getMessage());
+        }
 
 		return Back();
 	}

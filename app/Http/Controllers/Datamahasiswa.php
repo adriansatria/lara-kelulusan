@@ -28,9 +28,13 @@ class Datamahasiswa extends Controller
     }
 
     public function import(Request $request) {
-        \Excel::import(new MahasiswaImport, $request->import_file);
-        Session::flash('sukses','Data Imported Successfully');
-
+        try {
+            \Excel::import(new MahasiswaImport, $request->import_file);
+            Session::flash('sukses','Data Imported Successfully');
+        } catch (\Exception $e) {
+            Session::flash('error', $e->getMessage());
+        }
+        
         return back();
     }
 

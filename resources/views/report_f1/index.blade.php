@@ -73,6 +73,15 @@
             <strong>{{ $errors->first('file') }}</strong>
         </span>
         @endif
+        
+        {{-- notifikasi validasi Import --}}
+        @if ($error = Session::get('error'))
+        <div class="alert alert-danger alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <h5>Title Format Not Supported.</h5>
+            <span>{{ $error }}</span>
+        </div>
+        @endif
 
         {{-- notifikasi sukses --}}
         @if ($sukses = Session::get('sukses'))

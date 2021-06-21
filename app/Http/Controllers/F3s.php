@@ -18,8 +18,12 @@ class F3s extends Controller
 	}
 
 	public function import(Request $request) {
-		\Excel::import(new ImportReportF3S, $request->import_file);
-		Session::flash('sukses','Data Imported Successfully');
+        try {
+			\Excel::import(new ImportReportF3S, $request->import_file);
+			Session::flash('sukses','Data Imported Successfully');
+        } catch (\Exception $e) {
+            Session::flash('error', $e->getMessage());
+        }
 
 		return Back();
 	}
