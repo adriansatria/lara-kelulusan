@@ -26,42 +26,42 @@ class MahasiswaImport implements ToModel, WithHeadingRow
 
     public function model(array $row)
     {
-        $spreadsheet = IOFactory::load(request()->file('import_file'));
-        $i = 0;
-        foreach ($spreadsheet->getActiveSheet()->getDrawingCollection() as $drawing) {
-            if ($drawing instanceof MemoryDrawing) {
-                ob_start();
-                call_user_func(
-                    $drawing->getRenderingFunction(),
-                    $drawing->getImageResource()
-                );
-                $imageContents = ob_get_contents();
-                ob_end_clean();
-                switch ($drawing->getMimeType()) {
-                    case MemoryDrawing::MIMETYPE_PNG :
-                        $extension = 'png';
-                        break;
-                    case MemoryDrawing::MIMETYPE_JPEG :
-                        $extension = 'jpeg';
-                        break;
-                }
-            } else {
-                $zipReader = fopen($drawing->getPath(), 'r');
-                $imageContents = '';
-                while (!feof($zipReader)) {
-                    $imageContents .= fread($zipReader, 1024);
-                }
-                fclose($zipReader);
-                $extension = $drawing->getExtension();
-            }
+        // $spreadsheet = IOFactory::load(request()->file('import_file'));
+        // $i = 0;
+        // foreach ($spreadsheet->getActiveSheet()->getDrawingCollection() as $drawing) {
+        //     if ($drawing instanceof MemoryDrawing) {
+        //         ob_start();
+        //         call_user_func(
+        //             $drawing->getRenderingFunction(),
+        //             $drawing->getImageResource()
+        //         );
+        //         $imageContents = ob_get_contents();
+        //         ob_end_clean();
+        //         switch ($drawing->getMimeType()) {
+        //             case MemoryDrawing::MIMETYPE_PNG :
+        //                 $extension = 'png';
+        //                 break;
+        //             case MemoryDrawing::MIMETYPE_JPEG :
+        //                 $extension = 'jpeg';
+        //                 break;
+        //         }
+        //     } else {
+        //         $zipReader = fopen($drawing->getPath(), 'r');
+        //         $imageContents = '';
+        //         while (!feof($zipReader)) {
+        //             $imageContents .= fread($zipReader, 1024);
+        //         }
+        //         fclose($zipReader);
+        //         $extension = $drawing->getExtension();
+        //     }
 
-            $myFileName = time() .++$i. '.' . $extension;
-            file_put_contents('assets/images/' . $myFileName, $imageContents);
-        }
+        //     $myFileName = time() .++$i. '.' . $extension;
+        //     file_put_contents('assets/images/' . $myFileName, $imageContents);
+        // }
         return new Mahasiswa_Model([
             '' => $row['NO.'],
             'nim' => $row['NIM'],
-            'foto' => $myFileName,
+            'foto' => $row['Pas foto'],
             'nama' => $row['Nama'],
             'tempat_lahir' => $row['Tempat lahir'],
             'tanggal_lahir' => $row['Tanggal lahir'],

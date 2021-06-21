@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2021 at 04:44 AM
+-- Generation Time: Jun 21, 2021 at 01:16 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -163,8 +163,8 @@ CREATE TABLE `evaluations` (
 
 INSERT INTO `evaluations` (`id`, `nama_dosen`, `mata_kuliah`, `kelas`, `nama_mahasiswa`, `nim`, `nilai_akhir`, `kemungkinan_perbaikan`, `keterangan`, `tahun`) VALUES
 (1, 'Dewi Sartika, M.Kom.', 'Basis Data 2', '04TPLP0010', 'Rina Nakazawa', 2016142159, 'D', 'Bisa', 'Cuti', '2021'),
-(2, 'admin', 'PKK 2', '32RTHH', 'Young Lex', 1819117668, 'D', 'Tidak Bisa', 'Suka bolos, jadi remed', '2020'),
-(3, 'Jhon Doe', 'PKK', '32RTHH', 'Addyana Ilman', 1819117641, 'D', 'Bisa', 'Bolos terus, tidak pernah mengerjakan tugas', '2021');
+(3, 'Jhon Doe', 'PKK', '32RTHH', 'Addyana Ilman', 1819117641, 'D', 'Bisa', 'Bolos terus, tidak pernah mengerjakan tugas', '2021'),
+(7, 'Mauldy Laya, S.Kom., M.Kom.', 'PKK', '32RTHH', 'Adrian Maulana F', 1819117642, 'D', 'Bisa', 'Nakal', '2020');
 
 -- --------------------------------------------------------
 
@@ -191,29 +191,21 @@ CREATE TABLE `failed_jobs` (
 CREATE TABLE `mahasiswa` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nim` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `foto` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tempat_lahir` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tanggal_lahir` date NOT NULL,
-  `agama` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `asal_sekolah` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jenis_kelamin` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `golongan_darah` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_ortu` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pendidikan_terakhir` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pekerjaan` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `keterangan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tahun_akademik` varchar(4) COLLATE utf8mb4_unicode_ci NOT NULL
+  `foto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nama` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tempat_lahir` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tanggal_lahir` date DEFAULT NULL,
+  `agama` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `asal_sekolah` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `jenis_kelamin` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `golongan_darah` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alamat` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nama_ortu` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pendidikan_terakhir` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `pekerjaan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `keterangan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tahun_akademik` varchar(4) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `mahasiswa`
---
-
-INSERT INTO `mahasiswa` (`id`, `nim`, `foto`, `nama`, `tempat_lahir`, `tanggal_lahir`, `agama`, `asal_sekolah`, `jenis_kelamin`, `golongan_darah`, `alamat`, `nama_ortu`, `pendidikan_terakhir`, `pekerjaan`, `keterangan`, `tahun_akademik`) VALUES
-(2, '1819117642', 'none', 'Adrian Maulana F', 'Bandung', '2002-04-12', 'Islam', 'SMKN 4 BDG', 'L', 'B', 'Jln. Malabar', 'Jhon Doe', 'SMA', 'Programmer', 'Lulus', '2020'),
-(3, '1819117641', 'none', 'Addyana Ilman', 'Bandung', '2002-10-20', 'Islam', 'SMKN 4 BDG', 'L', 'A', 'Jln. Cijawura', 'Maman', 'SMP', 'IRT', 'Lulus', '2021');
 
 -- --------------------------------------------------------
 
@@ -506,7 +498,6 @@ CREATE TABLE `report_f4s` (
 --
 
 INSERT INTO `report_f4s` (`id`, `prodi`, `jenjang`, `semester`, `kelas`, `jumlah_mahasiswa`, `sp1`, `sp2`, `sp3`, `keterangan`, `tahun`) VALUES
-(6, 'Teknik Informatika', 's1', '12', '12', '222', '3', NULL, NULL, 'sakdhkajshdjahskdashdkjashdkjaskdaskdkjasdksahkjdhasdhjashdjamnmbmnewbrwjerjhwegrjhewrwere', '2021'),
 (7, 'Teknik Informatika', 'D3', '4', '32RTHH', '40', '1', '2', '3', 'Nakal disaat pembelajaran, dan tidak sopan', '2020'),
 (8, 'Sistem Informasi', 'S1', '1', '32RTHH', '40', '1', '2', NULL, 'none', '2021');
 
@@ -537,7 +528,8 @@ INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `pa
 (1, 'Ervan', 'admin', 'admin@gmail.com', NULL, '21232f297a57a5a743894a0e4a801fc3', NULL, '2021-05-10 00:32:53', '2021-05-10 00:32:53', 'Admin'),
 (2, 'Rina', 'petugas', 'petugas@gmail.com', NULL, 'afb91ef692fd08c445e8cb1bab2ccf9c', NULL, '2021-05-10 00:32:53', '2021-05-10 00:32:53', 'Petugas'),
 (4, 'Budi', 'budi', 'kajur@gmail.com', NULL, '00dfc53ee86af02e742515cdcf075ed3', NULL, NULL, NULL, 'Kajur'),
-(7, 'Jhon Doe', 'Jhon Doe', 'jhondoe@gmail.com', NULL, 'e1f60ee64481d586a7b9897e89571852', NULL, NULL, NULL, 'Dosen');
+(7, 'Jhon Doe', 'Jhon Doe', 'jhondoe@gmail.com', NULL, 'e1f60ee64481d586a7b9897e89571852', NULL, NULL, NULL, 'Dosen'),
+(10, 'Mauldy Laya, S.Kom., M.Kom.', 'mauldya', 'mauldya@gmail.com', NULL, '3b62e68fd6fe28d95eda3954eb32301b', NULL, NULL, NULL, 'Petugas');
 
 --
 -- Indexes for dumped tables
@@ -643,7 +635,7 @@ ALTER TABLE `dosen`
 -- AUTO_INCREMENT for table `evaluations`
 --
 ALTER TABLE `evaluations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -655,7 +647,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -709,7 +701,7 @@ ALTER TABLE `report_f4s`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
