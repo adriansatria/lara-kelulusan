@@ -41,29 +41,18 @@
 								@enderror
 							</div>
 							<div class="form-group">
-								<label for="nama_mahasiswa">Nama Mahasiswa</label>
-								<select class="form-control @error('nama_mahasiswa') is-invalid @enderror" name="nama_mahasiswa" value="{{ old('nama_mahasiswa') }}">
-									<option value="">PILIH</option>
+								<label for="nim">Mahasiswa</label>
+								<select name="nim" class="form-control @error('nim') is-invalid @enderror">
+									<option value="">Pilih Mahasiswa</option>
 									@foreach($mahasiswa as $i)
-									<option value="{{ $i->nama }}">{{ $i->nim }} - {{ $i->nama }}</option>
-									@endforeach
-								</select>
-								@error('nama_mahasiswa')
-								<div class="text-danger">{{ $message }}</div>
-								@enderror
-							</div>
-							<div class="form-group">
-								<label for="nim">NIM</label>
-								<select class="form-control @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') }}">
-									<option value="">PILIH</option>
-									@foreach($mahasiswa as $i)
-									<option value="{{ $i->nim }}">{{ $i->nim }} - {{ $i->nama }}</option>
-									@endforeach
+										<option value="{{ $i->nim }}">{{ $i->nim }} - {{ $i->nama }}</option>
+                					 @endforeach
 								</select>
 								@error('nim')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
+							<input type="hidden" name="nama_mahasiswa" value="-">
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
@@ -105,7 +94,7 @@
 						</div>
 					</div>
 					<div class="float-right">
-                        <a href="{{ route('rekapipmahasiswa') }}" class="btn btn-warning">Cancel</a>
+                        <a href="{{ route('evaluations') }}" class="btn btn-warning">Cancel</a>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </div>
 					<!-- <button type="submit" class="btn btn border border-secondary" style="background: rgb(235, 235, 235);">Save</button> -->

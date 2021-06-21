@@ -12,9 +12,14 @@
 					@csrf
 					<div class="row">
 						<div class="col-md-6">
-							<div class="form-group">
+						<div class="form-group">
 								<label for="nama_dosen">Nama Dosen</label>
-								<input type="text" class="form-control @error('nama_dosen') is-invalid @enderror" name="nama_dosen" value="{{ old('nama_dosen') ?? $evaluation->nama_dosen }}">
+								<select type="text" class="form-control @error('nama_dosen') is-invalid @enderror" name="nama_dosen">
+									<option value="">PILIH</option>
+									@foreach($dosen as $i)
+									<option value="{{ $i->nama_dosen }}" {{ old('nama_dosen', @$evaluation->nama_dosen)==$i->nama_dosen ? 'selected' : '' }}>{{ $i->nip }} - {{ $i->nama_dosen }}</option>
+									@endforeach
+								</select>
 								@error('nama_dosen')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
@@ -34,19 +39,18 @@
 								@enderror
 							</div>
 							<div class="form-group">
-								<label for="nama_mahasiswa">Nama Mahasiswa</label>
-								<input type="text" class="form-control @error('nama_mahasiswa') is-invalid @enderror" name="nama_mahasiswa" value="{{ old('nama_mahasiswa') ?? $evaluation->nama_mahasiswa }}">
-								@error('nama_mahasiswa')
-								<div class="text-danger">{{ $message }}</div>
-								@enderror
-							</div>
-							<div class="form-group">
-								<label for="nim">NIM</label>
-								<input type="text" class="form-control @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') ?? $evaluation->nim }}">
+								<label for="nim">Mahasiswa</label>
+								<select name="nim" class="form-control @error('nim') is-invalid @enderror">
+									<option value="">Pilih Mahasiswa</option>
+									@foreach($mahasiswa as $i)
+										<option value="{{ $i->nim }}" {{ old('nim', @$evaluation->nim)==$i->nim ? 'selected' : '' }}>{{ $i->nim }} - {{ $i->nama }}</option>
+               					   @endforeach
+								</select>
 								@error('nim')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
+							<input type="hidden" name="nama_mahasiswa" value="-">
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
@@ -82,7 +86,7 @@
 							</div>
 							<div class="form-group">
 								<label for="keterangan">Keterangan</label>
-								<input type="text" class="form-control @error('keterangan') is-invalid @enderror" name="keterangan" value="{{ old('keterangan') ?? $evaluation->keterangan }}">
+								<textarea type="text" class="form-control @error('keterangan') is-invalid @enderror" name="keterangan" value="{{ old('keterangan') ?? $evaluation->keterangan }}"></textarea>
 								@error('keterangan')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
