@@ -22,57 +22,49 @@
 </head>
 <div class="row p-2">
     <div class="col-lg-8 border">
-        @foreach($mahasiswa as $i)
         <canvas id="myChart"></canvas>
-        @endforeach
     </div>
 
     <script>
-        var ctx = document.getElementById("myChart").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ["2017", "2018", "2019", "2020", "2021", "2022"],
-                datasets: [{
-                        label: 'DATA MAHASISWA LULUS',
-                        data: [{
-                            {
-                                $i - > status
-                            },
-                        }],
-                        backgroundColor: [
-                            'rgba(65, 105, 225, 0.7)',
-                        ],
-                        borderColor: [
-                            'rgba(65, 105, 225, 1)',
-                        ],
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'DATA MAHASISWA TIDAK LULUS',
-                        data: [10, 10, 3, 23, 2, 3],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.7)',
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                        ],
-                        borderWidth: 1
-                    }
-                ],
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-    </script>
+		var ctx = document.getElementById("myChart").getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'line',
+			data: {
+				labels: ["2020", "2021", "2022", "2023", "2024", "2025"],
+				datasets: [{
+					label: 'DATA MAHASISWA LULUS',
+					data: [12, 19, 3, 18, 2, 3],
+					backgroundColor: [
+					'rgba(65, 105, 225, 0.7)',
+					],
+					borderColor: [
+                    'rgba(65, 105, 225, 1)',
+					],
+					borderWidth: 1
+				},
+                {
+					label: 'DATA MAHASISWA TIDAK LULUS',
+					data: [10, 10, 3, 23, 2, 3],
+					backgroundColor: [
+                    'rgba(255, 99, 132, 0.7)',
+					],
+					borderColor: [
+                    'rgba(255, 99, 132, 1)',
+					],
+					borderWidth: 1
+				}],
+			},
+			options: {
+				scales: {
+					yAxes: [{
+						ticks: {
+							beginAtZero:true
+						}
+					}]
+				}
+			}
+		});
+	</script>
 
     <div class="col-lg">
         <!-- small box -->
