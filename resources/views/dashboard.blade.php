@@ -22,9 +22,7 @@
 </head>
 <div class="row p-2">
     <div class="col-lg-8 border">
-        @foreach($mahasiswa as $i)
         <canvas id="myChart"></canvas>
-        @endforeach
     </div>
 
     <script>
@@ -35,11 +33,7 @@
                 labels: ["2017", "2018", "2019", "2020", "2021", "2022"],
                 datasets: [{
                         label: 'DATA MAHASISWA LULUS',
-                        data: [{
-                            {
-                                $i - > status
-                            },
-                        }],
+                        data: [{{ $jml_lulus[0] }}, {{ $jml_lulus[1] }}, {{ $jml_lulus[2] }}, {{ $jml_lulus[3] }}, {{ $jml_lulus[4] }}, {{ $jml_lulus[5] }}],
                         backgroundColor: [
                             'rgba(65, 105, 225, 0.7)',
                         ],
@@ -50,7 +44,7 @@
                     },
                     {
                         label: 'DATA MAHASISWA TIDAK LULUS',
-                        data: [10, 10, 3, 23, 2, 3],
+                        data: [{{ $jml_tlulus[0] }}, {{ $jml_tlulus[1] }}, {{ $jml_tlulus[2] }}, {{ $jml_tlulus[3] }}, {{ $jml_tlulus[4] }}, {{ $jml_tlulus[5] }}],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.7)',
                         ],
