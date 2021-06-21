@@ -31,16 +31,9 @@
             <span>Tahun</span>
             <select class="form-select form-control" name="year" aria-label="Default select example">
                 <option selected>PILIH</option>
-                <option value="2012">2012</option>
-                <option value="2013">2013</option>
-                <option value="2014">2014</option>
-                <option value="2015">2015</option>
-                <option value="2016">2016</option>
-                <option value="2017">2017</option>
-                <option value="2018">2018</option>
-                <option value="2019">2019</option>
-                <option value="2020">2020</option>
-                <option value="2021">2021</option>
+                @for($tahun = date('Y') - 4; $tahun < date('Y') + 2; $tahun++)
+                <option value="{{ $year }}">{{ $tahun }}</option>
+                @endfor
             </select>
         </div>
         <div class="col-sm mt-4">
