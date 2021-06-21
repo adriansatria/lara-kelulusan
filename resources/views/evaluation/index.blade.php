@@ -107,7 +107,7 @@
 					</thead>
 					<tbody>
 						@foreach($evaluations as $evaluation)
-						@if(session('username') == $evaluation->nama_dosen || session('level') == 'Admin')
+						@if($nama_dosen_login == $evaluation->nama_dosen || session('level') == 'Admin')
 						<tr>
 							<td style="text-align: center">{{$loop->iteration}}</td>
 							<td>{{ $evaluation->nama_dosen }}</td>
