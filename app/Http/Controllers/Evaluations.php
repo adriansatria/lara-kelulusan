@@ -55,6 +55,15 @@ class Evaluations extends Controller
 
 		]);
 
+		$nama_mahasiswa = \DB::table('mahasiswa')
+							->select('mahasiswa.nama as nama_mahasiswa')
+							->where('mahasiswa.nim', '=', $validateData["nim"])
+							->limit(1)
+							->get()
+                        	->toArray();
+
+        $validateData["nama_mahasiswa"] = $nama_mahasiswa[0]->nama_mahasiswa;
+
 		Evaluations_model::create($validateData);
 
 		return redirect()->route('evaluations')->with('add', 'Data added successfully');
@@ -94,6 +103,15 @@ class Evaluations extends Controller
 			'tahun.required' => 'Data must not be empty!'
 
 		]);
+
+		$nama_mahasiswa = \DB::table('mahasiswa')
+							->select('mahasiswa.nama as nama_mahasiswa')
+							->where('mahasiswa.nim', '=', $validateData["nim"])
+							->limit(1)
+							->get()
+                        	->toArray();
+
+        $validateData["nama_mahasiswa"] = $nama_mahasiswa[0]->nama_mahasiswa;
 
 		Evaluations_model::where('id',$id)->update($validateData);
 
