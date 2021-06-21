@@ -32,7 +32,7 @@
             <select class="form-select form-control" name="year" aria-label="Default select example">
                 <option selected>PILIH</option>
                 @for($tahun = date('Y') - 4; $tahun < date('Y') + 2; $tahun++)
-                <option value="{{ $year }}">{{ $tahun }}</option>
+                <option value="{{ $tahun }}">{{ $tahun }}</option>
                 @endfor
             </select>
         </div>
