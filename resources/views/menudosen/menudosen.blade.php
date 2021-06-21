@@ -31,10 +31,11 @@
         @endif
 
         {{-- notifikasi form validasi --}}
-        @if ($errors->has('file'))
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $errors->first('file') }}</strong>
-        </span>
+        @if ($error = Session::get('error'))
+        <div class="alert alert-danger alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <span>{{ $error }}</span>
+        </div>
         @endif
 
         {{-- notifikasi sukses --}}

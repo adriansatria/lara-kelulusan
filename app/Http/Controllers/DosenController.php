@@ -26,8 +26,12 @@ class DosenController extends Controller
     }
 
     public function importdosen(Request $request) {
-        \Excel::import(new DosenImport, $request->import_file);
-        Session::flash('sukses','Data Imported Successfully');
+        try {
+            \Excel::import(new DosenImport, $request->import_file);
+            Session::flash('sukses','Data Imported Successfully');
+        } catch (\Exception $e) {
+            Session::flash('error','Title Format Not Supported');
+        }
 
         return back();
     }
