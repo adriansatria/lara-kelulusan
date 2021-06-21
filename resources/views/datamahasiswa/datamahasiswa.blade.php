@@ -12,9 +12,9 @@
     @csrf
     <div class="row mt-2 m-3">
         <div class="col-md-2">
-            <span>Prodi</span>
+            <span>Study Program</span>
             <select class="form-select form-control" name="prodi" aria-label="Default select example" disabled>
-                <option selected>PILIH</option>
+                <option selected>SELECT</option>
                 <option value="Teknik Informasi">Teknik Informasi</option>
                 <option value="Teknik Informatika">Teknik Informatika</option>
             </select>
@@ -22,16 +22,26 @@
         <div class="col-md-2">
             <span>Semester</span>
             <select class="form-select form-control" name="semester" aria-label="Default select example" disabled>
-                <option selected>PILIH</option>
-                <option value="Ganjil">Ganjil</option>
-                <option value="Genap">Genap</option>
+                <option selected>SELECT</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+				<option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+				<option value="12">12</option>
             </select>
         </div>
         <div class="col-md-2">
-            <span>Tahun</span>
+            <span>Year</span>
             <select class="form-select form-control" name="year" aria-label="Default select example">
-                <option selected>PILIH</option>
-                @for($tahun = date('Y') - 4; $tahun < date('Y') + 2; $tahun++)
+                <option selected>SELECT</option>
+                @for($tahun = date('Y') - 4; $tahun < date('Y') + 1; $tahun++)
                 <option value="{{ $tahun }}">{{ $tahun }}</option>
                 @endfor
             </select>
