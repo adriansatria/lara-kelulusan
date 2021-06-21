@@ -70,13 +70,13 @@
                     <thead>
                         <tr style="background: rgb(235, 235, 235)!important; text-align:center">
                             <th width="20px">NO</th>
-                            <th>Nama</th>
+                            <th>Nama Dosen</th>
                             <th>NIP</th>
                             <th>Jabatan Struktural</th>
-                            <th>Pangkat/Golongan</th>
+                            <th>Pangkat/Gol.</th>
                             <th>Jabatan Fungsional</th>
                             <th>tmt.</th>
-                            <th>No. telp</th>
+                            <th>TELP./HP</th>
                             <th>NIDN/NIDK</th>
                             <th>Homebase Prodi</th>
                             <th>Serdos</th>

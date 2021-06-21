@@ -25,7 +25,7 @@ class F1s extends Controller
 
 	public function import(Request $request) {
 		\Excel::import(new ImportReportF1S, $request->import_file);
-		Session::flash('sukses','Data Siswa Berhasil Diimport!');
+		Session::flash('sukses','Data Imported Successfully');
 
 		return Back();
 	}
