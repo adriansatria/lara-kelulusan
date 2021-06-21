@@ -12,7 +12,7 @@ class F2s_tidaklulus extends Controller
     public function index(){
     	$f2s_tidaklulus = Rekapipmahasiswa_model::where('status', '!=', 'L')->get();
 
-		return view('report_f2_tidaklulus.index', ['title' => 'Data Mahasiswa Tidak/Belum Lulus','detail' => 'Rekapitulasi Mahasiswa Tidak/Belum Lulus', 'f2s_tidaklulus' => $f2s_tidaklulus, 'year' => '']);
+		return view('report_f2_tidaklulus.index', ['title' => 'Data Mahasiswa Tidak/Belum Lulus','detail' => 'Rekapitulasi Mahasiswa Tidak/Belum Lulus', 'f2s_tidaklulus' => $f2s_tidaklulus, 'year' => '', 'prodi' => '']);
 	}
 
 	// public function index2(){
@@ -24,14 +24,14 @@ class F2s_tidaklulus extends Controller
 	public function year(Request $request)
 	{
 			$year = $request->input('year');
-
-			$f2s_tidaklulus = Rekapipmahasiswa_model::where('tahun', $year)->where('status', '!=', 'L')->get();
-			return view('report_f2_tidaklulus.index', ['title' => 'Data Mahasiswa Tidak/Belum Lulus ' . $year,'detail' => 'Rekapitulasi Mahasiswa Tidak/Belum Lulus','f2s_tidaklulus' => $f2s_tidaklulus, 'year' => $year]);
+			$prodi = $request->input('prodi');
+			$f2s_tidaklulus = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->where('status', '!=', 'L')->get();
+			return view('report_f2_tidaklulus.index', ['title' => 'Data Mahasiswa Tidak/Belum Lulus ' . $year,'detail' => 'Rekapitulasi Mahasiswa Tidak/Belum Lulus','f2s_tidaklulus' => $f2s_tidaklulus, 'year' => $year, 'prodi' => $prodi]);
 	}
 
-	public function export($year)
+	public function export($year, $prodi)
 	{
-		$result = Rekapipmahasiswa_model::where('tahun', $year)->where('status', '!=', 'L')->get();
+		$result = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->where('status', '!=', 'L')->get();
 		// $result = DB::table('report_f2s')
   //               ->where('status', '=', 'L')
   //               ->where('tahun', '=', $year)

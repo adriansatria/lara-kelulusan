@@ -15,20 +15,20 @@ class DosenImport implements ToModel, WithHeadingRow
     */
     public function headingRow(): int
     {
-        return 4;
+        return 1;
     }
 
     public function model(array $row)
     {
         return new dosen_model([
-            '' => $row['NO.'],
-            'nama_dosen' => $row['Nama'],
+            '' => $row['No'],
+            'nama_dosen' => $row['Nama Dosen'],
             'nip' => $row['NIP'],
             'jabatan_struktural' => $row['Jabatan Struktural'],
-            'pangkat_golongan' => $row['Pangkat/Golongan'],
+            'pangkat_golongan' => $row['Pangkat/Gol.'],
             'jabatan_fungsional' => $row['Jabatan Fungsional'],
             'tmt' => $row['tmt.'],
-            'notelp' => $row['No. telp'],
+            'notelp' => $row['Telp./HP'],
             'nidn_nidk' => $row['NIDN/NIDK'],
             'homebase_prodi' => $row['Homebase Prodi'],
             'serdos' => $row['Serdos'],

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\dosen_model;
 use Illuminate\Http\Request;
 use App\imports\DosenImport;
+use \PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use Illuminate\Support\Facades\DB;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -26,7 +27,7 @@ class DosenController extends Controller
 
     public function importdosen(Request $request) {
         \Excel::import(new DosenImport, $request->import_file);
-        Session::flash('sukses','Data Siswa Berhasil Diimport!');
+        Session::flash('sukses','Data Imported Successfully');
 
         return back();
     }
@@ -37,11 +38,6 @@ class DosenController extends Controller
         $spreadsheet = new Spreadsheet();
 		$sheet = $spreadsheet->getActiveSheet();
 		$sheet->setTitle('Laporan Data Dosen');
-		$sheet->mergeCells('A2:L2');
-		$sheet->setCellValue('A2', 'Laporan Data Dosen');
-		$sheet->getStyle('A2:L2')->getAlignment()->setHorizontal('center');
-        $sheet->getStyle('A2:L2')->getFont()->setBold(true)->setSize(16);
-        $sheet->getStyle('A4:L4')->getFont()->setBold(true);
         $sheet->getColumnDimension('A')->setAutoSize(true);
         $sheet->getColumnDimension('B')->setAutoSize(true);
         $sheet->getColumnDimension('C')->setAutoSize(true);
@@ -63,32 +59,36 @@ class DosenController extends Controller
 			),
 		);
         
-        $sheet ->getStyle('A4:L4')->applyFromArray($styleArray);
-
-		$sheet->setCellValue('A4', 'NO.');
-        $sheet->getStyle('A4')->getAlignment()->setHorizontal('center');
-		$sheet->setCellValue('B4', 'Nama');
-        $sheet->setCellValue('C4', 'NIP');
-		$sheet->setCellValue('D4', 'Jabatan Struktural');
-		$sheet->setCellValue('E4', 'Pangkat/Golongan');
-        $sheet->setCellValue('F4', 'Jabatan Fungsional');
-        $sheet->setCellValue('G4', 'tmt.');
-        $sheet->setCellValue('H4', 'No. telp');
-        $sheet->setCellValue('I4', 'NIDN/NIDK');
-        $sheet->setCellValue('J4', 'Homebase Prodi');
-        $sheet->setCellValue('K4', 'Serdos');
-        $sheet->setCellValue('L4', 'Ket.');
+        $sheet ->getStyle('A1:L1')->applyFromArray($styleArray);
+        $sheet->getStyle('A1:L1')->getFont()->setBold(true);
+		$sheet->setCellValue('A1', 'No');
+        $sheet->getStyle('A1')->getAlignment()->setHorizontal('center');
+		$sheet->setCellValue('B1', 'Nama Dosen');
+        $sheet->setCellValue('C1', 'NIP');
+		$sheet->setCellValue('D1', 'Jabatan Struktural');
+		$sheet->setCellValue('E1', 'Pangkat/Gol.');
+        $sheet->setCellValue('F1', 'Jabatan Fungsional');
+        $sheet->setCellValue('G1', 'tmt.');
+        $sheet->setCellValue('H1', 'Telp./HP');
+        $sheet->setCellValue('I1', 'NIDN/NIDK');
+        $sheet->setCellValue('J1', 'Homebase Prodi');
+        $sheet->setCellValue('K1', 'Serdos');
+        $sheet->setCellValue('L1', 'Ket.');
 		$no=1;
-		$cell = 5;
+		$cell = 2;
 		foreach($result as $row){
 			$sheet->setCellValue('A'.$cell, $no++);
             $sheet->getStyle('A'. $cell)->getAlignment()->setHorizontal('center');
 			$sheet->setCellValue('B'.$cell, $row->nama_dosen);
 			$sheet->setCellValue('C'.$cell, $row->nip);
+            $sheet->getStyle('C'.$cell)->getNumberFormat()
+            ->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_TEXT );
 			$sheet->setCellValue('D'.$cell, $row->jabatan_struktural);
             $sheet->setCellValue('E'.$cell, $row->pangkat_golongan);
             $sheet->setCellValue('F'.$cell, $row->jabatan_fungsional);
             $sheet->setCellValue('G'.$cell, $row->tmt);
+            $sheet->getStyle('G'.$cell)->getNumberFormat()
+            ->setFormatCode( \PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_TEXT );
             $sheet->setCellValue('H'.$cell, $row->notelp);
             $sheet->setCellValue('I'.$cell, $row->nidn_nidk);
             $sheet->setCellValue('J'.$cell, $row->homebase_prodi);

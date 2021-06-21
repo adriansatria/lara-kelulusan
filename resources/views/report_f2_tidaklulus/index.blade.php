@@ -12,7 +12,7 @@
 <div class="row mt-2 ml-3">
 	<div class="col-md-2">
 	<span>Prodi</span>
-		<select class="form-select form-control" name="prodi" aria-label="Default select example" disabled>
+		<select class="form-select form-control" name="prodi" aria-label="Default select example">
 			<option selected>PILIH</option>
 			<option value="Sistem Informasi">Sistem Informasi</option>
 			<option value="Teknik Informatika">Teknik Informatika</option>
@@ -95,7 +95,7 @@
 						<div class="float-right">	
 							@if($year != '')
 								<a href="{{ route('f2s_tidaklulus') }}" class="btn btn-warning"><i class="fas fa-redo-alt"></i></a>
-								<a href="{{ route('f2s_tidaklulus.export', $year) }}" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a>
+								<a href="{{ url('f2s_tidaklulus/export/'. $year. '/'.$prodi) }}" class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a>
 							@endif
 						</div>
 					</div>
