@@ -20,14 +20,27 @@
 							</div>
 							<div class="form-group">
 								<label for="jenjang">Jenjang</label>
-								<input type="text" class="form-control @error('jenjang') is-invalid @enderror" name="jenjang" value="{{ old('jenjang') }}">
+								<select class="form-control @error('jenjang') is-invalid @enderror" name="jenjang" value="{{ old('jenjang') }}">	
+									<option value="">Pilih</option>
+									<option value="D4">D4</option>
+								</select>
 								@error('jenjang')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
 							<div class="form-group">
 								<label for="semester">Semester</label>
-								<input type="number" class="form-control @error('semester') is-invalid @enderror" name="semester" value="{{ old('semester') }}">
+								<select class="form-control @error('semester') is-invalid @enderror" name="semester" value="{{ old('semester') }}">	
+									<option value="">Pilih</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+								</select>
 								@error('semester')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
@@ -66,7 +79,7 @@
 							</div>
 							<div class="form-group">
 								<label for="tahun">Tahun</label>
-								<input type="number" class="form-control @error('tahun') is-invalid @enderror" name="tahun" value="{{ old('tahun') }}">
+								<input type="text" class="form-control @error('tahun') is-invalid @enderror" name="tahun" value="{{ old('tahun') }}">
 								@error('tahun')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
