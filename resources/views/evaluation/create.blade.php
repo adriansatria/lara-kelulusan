@@ -17,10 +17,18 @@
 							<div class="form-group">
 								<label for="nama_dosen">Nama Dosen</label>
 								<select type="text" class="form-control @error('nama_dosen') is-invalid @enderror" name="nama_dosen">
-									<option value="">PILIH</option>
-									@foreach($dosen as $i)
-									<option value="{{ $i->nama_dosen }}">{{ $i->nip }} - {{ $i->nama_dosen }}</option>
-									@endforeach
+									@if(session('level') == 'Dosen')
+										@foreach($dosen as $i)
+											@if($i->nama_dosen == $nama_dosen_login)
+												<option value="{{ $i->nama_dosen }}" selected="">{{ $i->nip }} - {{ $i->nama_dosen }}</option>
+											@endif
+										@endforeach
+                  @else
+                  	<option value="">PILIH</option>
+										@foreach($dosen as $i)
+											<option value="{{ $i->nama_dosen }}">{{ $i->nip }} - {{ $i->nama_dosen }}</option>
+										@endforeach
+									@endif
 								</select>
 								@error('nama_dosen')
 								<div class="text-danger">{{ $message }}</div>

@@ -39,7 +39,13 @@ class Evaluations extends Controller
 	public function create(){
 		$dosen = dosen_model::all();
 		$mahasiswa = Mahasiswa_Model::all();
-		return view('evaluation.create', ['title' => 'Form Add Data Evaluasi', 'detail' => '', 'dosen' => $dosen, 'mahasiswa' => $mahasiswa]);
+		$nama_dosen_login = \DB::table('users')
+							->select('users.name as nama_lengkap')
+							->where('users.username', '=', session('username'))
+							->limit(1)
+							->get()
+                        	->toArray();
+		return view('evaluation.create', ['title' => 'Form Add Data Evaluasi', 'detail' => '', 'dosen' => $dosen, 'mahasiswa' => $mahasiswa, 'nama_dosen_login' => $nama_dosen_login[0]->nama_lengkap]);
 	}
 
 	public function store(Request $request){
