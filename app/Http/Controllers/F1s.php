@@ -21,7 +21,7 @@ class F1s extends Controller
 		$year = $request->input('year');
 		$yearFix = str_replace("-", "/", $year);
 		$f1s = F1s_model::where('tahun', $yearFix)->get();
-		return view('report_f1.index', ['title' => 'Report F1 ' . $yearFix, 'detail' => 'Master Data Report F1','f1s' => $f1s, 'year' => $yearFix]);
+		return view('report_f1.index', ['title' => 'Report F1 ' . $yearFix, 'detail' => 'Master Data Report F1','f1s' => $f1s, 'year' => $yearFix, 'yearAwal' => $year]);
 	}
 
 	public function import(Request $request) {
@@ -139,6 +139,7 @@ class F1s extends Controller
 
 	public function export($year)
 	{
+		$year = str_replace("-", "/", $year);
 		$result = F1s_model::where('tahun', $year)->get();
 
 		$spreadsheet = new Spreadsheet();
@@ -153,7 +154,7 @@ class F1s extends Controller
 		$sheet->getStyle('A2:AE2')->getAlignment()->setHorizontal('center');
 		$sheet->getStyle('A2:AE2')->getFont()->setBold(true);
 		$sheet->mergeCells('A3:AE3');
-		$sheet->setCellValue('A3', 'SEMESTER GANJIL TAHUN AKADEMIK ' . $year . '/' . ($year+1));
+		$sheet->setCellValue('A3', 'SEMESTER GANJIL TAHUN AKADEMIK ' . $year);
 		$sheet->getStyle('A3:AE3')->getAlignment()->setHorizontal('center');
 		$sheet->getStyle('A3:AE3')->getFont()->setBold(true);
 		$sheet->mergeCells('A4:AE4');

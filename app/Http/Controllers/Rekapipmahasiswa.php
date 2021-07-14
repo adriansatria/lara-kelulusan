@@ -18,49 +18,50 @@ class Rekapipmahasiswa extends Controller
 	public function year(Request $request)
 	{
 			$year = $request->input('year');
+			$yearFix = str_replace("-", "/", $year);
 			$prodi = $request->input('prodi');
-			$result = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->get();
+			$result = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->get();
 
-			$ip1_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ip_s1');
-			$ip1_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ip_s1');
-			$ip1_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ip_s1'), 2);
+			$ip1_max = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->max('ip_s1');
+			$ip1_min = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->min('ip_s1');
+			$ip1_avg = number_format(Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->avg('ip_s1'), 2);
 
-			$ip1_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ip_s1');
-			$ip1_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ip_s1');
-			$ip1_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ip_s1'), 2);
+			$ip1_max = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->max('ip_s1');
+			$ip1_min = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->min('ip_s1');
+			$ip1_avg = number_format(Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->avg('ip_s1'), 2);
 
-			$ip2_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ip_s2');
-			$ip2_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ip_s2');
-			$ip2_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ip_s2'), 2);
+			$ip2_max = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->max('ip_s2');
+			$ip2_min = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->min('ip_s2');
+			$ip2_avg = number_format(Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->avg('ip_s2'), 2);
 
-			$ip3_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ip_s3');
-			$ip3_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ip_s3');
-			$ip3_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ip_s3'), 2);
+			$ip3_max = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->max('ip_s3');
+			$ip3_min = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->min('ip_s3');
+			$ip3_avg = number_format(Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->avg('ip_s3'), 2);
 
-			$ip4_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ip_s4');
-			$ip4_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ip_s4');
-			$ip4_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ip_s4'), 2);
+			$ip4_max = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->max('ip_s4');
+			$ip4_min = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->min('ip_s4');
+			$ip4_avg = number_format(Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->avg('ip_s4'), 2);
 
-			$ip5_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ip_s5');
-			$ip5_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ip_s5');
-			$ip5_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ip_s5'), 2);
+			$ip5_max = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->max('ip_s5');
+			$ip5_min = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->min('ip_s5');
+			$ip5_avg = number_format(Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->avg('ip_s5'), 2);
 
-			$ip6_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ip_s6');
-			$ip6_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ip_s6');
-			$ip6_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ip_s6'), 2);
+			$ip6_max = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->max('ip_s6');
+			$ip6_min = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->min('ip_s6');
+			$ip6_avg = number_format(Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->avg('ip_s6'), 2);
 
-			$ip7_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ip_s7');
-			$ip7_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ip_s7');
-			$ip7_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ip_s7'), 2);
+			$ip7_max = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->max('ip_s7');
+			$ip7_min = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->min('ip_s7');
+			$ip7_avg = number_format(Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->avg('ip_s7'), 2);
 
-			$ip8_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ip_s8');
-			$ip8_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ip_s8');
-			$ip8_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ip_s8'), 2);
+			$ip8_max = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->max('ip_s8');
+			$ip8_min = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->min('ip_s8');
+			$ip8_avg = number_format(Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->avg('ip_s8'), 2);
 
-			$ipk_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ipk');
-			$ipk_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ipk');
-			$ipk_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ipk'), 2);
-			return view('report_f2.rekapipmahasiswa', ['title' => 'Report F2 ' . $year. ' - '.$prodi,'detail' => 'Rekapitulasi IP Mahasiswa','f2s' => $result, 'ipk_max' => $ipk_max,'ipk_min' => $ipk_min, 'ipk_avg' => $ipk_avg, 'ip1_max' => $ip1_max,'ip1_min' => $ip1_min, 'ip1_avg' => $ip1_avg, 'ip2_max' => $ip2_max,'ip2_min' => $ip2_min, 'ip2_avg' => $ip2_avg, 'ip3_max' => $ip3_max,'ip3_min' => $ip3_min, 'ip3_avg' => $ip3_avg, 'ip4_max' => $ip4_max,'ip4_min' => $ip4_min, 'ip4_avg' => $ip4_avg, 'ip5_max' => $ip5_max,'ip5_min' => $ip5_min, 'ip5_avg' => $ip5_avg, 'ip6_max' => $ip6_max,'ip6_min' => $ip6_min, 'ip6_avg' => $ip6_avg, 'ip7_max' => $ip7_max,'ip7_min' => $ip7_min, 'ip7_avg' => $ip7_avg, 'ip8_max' => $ip8_max,'ip8_min' => $ip8_min, 'ip8_avg' => $ip8_avg, 'year' => $year, 'prodi' => $prodi]);
+			$ipk_max = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->max('ipk');
+			$ipk_min = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->min('ipk');
+			$ipk_avg = number_format(Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->avg('ipk'), 2);
+			return view('report_f2.rekapipmahasiswa', ['title' => 'Report F2 ' . $yearFix. ' - '.$prodi,'detail' => 'Rekapitulasi IP Mahasiswa','f2s' => $result, 'ipk_max' => $ipk_max,'ipk_min' => $ipk_min, 'ipk_avg' => $ipk_avg, 'ip1_max' => $ip1_max,'ip1_min' => $ip1_min, 'ip1_avg' => $ip1_avg, 'ip2_max' => $ip2_max,'ip2_min' => $ip2_min, 'ip2_avg' => $ip2_avg, 'ip3_max' => $ip3_max,'ip3_min' => $ip3_min, 'ip3_avg' => $ip3_avg, 'ip4_max' => $ip4_max,'ip4_min' => $ip4_min, 'ip4_avg' => $ip4_avg, 'ip5_max' => $ip5_max,'ip5_min' => $ip5_min, 'ip5_avg' => $ip5_avg, 'ip6_max' => $ip6_max,'ip6_min' => $ip6_min, 'ip6_avg' => $ip6_avg, 'ip7_max' => $ip7_max,'ip7_min' => $ip7_min, 'ip7_avg' => $ip7_avg, 'ip8_max' => $ip8_max,'ip8_min' => $ip8_min, 'ip8_avg' => $ip8_avg, 'year' => $yearFix, 'prodi' => $prodi, 'yearAwal' => $year]);
 	}
 
 	public function create(){
@@ -194,6 +195,7 @@ class Rekapipmahasiswa extends Controller
 
 	public function export($year, $prodi)
 	{
+		$year = str_replace("-", "/", $year);
 		$result = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->get();
 
 		$spreadsheet = new Spreadsheet();
@@ -220,7 +222,7 @@ class Rekapipmahasiswa extends Controller
 		$sheet->getStyle('A5:O5')->getAlignment()->setHorizontal('center');
 		$sheet->getStyle('A5:O5')->getFont()->setBold(true);
 		$sheet->mergeCells('A6:O6');
-		$sheet->setCellValue('A6', 'TAHUN AKADEMIK ' . $year . '/' . ($year+1));
+		$sheet->setCellValue('A6', 'TAHUN AKADEMIK ' . $year);
 		$sheet->getStyle('A6:O6')->getAlignment()->setHorizontal('center');
 		$sheet->getStyle('A6:O6')->getFont()->setBold(true);
 

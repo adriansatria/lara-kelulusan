@@ -24,13 +24,15 @@ class F2s_tidaklulus extends Controller
 	public function year(Request $request)
 	{
 			$year = $request->input('year');
+			$yearFix = str_replace("-", "/", $year);
 			$prodi = $request->input('prodi');
-			$f2s_tidaklulus = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->where('status', '!=', 'L')->get();
-			return view('report_f2_tidaklulus.index', ['title' => 'Data Mahasiswa Tidak/Belum Lulus ' . $year,'detail' => 'Rekapitulasi Mahasiswa Tidak/Belum Lulus','f2s_tidaklulus' => $f2s_tidaklulus, 'year' => $year, 'prodi' => $prodi]);
+			$f2s_tidaklulus = Rekapipmahasiswa_model::where('tahun', $yearFix)->where('prodi', $prodi)->where('status', '!=', 'L')->get();
+			return view('report_f2_tidaklulus.index', ['title' => 'Data Mahasiswa Tidak/Belum Lulus ' . $yearFix,'detail' => 'Rekapitulasi Mahasiswa Tidak/Belum Lulus','f2s_tidaklulus' => $f2s_tidaklulus, 'year' => $yearFix, 'yearAwal' => $year, 'prodi' => $prodi]);
 	}
 
 	public function export($year, $prodi)
 	{
+		$year = str_replace("-", "/", $year);
 		$result = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->where('status', '!=', 'L')->get();
 		// $result = DB::table('report_f2s')
   //               ->where('status', '=', 'L')
@@ -41,7 +43,7 @@ class F2s_tidaklulus extends Controller
 		$sheet = $spreadsheet->getActiveSheet();
 		$sheet->setTitle('Data Mahasiswa Tidak Lulus');
 		$sheet->mergeCells('A1:D1');
-		$sheet->setCellValue('A1', 'Data Mahasiswa Tidak Lulus ' .$year);
+		$sheet->setCellValue('A1', 'Data Mahasiswa Tidak Lulus ' .$prodi. ' ' .$year);
 		$sheet->getStyle('A1:D1')->getAlignment()->setHorizontal('center');
 
 		$sheet->getColumnDimension('A')->setAutoSize(true);

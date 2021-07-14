@@ -82,7 +82,7 @@
                             @else
                             <a href="{{ route('rekapkehadirandosen') }}" class="btn btn-warning"><i
                                     class="fas fa-redo-alt"></i></a>
-                            <a href="{{ route('rekapkehadirandosen.export', $year) }}" class="btn btn-success">
+                            <a href="{{ route('rekapkehadirandosen.export', $yearAwal) }}" class="btn btn-success">
                                 <i class="fas fa-file-excel"></i> Export to Excel</a>
                             @endif
                         </div>

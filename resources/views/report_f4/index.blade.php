@@ -40,7 +40,7 @@
             <span>Year</span>
             <select class="form-select form-control" name="year" aria-label="Default select example">
                 <option selected>SELECT</option>
-                @for($tahun = date('Y') - 4; $tahun < date('Y') + 1; $tahun++) <option value="{{ $tahun }}">{{ $tahun }}
+                @for($tahun = date('Y') - 4; $tahun < date('Y') + 1; $tahun++) <option value="{{ $tahun }}-{{ $tahun+1 }}">{{ $tahun }}/{{ $tahun+1 }}
                     </option>
                     @endfor
             </select>
@@ -81,7 +81,7 @@
                                 Data</a>
                             @else
                             <a href="{{ route('f4s') }}" class="btn btn-warning"><i class="fas fa-redo-alt"></i></a>
-                            <a href="{{ url('/f4s/export/'. $year. '/' .$prodi. '/' .$semester ) }}"
+                            <a href="{{ url('/f4s/export/'. $yearAwal. '/' .$prodi. '/' .$semester ) }}"
                                 class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a>
                             @endif
                         </div>

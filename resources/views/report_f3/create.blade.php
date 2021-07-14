@@ -87,7 +87,7 @@
 							</div>
 							<div class="form-group">
 								<label for="tahun">Tahun</label>
-								<input type="number" class="form-control @error('tahun') is-invalid @enderror" name="tahun" value="{{ old('tahun') }}">
+								<input type="text" class="form-control @error('tahun') is-invalid @enderror" name="tahun" value="{{ old('tahun') }}">
 								@error('tahun')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror

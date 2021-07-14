@@ -67,6 +67,9 @@
 								<label for="nilai_akhir">Nilai Akhir</label>
 								<select name="nilai_akhir" class="form-control @error('nilai_akhir') is-invalid @enderror">
 									<option value="">Nilai Akhir</option>
+									<option value="A">A</option>
+									<option value="B">B</option>
+									<option value="C">C</option>
 									<option value="D">D</option>
 									<option value="E">E</option>
 								</select>

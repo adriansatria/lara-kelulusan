@@ -18,10 +18,11 @@ class rekapstatuskelulusan extends Controller
 	public function year(Request $request)
 	{
 		$year = $request->input('year');
+		$yearFix = str_replace("-", "/", $year);
 		$prodi = $request->input('prodi');
 		$semester = $request->input('semester');
-		$result = Rekapstatuskelulusan_model::where('tahun', $year)->where('prodi', $prodi)->where('semester', $semester)->get();
-		return view('report_f3.rekapstatuskelulusan', ['title' => 'Rekap F3 ' . $year. ' - '.$prodi. ' - '.$semester,'detail' => 'Rekapitulasi Status Kelulusan','f3s' => $result, 'year' => $year, 'prodi' => $prodi, 'semester' => $semester]);
+		$result = Rekapstatuskelulusan_model::where('tahun', $yearFix)->where('prodi', $prodi)->where('semester', $semester)->get();
+		return view('report_f3.rekapstatuskelulusan', ['title' => 'Rekap F3 ' . $yearFix. ' - '.$prodi. ' - '.$semester,'detail' => 'Rekapitulasi Status Kelulusan','f3s' => $result, 'year' => $yearFix, 'yearAwal' => $year, 'prodi' => $prodi, 'semester' => $semester]);
 
 	}
 
@@ -142,6 +143,7 @@ class rekapstatuskelulusan extends Controller
 
 	public function export($year, $prodi, $semester)
 	{
+		$year = str_replace("-", "/", $year);
 		$result = Rekapstatuskelulusan_model::where('tahun', $year)->where('prodi', $prodi)->where('semester', $semester)->get();
 
 		$spreadsheet = new Spreadsheet();
@@ -160,7 +162,7 @@ class rekapstatuskelulusan extends Controller
 		$sheet->getStyle('A3:P3')->getAlignment()->setHorizontal('center');
 		$sheet->getStyle('A3:P3')->getFont()->setBold(true);
 		$sheet->mergeCells('A4:P4');
-		$sheet->setCellValue('A4', 'SEMESTER GANJIL TAHUN AKADEMIK ' . $year . '/' . ($year+1));
+		$sheet->setCellValue('A4', 'SEMESTER GANJIL TAHUN AKADEMIK ' . $year);
 		$sheet->getStyle('A4:P4')->getAlignment()->setHorizontal('center');
 		$sheet->getStyle('A4:P4')->getFont()->setBold(true);
 
@@ -239,6 +241,7 @@ class rekapstatuskelulusan extends Controller
 			$sheet->getStyle('N'.$cell)->getAlignment()->setHorizontal('center');
 			$sheet->setCellValue('O'.$cell, $row->tahun);
 			$sheet->getStyle('O'.$cell)->getAlignment()->setHorizontal('center');
+			$sheet->setCellValue('P'.$cell, $row->keterangan);
 
 			$styleArray = array(
 				'borders' => array(

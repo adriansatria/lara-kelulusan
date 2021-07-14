@@ -17,11 +17,12 @@ class F4s extends Controller
 	public function year(Request $request)
 	{
 			$year = $request->input('year');
+			$yearFix = str_replace("-", "/", $year);
 			$prodi = $request->input('prodi');
 			$semester = $request->input('semester');
 
-			$result = F4s_model::where('tahun', $year)->where('prodi', $prodi)->where('semester', $semester)->get();
-			return view('report_f4.index', ['title' => 'Report F4 ' . $year,'detail' => 'Rekapitulasi Surat Peringatan','f4s' => $result, 'year' => $year, 'prodi' => $prodi, 'semester' => $semester]);
+			$result = F4s_model::where('tahun', $yearFix)->where('prodi', $prodi)->where('semester', $semester)->get();
+			return view('report_f4.index', ['title' => 'Report F4 ' . $yearFix,'detail' => 'Rekapitulasi Surat Peringatan','f4s' => $result, 'year' => $yearFix, 'yearAwal' => $year, 'prodi' => $prodi, 'semester' => $semester]);
 	}
 
 	public function create(){
@@ -107,6 +108,7 @@ class F4s extends Controller
 
 	public function export($year, $prodi, $semester)
 	{
+		$year = str_replace("-", "/", $year);
 		$result = F4s_model::where('tahun', $year)->where('prodi', $prodi)->where('semester', $semester)->get();
 
 		$spreadsheet = new Spreadsheet();
@@ -125,7 +127,7 @@ class F4s extends Controller
 		$sheet->getStyle('A3:J3')->getAlignment()->setHorizontal('center');
 		$sheet->getStyle('A3:J3')->getFont()->setBold(true);
 		$sheet->mergeCells('A4:J4');
-		$sheet->setCellValue('A4', 'SEMESTER GANJIL TAHUN AKADEMIK ' . $year . '/' . ($year+1));
+		$sheet->setCellValue('A4', 'SEMESTER GANJIL TAHUN AKADEMIK ' . $year);
 		$sheet->getStyle('A4:J4')->getAlignment()->setHorizontal('center');
 		$sheet->getStyle('A4:J4')->getFont()->setBold(true);
 

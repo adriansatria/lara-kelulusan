@@ -40,7 +40,7 @@
             <span>Year</span>
             <select class="form-select form-control" name="year" aria-label="Default select example">
                 <option selected>SELECT</option>
-                @for($tahun = date('Y') - 4; $tahun < date('Y') + 1; $tahun++) <option value="{{ $tahun }}/{{ $tahun+1 }}">{{ $tahun }}/{{ $tahun+1 }}
+                @for($tahun = date('Y') - 4; $tahun < date('Y') + 1; $tahun++) <option value="{{ $tahun }}-{{ $tahun+1 }}">{{ $tahun }}/{{ $tahun+1 }}
                     </option>
                     @endfor
             </select>
@@ -108,7 +108,7 @@
                                         class="fas fa-file-upload"></i> Import Excel</button>
                                 @elseif($year != '')
                                 <a href="{{ route('f1s') }}" class="btn btn-warning"><i class="fas fa-redo-alt"></i></a>
-                                <a href="{{ route('f1s.export', $year) }}" class="btn btn-success"><i
+                                <a href="{{ route('f1s.export', $yearAwal) }}" class="btn btn-success"><i
                                         class="fas fa-file-excel"></i> Export to Excel</a>
                                 @endif
                             </form>

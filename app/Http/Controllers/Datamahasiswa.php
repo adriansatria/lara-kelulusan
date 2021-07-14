@@ -55,7 +55,7 @@ class Datamahasiswa extends Controller
         $sheet->setCellValue('A2', 'POLITEKNIK NEGERI JAKARTA');
 		$sheet->getStyle('A2:O2')->getAlignment()->setHorizontal('center');
         $sheet->getStyle('A2:O2')->getFont()->setBold(true)->setSize(18);
-        $sheet->mergeCells('A3:B3');
+        $sheet->mergeCells('A3:D3');
         $sheet->setCellValue('A3', 'ANGKATAN : '.$year);
         $sheet->getStyle('A3')->getFont()->setBold(true);
         $sheet->getStyle('A4:O4')->getFont()->setBold(true);

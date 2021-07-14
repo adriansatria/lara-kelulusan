@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2021 at 09:55 AM
+-- Generation Time: Jul 14, 2021 at 11:38 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -150,7 +150,7 @@ CREATE TABLE `evaluations` (
   `mata_kuliah` varchar(128) NOT NULL,
   `kelas` varchar(128) NOT NULL,
   `nama_mahasiswa` varchar(128) NOT NULL,
-  `nim` int(11) NOT NULL,
+  `nim` varchar(11) NOT NULL,
   `nilai_akhir` varchar(50) NOT NULL,
   `kemungkinan_perbaikan` varchar(50) NOT NULL,
   `keterangan` text NOT NULL,
@@ -162,9 +162,7 @@ CREATE TABLE `evaluations` (
 --
 
 INSERT INTO `evaluations` (`id`, `nama_dosen`, `mata_kuliah`, `kelas`, `nama_mahasiswa`, `nim`, `nilai_akhir`, `kemungkinan_perbaikan`, `keterangan`, `tahun`) VALUES
-(1, 'Dewi Sartika, M.Kom.', 'Basis Data 2', '04TPLP0010', 'Rina Nakazawa', 2016142159, 'D', 'Bisa', 'Cuti', '2021'),
-(3, 'Jhon Doe', 'PKK', '32RTHH', 'Addyana Ilman', 1819117641, 'D', 'Bisa', 'Bolos terus, tidak pernah mengerjakan tugas', '2021'),
-(7, 'Mauldy Laya, S.Kom., M.Kom.', 'PKK', '32RTHH', 'Adrian Maulana F', 1819117642, 'D', 'Bisa', 'Nakal', '2020');
+(8, 'Mauldy Laya, S.Kom., M.Kom.', 'Bahasa Inggris untuk TIK 2', '32RTHH', 'Nazla', '4617010010', 'C', 'Bisa', 'Kerjakan tugas PPL yang belum', '2020/2021');
 
 -- --------------------------------------------------------
 
@@ -190,7 +188,7 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `mahasiswa` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `nim` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nim` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `nama` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tempat_lahir` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tanggal_lahir` date DEFAULT NULL,
@@ -332,8 +330,8 @@ CREATE TABLE `reportf2s` (
   `tidak_izin` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `jumlah` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `kelakuan` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status_lulus_lalu` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status_lulus_baru` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_lulus_lalu` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_lulus_baru` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `amxsks` int(11) DEFAULT NULL,
   `ip` double(8,2) DEFAULT NULL,
   `kapita_selekta2` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -345,6 +343,42 @@ CREATE TABLE `reportf2s` (
   `tugas_akhir` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `k6` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `reportf2s`
+--
+
+INSERT INTO `reportf2s` (`id`, `nim`, `nama_mahasiswa`, `izin`, `tidak_izin`, `jumlah`, `kelakuan`, `status_lulus_lalu`, `status_lulus_baru`, `amxsks`, `ip`, `kapita_selekta2`, `k3`, `metodologi_penelitian2`, `k2`, `bahasa_inggris_komunikasi3`, `k2_2`, `tugas_akhir`, `k6`) VALUES
+(34, '4616010032', 'ABDULLAH KHALID YAHYA', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 43, 3.27, 'B-', '8.1', 'A', '6.6', 'B+', '6.6', 'B+', '19.8'),
+(35, '4616010034', 'ADITYO BAGAS PRIANTO', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 49, 3.82, 'A', '12', 'A', '7.4', 'A-', '7.4', 'A-', '22.2'),
+(36, '4616010001', 'AKLI HAKIKI HASIBUAN', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 51, 3.89, 'A', '12', 'A', '6.6', 'B+', '6.6', 'A', '24'),
+(37, '4616010032', 'ANDI MAKKASAU', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 45, 3.47, 'B+', '9.9', 'A', '7.4', 'A-', '7.4', 'B+', '19.8'),
+(38, '4616010020', 'ASYMALA PERMATA SARI', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 48, 3.68, 'A', '12', 'A', '8', 'A', '8', 'B+', '19.8'),
+(39, '4616010005', 'DIMAS RAMA PUTRA', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 45, 3.43, 'A', '12', 'A', '6.6', 'B+', '6.6', 'B', '18'),
+(40, '4616010022', 'DZAKI FADLULLAH ABDURRACHMAN', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 51, 3.95, 'A', '12', 'A', '7.4', 'A-', '7.4', 'A', '24'),
+(41, '4616010036', 'FAKHIRAH MAHARANI', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 50, 3.86, 'A', '12', 'A', '8', 'A', '8', 'A-', '22.2'),
+(42, '4616010038', 'GITA DIAZ PANGESTI', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 49, 3.82, 'A', '12', 'A', '7.4', 'A-', '7.4', 'A-', '22.2'),
+(43, '4616010012', 'GUNTUR JANUAR FITRIANO', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 48, 3.68, 'A-', '11.1', 'A', '6.6', 'B+', '6.6', 'A-', '22.2'),
+(44, '4616010058', 'HIZKIA ROBINSAR MARPAUNG', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 49, 3.79, 'A-', '11.1', 'A', '8', 'A', '8', 'A-', '22.2'),
+(45, '4616010040', 'IKHSAN SOLIHIN', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 43, 3.27, 'B+', '9.9', 'A', '6.6', 'B+', '6.6', 'B', '18'),
+(46, '4616010008', 'IRFAN AHMAD RASYIQ', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 51, 3.95, 'A', '12', 'A', '7.4', 'A-', '7.4', 'A', '24'),
+(47, '4616010014', 'JACK MARTIN REINALDO', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 46, 3.54, 'A', '12', 'A', '8', 'A', '8', 'B', '18'),
+(48, '4616010042', 'JALLU RAMADHAN', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 47, 3.63, 'A', '12', 'A', '7.4', 'A-', '7.4', 'B+', '19.8'),
+(49, '4616010044', 'MAULIDA NUZULIA', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 52, 4.00, 'A', '12', 'A', '8', 'A', '8', 'A', '24'),
+(50, '4616010046', 'MUHAMMAD ADHI HERLIANTO', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 50, 3.88, 'A-', '11.1', 'A', '7.4', 'A-', '7.4', 'A', '24'),
+(51, '4616010048', 'MUHAMMAD RAFI NUGROHO', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 52, 4.00, 'A', '12', 'A', '8', 'A', '8', 'A', '24'),
+(52, '4616010024', 'MUHAMMAD RAFLY THARHAN', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 48, 3.68, 'A-', '11.1', 'A', '6.6', 'B+', '6.6', 'A-', '22.2'),
+(53, '4616010050', 'MUHAMMAD REZA PAHLEVI YULIANTO', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 51, 3.89, 'A', '12', 'A', '6.6', 'B+', '6.6', 'A', '24'),
+(54, '4616010026', 'NADIAH TSAMARA PRATIWI', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 51, 3.89, 'A', '12', 'A', '6.6', 'B+', '6.6', 'A', '24'),
+(55, '4616010052', 'NADIA NURUL HIKMAH', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 49, 3.82, 'A', '12', 'A', '7.4', 'A-', '7.4', 'A-', '22.2'),
+(56, '4616010016', 'PRISKA PUTRI PRATIWI PUJIYANTO', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 49, 3.82, 'A', '12', 'A', '7.4', 'A-', '7.4', 'A-', '22.2'),
+(57, '4616010028', 'RIO ANGGARA SUFILIN', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 48, 3.68, 'A-', '11.1', 'A', '6.6', 'B+', '6.6', 'A-', '22.2'),
+(58, '4616010060', 'RIZKYTA RABEA', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 47, 3.63, 'A', '12', 'A', '7.4', 'A-', '7.4', 'B+', '19.8'),
+(59, '4616010054', 'ROBBY KURNIA APRILIAN', '0', '0', '0', 'Baik', 'LULUS', 'TIDAK LULUS', 25, 3.50, 'B+', '9.9', 'A', '6.6', 'B+', '6.6', NULL, '0'),
+(60, '4616010056', 'SITI NURDIANA APRILIANTI', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 48, 3.68, 'A-', '11.1', 'A', '6.6', 'B+', '6.6', 'A-', '22.2'),
+(61, '4616010018', 'SITI SARAH BALGIS', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 52, 4.00, 'A', '12', 'A', '8', 'A', '8', 'A', '24'),
+(62, '4616010030', 'VIDI AYUNINGTYAS', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 52, 4.00, 'A', '12', 'A', '8', 'A', '8', 'A', '24'),
+(63, '4314010019', 'TIMBO HIDAYAT SIREGAR', '0', '0', '0', 'Baik', NULL, 'TIDAK LULUS', 14, 2.80, 'C', '6', 'A', '0', NULL, '0', NULL, '0');
 
 -- --------------------------------------------------------
 
@@ -397,7 +431,7 @@ CREATE TABLE `report_f1s` (
 --
 
 INSERT INTO `report_f1s` (`id`, `nama_dosen`, `nip`, `mata_kuliah`, `kelas`, `jpm`, `kpk`, `rata_kehadiran`, `tahun`) VALUES
-(29, 'Mauldy Laya, S.Kom., M.Kom.', '197802112009121003', 'PKK', '32RTHH', '80', '100', '90', '2020/2021');
+(30, 'Mauldy Laya, S.Kom., M.Kom.', '197802112009121003', 'Bahasa Inggris untuk TIK 2', '32RTHH', '100', '100', '100', '2020/2021');
 
 -- --------------------------------------------------------
 
@@ -424,6 +458,15 @@ CREATE TABLE `report_f2s` (
   `tahun` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `report_f2s`
+--
+
+INSERT INTO `report_f2s` (`id`, `nama_mahasiswa`, `kelas`, `nim`, `ip_s1`, `ip_s2`, `ip_s3`, `ip_s4`, `ip_s5`, `ip_s6`, `ip_s7`, `ip_s8`, `ipk`, `status`, `prodi`, `tahun`) VALUES
+(76, 'Nazla', '32RTHH', '4617010010', 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.8, 'L', 'Teknik Informatika', '2020/2021'),
+(77, 'Jeremy', '32RTHH', '4617010015', 2, 2, 2, 2, 2, 2.44, 2.5, 3, 29, 'LP', 'Sistem Informasi', '2020/2021'),
+(78, 'Sasquilla', '32RTHH', '4617010011', 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.8, 'L', 'Sistem Informasi', '2019/2020');
+
 -- --------------------------------------------------------
 
 --
@@ -448,6 +491,13 @@ CREATE TABLE `report_f3s` (
   `tahun` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `keterangan` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `report_f3s`
+--
+
+INSERT INTO `report_f3s` (`id`, `nama_mahasiswa`, `nim`, `prodi`, `jenjang`, `semester`, `kelas`, `jumlah_mahasiswa`, `status_l`, `status_lp`, `status_ct`, `status_ml`, `status_md`, `status_do`, `tahun`, `keterangan`) VALUES
+(10, 'Nazla', '4617010010', 'Teknik Informatika', 'D3', '6', '32RTHH', '44', '1', NULL, NULL, NULL, NULL, '2', '2020/2021', 'Tidak pernah mengerjakan tugas');
 
 -- --------------------------------------------------------
 
@@ -474,8 +524,8 @@ CREATE TABLE `report_f4s` (
 --
 
 INSERT INTO `report_f4s` (`id`, `prodi`, `jenjang`, `semester`, `kelas`, `jumlah_mahasiswa`, `sp1`, `sp2`, `sp3`, `keterangan`, `tahun`) VALUES
-(7, 'Teknik Informatika', 'D3', '4', '32RTHH', '40', '1', '2', '3', 'Nakal disaat pembelajaran, dan tidak sopan', '2020'),
-(8, 'Sistem Informasi', 'S1', '1', '32RTHH', '40', '1', '2', NULL, 'none', '2021');
+(7, 'Teknik Informatika', 'D3', '4', '32RTHH', '40', '1', '2', '3', 'Nakal disaat pembelajaran, dan tidak sopan', '2020/2021'),
+(8, 'Sistem Informasi', 'S1', '1', '32RTHH', '40', '1', '2', NULL, 'none', '2020/2021');
 
 -- --------------------------------------------------------
 
@@ -505,7 +555,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `email`, `email_verified_at`, `pa
 (2, 'Rina', 'petugas', 'petugas@gmail.com', NULL, 'afb91ef692fd08c445e8cb1bab2ccf9c', NULL, '2021-05-10 00:32:53', '2021-05-10 00:32:53', 'Petugas'),
 (4, 'Budi', 'budi', 'kajur@gmail.com', NULL, '00dfc53ee86af02e742515cdcf075ed3', NULL, NULL, NULL, 'Kajur'),
 (7, 'Jhon Doe', 'Jhon Doe', 'jhondoe@gmail.com', NULL, 'e1f60ee64481d586a7b9897e89571852', NULL, NULL, NULL, 'Dosen'),
-(10, 'Mauldy Laya, S.Kom., M.Kom.', 'mauldya', 'mauldya@gmail.com', NULL, '3b62e68fd6fe28d95eda3954eb32301b', NULL, NULL, NULL, 'Petugas');
+(10, 'Mauldy Laya, S.Kom., M.Kom.', 'mauldya', 'mauldya@gmail.com', NULL, '5ac38d57794459b67c037f7d72cb7023', NULL, NULL, NULL, 'Dosen');
 
 --
 -- Indexes for dumped tables
@@ -611,7 +661,7 @@ ALTER TABLE `dosen`
 -- AUTO_INCREMENT for table `evaluations`
 --
 ALTER TABLE `evaluations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -641,7 +691,7 @@ ALTER TABLE `reportf1s`
 -- AUTO_INCREMENT for table `reportf2s`
 --
 ALTER TABLE `reportf2s`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `reportf3s`
@@ -653,19 +703,19 @@ ALTER TABLE `reportf3s`
 -- AUTO_INCREMENT for table `report_f1s`
 --
 ALTER TABLE `report_f1s`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `report_f2s`
 --
 ALTER TABLE `report_f2s`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `report_f3s`
 --
 ALTER TABLE `report_f3s`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `report_f4s`

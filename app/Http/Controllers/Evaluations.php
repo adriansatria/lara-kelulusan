@@ -26,14 +26,15 @@ class Evaluations extends Controller
 	public function year(Request $request)
 	{
 		$year = $request->input('year');
+		$yearFix = str_replace("-", "/", $year);
 		$nama_dosen_login = \DB::table('users')
 							->select('users.name as nama_lengkap')
 							->where('users.username', '=', session('username'))
 							->limit(1)
 							->get()
                         	->toArray();
-		$evaluations = Evaluations_model::where('tahun', $year)->get();
-		return view('evaluation.index', ['title' => 'Evaluasi ' . $year, 'detail' => 'Rekapitulasi Mahasiswa Bermasalah','evaluations' => $evaluations, 'year' => $year, 'nama_dosen_login' => $nama_dosen_login[0]->nama_lengkap]);
+		$evaluations = Evaluations_model::where('tahun', $yearFix)->get();
+		return view('evaluation.index', ['title' => 'Evaluasi ' . $yearFix, 'detail' => 'Rekapitulasi Mahasiswa Bermasalah','evaluations' => $evaluations, 'year' => $yearFix, 'yearAwal' => $year, 'nama_dosen_login' => $nama_dosen_login[0]->nama_lengkap]);
 	}
 
 	public function create(){
@@ -151,6 +152,7 @@ class Evaluations extends Controller
 
 	public function export($year)
 	{
+		$year = str_replace("-", "/", $year);
 		$result = Evaluations_model::where('tahun', $year)->get();
 
 		$spreadsheet = new Spreadsheet();

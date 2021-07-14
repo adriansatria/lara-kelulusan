@@ -86,7 +86,7 @@
                                     data-target="#detailModal">Detail</button>
                                 <a href="{{ route('rekapipmahasiswa') }}" class="btn btn-warning"><i
                                         class="fas fa-redo-alt"></i></a>
-                                <a href="{{ url('/rekapipmahasiswa/export/'.$year. '/'.$prodi) }}"
+                                <a href="{{ url('/rekapipmahasiswa/export/'.$yearAwal. '/'.$prodi) }}"
                                     class="btn btn-success"><i class="fas fa-file-excel"></i> Export to Excel</a>
                                 @endif
                             </form>

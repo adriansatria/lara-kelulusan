@@ -18,8 +18,9 @@ class Rekapkehadirandosen extends Controller
 	public function year(Request $request)
 	{
 			$year = $request->input('year');
-			$result = Rekapkehadirandosen_model::where('tahun', $year)->get();
-			return view('report_f1.rekapkehadirandosen', ['title' => 'Rekapitulasi F1 ' . $year, 'detail' => 'Rekapitulasi Kehadiran Dosen', 'f1s' => $result, 'year' => $year]);
+			$yearFix = str_replace("-", "/", $year);
+			$result = Rekapkehadirandosen_model::where('tahun', $yearFix)->get();
+			return view('report_f1.rekapkehadirandosen', ['title' => 'Rekapitulasi F1 ' . $yearFix, 'detail' => 'Rekapitulasi Kehadiran Dosen', 'f1s' => $result, 'year' => $yearFix, 'yearAwal' => $year]);
 	}
 
 	public function create(){
@@ -125,6 +126,7 @@ class Rekapkehadirandosen extends Controller
 
 	public function export($year)
 	{
+		$year = str_replace("-", "/", $year);
 		$result = Rekapkehadirandosen_model::where('tahun', $year)->get();
 
 		$spreadsheet = new Spreadsheet();
@@ -139,7 +141,7 @@ class Rekapkehadirandosen extends Controller
 		$sheet->getStyle('A2:H2')->getAlignment()->setHorizontal('center');
 		$sheet->getStyle('A2:H2')->getFont()->setBold(true);
 		$sheet->mergeCells('A3:H3');
-		$sheet->setCellValue('A3', 'SEMESTER GANJIL TAHUN AKADEMIK ' . $year . '/' . ($year+1));
+		$sheet->setCellValue('A3', 'SEMESTER GANJIL TAHUN AKADEMIK ' . $year);
 		$sheet->getStyle('A3:H3')->getAlignment()->setHorizontal('center');
 		$sheet->getStyle('A3:H3')->getFont()->setBold(true);
 		$sheet->mergeCells('A4:H4');
