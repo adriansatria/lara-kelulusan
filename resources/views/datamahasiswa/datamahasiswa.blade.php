@@ -105,7 +105,7 @@
                                         class="fas fa-file-upload"></i>Import Excel</button>
                                 @else
                                 <a href="{{ route('mahasiswa') }}" class="btn btn-warning"><i class="fas fa-redo-alt"></i></a>
-                                <a href="{{ route('mahasiswa/export', $year) }}" class="btn btn-success"><i
+                                <a href="{{ route('mahasiswa/export', $yearAwal) }}" class="btn btn-success"><i
                                         class="fas fa-file-excel"></i> Export to Excel</a>
                                 @endif
                             </form>
