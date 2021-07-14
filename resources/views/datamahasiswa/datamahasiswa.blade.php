@@ -31,10 +31,6 @@
                 <option value="6">6</option>
                 <option value="7">7</option>
                 <option value="8">8</option>
-				<option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-				<option value="12">12</option>
             </select>
         </div>
         <div class="col-md-2">
@@ -125,7 +121,7 @@
                         <tr style="background: rgb(235, 235, 235)!important; text-align:center">
                             <th rowspan="2" class="align-middle">NO</th>
                             <th rowspan="2" class="align-middle">NIM</th>
-                            <th rowspan="2" class="align-middle">Foto</th>
+                            <!-- <th rowspan="2" class="align-middle">Foto</th> -->
                             <th colspan="5" class=" text-center align-middle">Detail</th>
                             <th rowspan="2" class="align-middle">Jenis kelamin</th>
                             <th rowspan="2" class="align-middle">Gol. darah</th>
@@ -154,7 +150,7 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{ $i->nim }}</td>
                             <!-- <td height="50px" width="50px"><img src="{{ url('') }}/assets/images/{{ $i->foto }}" width="100" alt="Foto"></td> -->
-                            <td>{{ $i->foto }}</td>
+                            <!-- <td>{{ $i->foto }}</td> -->
                             <td>{{ $i->nama }}</td>
                             <td>{{ $i->tempat_lahir }}</td>
                             <td>{{ $i->tanggal_lahir }}</td>

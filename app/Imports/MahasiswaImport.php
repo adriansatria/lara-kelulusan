@@ -61,7 +61,7 @@ class MahasiswaImport implements ToModel, WithHeadingRow
         return new Mahasiswa_Model([
             '' => $row['NO.'],
             'nim' => $row['NIM'],
-            'foto' => $row['Pas foto'],
+            // 'foto' => $row['Pas foto'],
             'nama' => $row['Nama'],
             'tempat_lahir' => $row['Tempat lahir'],
             'tanggal_lahir' => $row['Tanggal lahir'],

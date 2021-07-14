@@ -72,8 +72,6 @@ class Datamahasiswa extends Controller
         $sheet->getColumnDimension('L')->setAutoSize(true);
         $sheet->getColumnDimension('M')->setAutoSize(true);
         $sheet->getColumnDimension('N')->setAutoSize(true);
-        $sheet->getColumnDimension('O')->setAutoSize(true);
-        $sheet->getColumnDimension('P')->setAutoSize(true);
 
         $styleArray = array(
 			'borders' => array(
@@ -84,8 +82,8 @@ class Datamahasiswa extends Controller
 			),
 		);
         
-        $sheet ->getStyle('A4:P4')->applyFromArray($styleArray);
-		$sheet ->getStyle('A5:P5')->applyFromArray($styleArray);
+        $sheet ->getStyle('A4:N4')->applyFromArray($styleArray);
+		$sheet ->getStyle('A5:N5')->applyFromArray($styleArray);
 
 		// $sheet->mergeCells('A4:A5');
 		$sheet->setCellValue('A5', 'NO.');
@@ -94,36 +92,34 @@ class Datamahasiswa extends Controller
 		$sheet->setCellValue('B5', 'NIM');
 		$sheet->getStyle('B5')->getAlignment()->setHorizontal('center')->setVertical('center');
 		// $sheet->mergeCells('C4:C5');
-		$sheet->setCellValue('C5', 'Pas foto');
-		$sheet->getStyle('C5')->getAlignment()->setHorizontal('center')->setVertical('center');
-		$sheet->mergeCells('D4:H4');
-        $sheet->setCellValue('D4', 'Detail');
-		$sheet->getStyle('D4:H4')->getAlignment()->setHorizontal('center');
-        $sheet->setCellValue('D5', 'Nama');
-        $sheet->setCellValue('E5', 'Tempat lahir');
-        $sheet->setCellValue('F5', 'Tanggal lahir');
-        $sheet->setCellValue('G5', 'Agama');
-        $sheet->setCellValue('H5', 'Asal sekolah');
+		$sheet->mergeCells('C4:G4');
+        $sheet->setCellValue('C4', 'Detail');
+		$sheet->getStyle('C4:G4')->getAlignment()->setHorizontal('center');
+        $sheet->setCellValue('C5', 'Nama');
+        $sheet->setCellValue('D5', 'Tempat lahir');
+        $sheet->setCellValue('E5', 'Tanggal lahir');
+        $sheet->setCellValue('F5', 'Agama');
+        $sheet->setCellValue('G5', 'Asal sekolah');
+        // $sheet->mergeCells('H4:H5');
+		$sheet->setCellValue('H5', 'Jenis kelamin');
+		$sheet->getStyle('H5')->getAlignment()->setHorizontal('center')->setVertical('center');
         // $sheet->mergeCells('I4:I5');
-		$sheet->setCellValue('I5', 'Jenis kelamin');
+		$sheet->setCellValue('I5', 'Gol. darah');
 		$sheet->getStyle('I5')->getAlignment()->setHorizontal('center')->setVertical('center');
         // $sheet->mergeCells('J4:J5');
-		$sheet->setCellValue('J5', 'Gol. darah');
+		$sheet->setCellValue('J5', 'Alamat');
 		$sheet->getStyle('J5')->getAlignment()->setHorizontal('center')->setVertical('center');
-        // $sheet->mergeCells('K4:K5');
-		$sheet->setCellValue('K5', 'Alamat');
-		$sheet->getStyle('K5')->getAlignment()->setHorizontal('center')->setVertical('center');
-        $sheet->mergeCells('L4:N4');
-        $sheet->setCellValue('L4', 'Detail Wali');
-		$sheet->getStyle('L4:N4')->getAlignment()->setHorizontal('center');
-        $sheet->setCellValue('L5', 'Nama Orangtua/Wali');
-        $sheet->setCellValue('M5', 'Pendidikan Terakhir');
-        $sheet->setCellValue('N5', 'Pekerjaan');
-        // $sheet->mergeCells('O4:O5');
-		$sheet->setCellValue('O5', 'Keterangan');
-		$sheet->getStyle('O5')->getAlignment()->setHorizontal('center')->setVertical('center');
-        $sheet->setCellValue('P5', 'Tahun Akademik');
-		$sheet->getStyle('P5')->getAlignment()->setHorizontal('center')->setVertical('center');
+        $sheet->mergeCells('K4:M4');
+        $sheet->setCellValue('K4', 'Detail Wali');
+		$sheet->getStyle('K4:M4')->getAlignment()->setHorizontal('center');
+        $sheet->setCellValue('K5', 'Nama Orangtua/Wali');
+        $sheet->setCellValue('L5', 'Pendidikan Terakhir');
+        $sheet->setCellValue('L5', 'Pekerjaan');
+        // $sheet->mergeCells('M4:M5');
+		$sheet->setCellValue('M5', 'Keterangan');
+		$sheet->getStyle('M5')->getAlignment()->setHorizontal('center')->setVertical('center');
+        $sheet->setCellValue('N5', 'Tahun Akademik');
+		$sheet->getStyle('N5')->getAlignment()->setHorizontal('center')->setVertical('center');
 
 		$no=1;
 		$cell = 6;
@@ -131,24 +127,23 @@ class Datamahasiswa extends Controller
 			$sheet->setCellValue('A'.$cell, $no++);
             $sheet->getStyle('A'. $cell)->getAlignment()->setHorizontal('center');
 			$sheet->setCellValue('B'.$cell, $row->nim);
-			$sheet->setCellValue('C'.$cell, $row->foto);
-			$sheet->setCellValue('D'.$cell, $row->nama);
-            $sheet->setCellValue('E'.$cell, $row->tempat_lahir);
-            $sheet->setCellValue('F'.$cell, $row->tanggal_lahir);
-            $sheet->setCellValue('G'.$cell, $row->agama);
-            $sheet->getStyle('G'. $cell)->getAlignment()->setHorizontal('center');
-            $sheet->setCellValue('H'.$cell, $row->asal_sekolah);
-            $sheet->setCellValue('I'.$cell, $row->jenis_kelamin);
+			$sheet->setCellValue('C'.$cell, $row->nama);
+            $sheet->setCellValue('D'.$cell, $row->tempat_lahir);
+            $sheet->setCellValue('E'.$cell, $row->tanggal_lahir);
+            $sheet->setCellValue('F'.$cell, $row->agama);
+            $sheet->getStyle('F'. $cell)->getAlignment()->setHorizontal('center');
+            $sheet->setCellValue('G'.$cell, $row->asal_sekolah);
+            $sheet->setCellValue('H'.$cell, $row->jenis_kelamin);
+            $sheet->getStyle('H'. $cell)->getAlignment()->setHorizontal('center');
+            $sheet->setCellValue('I'.$cell, $row->golongan_darah);
             $sheet->getStyle('I'. $cell)->getAlignment()->setHorizontal('center');
-            $sheet->setCellValue('J'.$cell, $row->golongan_darah);
-            $sheet->getStyle('J'. $cell)->getAlignment()->setHorizontal('center');
-            $sheet->setCellValue('K'.$cell, $row->alamat);
-            $sheet->setCellValue('L'.$cell, $row->nama_ortu);
-            $sheet->setCellValue('M'.$cell, $row->pendidikan_terakhir);
-            $sheet->setCellValue('N'.$cell, $row->pekerjaan);
-            $sheet->setCellValue('O'.$cell, $row->keterangan);
-            $sheet->setCellValue('P'.$cell, $row->tahun_akademik);
-            $sheet->getStyle('P'. $cell)->getAlignment()->setHorizontal('center');
+            $sheet->setCellValue('J'.$cell, $row->alamat);
+            $sheet->setCellValue('K'.$cell, $row->nama_ortu);
+            $sheet->setCellValue('L'.$cell, $row->pendidikan_terakhir);
+            $sheet->setCellValue('L'.$cell, $row->pekerjaan);
+            $sheet->setCellValue('M'.$cell, $row->keterangan);
+            $sheet->setCellValue('N'.$cell, $row->tahun_akademik);
+            $sheet->getStyle('N'. $cell)->getAlignment()->setHorizontal('center');
 
             $styleArray = array(
                 'borders' => array(
@@ -159,9 +154,9 @@ class Datamahasiswa extends Controller
                 ),
             );
         
-            $sheet ->getStyle('A'.$cell.':P'.$cell)->applyFromArray($styleArray);
+            $sheet ->getStyle('A'.$cell.':N'.$cell)->applyFromArray($styleArray);
 
-            // $sheet->setBorder('A4:O'.$cell, 'thin');
+            // $sheet->setBorder('A4:N'.$cell, 'thin');
 			$cell++;
 		}
 		$writer = new Xlsx($spreadsheet);        
@@ -173,7 +168,6 @@ class Datamahasiswa extends Controller
     public function update(Request $request, $id) {
         $validateData = $request->validate([
             'nim' => 'required',
-            'foto' => 'required',
             'nama' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
@@ -189,7 +183,6 @@ class Datamahasiswa extends Controller
         ],
         [
             'nim.required' => 'Data must not be empty!',
-            'foto.required' => 'Data must not be empty!',
             'nama.required' => 'Data must not be empty!',
             'tempat_lahir.required' => 'Data must not be empty!',
             'tanggal_lahir.required' => 'Data must not be empty!',
@@ -207,7 +200,6 @@ class Datamahasiswa extends Controller
 
         DB::table('mahasiswa')->where('id', $id)
             ->update([
-                'foto' => $request->foto,
                 'nama' => $request->nama,
                 'tempat_lahir' => $request->tempat_lahir,
                 'tanggal_lahir' => $request->tanggal_lahir,

@@ -18,13 +18,13 @@
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label for="foto">Foto</label>
 								<input type="text" class="form-control @error('nama') is-invalid @enderror" name="foto" value="{{ old('foto') ?? $mahasiswa->foto }}">
 								@error('foto')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
-							</div>
+							</div> -->
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">

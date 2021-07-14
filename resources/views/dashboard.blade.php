@@ -15,8 +15,8 @@
         }
 
     </style>
-    <div class="m-4">
-        <h4>{{ $title }}</h4>
+    <div class="m-4 font-weight-bold">
+        <h1><strong>{{ $title }}</strong></h1>
     </div>
 
 </head>
@@ -30,15 +30,15 @@
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ["2017", "2018", "2019", "2020", "2021", "2022"],
+                labels: ["2017/2018", "2018/2019", "2019/2020", "2020/2021"],
                 datasets: [{
                         label: 'DATA MAHASISWA LULUS',
                         data: [{{ $jml_lulus[0] }}, {{ $jml_lulus[1] }}, {{ $jml_lulus[2] }}, {{ $jml_lulus[3] }}, {{ $jml_lulus[4] }}, {{ $jml_lulus[5] }}],
                         backgroundColor: [
-                            'rgba(65, 105, 225, 0.7)',
+                            'rgba(51, 166, 204, 0.7)',
                         ],
                         borderColor: [
-                            'rgba(65, 105, 225, 1)',
+                            'rgba(51, 166, 204)',
                         ],
                         borderWidth: 1
                     },
@@ -46,10 +46,10 @@
                         label: 'DATA MAHASISWA TIDAK LULUS',
                         data: [{{ $jml_tlulus[0] }}, {{ $jml_tlulus[1] }}, {{ $jml_tlulus[2] }}, {{ $jml_tlulus[3] }}, {{ $jml_tlulus[4] }}, {{ $jml_tlulus[5] }}],
                         backgroundColor: [
-                            'rgba(255, 99, 132, 0.7)',
+                            'rgba(204, 51, 51, 0.7)',
                         ],
                         borderColor: [
-                            'rgba(255, 99, 132, 1)',
+                            'rgba(204, 51, 51)',
                         ],
                         borderWidth: 1
                     }
@@ -59,7 +59,9 @@
                 scales: {
                     yAxes: [{
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            stepSize: 50,
+                            max: 350
                         }
                     }]
                 }
@@ -79,7 +81,7 @@
             <div class="icon">
                 <i class="fas fa-user-check"></i>
             </div>
-            <a href="{{ route('f2s_lulus') }}" class="sm-box-footer bg bg-secondary">More info <i
+            <a href="{{ route('f2s_lulus') }}" class="sm-box-footer bg bg-info">More info <i
                     class="fas fa-arrow-circle-right"></i></a>
         </div>
         <!-- small box -->
@@ -92,7 +94,7 @@
             <div class="icon">
                 <i class="fas fa-user-times"></i>
             </div>
-            <a href="{{ route('f2s_tidaklulus') }}" class="sm-box-footer bg bg-secondary">More info <i
+            <a href="{{ route('f2s_tidaklulus') }}" class="sm-box-footer bg bg-danger">More info <i
                     class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
