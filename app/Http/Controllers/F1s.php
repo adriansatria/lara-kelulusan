@@ -13,14 +13,15 @@ class F1s extends Controller
 {
 	public function index(){
 		$f1s = F1s_model::all();
-		return view('report_f1.index', ['title' => 'Report F1', 'detail' => 'Rekapitulasi Kehadiran Dosen', 'f1s' => $f1s, 'year' => '']);
+		return view('report_f1.index', ['title' => 'Report F1', 'detail' => 'Master Data Report F1', 'f1s' => $f1s, 'year' => '']);
 	}
 
 	public function year(Request $request)
 	{
 		$year = $request->input('year');
-		$f1s = F1s_model::where('tahun', $year)->get();
-		return view('report_f1.index', ['title' => 'Report F1 ' . $year, 'detail' => 'Rekapitulasi Kehadiran Dosen','f1s' => $f1s, 'year' => $year]);
+		$yearFix = str_replace("-", "/", $year);
+		$f1s = F1s_model::where('tahun', $yearFix)->get();
+		return view('report_f1.index', ['title' => 'Report F1 ' . $yearFix, 'detail' => 'Master Data Report F1','f1s' => $f1s, 'year' => $yearFix]);
 	}
 
 	public function import(Request $request) {
@@ -142,7 +143,7 @@ class F1s extends Controller
 
 		$spreadsheet = new Spreadsheet();
 		$sheet = $spreadsheet->getActiveSheet();
-		$sheet->setTitle('Rekapitulasi Kehadiran Dosen');
+		$sheet->setTitle('Master Data Report F1');
 		$sheet->mergeCells('A1:AE1');
 		$sheet->setCellValue('A1', 'REKAPITULASI PROSENTASE KEHADIRAN DOSEN');
 		$sheet->getStyle('A1:AE1')->getAlignment()->setHorizontal('center');

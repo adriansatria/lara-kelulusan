@@ -14,7 +14,7 @@
             <span>Study Program</span>
             <select class="form-select form-control" name="prodi" aria-label="Default select example" disabled>
                 <option selected>SELECT</option>
-                <option value="Teknik Informasi">Teknik Informasi</option>
+                <option value="Sistem Informasi">Sistem Informasi</option>
                 <option value="Teknik Informatika">Teknik Informatika</option>
             </select>
         </div>
@@ -40,7 +40,7 @@
             <span>Year</span>
             <select class="form-select form-control" name="year" aria-label="Default select example">
                 <option selected>SELECT</option>
-                @for($tahun = date('Y') - 4; $tahun < date('Y') + 1; $tahun++) <option value="{{ $tahun }}">{{ $tahun }}
+                @for($tahun = date('Y') - 4; $tahun < date('Y') + 1; $tahun++) <option value="{{ $tahun }}/{{ $tahun+1 }}">{{ $tahun }}/{{ $tahun+1 }}
                     </option>
                     @endfor
             </select>

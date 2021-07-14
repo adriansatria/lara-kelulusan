@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2021 at 01:16 PM
+-- Generation Time: Jul 14, 2021 at 09:55 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -190,8 +190,7 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `mahasiswa` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `nim` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `foto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nim` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `nama` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tempat_lahir` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tanggal_lahir` date DEFAULT NULL,
@@ -204,8 +203,24 @@ CREATE TABLE `mahasiswa` (
   `pendidikan_terakhir` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `pekerjaan` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `keterangan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `tahun_akademik` varchar(4) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `tahun_akademik` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `mahasiswa`
+--
+
+INSERT INTO `mahasiswa` (`id`, `nim`, `nama`, `tempat_lahir`, `tanggal_lahir`, `agama`, `asal_sekolah`, `jenis_kelamin`, `golongan_darah`, `alamat`, `nama_ortu`, `pendidikan_terakhir`, `pekerjaan`, `keterangan`, `tahun_akademik`) VALUES
+(18, '4617010010', 'Nazla', 'Jakarta', '1999-11-25', 'Islam', 'SMK Islam PB. Soedirman', 'P', 'A', 'Jln. Raya Condet', 'HJ. Zuhria', 'SMA', 'Pegawai Swasta', 'Lulus', '2020/2021'),
+(19, '4617010011', 'Sasquilla', 'Bandung', '2000-12-26', 'Islam', 'SMAN 8', 'P', 'O', 'Jln. Kampung Melayu', 'Budi', 'D3', 'Pegawai Swasta', 'Lulus', '2020/2021'),
+(20, '4617010012', 'Putri', 'Padang', '1999-01-27', 'Kristen', 'SMAN 10', 'P', 'AB', 'Jln. Batu Ampar', 'Syarif', 'S1', 'Pengusaha', 'Lulus', '2020/2021'),
+(21, '4617010013', 'Rachmawan', 'Jakarta', '2001-10-28', 'Kristen', 'SMA Penabur', 'L', 'B', 'Jln. Damai', 'Layla', 'SMA', 'Guru', 'Lulus', '2020/2021'),
+(22, '4617010014', 'Cindy', 'Jakarta', '1999-09-29', 'Islam', 'SMA Adi Luhur', 'P', 'B', 'Jln. Beji Timur', 'Sutami', 'SMA', 'PNS', 'Lulus', '2020/2021'),
+(23, '4617010015', 'Jeremy', 'Bali', '1999-08-01', 'Budha', 'SMKN 22', 'L', 'AB', 'Jln. H. Marzuki', 'Masiah', 'S1', 'PNS', 'Lulus', '2020/2021'),
+(24, '4617010016', 'Aldino', 'Sulawesi', '2000-03-02', 'Islam', 'SMAN 48', 'L', 'O', 'Jln. Sejahtera', 'Yahya', 'D3', 'Pegawai Swasta', 'Lulus', '2020/2021'),
+(25, '4617010017', 'Dinda', 'Kalimantan', '1999-11-03', 'Islam', 'SMKN 12', 'P', 'O', 'Jln. Jaya Abadi', 'Mulfi', 'S3', 'Dosen', 'Lulus', '2020/2021'),
+(26, '4617010018', 'Zavier', 'Jakarta', '1999-08-04', 'Kristen', 'SMA Harapan Pelita', 'L', 'B', 'Jln. Perempatan Mampang', 'Ilyas', 'SMA', 'Pegawai Swasta', 'Lulus', '2020/2021'),
+(27, '4617010019', 'Ilham', 'Jakarta', '1999-04-05', 'Islam', 'SMK N 10', 'L', 'A', 'Jln. Dewi Sartika', 'Zaini', 'S1', 'PNS', 'Lulus', '2020/2021');
 
 -- --------------------------------------------------------
 
@@ -257,9 +272,9 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `reportf1s` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `nama_dosen` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nip` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `mata_kuliah` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama_dosen` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nip` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mata_kuliah` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `p1` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `p2` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `p3` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -294,8 +309,14 @@ CREATE TABLE `reportf1s` (
 --
 
 INSERT INTO `reportf1s` (`id`, `nama_dosen`, `nip`, `mata_kuliah`, `p1`, `p2`, `p3`, `p4`, `p5`, `p6`, `p7`, `p8`, `p9`, `p10`, `p11`, `p12`, `p13`, `p14`, `p15`, `p16`, `p17`, `p18`, `p19`, `prosentase_hadir`, `prosentase_tidakhadir`, `hadir`, `izin`, `keluar_dinas`, `mangkir`, `sakit`, `tahun`) VALUES
-(7, 'Luthfi Ismail', '1819117680', 'PBO', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '15', '4', '15', '1', NULL, '2', '1', '2020'),
-(8, 'Ahmad Gozali', '1819117681', 'PPL', '1', '1', '1', '1', NULL, '1', NULL, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '17', '2', '18', NULL, NULL, NULL, '1', '2020');
+(11, 'Drs. Agus Setiawan, M.Kom', '1819117680', 'Aljabar Linier', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '56', '0', '0', '0', '0', '2020/2021'),
+(12, 'Novita Angra, S.Pd., M.Hum.', '1819117681', 'Bahasa Indonesia untuk Teknik Informatika', '1', '1', '1', '1', NULL, '1', NULL, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '64', '0', '0', '0', '0', '2020/2021'),
+(13, ' Fitria Nugrahani, S.Pd., M.Si.', '1819117682', ' Bahasa Inggris untuk TIK 2', '1', '1', '1', '1', NULL, '1', '1', '1', NULL, '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '0.9333', '0.0667', '42', '0', '0', '3', '0', '2020/2021'),
+(14, ' Risna Sari, S.Kom., M.T.i', '1819117683', ' Basis Data 1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '1', '0', '80', '0', '0', '0', '0', '2020/2021'),
+(15, ' Herlino Nanang', '1819117684', ' Jaringan Komputer dan Komunikasi', NULL, '1', '1', '1', '1', '1', '', '1', '1', '1', '1', '1', NULL, NULL, '1', '1', '1', '1', '1', '1', '0', '84', '0', '0', '0', '0', '2020/2021'),
+(16, ' Iklima Ermis Ismail, S.Kom., M.Kom', '1819117685', ' Pemrograman Web 1', '1', '1', '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '0.9375', '0.0625', '77', '0', '0', '6', '0', '2020/2021'),
+(17, ' Euis Oktavianti, S.Si, M.T.i', '1819117686', ' Rekayasa Perangkat Lunak', '1', '1', '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '1', '0', '45', '0', '0', '0', '0', '2020/2021'),
+(18, ' Dewi Yanti Liliana , S.Kom., M.Kom.', '1819117687', ' Struktur Data', NULL, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', NULL, NULL, '1', '1', '1', '1', '1', '1', '0', '102', '0', '0', '0', '0', '2020/2021');
 
 -- --------------------------------------------------------
 
@@ -305,35 +326,25 @@ INSERT INTO `reportf1s` (`id`, `nama_dosen`, `nip`, `mata_kuliah`, `p1`, `p2`, `
 
 CREATE TABLE `reportf2s` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `nim` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_mahasiswa` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `izin` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tidak_izin` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jumlah` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kelakuan` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status_lulus_lalu` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status_lulus_baru` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `amxsks` int(11) NOT NULL,
-  `ip` double(8,2) NOT NULL,
-  `kapita_selekta2` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `k3` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `metodologi_penelitian2` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `k2` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bahasa_inggris_komunikasi3` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `k2_2` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tugas_akhir` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `k6` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL
+  `nim` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nama_mahasiswa` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `izin` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tidak_izin` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `jumlah` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `kelakuan` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_lulus_lalu` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_lulus_baru` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `amxsks` int(11) DEFAULT NULL,
+  `ip` double(8,2) DEFAULT NULL,
+  `kapita_selekta2` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `k3` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `metodologi_penelitian2` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `k2` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bahasa_inggris_komunikasi3` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `k2_2` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tugas_akhir` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `k6` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `reportf2s`
---
-
-INSERT INTO `reportf2s` (`id`, `nim`, `nama_mahasiswa`, `izin`, `tidak_izin`, `jumlah`, `kelakuan`, `status_lulus_lalu`, `status_lulus_baru`, `amxsks`, `ip`, `kapita_selekta2`, `k3`, `metodologi_penelitian2`, `k2`, `bahasa_inggris_komunikasi3`, `k2_2`, `tugas_akhir`, `k6`) VALUES
-(5, '4616010032', 'ABDULLAH K', '0', '0', '0', 'Sangat Baik', 'LULUS', 'LULUS', 43, 3.22, 'B-', '8.1', 'A', '6.6', 'B+', '6.6', 'B+', '19.8'),
-(6, '4616010032', 'AHMED AHYAN', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 43, 3.23, 'B-', '8.2', 'A', '6.7', 'B+', '6.7', 'B+', '19.9'),
-(7, '4616010032', 'SYIHABUDIN', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 43, 3.24, 'B-', '8.3', 'A', '6.8', 'B+', '6.8', 'B', '19.1'),
-(8, '4616010032', 'AMELIA HASWA', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 43, 3.25, 'B-', '8.4', 'A', '6.9', 'B+', '6.9', 'B+', '19.11');
 
 -- --------------------------------------------------------
 
@@ -343,35 +354,25 @@ INSERT INTO `reportf2s` (`id`, `nim`, `nama_mahasiswa`, `izin`, `tidak_izin`, `j
 
 CREATE TABLE `reportf3s` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `nim` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nama_mahasiswa` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `izin` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tidak_izin` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `jumlah` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `kelakuan` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status_lulus_lalu` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status_lulus_baru` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `amxsks` int(11) NOT NULL,
-  `ip` double(8,2) NOT NULL,
-  `kapita_selekta2` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `k3` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `metodologi_penelitian2` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `k2` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bahasa_inggris_komunikasi3` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `k2_2` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tugas_akhir` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `k6` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL
+  `nim` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nama_mahasiswa` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `izin` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tidak_izin` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `jumlah` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `kelakuan` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_lulus_lalu` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_lulus_baru` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `amxsks` int(11) DEFAULT NULL,
+  `ip` double(8,2) DEFAULT NULL,
+  `kapita_selekta2` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `k3` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `metodologi_penelitian2` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `k2` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bahasa_inggris_komunikasi3` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `k2_2` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tugas_akhir` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `k6` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `reportf3s`
---
-
-INSERT INTO `reportf3s` (`id`, `nim`, `nama_mahasiswa`, `izin`, `tidak_izin`, `jumlah`, `kelakuan`, `status_lulus_lalu`, `status_lulus_baru`, `amxsks`, `ip`, `kapita_selekta2`, `k3`, `metodologi_penelitian2`, `k2`, `bahasa_inggris_komunikasi3`, `k2_2`, `tugas_akhir`, `k6`) VALUES
-(7, '4616010032', 'ABDULLAH K', '0', '0', '0', 'Sangat Baik', 'LULUS', 'LULUS', 43, 3.22, 'B-', '8.1', 'A', '6.6', 'B+', '6.6', 'B+', '19.8'),
-(8, '4616010032', 'AHMED AHYAN', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 43, 3.23, 'B-', '8.2', 'A', '6.7', 'B+', '6.7', 'B+', '19.9'),
-(9, '4616010032', 'SYIHABUDIN', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 43, 3.24, 'B-', '8.3', 'A', '6.8', 'B+', '6.8', 'B+', '19.1'),
-(10, '4616010032', 'AMELIA HASWA', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 43, 3.25, 'B-', '8.4', 'A', '6.9', 'B+', '6.9', 'B+', '19.11');
 
 -- --------------------------------------------------------
 
@@ -396,9 +397,7 @@ CREATE TABLE `report_f1s` (
 --
 
 INSERT INTO `report_f1s` (`id`, `nama_dosen`, `nip`, `mata_kuliah`, `kelas`, `jpm`, `kpk`, `rata_kehadiran`, `tahun`) VALUES
-(25, 'Virgiawan Dejan', '1819117678', 'Basis Data', 'XII', '4', '100', '100', '2021'),
-(27, 'Luthfi Ismail', '1819117680', 'PBO', 'XII', '6', '90', '90', '2020'),
-(28, 'Ahmad Gozali', '1819117681', 'PPL', 'XII', '3', '100', '100', '2020');
+(29, 'Mauldy Laya, S.Kom., M.Kom.', '197802112009121003', 'PKK', '32RTHH', '80', '100', '90', '2020/2021');
 
 -- --------------------------------------------------------
 
@@ -425,19 +424,6 @@ CREATE TABLE `report_f2s` (
   `tahun` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `report_f2s`
---
-
-INSERT INTO `report_f2s` (`id`, `nama_mahasiswa`, `kelas`, `nim`, `ip_s1`, `ip_s2`, `ip_s3`, `ip_s4`, `ip_s5`, `ip_s6`, `ip_s7`, `ip_s8`, `ipk`, `status`, `prodi`, `tahun`) VALUES
-(1, 'Rina', 'X', '201987709', 3.11, 3.65, 3.77, 3.5, 3.9, 4, 3.11, 3.65, 3.79, 'L', 'Teknik Informatika', '2020'),
-(67, 'Ahmad Fatih', 'XII', '1819117646', 3.13, 3.67, 3.79, 3.7, 3.11, 6, 3.16, 3.22, 3.82, 'L', 'Teknik Informatika', '2021'),
-(68, 'Ahmad Ablul', 'XII', '1819117647', 3.14, 3.68, 3.8, 3.8, 3.12, 6, 3.17, 3.23, 3.83, 'MD', 'Sistem Informasi', '2021'),
-(69, 'Ahmad Singh', 'XII', '1819117648', 3.15, 3.69, 3.81, 3.9, 3.13, 6, 3.18, 3.24, 3.84, 'L', 'Sistem Informasi', '2021'),
-(70, 'Awkarin', '32RTHH', '1819117668', 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.8, 'LP', 'Teknik Informatika', '2020'),
-(71, 'Ramayana', '32RTHH', '1819117690', 3.33, 3.33, 3.33, 4, 3.2, 3.33, 3.33, 3.33, 3.8, 'LP', 'Sistem Informasi', '2019'),
-(72, 'Addyana Ilman', '32RTHH', '1819117641', 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.8, 'LP', 'Teknik Informatika', '2021');
-
 -- --------------------------------------------------------
 
 --
@@ -462,16 +448,6 @@ CREATE TABLE `report_f3s` (
   `tahun` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `keterangan` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `report_f3s`
---
-
-INSERT INTO `report_f3s` (`id`, `nama_mahasiswa`, `nim`, `prodi`, `jenjang`, `semester`, `kelas`, `jumlah_mahasiswa`, `status_l`, `status_lp`, `status_ct`, `status_ml`, `status_md`, `status_do`, `tahun`, `keterangan`) VALUES
-(1, 'Addyana Ilman', '1819117641', 'Sistem Informasi', 'S1', '8', '32RTHH', '44', '33', '11', NULL, NULL, NULL, NULL, '2021', 'none'),
-(5, 'Angga Saputra', '1819117665', 'Teknik Informatika', 'S1', '1', '32RTHH', '40', '33', '12', NULL, NULL, NULL, NULL, '2020', ''),
-(7, 'Gilang Restu', '1819117670', 'Sistem Informasi', 'S1', '8', '32RTHH', '40', '33', '6', NULL, NULL, '7', NULL, '2021', 'none'),
-(8, 'Rifqi Fauzan', '1819117600', 'Teknik Informatika', 'D3', '2', '32RTHH', '40', '33', '3', NULL, '2', NULL, NULL, '2020', 'none');
 
 -- --------------------------------------------------------
 
@@ -647,7 +623,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -659,7 +635,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `reportf1s`
 --
 ALTER TABLE `reportf1s`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `reportf2s`
@@ -677,7 +653,7 @@ ALTER TABLE `reportf3s`
 -- AUTO_INCREMENT for table `report_f1s`
 --
 ALTER TABLE `report_f1s`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `report_f2s`

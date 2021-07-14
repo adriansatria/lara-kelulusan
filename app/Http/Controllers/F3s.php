@@ -14,7 +14,7 @@ class F3s extends Controller
 {
     public function index(){
 		$f3s = F3s_model::all();
-		return view('report_f3.index', ['title' => 'Report F3','detail' => 'Rekapitulasi Status Kelulusan', 'f3s' => $f3s, 'year' => '', 'prodi' => '', 'semester' => '']);
+		return view('report_f3.index', ['title' => 'Report F3','detail' => 'Master Data Report F3', 'f3s' => $f3s, 'year' => '', 'prodi' => '', 'semester' => '']);
 	}
 
 	public function import(Request $request) {
@@ -34,7 +34,7 @@ class F3s extends Controller
 		$prodi = $request->input('prodi');
 		$semester = $request->input('semester');
 		$result = F3s_model::where('tahun', $year)->where('prodi', $prodi)->where('semester', $semester)->get();
-		return view('report_f3.index', ['title' => 'Report F3 ' . $year. ' - '.$prodi. ' - '.$semester,'detail' => 'Rekapitulasi Status Kelulusan','f3s' => $result, 'year' => $year, 'prodi' => $prodi, 'semester' => $semester]);
+		return view('report_f3.index', ['title' => 'Report F3 ' . $year. ' - '.$prodi. ' - '.$semester,'detail' => 'Master Data Report F3','f3s' => $result, 'year' => $year, 'prodi' => $prodi, 'semester' => $semester]);
 
 	}
 

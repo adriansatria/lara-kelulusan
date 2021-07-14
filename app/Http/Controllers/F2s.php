@@ -14,7 +14,7 @@ class F2s extends Controller
 {
     public function index(){
 		$f2s = F2s_model::all();
-		return view('report_f2.index', ['title' => 'Report F2','detail' => 'Rekapitulasi IP Mahasiswa', 'f2s' => $f2s]);
+		return view('report_f2.index', ['title' => 'Report F2','detail' => 'Master Data Report F2', 'f2s' => $f2s]);
 	}
 
 	public function import(Request $request) {
@@ -32,7 +32,7 @@ class F2s extends Controller
 	{
 		if($request->input('year') == ''){
 			$f2s = F2s_model::all();
-			return view('report_f2.index', ['title' => 'Report F2','detail' => 'Rekapitulasi IP Mahasiswa', 'f2s' => $f2s]);
+			return view('report_f2.index', ['title' => 'Report F2','detail' => 'Master Data Report F2', 'f2s' => $f2s]);
 
 		} else{
 			$year = $request->input('year');
