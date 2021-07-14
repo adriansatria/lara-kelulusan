@@ -13,12 +13,12 @@ class Dashboard extends Controller
 		$mahasiswa = Rekapipmahasiswa_model::where('status', 'L')->groupBy('tahun')->count();
 
         // Jumlah Lulus
-        $jml_lulus_2017 = Rekapipmahasiswa_model::where('status', 'L')->where('tahun', '2017')->count();
-        $jml_lulus_2018 = Rekapipmahasiswa_model::where('status', 'L')->where('tahun', '2018')->count();
-        $jml_lulus_2019 = Rekapipmahasiswa_model::where('status', 'L')->where('tahun', '2019')->count();
-        $jml_lulus_2020 = Rekapipmahasiswa_model::where('status', 'L')->where('tahun', '2020')->count();
-        $jml_lulus_2021 = Rekapipmahasiswa_model::where('status', 'L')->where('tahun', '2021')->count();
-        $jml_lulus_2022 = Rekapipmahasiswa_model::where('status', 'L')->where('tahun', '2022')->count();
+        $jml_lulus_2017 = Rekapipmahasiswa_model::where('status', 'L')->where('tahun', '2017/2018')->count();
+        $jml_lulus_2018 = Rekapipmahasiswa_model::where('status', 'L')->where('tahun', '2018/2019')->count();
+        $jml_lulus_2019 = Rekapipmahasiswa_model::where('status', 'L')->where('tahun', '2019/2020')->count();
+        $jml_lulus_2020 = Rekapipmahasiswa_model::where('status', 'L')->where('tahun', '2020/2021')->count();
+        $jml_lulus_2021 = Rekapipmahasiswa_model::where('status', 'L')->where('tahun', '2021/2022')->count();
+        $jml_lulus_2022 = Rekapipmahasiswa_model::where('status', 'L')->where('tahun', '2022/2023')->count();
 
         $jml_lulus = [];
         array_push($jml_lulus, $jml_lulus_2017);
@@ -29,12 +29,12 @@ class Dashboard extends Controller
         array_push($jml_lulus, $jml_lulus_2022);
 		
         // Jumlah Tidak Lulus
-        $jml_tlulus_2017 = Rekapipmahasiswa_model::where('status', '!=', 'L')->where('tahun', '2017')->count();
-        $jml_tlulus_2018 = Rekapipmahasiswa_model::where('status', '!=', 'L')->where('tahun', '2018')->count();
-        $jml_tlulus_2019 = Rekapipmahasiswa_model::where('status', '!=', 'L')->where('tahun', '2019')->count();
-        $jml_tlulus_2020 = Rekapipmahasiswa_model::where('status', '!=', 'L')->where('tahun', '2020')->count();
-        $jml_tlulus_2021 = Rekapipmahasiswa_model::where('status', '!=', 'L')->where('tahun', '2021')->count();
-        $jml_tlulus_2022 = Rekapipmahasiswa_model::where('status', '!=', 'L')->where('tahun', '2022')->count();
+        $jml_tlulus_2017 = Rekapipmahasiswa_model::where('status', '!=', 'L')->where('tahun', '2017/2018')->count();
+        $jml_tlulus_2018 = Rekapipmahasiswa_model::where('status', '!=', 'L')->where('tahun', '2018/2019')->count();
+        $jml_tlulus_2019 = Rekapipmahasiswa_model::where('status', '!=', 'L')->where('tahun', '2019/2020')->count();
+        $jml_tlulus_2020 = Rekapipmahasiswa_model::where('status', '!=', 'L')->where('tahun', '2020/2021')->count();
+        $jml_tlulus_2021 = Rekapipmahasiswa_model::where('status', '!=', 'L')->where('tahun', '2021/2022')->count();
+        $jml_tlulus_2022 = Rekapipmahasiswa_model::where('status', '!=', 'L')->where('tahun', '2022/2023')->count();
 
         $jml_tlulus = [];
         array_push($jml_tlulus, $jml_tlulus_2017);
