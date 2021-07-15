@@ -74,6 +74,7 @@ class Datamahasiswa extends Controller
         $sheet->getColumnDimension('L')->setAutoSize(true);
         $sheet->getColumnDimension('M')->setAutoSize(true);
         $sheet->getColumnDimension('N')->setAutoSize(true);
+        $sheet->getColumnDimension('O')->setAutoSize(true);
 
         $styleArray = array(
 			'borders' => array(
@@ -84,8 +85,8 @@ class Datamahasiswa extends Controller
 			),
 		);
         
-        $sheet ->getStyle('A4:N4')->applyFromArray($styleArray);
-		$sheet ->getStyle('A5:N5')->applyFromArray($styleArray);
+        $sheet ->getStyle('A4:O4')->applyFromArray($styleArray);
+		$sheet ->getStyle('A5:O5')->applyFromArray($styleArray);
 
 		// $sheet->mergeCells('A4:A5');
 		$sheet->setCellValue('A5', 'NO.');
@@ -116,12 +117,12 @@ class Datamahasiswa extends Controller
 		$sheet->getStyle('K4:M4')->getAlignment()->setHorizontal('center');
         $sheet->setCellValue('K5', 'Nama Orangtua/Wali');
         $sheet->setCellValue('L5', 'Pendidikan Terakhir');
-        $sheet->setCellValue('L5', 'Pekerjaan');
+        $sheet->setCellValue('M5', 'Pekerjaan');
         // $sheet->mergeCells('M4:M5');
-		$sheet->setCellValue('M5', 'Keterangan');
-		$sheet->getStyle('M5')->getAlignment()->setHorizontal('center')->setVertical('center');
-        $sheet->setCellValue('N5', 'Tahun Akademik');
+		$sheet->setCellValue('N5', 'Keterangan');
 		$sheet->getStyle('N5')->getAlignment()->setHorizontal('center')->setVertical('center');
+        $sheet->setCellValue('O5', 'Tahun Akademik');
+		$sheet->getStyle('O5')->getAlignment()->setHorizontal('center')->setVertical('center');
 
 		$no=1;
 		$cell = 6;
@@ -142,10 +143,10 @@ class Datamahasiswa extends Controller
             $sheet->setCellValue('J'.$cell, $row->alamat);
             $sheet->setCellValue('K'.$cell, $row->nama_ortu);
             $sheet->setCellValue('L'.$cell, $row->pendidikan_terakhir);
-            $sheet->setCellValue('L'.$cell, $row->pekerjaan);
-            $sheet->setCellValue('M'.$cell, $row->keterangan);
-            $sheet->setCellValue('N'.$cell, $row->tahun_akademik);
-            $sheet->getStyle('N'. $cell)->getAlignment()->setHorizontal('center');
+            $sheet->setCellValue('M'.$cell, $row->pekerjaan);
+            $sheet->setCellValue('N'.$cell, $row->keterangan);
+            $sheet->setCellValue('O'.$cell, $row->tahun_akademik);
+            $sheet->getStyle('O'. $cell)->getAlignment()->setHorizontal('center');
 
             $styleArray = array(
                 'borders' => array(
@@ -156,7 +157,7 @@ class Datamahasiswa extends Controller
                 ),
             );
         
-            $sheet ->getStyle('A'.$cell.':N'.$cell)->applyFromArray($styleArray);
+            $sheet ->getStyle('A'.$cell.':O'.$cell)->applyFromArray($styleArray);
 
             // $sheet->setBorder('A4:N'.$cell, 'thin');
 			$cell++;
