@@ -84,7 +84,7 @@
         </div>
         @endif
 
-        <div class="card">
+        <div class="card border-secondary border m-4">
             <div class="card-header">
                 <div class="row">
                     <div class="col-12">
@@ -106,7 +106,7 @@
             </div>
 
             <div class="card-body table-responsive">
-                <table id="example1" class="table table-bordered table-striped display nowrap">
+                <table id="example1" class="table table-striped table-bordered display nowrap">
                     <thead>
                         <tr>
                             <th class="align-middle">NO.</th>
@@ -129,14 +129,14 @@
                             <th class="align-middle">Tugas Akhir</th>
                             <th class="align-middle">6</th>
                             @if(session('level') == 'Admin' || session('level') == 'Petugas')
-                            <td width="55px" rowspan="2" class="align-middle">Aksi</td>
+                            <td width="55px" class="align-middle">Aksi</td>
                             @endif
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($f2s as $f2)
                         <tr>
-                            <td>{{$loop->iteration}}</td>
+                            <td>{{ $loop->iteration }}</td>
                             <td>{{ $f2->nim }}</td>
                             <td>{{ $f2->nama_mahasiswa }}</td>
                             <td>{{ $f2->izin }}</td>

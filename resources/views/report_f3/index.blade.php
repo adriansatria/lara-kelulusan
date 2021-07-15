@@ -90,7 +90,7 @@
         </div>
         @endif
 
-        <div class="card">
+        <div class="card border-secondary border m-4">
             <div class="card-header">
                 <div class="row">
                     <div class="col-12">
@@ -134,7 +134,7 @@
                             <th>Tugas Akhir</th>
                             <th>6</th>
                             @if(session('level') == 'Admin')
-                            <td width="55px" rowspan="2" class="text-center align-middle">Aksi</td>
+                            <td width="55px" class="text-center align-middle">Aksi</td>
                             @endif
                         </tr>
                     </thead>
