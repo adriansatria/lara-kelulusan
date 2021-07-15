@@ -60,7 +60,10 @@
 							</div>
 							<div class="form-group">
 								<label for="kelas">Kelas</label>
-								<input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{ old('kelas') }}">
+								<select name="kelas" value="{{ old('kelas') }}" class="form-control @error('kelas') is-invalid @enderror">
+									<option value="">PILIH</option>
+									<option value="32RTHH">32RTHH</option>
+								</select>
 								@error('kelas')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
@@ -69,6 +72,13 @@
 								<label for="jumlah_mahasiswa">Jumlah Mahasiswa</label>
 								<input type="number" class="form-control @error('jumlah_mahasiswa') is-invalid @enderror" name="jumlah_mahasiswa" value="{{ old('jumlah_mahasiswa') }}">
 								@error('jumlah_mahasiswa')
+								<div class="text-danger">{{ $message }}</div>
+								@enderror
+							</div>
+							<div class="form-group">
+								<label for="tahun">Tahun</label>
+								<input type="text" class="form-control @error('tahun') is-invalid @enderror" name="tahun" value="{{ old('tahun') }}">
+								@error('tahun')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
@@ -97,13 +107,6 @@
 							<div class="form-group">
 								<label for="status_do">Status DO</label>
 								<input type="number" class="form-control" name="status_do" value="{{ old('status_do') }}">
-							</div>
-							<div class="form-group">
-								<label for="tahun">Tahun</label>
-								<input type="text" class="form-control @error('tahun') is-invalid @enderror" name="tahun" value="{{ old('tahun') }}">
-								@error('tahun')
-								<div class="text-danger">{{ $message }}</div>
-								@enderror
 							</div>
 							<div class="form-group">
 								<label for="keterangan">Keterangan</label>

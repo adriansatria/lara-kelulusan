@@ -25,7 +25,10 @@
 							<input type="hidden" name="nama_mahasiswa" value="-">
 							<div class="form-group">
 								<label for="kelas">Kelas</label>
-								<input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{ old('kelas') }}">
+								<select name="kelas" value="{{ old('kelas') }}" class="form-control @error('kelas') is-invalid @enderror">
+									<option value="">PILIH</option>
+									<option value="32RTHH">32RTHH</option>
+								</select>
 								@error('kelas')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror

@@ -26,14 +26,20 @@
 							<input type="hidden" name="nama_dosen" value="-">
 							<div class="form-group">
 								<label for="mata_kuliah">Mata Kuliah</label>
-								<input type="text" class="form-control @error('mata_kuliah') is-invalid @enderror" name="mata_kuliah" value="{{ old('mata_kuliah') }}">
+								<select name="mata_kuliah" value="{{ old('mata_kuliah') }}" class="form-control @error('mata_kuliah') is-invalid @enderror">
+									<option value="">PILIH</option>
+									<option value="Bahasa Inggris untuk TIK 2">Bahasa Inggris untuk TIK 2</option>
+								</select>
 								@error('mata_kuliah')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
 							<div class="form-group">
 								<label for="kelas">Kelas</label>
-								<input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{ old('kelas') }}">
+								<select name="kelas" value="{{ old('kelas') }}" class="form-control @error('kelas') is-invalid @enderror">
+									<option value="">PILIH</option>
+									<option value="32RTHH">32RTHH</option>
+								</select>
 								@error('kelas')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
