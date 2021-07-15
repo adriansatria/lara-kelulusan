@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 14, 2021 at 11:38 AM
+-- Generation Time: Jul 15, 2021 at 02:00 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -307,14 +307,14 @@ CREATE TABLE `reportf1s` (
 --
 
 INSERT INTO `reportf1s` (`id`, `nama_dosen`, `nip`, `mata_kuliah`, `p1`, `p2`, `p3`, `p4`, `p5`, `p6`, `p7`, `p8`, `p9`, `p10`, `p11`, `p12`, `p13`, `p14`, `p15`, `p16`, `p17`, `p18`, `p19`, `prosentase_hadir`, `prosentase_tidakhadir`, `hadir`, `izin`, `keluar_dinas`, `mangkir`, `sakit`, `tahun`) VALUES
-(11, 'Drs. Agus Setiawan, M.Kom', '1819117680', 'Aljabar Linier', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '56', '0', '0', '0', '0', '2020/2021'),
-(12, 'Novita Angra, S.Pd., M.Hum.', '1819117681', 'Bahasa Indonesia untuk Teknik Informatika', '1', '1', '1', '1', NULL, '1', NULL, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '0', '64', '0', '0', '0', '0', '2020/2021'),
-(13, ' Fitria Nugrahani, S.Pd., M.Si.', '1819117682', ' Bahasa Inggris untuk TIK 2', '1', '1', '1', '1', NULL, '1', '1', '1', NULL, '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '0.9333', '0.0667', '42', '0', '0', '3', '0', '2020/2021'),
-(14, ' Risna Sari, S.Kom., M.T.i', '1819117683', ' Basis Data 1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '1', '0', '80', '0', '0', '0', '0', '2020/2021'),
-(15, ' Herlino Nanang', '1819117684', ' Jaringan Komputer dan Komunikasi', NULL, '1', '1', '1', '1', '1', '', '1', '1', '1', '1', '1', NULL, NULL, '1', '1', '1', '1', '1', '1', '0', '84', '0', '0', '0', '0', '2020/2021'),
-(16, ' Iklima Ermis Ismail, S.Kom., M.Kom', '1819117685', ' Pemrograman Web 1', '1', '1', '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '0.9375', '0.0625', '77', '0', '0', '6', '0', '2020/2021'),
-(17, ' Euis Oktavianti, S.Si, M.T.i', '1819117686', ' Rekayasa Perangkat Lunak', '1', '1', '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '1', '0', '45', '0', '0', '0', '0', '2020/2021'),
-(18, ' Dewi Yanti Liliana , S.Kom., M.Kom.', '1819117687', ' Struktur Data', NULL, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', NULL, NULL, '1', '1', '1', '1', '1', '1', '0', '102', '0', '0', '0', '0', '2020/2021');
+(27, 'Drs. Agus Setiawan, M.Kom', '1819117680', 'Aljabar Linier', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '100%', '0%', '56', '0', '0', '0', '0', '2020/2021'),
+(28, 'Novita Angra, S.Pd., M.Hum.', '1819117681', 'Bahasa Indonesia untuk Teknik Informatika', '1', '1', '1', '1', NULL, '1', NULL, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '100%', '0%', '64', '0', '0', '0', '0', '2020/2021'),
+(29, ' Fitria Nugrahani, S.Pd., M.Si.', '1819117682', ' Bahasa Inggris untuk TIK 2', '1', '1', '1', '1', NULL, '1', '1', '1', NULL, '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '93,33%', '6,67%', '42', '0', '0', '3', '0', '2020/2021'),
+(30, ' Risna Sari, S.Kom., M.T.i', '1819117683', ' Basis Data 1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '100%', '0%', '80', '0', '0', '0', '0', '2020/2021'),
+(31, ' Herlino Nanang', '1819117684', ' Jaringan Komputer dan Komunikasi', NULL, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', NULL, NULL, '1', '1', '1', '1', '1', '100%', '0%', '84', '0', '0', '0', '0', '2020/2021'),
+(32, ' Iklima Ermis Ismail, S.Kom., M.Kom', '1819117685', ' Pemrograman Web 1', '1', '1', '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '93,75%', '6,25%', '77', '0', '0', '6', '0', '2020/2021'),
+(33, ' Euis Oktavianti, S.Si, M.T.i', '1819117686', ' Rekayasa Perangkat Lunak', '1', '1', '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '1', NULL, '1', '1', '1', '1', '1', '100%', '0%', '45', '0', '0', '0', '0', '2020/2021'),
+(34, ' Dewi Yanti Liliana , S.Kom., M.Kom.', '1819117687', ' Struktur Data', NULL, '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', NULL, NULL, '1', '1', '1', '1', '1', '100%', '0%', '102', '0', '0', '0', '0', '2020/2021');
 
 -- --------------------------------------------------------
 
@@ -394,8 +394,8 @@ CREATE TABLE `reportf3s` (
   `tidak_izin` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `jumlah` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `kelakuan` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status_lulus_lalu` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status_lulus_baru` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_lulus_lalu` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status_lulus_baru` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `amxsks` int(11) DEFAULT NULL,
   `ip` double(8,2) DEFAULT NULL,
   `kapita_selekta2` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -407,6 +407,42 @@ CREATE TABLE `reportf3s` (
   `tugas_akhir` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `k6` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `reportf3s`
+--
+
+INSERT INTO `reportf3s` (`id`, `nim`, `nama_mahasiswa`, `izin`, `tidak_izin`, `jumlah`, `kelakuan`, `status_lulus_lalu`, `status_lulus_baru`, `amxsks`, `ip`, `kapita_selekta2`, `k3`, `metodologi_penelitian2`, `k2`, `bahasa_inggris_komunikasi3`, `k2_2`, `tugas_akhir`, `k6`) VALUES
+(36, '4616010032', 'ABDULLAH KHALID YAHYA', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 43, 3.27, 'B-', '8.1', 'A', '6.6', 'B+', '6.6', 'B+', '19.8'),
+(37, '4616010034', 'ADITYO BAGAS PRIANTO', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 49, 3.82, 'A', '12', 'A', '7.4', 'A-', '7.4', 'A-', '22.2'),
+(38, '4616010001', 'AKLI HAKIKI HASIBUAN', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 51, 3.89, 'A', '12', 'A', '6.6', 'B+', '6.6', 'A', '24'),
+(39, '4616010032', 'ANDI MAKKASAU', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 45, 3.47, 'B+', '9.9', 'A', '7.4', 'A-', '7.4', 'B+', '19.8'),
+(40, '4616010020', 'ASYMALA PERMATA SARI', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 48, 3.68, 'A', '12', 'A', '8', 'A', '8', 'B+', '19.8'),
+(41, '4616010005', 'DIMAS RAMA PUTRA', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 45, 3.43, 'A', '12', 'A', '6.6', 'B+', '6.6', 'B', '18'),
+(42, '4616010022', 'DZAKI FADLULLAH ABDURRACHMAN', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 51, 3.95, 'A', '12', 'A', '7.4', 'A-', '7.4', 'A', '24'),
+(43, '4616010036', 'FAKHIRAH MAHARANI', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 50, 3.86, 'A', '12', 'A', '8', 'A', '8', 'A-', '22.2'),
+(44, '4616010038', 'GITA DIAZ PANGESTI', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 49, 3.82, 'A', '12', 'A', '7.4', 'A-', '7.4', 'A-', '22.2'),
+(45, '4616010012', 'GUNTUR JANUAR FITRIANO', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 48, 3.68, 'A-', '11.1', 'A', '6.6', 'B+', '6.6', 'A-', '22.2'),
+(46, '4616010058', 'HIZKIA ROBINSAR MARPAUNG', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 49, 3.79, 'A-', '11.1', 'A', '8', 'A', '8', 'A-', '22.2'),
+(47, '4616010040', 'IKHSAN SOLIHIN', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 43, 3.27, 'B+', '9.9', 'A', '6.6', 'B+', '6.6', 'B', '18'),
+(48, '4616010008', 'IRFAN AHMAD RASYIQ', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 51, 3.95, 'A', '12', 'A', '7.4', 'A-', '7.4', 'A', '24'),
+(49, '4616010014', 'JACK MARTIN REINALDO', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 46, 3.54, 'A', '12', 'A', '8', 'A', '8', 'B', '18'),
+(50, '4616010042', 'JALLU RAMADHAN', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 47, 3.63, 'A', '12', 'A', '7.4', 'A-', '7.4', 'B+', '19.8'),
+(51, '4616010044', 'MAULIDA NUZULIA', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 52, 4.00, 'A', '12', 'A', '8', 'A', '8', 'A', '24'),
+(52, '4616010046', 'MUHAMMAD ADHI HERLIANTO', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 50, 3.88, 'A-', '11.1', 'A', '7.4', 'A-', '7.4', 'A', '24'),
+(53, '4616010048', 'MUHAMMAD RAFI NUGROHO', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 52, 4.00, 'A', '12', 'A', '8', 'A', '8', 'A', '24'),
+(54, '4616010024', 'MUHAMMAD RAFLY THARHAN', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 48, 3.68, 'A-', '11.1', 'A', '6.6', 'B+', '6.6', 'A-', '22.2'),
+(55, '4616010050', 'MUHAMMAD REZA PAHLEVI YULIANTO', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 51, 3.89, 'A', '12', 'A', '6.6', 'B+', '6.6', 'A', '24'),
+(56, '4616010026', 'NADIAH TSAMARA PRATIWI', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 51, 3.89, 'A', '12', 'A', '6.6', 'B+', '6.6', 'A', '24'),
+(57, '4616010052', 'NADIA NURUL HIKMAH', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 49, 3.82, 'A', '12', 'A', '7.4', 'A-', '7.4', 'A-', '22.2'),
+(58, '4616010016', 'PRISKA PUTRI PRATIWI PUJIYANTO', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 49, 3.82, 'A', '12', 'A', '7.4', 'A-', '7.4', 'A-', '22.2'),
+(59, '4616010028', 'RIO ANGGARA SUFILIN', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 48, 3.68, 'A-', '11.1', 'A', '6.6', 'B+', '6.6', 'A-', '22.2'),
+(60, '4616010060', 'RIZKYTA RABEA', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 47, 3.63, 'A', '12', 'A', '7.4', 'A-', '7.4', 'B+', '19.8'),
+(61, '4616010054', 'ROBBY KURNIA APRILIAN', '0', '0', '0', 'Baik', 'LULUS', 'TIDAK LULUS', 25, 3.50, 'B+', '9.9', 'A', '6.6', 'B+', '6.6', NULL, '0'),
+(62, '4616010056', 'SITI NURDIANA APRILIANTI', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 48, 3.68, 'A-', '11.1', 'A', '6.6', 'B+', '6.6', 'A-', '22.2'),
+(63, '4616010018', 'SITI SARAH BALGIS', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 52, 4.00, 'A', '12', 'A', '8', 'A', '8', 'A', '24'),
+(64, '4616010030', 'VIDI AYUNINGTYAS', '0', '0', '0', 'Baik', 'LULUS', 'LULUS', 52, 4.00, 'A', '12', 'A', '8', 'A', '8', 'A', '24'),
+(65, '4314010019', 'TIMBO HIDAYAT SIREGAR', '0', '0', '0', 'Baik', NULL, 'TIDAK LULUS', 14, 2.80, 'C', '6', 'A', '0', NULL, '0', NULL, '0');
 
 -- --------------------------------------------------------
 
@@ -465,7 +501,8 @@ CREATE TABLE `report_f2s` (
 INSERT INTO `report_f2s` (`id`, `nama_mahasiswa`, `kelas`, `nim`, `ip_s1`, `ip_s2`, `ip_s3`, `ip_s4`, `ip_s5`, `ip_s6`, `ip_s7`, `ip_s8`, `ipk`, `status`, `prodi`, `tahun`) VALUES
 (76, 'Nazla', '32RTHH', '4617010010', 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.8, 'L', 'Teknik Informatika', '2020/2021'),
 (77, 'Jeremy', '32RTHH', '4617010015', 2, 2, 2, 2, 2, 2.44, 2.5, 3, 29, 'LP', 'Sistem Informasi', '2020/2021'),
-(78, 'Sasquilla', '32RTHH', '4617010011', 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.8, 'L', 'Sistem Informasi', '2019/2020');
+(78, 'Sasquilla', '32RTHH', '4617010011', 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.8, 'L', 'Sistem Informasi', '2019/2020'),
+(79, 'Rachmawan', '32RTHH', '4617010013', 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.8, 'L', 'Teknik Informatika', '2020/2021');
 
 -- --------------------------------------------------------
 
@@ -497,7 +534,8 @@ CREATE TABLE `report_f3s` (
 --
 
 INSERT INTO `report_f3s` (`id`, `nama_mahasiswa`, `nim`, `prodi`, `jenjang`, `semester`, `kelas`, `jumlah_mahasiswa`, `status_l`, `status_lp`, `status_ct`, `status_ml`, `status_md`, `status_do`, `tahun`, `keterangan`) VALUES
-(10, 'Nazla', '4617010010', 'Teknik Informatika', 'D3', '6', '32RTHH', '44', '1', NULL, NULL, NULL, NULL, '2', '2020/2021', 'Tidak pernah mengerjakan tugas');
+(10, 'Nazla', '4617010010', 'Teknik Informatika', 'D3', '6', '32RTHH', '44', '1', NULL, NULL, NULL, NULL, '2', '2020/2021', 'Tidak pernah mengerjakan tugas'),
+(11, 'Cindy', '4617010014', 'Teknik Informatika', 'D4', '6', '32RTHH', '40', '1', NULL, '1', NULL, NULL, NULL, '2020/2021', 'Jarang masuk kelas');
 
 -- --------------------------------------------------------
 
@@ -525,7 +563,8 @@ CREATE TABLE `report_f4s` (
 
 INSERT INTO `report_f4s` (`id`, `prodi`, `jenjang`, `semester`, `kelas`, `jumlah_mahasiswa`, `sp1`, `sp2`, `sp3`, `keterangan`, `tahun`) VALUES
 (7, 'Teknik Informatika', 'D3', '4', '32RTHH', '40', '1', '2', '3', 'Nakal disaat pembelajaran, dan tidak sopan', '2020/2021'),
-(8, 'Sistem Informasi', 'S1', '1', '32RTHH', '40', '1', '2', NULL, 'none', '2020/2021');
+(8, 'Sistem Informasi', 'S1', '1', '32RTHH', '40', '1', '2', NULL, 'none', '2020/2021'),
+(9, 'Teknik Informatika', 'D4', '6', '32RTHH', '44', '1', '2', '1', 'Nakal disaat pembelajaran, dan tidak sopan', '2020/2021');
 
 -- --------------------------------------------------------
 
@@ -685,7 +724,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `reportf1s`
 --
 ALTER TABLE `reportf1s`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `reportf2s`
@@ -697,7 +736,7 @@ ALTER TABLE `reportf2s`
 -- AUTO_INCREMENT for table `reportf3s`
 --
 ALTER TABLE `reportf3s`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `report_f1s`
@@ -709,19 +748,19 @@ ALTER TABLE `report_f1s`
 -- AUTO_INCREMENT for table `report_f2s`
 --
 ALTER TABLE `report_f2s`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `report_f3s`
 --
 ALTER TABLE `report_f3s`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `report_f4s`
 --
 ALTER TABLE `report_f4s`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
