@@ -45,8 +45,14 @@
                         <div class="col-sm-1">
                             <div class="form-group">
                                 <label for="tahun">Tahun</label>
-                                <input type="text" class="form-control @error('tahun') is-invalid @enderror"
-                                    name="tahun" value="{{ old('tahun') ?? $report_f1->tahun }}">
+                                <select type="text" class="form-control @error('tahun') is-invalid @enderror" name="tahun">
+                                    <option selected>PILIH</option>
+                                    <option value="2017/2018" {{ old('tahun', @$report_f1->tahun) == '2017/2018' ? 'selected' : '' }}>2017/2018</option>
+                                    <option value="2018/2019" {{ old('tahun', @$report_f1->tahun) == '2018/2019' ? 'selected' : '' }}>2018/2019</option>
+                                    <option value="2019/2020" {{ old('tahun', @$report_f1->tahun) == '2019/2020' ? 'selected' : '' }}>2019/2020</option>
+                                    <option value="2020/2021" {{ old('tahun', @$report_f1->tahun) == '2020/2021' ? 'selected' : '' }}>2020/2021</option>
+                                    <option value="2021/2022" {{ old('tahun', @$report_f1->tahun) == '2021/2022' ? 'selected' : '' }}>2021/2022</option>
+								</select>
                                 @error('tahun')
                                 <div class="text-danger">{{ $message }}</div>
                                 @enderror

@@ -13,7 +13,11 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="prodi">Prodi</label>
-								<input type="text" class="form-control @error('prodi') is-invalid @enderror" name="prodi" value="{{ old('prodi') }}">
+								<select name="prodi" class="form-control @error('prodi') is-invalid @enderror">
+										<option value="">PILIH</option>
+										<option value="Sistem Informasi">Sistem Informasi</option>
+										<option value="Teknik Informatika">Teknik Informatika</option>
+									</select>
 								@error('prodi')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
@@ -21,7 +25,7 @@
 							<div class="form-group">
 								<label for="jenjang">Jenjang</label>
 								<select class="form-control @error('jenjang') is-invalid @enderror" name="jenjang" value="{{ old('jenjang') }}">	
-									<option value="">Pilih</option>
+									<option value="">PILIH</option>
 									<option value="D4">D4</option>
 								</select>
 								@error('jenjang')
@@ -31,7 +35,7 @@
 							<div class="form-group">
 								<label for="semester">Semester</label>
 								<select class="form-control @error('semester') is-invalid @enderror" name="semester" value="{{ old('semester') }}">	
-									<option value="">Pilih</option>
+									<option value="">PILIH</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -82,7 +86,14 @@
 							</div>
 							<div class="form-group">
 								<label for="tahun">Tahun</label>
-								<input type="text" class="form-control @error('tahun') is-invalid @enderror" name="tahun" value="{{ old('tahun') }}">
+								<select type="text" class="form-control @error('tahun') is-invalid @enderror" name="tahun">
+                                    <option selected>PILIH</option>
+                                    <option value="2017/2018">2017/2018</option>
+                                    <option value="2018/2019">2018/2019</option>
+                                    <option value="2019/2020">2019/2020</option>
+                                    <option value="2020/2021">2020/2021</option>
+                                    <option value="2021/2022">2021/2022</option>
+								</select>
 								@error('tahun')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror

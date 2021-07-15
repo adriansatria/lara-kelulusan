@@ -113,9 +113,26 @@
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
 							</div>
+							<div class="form-group">
+								<label for="tahun_akademik">Tahun Akademik</label>
+								<select type="text" class="form-control @error('tahun_akademik') is-invalid @enderror" name="tahun_akademik">
+								<option selected>PILIH</option>
+								<option value="2017/2018" {{ old('tahun_akademik', @$mahasiswa->tahun_akademik) == '2017/2018' ? 'selected' : '' }}>2017/2018</option>
+								<option value="2018/2019" {{ old('tahun_akademik', @$mahasiswa->tahun_akademik) == '2018/2019' ? 'selected' : '' }}>2018/2019</option>
+								<option value="2019/2020" {{ old('tahun_akademik', @$mahasiswa->tahun_akademik) == '2019/2020' ? 'selected' : '' }}>2019/2020</option>
+								<option value="2020/2021" {{ old('tahun_akademik', @$mahasiswa->tahun_akademik) == '2020/2021' ? 'selected' : '' }}>2020/2021</option>
+								<option value="2021/2022" {{ old('tahun_akademik', @$mahasiswa->tahun_akademik) == '2021/2022' ? 'selected' : '' }}>2021/2022</option>
+								</select>
+								@error('tahun_akademik')
+								<div class="text-danger">{{ $message }}</div>
+								@enderror
+							</div>
 						</div>
 					</div>
-					<button type="submit" class="btn btn-primary">Save</button>
+					<div class="float-right">
+                        <a href="{{ route('mahasiswa') }}" class="btn btn-warning">Cancel</a>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
 				</form>
 			</div>
 		</div>	

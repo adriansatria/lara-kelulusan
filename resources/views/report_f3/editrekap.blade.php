@@ -27,7 +27,11 @@
 							<input type="hidden" name="nama_mahasiswa" value="-">
 							<div class="form-group">
 								<label for="prodi">Prodi</label>
-								<input type="text" class="form-control @error('prodi') is-invalid @enderror" name="prodi" value="{{ old('prodi') ?? $report_f3->prodi  }}">
+								<select name="prodi" class="form-control @error('prodi') is-invalid @enderror">
+										<option value="">PILIH</option>
+										<option value="Sistem Informasi" {{ old('prodi', @$report_f3->prodi) == 'Sistem Informasi' ? 'selected' : '' }}>Sistem Informasi</option>
+										<option value="Teknik Informatika" {{ old('prodi', @$report_f3->prodi) == 'Teknik Informatika' ? 'selected' : '' }}>Teknik Informatika</option>
+								</select>
 								@error('prodi')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
@@ -35,7 +39,7 @@
 							<div class="form-group">
 								<label for="jenjang">Jenjang</label>
 								<select class="form-control @error('jenjang') is-invalid @enderror" name="jenjang" value="{{ old('jenjang') ?? $report_f3->jenjang  }}">
-									<option value="">Pilih</option>
+									<option value="">PILIH</option>
 									<option value="D4" {{ old('jenjang', @$report_f3->jenjang) == 'D4' ? 'selected' : '' }}>D4</option>
 								</select>
 								@error('jenjang')
@@ -45,7 +49,7 @@
 							<div class="form-group">
 								<label for="semester">Semester</label>
 								<select type="text" class="form-control @error('semester') is-invalid @enderror" name="semester">
-									<option value="">Pilih</option>
+									<option value="">PILIH</option>
 									<option value="1" {{ old('semester', @$report_f3->semester) == '1' ? 'selected' : '' }}>1</option>
 									<option value="2" {{ old('semester', @$report_f3->semester) == '2' ? 'selected' : '' }}>2</option>
 									<option value="3" {{ old('semester', @$report_f3->semester) == '3' ? 'selected' : '' }}>3</option>
@@ -78,7 +82,14 @@
 							</div>
 							<div class="form-group">
 								<label for="tahun">Tahun</label>
-								<input type="text" class="form-control @error('tahun') is-invalid @enderror" name="tahun" value="{{ old('tahun') ?? $report_f3->tahun  }}">
+								<select type="text" class="form-control @error('tahun') is-invalid @enderror" name="tahun">
+                                    <option selected>PILIH</option>
+                                    <option value="2017/2018" {{ old('tahun', @$report_f3->tahun) == '2017/2018' ? 'selected' : '' }}>2017/2018</option>
+                                    <option value="2018/2019" {{ old('tahun', @$report_f3->tahun) == '2018/2019' ? 'selected' : '' }}>2018/2019</option>
+                                    <option value="2019/2020" {{ old('tahun', @$report_f3->tahun) == '2019/2020' ? 'selected' : '' }}>2019/2020</option>
+                                    <option value="2020/2021" {{ old('tahun', @$report_f3->tahun) == '2020/2021' ? 'selected' : '' }}>2020/2021</option>
+                                    <option value="2021/2022" {{ old('tahun', @$report_f3->tahun) == '2021/2022' ? 'selected' : '' }}>2021/2022</option>
+								</select>
 								@error('tahun')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror

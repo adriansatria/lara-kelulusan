@@ -33,7 +33,10 @@
 							</div>
 							<div class="form-group">
 								<label for="kelas">Kelas</label>
-								<input type="text" class="form-control @error('kelas') is-invalid @enderror" name="kelas" value="{{ old('kelas') ?? $evaluation->kelas }}">
+								<select name="kelas" value="{{ old('kelas') }}" class="form-control @error('kelas') is-invalid @enderror">
+									<option value="">PILIH</option>
+									<option value="32RTHH" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>32RTHH</option>
+								</select>
 								@error('kelas')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
@@ -93,7 +96,14 @@
 							</div>
 							<div class="form-group">
 								<label for="tahun">Tahun</label>
-								<input type="text" class="form-control @error('tahun') is-invalid @enderror" name="tahun" value="{{ old('tahun') ?? $evaluation->tahun }}">
+								<select type="text" class="form-control @error('tahun') is-invalid @enderror" name="tahun">
+                                    <option selected>Pilih</option>
+                                    <option value="2017/2018" {{ old('tahun', @$evaluation->tahun) == '2017/2018' ? 'selected' : '' }}>2017/2018</option>
+                                    <option value="2018/2019" {{ old('tahun', @$evaluation->tahun) == '2018/2019' ? 'selected' : '' }}>2018/2019</option>
+                                    <option value="2019/2020" {{ old('tahun', @$evaluation->tahun) == '2019/2020' ? 'selected' : '' }}>2019/2020</option>
+                                    <option value="2020/2021" {{ old('tahun', @$evaluation->tahun) == '2020/2021' ? 'selected' : '' }}>2020/2021</option>
+                                    <option value="2021/2022" {{ old('tahun', @$evaluation->tahun) == '2021/2022' ? 'selected' : '' }}>2021/2022</option>
+								</select>
 								@error('tahun')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror

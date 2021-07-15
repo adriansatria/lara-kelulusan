@@ -181,7 +181,8 @@ class Datamahasiswa extends Controller
             'nama_ortu' => 'required',
             'pendidikan_terakhir' => 'required',
             'pekerjaan' => 'required',
-            'keterangan' => 'required'
+            'keterangan' => 'required',
+            'tahun_akademik' => 'required'
         ],
         [
             'nim.required' => 'Data must not be empty!',
@@ -196,8 +197,8 @@ class Datamahasiswa extends Controller
             'nama_ortu.required' => 'Data must not be empty!',
             'pendidikan_terakhir.required' => 'Data must not be empty!',
             'pekerjaan.required' => 'Data must not be empty!',
-            'keterangan.required' => 'Data must not be empty!'
-
+            'keterangan.required' => 'Data must not be empty!',
+            'tahun_akademik.required' => 'Data must not be empty!'
         ]);
 
         DB::table('mahasiswa')->where('id', $id)
@@ -213,7 +214,8 @@ class Datamahasiswa extends Controller
                 'nama_ortu' => $request->nama_ortu,
                 'pendidikan_terakhir' => $request->pendidikan_terakhir,
                 'pekerjaan' => $request->pekerjaan,
-                'keterangan' => $request->keterangan
+                'keterangan' => $request->keterangan,
+                'tahun_akademik' => $request->tahun_akademik
             ]);
 
         return redirect()->route('mahasiswa')->with('update', 'Data updated successfully');

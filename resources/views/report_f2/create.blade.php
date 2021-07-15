@@ -16,7 +16,7 @@
 									<option value="">Pilih Mahasiswa</option>
 									@foreach($mahasiswa as $i)
 										<option value="{{ $i->nim }}">{{ $i->nim }} - {{ $i->nama }}</option>
-                  @endforeach
+                				    @endforeach
 								</select>
 								@error('nim')
 								<div class="text-danger">{{ $message }}</div>
@@ -125,7 +125,14 @@
 							</div>
 							<div class="form-group">
 								<label for="tahun">Tahun</label>
-								<input type="text" class="form-control @error('tahun') is-invalid @enderror" name="tahun" value="{{ old('tahun') }}">
+								<select type="text" class="form-control @error('tahun') is-invalid @enderror" name="tahun">
+                                    <option selected>PILIH</option>
+                                    <option value="2017/2018">2017/2018</option>
+                                    <option value="2018/2019">2018/2019</option>
+                                    <option value="2019/2020">2019/2020</option>
+                                    <option value="2020/2021">2020/2021</option>
+                                    <option value="2021/2022">2021/2022</option>
+								</select>
 								@error('tahun')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
