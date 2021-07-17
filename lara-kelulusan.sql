@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2021 at 04:39 AM
+-- Generation Time: Jul 17, 2021 at 10:17 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `lara-kelulusan`
+-- Database: `db_lara_kelulusan`
 --
 
 -- --------------------------------------------------------
@@ -499,10 +499,11 @@ CREATE TABLE `report_f2s` (
 --
 
 INSERT INTO `report_f2s` (`id`, `nama_mahasiswa`, `kelas`, `nim`, `ip_s1`, `ip_s2`, `ip_s3`, `ip_s4`, `ip_s5`, `ip_s6`, `ip_s7`, `ip_s8`, `ipk`, `status`, `prodi`, `tahun`) VALUES
-(76, 'Nazla', '32RTHH', '4617010010', 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.8, 'L', 'Teknik Informatika', '2020/2021'),
-(77, 'Jeremy', '32RTHH', '4617010015', 2, 2, 2, 2, 2, 2.44, 2.5, 3, 29, 'LP', 'Sistem Informasi', '2020/2021'),
-(78, 'Sasquilla', '32RTHH', '4617010011', 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.8, 'L', 'Sistem Informasi', '2019/2020'),
-(79, 'Rachmawan', '32RTHH', '4617010013', 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.8, 'L', 'Teknik Informatika', '2020/2021');
+(76, 'Nazla', '32RTHH', '4617010010', 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.8, 'L', 'TI', '2020/2021'),
+(77, 'Jeremy', '32RTHH', '4617010015', 2, 2, 2, 2, 2, 2.44, 2.5, 3, 29, 'LP', 'TMD', '2020/2021'),
+(78, 'Sasquilla', '32RTHH', '4617010011', 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.8, 'L', 'TMD', '2019/2020'),
+(79, 'Rachmawan', '32RTHH', '4617010013', 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.33, 3.8, 'L', 'TI', '2020/2021'),
+(80, 'Sasquilla', 'TI-1B', '4617010011', 2.22, 2.23, 2.42, 2.25, 2.62, 2.32, 2.28, 2.92, 3.22, 'L', 'TI', '2020/2021');
 
 -- --------------------------------------------------------
 
@@ -748,7 +749,7 @@ ALTER TABLE `report_f1s`
 -- AUTO_INCREMENT for table `report_f2s`
 --
 ALTER TABLE `report_f2s`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `report_f3s`

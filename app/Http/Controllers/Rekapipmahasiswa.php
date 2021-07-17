@@ -198,6 +198,42 @@ class Rekapipmahasiswa extends Controller
 		$year = str_replace("-", "/", $year);
 		$result = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->get();
 
+		$ip1_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ip_s1');
+		$ip1_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ip_s1');
+		$ip1_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ip_s1'), 2);
+
+		$ip2_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ip_s2');
+		$ip2_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ip_s2');
+		$ip2_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ip_s2'), 2);
+
+		$ip3_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ip_s3');
+		$ip3_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ip_s3');
+		$ip3_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ip_s3'), 2);
+
+		$ip4_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ip_s4');
+		$ip4_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ip_s4');
+		$ip4_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ip_s4'), 2);
+
+		$ip5_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ip_s5');
+		$ip5_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ip_s5');
+		$ip5_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ip_s5'), 2);
+
+		$ip6_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ip_s6');
+		$ip6_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ip_s6');
+		$ip6_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ip_s6'), 2);
+
+		$ip7_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ip_s7');
+		$ip7_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ip_s7');
+		$ip7_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ip_s7'), 2);
+
+		$ip8_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ip_s8');
+		$ip8_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ip_s8');
+		$ip8_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ip_s8'), 2);
+
+		$ipk_max = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->max('ipk');
+		$ipk_min = Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->min('ipk');
+		$ipk_avg = number_format(Rekapipmahasiswa_model::where('tahun', $year)->where('prodi', $prodi)->avg('ipk'), 2);
+
 		$spreadsheet = new Spreadsheet();
 		$sheet = $spreadsheet->getActiveSheet();
 		$sheet->setTitle('Daftar Laporan Akhir Semester');
@@ -318,6 +354,50 @@ class Rekapipmahasiswa extends Controller
 
 			$cell++;
 		}
+		$cellAbove1 = $cell + 1;
+		$cellAbove2 = $cell + 2;
+		$cellAbove3 = $cell + 3;	
+
+		$sheet->mergeCells('A'.$cellAbove1.':D'.$cellAbove3);
+		$sheet->setCellValue('A'.$cellAbove1, 'IP & IPK');
+		$sheet->getStyle('A'.$cellAbove1.':D'.$cellAbove3)->getAlignment()->setHorizontal('center');
+		$sheet->getStyle('A'.$cellAbove1.':D'.$cellAbove3)->getAlignment()->setVertical('center');
+
+		$sheet->setCellValue('E'.$cellAbove1, 'TERENDAH');
+		$sheet->setCellValue('F'.$cellAbove1, $ip1_min);
+		$sheet->setCellValue('G'.$cellAbove1, $ip2_min);
+		$sheet->setCellValue('H'.$cellAbove1, $ip3_min);
+		$sheet->setCellValue('I'.$cellAbove1, $ip4_min);
+		$sheet->setCellValue('J'.$cellAbove1, $ip5_min);
+		$sheet->setCellValue('K'.$cellAbove1, $ip6_min);
+		$sheet->setCellValue('L'.$cellAbove1, $ip7_min);
+		$sheet->setCellValue('M'.$cellAbove1, $ip8_min);
+		$sheet->setCellValue('N'.$cellAbove1, $ipk_min);
+
+		$sheet->setCellValue('E'.$cellAbove2, 'TERTINGGI');
+		$sheet->setCellValue('F'.$cellAbove2, $ip1_max);
+		$sheet->setCellValue('G'.$cellAbove2, $ip2_max);
+		$sheet->setCellValue('H'.$cellAbove2, $ip3_max);
+		$sheet->setCellValue('I'.$cellAbove2, $ip4_max);
+		$sheet->setCellValue('J'.$cellAbove2, $ip5_max);
+		$sheet->setCellValue('K'.$cellAbove2, $ip6_max);
+		$sheet->setCellValue('L'.$cellAbove2, $ip7_max);
+		$sheet->setCellValue('M'.$cellAbove2, $ip8_max);
+		$sheet->setCellValue('N'.$cellAbove2, $ipk_max);
+
+		$sheet->setCellValue('E'.$cellAbove3, 'RATA-RATA');
+		$sheet->setCellValue('F'.$cellAbove3, $ip1_avg);
+		$sheet->setCellValue('G'.$cellAbove3, $ip2_avg);
+		$sheet->setCellValue('H'.$cellAbove3, $ip3_avg);
+		$sheet->setCellValue('I'.$cellAbove3, $ip4_avg);
+		$sheet->setCellValue('J'.$cellAbove3, $ip5_avg);
+		$sheet->setCellValue('K'.$cellAbove3, $ip6_avg);
+		$sheet->setCellValue('L'.$cellAbove3, $ip7_avg);
+		$sheet->setCellValue('M'.$cellAbove3, $ip8_avg);
+		$sheet->setCellValue('N'.$cellAbove3, $ipk_avg);
+
+		$sheet ->getStyle('A'.$cellAbove1.':N'.$cellAbove3)->applyFromArray($styleArray);
+
 		$writer = new Xlsx($spreadsheet);        
 		header('Content-Type: application/vnd.ms-excel');
 		header('Content-Disposition: attachment;filename="Daftar Laporan Akhir Semester.xlsx"');
