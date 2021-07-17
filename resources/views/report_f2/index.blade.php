@@ -14,8 +14,14 @@
             <span>Study Program</span>
             <select class="form-select form-control" name="prodi" aria-label="Default select example" disabled>
                 <option selected>SELECT</option>
-                <option value="Teknik Informasi">Teknik Informasi</option>
-                <option value="Teknik Informatika">Teknik Informatika</option>
+                <option value="TI">TI</option>
+				<option value="TI CBD">TI CBD</option>
+				<option value="TI MSU">TI MSU</option>
+				<option value="TMD">TMD</option>
+				<option value="TMD MSU">TMD MSU</option>
+ 				<option value="TMD Aeu">TMD Aeu</option>
+				<option value="TMJ">TMJ</option>
+ 				<option value="CCIT">CCIT</option>
             </select>
         </div>
         <div class="col-md-2">

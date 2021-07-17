@@ -15,8 +15,14 @@
 								<label for="prodi">Prodi</label>
 								<select name="prodi" class="form-control @error('prodi') is-invalid @enderror">
 										<option value="">PILIH</option>
-										<option value="Sistem Informasi">Sistem Informasi</option>
-										<option value="Teknik Informatika">Teknik Informatika</option>
+										<option value="TI">TI</option>
+										<option value="TI CBD">TI CBD</option>
+										<option value="TI MSU">TI MSU</option>
+										<option value="TMD">TMD</option>
+										<option value="TMD MSU">TMD MSU</option>
+ 										<option value="TMD Aeu">TMD Aeu</option>
+										<option value="TMJ">TMJ</option>
+ 										<option value="CCIT">CCIT</option>
 									</select>
 								@error('prodi')
 								<div class="text-danger">{{ $message }}</div>
@@ -53,7 +59,33 @@
 								<label for="kelas">Kelas</label>
 								<select name="kelas" value="{{ old('kelas') }}" class="form-control @error('kelas') is-invalid @enderror">
 									<option value="">PILIH</option>
-									<option value="32RTHH">32RTHH</option>
+									<option value="TI-1A">TI-1A</option>
+									<option value="TI-1B">TI-1B</option>
+									<option value="TI-3">TI-3</option>
+									<option value="TI-3A">TI-3A</option>
+									<option value="TI-5A">TI-5A</option>
+									<option value="TI-5B">TI-5B</option>
+									<option value="TI-7A">TI-7A</option>
+									<option value="TI-7B">TI-7B</option>
+									<option value="TI-5A MSU">TI-5A MSU</option>
+ 									<option value="TI-5B MSU">TI-5B MSU</option>
+									<option value="TMD-1">TMD-1</option>
+									<option value="TMD-3">TMD-3</option>
+									<option value="TMD-5">TMD-5</option>
+									<option value="TMD-1 MSU">TMD-1 MSU</option>
+									<option value="TMD-3 MSU">TMD-3 MSU</option>
+ 									<option value="TMD-1 Aeu">TMD-1 Aeu</option>
+									<option value="TMD-3 Aeu">TMD-3 Aeu</option>
+									<option value="TMJ-3">TMJ-3</option>
+ 									<option value="TMJ-5">TMJ-5</option>
+ 									<option value="CCIT-1">CCIT-1</option>
+ 									<option value="CCIT-3">CCIT-3</option>
+ 									<option value="CCIT-5A">CCIT-5A</option>
+									<option value="CCIT-5B">CCIT-5B</option>
+									<option value="CCIT-7A">CCIT-7A</option>
+									<option value="CCIT SEC 3A">CCIT SEC 3A</option>
+									<option value="CCIT SEC 5A">CCIT SEC 5A</option>
+									<option value="CCIT SEC 5B">CCIT SEC 5B</option>
 								</select>
 								@error('kelas')
 								<div class="text-danger">{{ $message }}</div>

@@ -28,7 +28,35 @@
 								<label for="mata_kuliah">Mata Kuliah</label>
 								<select name="mata_kuliah" value="{{ old('mata_kuliah') }}" class="form-control @error('mata_kuliah') is-invalid @enderror">
 									<option value="">PILIH</option>
-									<option value="Bahasa Inggris untuk TIK 2">Bahasa Inggris untuk TIK 2</option>
+									<option value="Matematika Diskrit">Matematika Diskrit</option>
+									<option value="Aljabar Linier">Aljabar Linier</option>
+									<option value="Mathematics 2">Mathematics 2</option>)
+									<option value="Discrete Mathematics">Discrete Mathematics</option>
+									<option value="Bahasa Inggris untuk Teknologi Informasi & Komunikasi 1">Bahasa Inggris untuk Teknologi Informasi & Komunikasi 1</option>
+									<option value="Bahasa Inggris untuk Teknologi Informasi & Komunikasi 3">Bahasa Inggris untuk Teknologi Informasi & Komunikasi 3</option>
+									<option value="Bahasa Inggris Komunikasi 1">Bahasa Inggris Komunikasi 1</option>
+									<option value="Bahasa Inggris Komunikasi 2">Bahasa Inggris Komunikasi 2</option>
+									<option value="Bahasa Inggris untuk TIK 1">Bahasa Inggris untuk TIK 1</option>
+									<option value="Bahasa Inggris untuk TIK 3">Bahasa Inggris untuk TIK 3</option>
+									<option value="English 5">English 5</option>
+									<option value="English for ICT 1">English for ICT 1</option>
+									<option value="English for ICT 3">English for ICT 3</option>
+									<option value="Seminar">Seminar</option>
+									<option value="Basis Data 2">Basis Data 2</option>
+									<option value="E-Business">E-Business</option>
+									<option value="Oracle DB Programming SQL">Oracle DB Programming SQL</option>
+									<option value="Keamanan Komputer dan Pemulihan Bencana">Keamanan Komputer dan Pemulihan Bencana</option>
+									<option value="Sistem Terdistribusi">Sistem Terdistribusi</option>
+									<option value="Sistem Pendukung Keputusan">Sistem Pendukung Keputusan</option>
+									<option value="Oracle DB Design">Oracle DB Design</option>
+									<option value="Kapita Selekta 1">Kapita Selekta 1</option>
+									<option value="Metode Numerik">Metode Numerik</option>
+									<option value="Probabilitas dan Statistik">Probabilitas dan Statistik</option>
+									<option value="Metodologi Statistik dalam TIK">Metodologi Statistik dalam TIK</option>
+									<option value="Linear Algebra">Linear Algebra</option>
+									<option value="Algoritma dan Pemrograman">Algoritma dan Pemrograman</option>
+									<option value="Pembelajaran Mesin">Pembelajaran Mesin</option>
+									<option value="Kecerdasan Buatan">Kecerdasan Buatan</option>
 								</select>
 								@error('mata_kuliah')
 								<div class="text-danger">{{ $message }}</div>
@@ -38,7 +66,33 @@
 								<label for="kelas">Kelas</label>
 								<select name="kelas" value="{{ old('kelas') }}" class="form-control @error('kelas') is-invalid @enderror">
 									<option value="">PILIH</option>
-									<option value="32RTHH">32RTHH</option>
+									<option value="TI-1A">TI-1A</option>
+									<option value="TI-1B">TI-1B</option>
+									<option value="TI-3">TI-3</option>
+									<option value="TI-3A">TI-3A</option>
+									<option value="TI-5A">TI-5A</option>
+									<option value="TI-5B">TI-5B</option>
+									<option value="TI-7A">TI-7A</option>
+									<option value="TI-7B">TI-7B</option>
+									<option value="TI-5A MSU">TI-5A MSU</option>
+ 									<option value="TI-5B MSU">TI-5B MSU</option>
+									<option value="TMD-1">TMD-1</option>
+									<option value="TMD-3">TMD-3</option>
+									<option value="TMD-5">TMD-5</option>
+									<option value="TMD-1 MSU">TMD-1 MSU</option>
+									<option value="TMD-3 MSU">TMD-3 MSU</option>
+ 									<option value="TMD-1 Aeu">TMD-1 Aeu</option>
+									<option value="TMD-3 Aeu">TMD-3 Aeu</option>
+									<option value="TMJ-3">TMJ-3</option>
+ 									<option value="TMJ-5">TMJ-5</option>
+ 									<option value="CCIT-1">CCIT-1</option>
+ 									<option value="CCIT-3">CCIT-3</option>
+ 									<option value="CCIT-5A">CCIT-5A</option>
+									<option value="CCIT-5B">CCIT-5B</option>
+									<option value="CCIT-7A">CCIT-7A</option>
+									<option value="CCIT SEC 3A">CCIT SEC 3A</option>
+									<option value="CCIT SEC 5A">CCIT SEC 5A</option>
+									<option value="CCIT SEC 5B">CCIT SEC 5B</option>
 								</select>
 								@error('kelas')
 								<div class="text-danger">{{ $message }}</div>

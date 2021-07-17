@@ -16,9 +16,15 @@
 								<label for="prodi">Prodi</label>
 								<select name="prodi" class="form-control @error('prodi') is-invalid @enderror">
 										<option value="">Pilih</option>
-										<option value="Sistem Informasi" {{ old('prodi', @$report_f4->prodi) == 'Sistem Informasi' ? 'selected' : '' }}>Sistem Informasi</option>
-										<option value="Teknik Informatika" {{ old('prodi', @$report_f4->prodi) == 'Teknik Informatika' ? 'selected' : '' }}>Teknik Informatika</option>
-								</select>
+										<option value="TI" {{ old('prodi', @$evaluation->prodi)=='TI' ? 'selected' : '' }}>TI</option>
+										<option value="TI CBD" {{ old('prodi', @$evaluation->prodi)=='TI CBD' ? 'selected' : '' }}>TI CBD</option>
+										<option value="TI MSU" {{ old('prodi', @$evaluation->prodi)=='TI MSU' ? 'selected' : '' }}>TI MSU</option>
+										<option value="TMD" {{ old('prodi', @$evaluation->prodi)=='TMD' ? 'selected' : '' }}>TMD</option>
+										<option value="TMD MSU" {{ old('prodi', @$evaluation->prodi)=='TMD MSU' ? 'selected' : '' }}>TMD MSU</option>
+										<option value="TMD Aeu" {{ old('prodi', @$evaluation->prodi)=='TMD Aeu' ? 'selected' : '' }}>TMD Aeu</option>
+										<option value="TMJ" {{ old('prodi', @$evaluation->prodi)=='TMJ' ? 'selected' : '' }}>TMJ</option>
+										<option value="CCIT" {{ old('prodi', @$evaluation->prodi)=='CCIT' ? 'selected' : '' }}>CCIT</option>
+									</select>
 								@error('prodi')
 								<div class="text-danger">{{ $message }}</div>
 								@enderror
@@ -54,7 +60,33 @@
 								<label for="kelas">Kelas</label>
 								<select name="kelas" value="{{ old('kelas') }}" class="form-control @error('kelas') is-invalid @enderror">
 									<option value="">PILIH</option>
-									<option value="32RTHH" {{ old('kelas', @$report_f4->kelas)=='32RTHH' ? 'selected' : '' }}>32RTHH</option>
+									<option value="TI-1A" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TI-1A</option>
+									<option value="TI-1B" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TI-1B</option>
+									<option value="TI-3" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TI-3</option>
+									<option value="TI-3A" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TI-3A</option>
+									<option value="TI-5A" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TI-5A</option>
+									<option value="TI-5B" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TI-5B</option>
+									<option value="TI-7A" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TI-7A</option>
+									<option value="TI-7B" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TI-7B</option>
+									<option value="TI-5A MSU" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TI-5A MSU</option>
+ 									<option value="TI-5B MSU" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TI-5B MSU</option>
+									<option value="TMD-1" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TMD-1</option>
+									<option value="TMD-3" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TMD-3</option>
+									<option value="TMD-5" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TMD-5</option>
+									<option value="TMD-1 MSU" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TMD-1 MSU</option>
+									<option value="TMD-3 MSU" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TMD-3 MSU</option>
+ 									<option value="TMD-1 Aeu" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TMD-1 Aeu</option>
+									<option value="TMD-3 Aeu" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TMD-3 Aeu</option>
+									<option value="TMJ-3" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TMJ-3</option>
+ 									<option value="TMJ-5" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>TMJ-5</option>
+ 									<option value="CCIT-1" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>CCIT-1</option>
+ 									<option value="CCIT-3" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>CCIT-3</option>
+ 									<option value="CCIT-5A" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>CCIT-5A</option>
+									<option value="CCIT-5B" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>CCIT-5B</option>
+									<option value="CCIT-7A" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>CCIT-7A</option>
+									<option value="CCIT SEC 3A" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>CCIT SEC 3A</option>
+									<option value="CCIT SEC 5A" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>CCIT SEC 5A</option>
+									<option value="CCIT SEC 5B" {{ old('kelas', @$evaluation->kelas)=='32RTHH' ? 'selected' : '' }}>CCIT SEC 5B</option>
 								</select>
 								@error('kelas')
 								<div class="text-danger">{{ $message }}</div>
