@@ -121,10 +121,10 @@
         var Studi = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ["SI/TI", "SI/TI", "SI/TI", "SI/TI"],
+                labels: ["TI", "TI CBD", "TI MSU", "TMD", "TMD MSU", "TMD Aeu", "TMJ", "CCIT"],
                 datasets: [{
                         label: 'DATA MAHASISWA LULUS',
-                        data: [{{ $jml_lulus[0] }}, {{ $jml_lulus[1] }}, {{ $jml_lulus[2] }}, {{ $jml_lulus[3] }}, {{ $jml_lulus[4] }}, {{ $jml_lulus[5] }}],
+                        data: [{{ $jml_lulus_prodi[0] }}, {{ $jml_lulus_prodi[1] }}, {{ $jml_lulus_prodi[2] }}, {{ $jml_lulus_prodi[3] }}, {{ $jml_lulus_prodi[4] }}, {{ $jml_lulus_prodi[5] }}, {{ $jml_lulus_prodi[6] }}, {{ $jml_lulus_prodi[7] }}],
                         backgroundColor: [
                             'rgba(51, 166, 204, 0.7)',
                         ],
@@ -135,7 +135,7 @@
                     },
                     {
                         label: 'DATA MAHASISWA TIDAK LULUS',
-                        data: [{{ $jml_tlulus[0] }}, {{ $jml_tlulus[1] }}, {{ $jml_tlulus[2] }}, {{ $jml_tlulus[3] }}, {{ $jml_tlulus[4] }}, {{ $jml_tlulus[5] }}],
+                        data: [{{ $jml_tlulus_prodi[0] }}, {{ $jml_tlulus_prodi[1] }}, {{ $jml_tlulus_prodi[2] }}, {{ $jml_tlulus_prodi[3] }}, {{ $jml_tlulus_prodi[4] }}, {{ $jml_tlulus_prodi[5] }}, {{ $jml_tlulus_prodi[6] }}, {{ $jml_tlulus_prodi[7] }}],
                         backgroundColor: [
                             'rgba(204, 51, 51, 0.7)',
                         ],
