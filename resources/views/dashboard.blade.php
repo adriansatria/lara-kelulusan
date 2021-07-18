@@ -14,6 +14,14 @@
             z-index: 10;
         }
 
+        .bg-l{
+            width: 8%;
+            max-height: 30%; 
+            margin-top: auto;
+            margin-bottom: auto;
+            background: rgb(235, 235, 235);
+        }
+
     </style>
     <div class="m-4 font-weight-bold">
         <h1><strong>{{ $title }}</strong></h1>
@@ -56,166 +64,194 @@
     </div>
 </div>
 
-<div class="row p-4">
-    <div class="col-lg border p-2">
-        <h5 style="text-align: center">Tahun</h5>
-        <canvas id="Tahun"></canvas>
-    </div>
 
-    <script>
-        var ctx = document.getElementById("Tahun").getContext('2d');
-        var Tahun = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ["2017/2018", "2018/2019", "2019/2020", "2020/2021"],
-                datasets: [{
-                        label: 'DATA MAHASISWA LULUS',
-                        data: [{{ $jml_lulus[0] }}, {{ $jml_lulus[1] }}, {{ $jml_lulus[2] }}, {{ $jml_lulus[3] }}, {{ $jml_lulus[4] }}, {{ $jml_lulus[5] }}],
-                        backgroundColor: [
-                            'rgba(51, 166, 204, 0.7)',
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div class="container">
+        <a class="carousel-control-prev btn btn-black bg-l"  href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next btn btn-black bg-l"  href="#carouselExampleIndicators" role="button" data-slide="next">
+            <i class="carousel-control-next-icon" aria-hidden="true"></i>
+            <span class="sr-only">Next</span>
+          </a>
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+
+      <div class="carousel-item active">
+
+        <div class="row p-4 d-block w-100">
+            <div class="col-lg border p-2">
+                <h5 style="text-align: center">Tahun</h5>
+                <canvas id="Tahun"></canvas>
+            </div>
+    
+            <script>
+                var ctx = document.getElementById("Tahun").getContext('2d');
+                var Tahun = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ["2017/2018", "2018/2019", "2019/2020", "2020/2021"],
+                        datasets: [{
+                                label: 'DATA MAHASISWA LULUS',
+                                data: [{{ $jml_lulus[0] }}, {{ $jml_lulus[1] }}, {{ $jml_lulus[2] }}, {{ $jml_lulus[3] }}, {{ $jml_lulus[4] }}, {{ $jml_lulus[5] }}],
+                                backgroundColor: [
+                                    'rgba(51, 166, 204, 0.7)',
+                                ],
+                                borderColor: [
+                                    'rgba(51, 166, 204)',
+                                ],
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'DATA MAHASISWA TIDAK LULUS',
+                                data: [{{ $jml_tlulus[0] }}, {{ $jml_tlulus[1] }}, {{ $jml_tlulus[2] }}, {{ $jml_tlulus[3] }}, {{ $jml_tlulus[4] }}, {{ $jml_tlulus[5] }}],
+                                backgroundColor: [
+                                    'rgba(204, 51, 51, 0.7)',
+                                ],
+                                borderColor: [
+                                    'rgba(204, 51, 51)',
+                                ],
+                                borderWidth: 1
+                            }
                         ],
-                        borderColor: [
-                            'rgba(51, 166, 204)',
-                        ],
-                        borderWidth: 1
                     },
-                    {
-                        label: 'DATA MAHASISWA TIDAK LULUS',
-                        data: [{{ $jml_tlulus[0] }}, {{ $jml_tlulus[1] }}, {{ $jml_tlulus[2] }}, {{ $jml_tlulus[3] }}, {{ $jml_tlulus[4] }}, {{ $jml_tlulus[5] }}],
-                        backgroundColor: [
-                            'rgba(204, 51, 51, 0.7)',
-                        ],
-                        borderColor: [
-                            'rgba(204, 51, 51)',
-                        ],
-                        borderWidth: 1
-                    }
-                ],
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true,
-                            stepSize: 20,
-                            max: 100
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true,
+                                    stepSize: 20,
+                                    max: 100
+                                }
+                            }]
                         }
-                    }]
+                    }
+                });
+    
+            </script>
+    
+        </div>
+      </div>
+
+      <div class="carousel-item">
+
+        <div class="row p-4 d-block w-100">
+        <div class="col-lg border p-2">
+        <h5 style="text-align: center">Study Program</h5>
+            <canvas id="Studi"></canvas>
+        </div>
+
+        <script>
+            var ctx = document.getElementById("Studi").getContext('2d');
+            var Studi = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ["TI", "TI CBD", "TI MSU", "TMD", "TMD MSU", "TMD Aeu", "TMJ", "CCIT"],
+                    datasets: [{
+                            label: 'DATA MAHASISWA LULUS',
+                            data: [{{ $jml_lulus_prodi[0] }}, {{ $jml_lulus_prodi[1] }}, {{ $jml_lulus_prodi[2] }}, {{ $jml_lulus_prodi[3] }}, {{ $jml_lulus_prodi[4] }}, {{ $jml_lulus_prodi[5] }}, {{ $jml_lulus_prodi[6] }}, {{ $jml_lulus_prodi[7] }}],
+                            backgroundColor: [
+                                'rgba(51, 166, 204, 0.7)',
+                            ],
+                            borderColor: [
+                                'rgba(51, 166, 204)',
+                            ],
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'DATA MAHASISWA TIDAK LULUS',
+                            data: [{{ $jml_tlulus_prodi[0] }}, {{ $jml_tlulus_prodi[1] }}, {{ $jml_tlulus_prodi[2] }}, {{ $jml_tlulus_prodi[3] }}, {{ $jml_tlulus_prodi[4] }}, {{ $jml_tlulus_prodi[5] }}, {{ $jml_tlulus_prodi[6] }}, {{ $jml_tlulus_prodi[7] }}],
+                            backgroundColor: [
+                                'rgba(204, 51, 51, 0.7)',
+                            ],
+                            borderColor: [
+                                'rgba(204, 51, 51)',
+                            ],
+                            borderWidth: 1
+                        }
+                    ],
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                stepSize: 20,
+                                max: 100
+                            }
+                        }]
+                    }
                 }
-            }
-        });
+            });
 
-    </script>
-
-</div>
-
-
-<div class="row p-4">
-    <div class="col-lg border p-2">
-    <h5 style="text-align: center">Study Program</h5>
-        <canvas id="Studi"></canvas>
+        </script>
     </div>
+      </div>
+      
+      <div class="carousel-item">
 
-    <script>
-        var ctx = document.getElementById("Studi").getContext('2d');
-        var Studi = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ["TI", "TI CBD", "TI MSU", "TMD", "TMD MSU", "TMD Aeu", "TMJ", "CCIT"],
-                datasets: [{
-                        label: 'DATA MAHASISWA LULUS',
-                        data: [{{ $jml_lulus_prodi[0] }}, {{ $jml_lulus_prodi[1] }}, {{ $jml_lulus_prodi[2] }}, {{ $jml_lulus_prodi[3] }}, {{ $jml_lulus_prodi[4] }}, {{ $jml_lulus_prodi[5] }}, {{ $jml_lulus_prodi[6] }}, {{ $jml_lulus_prodi[7] }}],
-                        backgroundColor: [
-                            'rgba(51, 166, 204, 0.7)',
-                        ],
-                        borderColor: [
-                            'rgba(51, 166, 204)',
-                        ],
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'DATA MAHASISWA TIDAK LULUS',
-                        data: [{{ $jml_tlulus_prodi[0] }}, {{ $jml_tlulus_prodi[1] }}, {{ $jml_tlulus_prodi[2] }}, {{ $jml_tlulus_prodi[3] }}, {{ $jml_tlulus_prodi[4] }}, {{ $jml_tlulus_prodi[5] }}, {{ $jml_tlulus_prodi[6] }}, {{ $jml_tlulus_prodi[7] }}],
-                        backgroundColor: [
-                            'rgba(204, 51, 51, 0.7)',
-                        ],
-                        borderColor: [
-                            'rgba(204, 51, 51)',
-                        ],
-                        borderWidth: 1
-                    }
-                ],
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true,
-                            stepSize: 20,
-                            max: 100
+        <div class="row p-4 d-block w-100">
+        <div class="col-lg border p-2">
+        <h5 style="text-align: center">Semester</h5>
+            <canvas id="Semester"></canvas>
+        </div>
+
+        <script>
+            var ctx = document.getElementById("Semester").getContext('2d');
+            var Semester = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ["1", "2", "3", "4"],
+                    datasets: [{
+                            label: 'DATA MAHASISWA LULUS',
+                            data: [{{ $jml_lulus[0] }}, {{ $jml_lulus[1] }}, {{ $jml_lulus[2] }}, {{ $jml_lulus[3] }}, {{ $jml_lulus[4] }}, {{ $jml_lulus[5] }}],
+                            backgroundColor: [
+                                'rgba(51, 166, 204, 0.7)',
+                            ],
+                            borderColor: [
+                                'rgba(51, 166, 204)',
+                            ],
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'DATA MAHASISWA TIDAK LULUS',
+                            data: [{{ $jml_tlulus[0] }}, {{ $jml_tlulus[1] }}, {{ $jml_tlulus[2] }}, {{ $jml_tlulus[3] }}, {{ $jml_tlulus[4] }}, {{ $jml_tlulus[5] }}],
+                            backgroundColor: [
+                                'rgba(204, 51, 51, 0.7)',
+                            ],
+                            borderColor: [
+                                'rgba(204, 51, 51)',
+                            ],
+                            borderWidth: 1
                         }
-                    }]
+                    ],
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                stepSize: 20,
+                                max: 100
+                            }
+                        }]
+                    }
                 }
-            }
-        });
+            });
 
-    </script>
-</div>
+        </script>
+        </div>
+      </div>
 
-
-<div class="row p-4">
-    <div class="col-lg border p-2">
-    <h5 style="text-align: center">Semester</h5>
-        <canvas id="Semester"></canvas>
     </div>
-
-    <script>
-        var ctx = document.getElementById("Semester").getContext('2d');
-        var Semester = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ["1", "2", "3", "4"],
-                datasets: [{
-                        label: 'DATA MAHASISWA LULUS',
-                        data: [{{ $jml_lulus[0] }}, {{ $jml_lulus[1] }}, {{ $jml_lulus[2] }}, {{ $jml_lulus[3] }}, {{ $jml_lulus[4] }}, {{ $jml_lulus[5] }}],
-                        backgroundColor: [
-                            'rgba(51, 166, 204, 0.7)',
-                        ],
-                        borderColor: [
-                            'rgba(51, 166, 204)',
-                        ],
-                        borderWidth: 1
-                    },
-                    {
-                        label: 'DATA MAHASISWA TIDAK LULUS',
-                        data: [{{ $jml_tlulus[0] }}, {{ $jml_tlulus[1] }}, {{ $jml_tlulus[2] }}, {{ $jml_tlulus[3] }}, {{ $jml_tlulus[4] }}, {{ $jml_tlulus[5] }}],
-                        backgroundColor: [
-                            'rgba(204, 51, 51, 0.7)',
-                        ],
-                        borderColor: [
-                            'rgba(204, 51, 51)',
-                        ],
-                        borderWidth: 1
-                    }
-                ],
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true,
-                            stepSize: 20,
-                            max: 100
-                        }
-                    }]
-                }
-            }
-        });
-
-    </script>
+  </div>
 </div>
-
-
 
 
 @endsection
