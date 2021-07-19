@@ -184,10 +184,10 @@
                                         var Semester = new Chart(ctx, {
                                             type: 'line',
                                             data: {
-                                                labels: ["1", "2", "3", "4"],
+                                                labels: ["1", "2", "3", "4", "5", "6", "7", "8"],
                                                 datasets: [{
                                                         label: 'DATA MAHASISWA LULUS',
-                                                        data: [{{ $jml_lulus[0] }}, {{ $jml_lulus[1] }}, {{ $jml_lulus[2] }}, {{ $jml_lulus[3] }}, {{ $jml_lulus[4] }}, {{ $jml_lulus[5] }}],
+                                                        data: [0, 0, 0, 0, 0, 0, 0, 0],
                                                         backgroundColor: [
                                                             'rgba(51, 166, 204, 0.7)',
                                                         ],
@@ -198,7 +198,7 @@
                                                     },
                                                     {
                                                         label: 'DATA MAHASISWA TIDAK LULUS',
-                                                        data: [{{ $jml_tlulus[0] }}, {{ $jml_tlulus[1] }}, {{ $jml_tlulus[2] }}, {{ $jml_tlulus[3] }}, {{ $jml_tlulus[4] }}, {{ $jml_tlulus[5] }}],
+                                                        data: [0, 0, 0, 0, 0, 0, 0, 0],
                                                         backgroundColor: [
                                                             'rgba(204, 51, 51, 0.7)',
                                                         ],
